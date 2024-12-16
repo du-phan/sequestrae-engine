@@ -1,2 +1,2 @@
 # sequestrae-engine
-Biochar Carbon Removal Assessment Platform
+Biochar Carbon Removal Assessment Engine
