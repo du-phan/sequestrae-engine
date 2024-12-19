@@ -17,24 +17,47 @@ jobs:
         python-version: ["3.10", "3.11", "3.12"]
 
     steps:
+      # Step 1: Check out the repository code
       - name: Checkout Code
         uses: actions/checkout@v3
 
+      # Step 2: Set up Python version
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
           python-version: ${{ matrix.python-version }}
 
-      - name: Install Dependencies
+      # Step 3: Install Poetry
+      - name: Install Poetry
         run: |
           python -m pip install --upgrade pip
           pip install poetry
-          poetry install
 
+      # Step 4: Validate and Update Poetry Lock File (if needed)
+      - name: Validate Poetry Lock File
+        run: |
+          if ! poetry check; then
+            echo "pyproject.toml and poetry.lock are out of sync. Regenerating poetry.lock..."
+            poetry lock --no-update
+          fi
+
+      # Step 5: Install Dependencies
+      - name: Install Dependencies
+        run: poetry install
+
+      # Step 6: Run Linting (optional, remove if using pre-commit hooks)
+      - name: Lint Code with Black
+        run: poetry run black --check .
+
+      - name: Lint Code with Flake8
+        run: poetry run flake8 .
+
+      # Step 7: Run Unit Tests with Coverage
       - name: Run Unit Tests with Coverage
         run: |
-          poetry run pytest --maxfail=3 --disable-warnings --cov=core --cov=methodologies tests/
+          poetry run pytest --maxfail=3 --disable-warnings --cov=core --cov=methodologies --cov-report=xml --cov-report=html tests/
 
+      # Step 8: Upload Coverage Report as an Artifact (optional)
       - name: Upload Coverage Report
         uses: actions/upload-artifact@v3
         with:
