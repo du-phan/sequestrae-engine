@@ -20,9 +20,6 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v3
 
-      - name: Debug Python Version
-        run: "echo 'Using Python version: ${{ matrix.python-version }}'"
-
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
@@ -34,5 +31,12 @@ jobs:
           pip install poetry
           poetry install
 
-      - name: Run Unit Tests
-        run: poetry run pytest tests/
+      - name: Run Unit Tests with Coverage
+        run: |
+          poetry run pytest --maxfail=3 --disable-warnings --cov=core --cov=methodologies tests/
+
+      - name: Upload Coverage Report
+        uses: actions/upload-artifact@v3
+        with:
+          name: coverage-report
+          path: htmlcov/

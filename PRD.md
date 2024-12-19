@@ -409,7 +409,7 @@ Warnings are included in the output to highlight non-critical issues. Example:
 
 # Planning
 
-## Week 1: Foundation Setup
+## Week 1: Foundation Setup [DONE]
 
 ### Goal
 
@@ -457,12 +457,6 @@ Establish the foundational structure and implement core utilities to support met
 - Implemented and tested `utilities.py`and `constants.py`
 
 ## Week 2: Input Validation Framework
-
-1. Develop `utilities.py`:
-   - JSON I/O for configuration file handling
-   - Logging setup using Python's logging module
-2. Develop `constants.py`:
-   - Define global constants (e.g., CO₂ equivalence factors, default units)
 
 ### Goal
 
