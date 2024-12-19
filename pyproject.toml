@@ -13,13 +13,16 @@ keywords = ["biochar", "carbon removal", "assessment", "engine", "sequestration"
 python = ">=3.10,<4.0"
 numpy = ">=1.24,<2.0"
 pandas = "^2.0"
-# Add additional production dependencies here as needed
+pydantic = "^1.10.2"
+jsonschema = "^4.16.0"
 
 [tool.poetry.dev-dependencies]
 black = "24.10.0"
 flake8 = "7.1.1"
 isort = "5.13.2"
 pre-commit = "4.0.1"
+pytest = "^7.1.2"
+pytest-cov = "^4.0.0"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
@@ -27,7 +30,7 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.black]
 line-length = 88
-target-version = ["py39", "py310", "py311", "py312"]  # Explicitly include 3.12
+target-version = ["py310", "py311", "py312"]
 
 [tool.isort]
 profile = "black"
