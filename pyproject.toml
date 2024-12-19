@@ -1,0 +1,52 @@
+[tool.poetry]
+name = "sequestrae-engine"
+version = "0.1.0"
+description = "A Biochar Carbon Removal Assessment Engine for evaluating carbon sequestration potential."
+authors = ["Du Phan <du-phan@users.noreply.github.com>"]
+license = "MIT"
+readme = "README.md"
+homepage = "https://github.com/du-phan/sequestrae-engine"
+repository = "https://github.com/du-phan/sequestrae-engine"
+keywords = ["biochar", "carbon removal", "assessment", "engine", "sequestration"]
+
+[tool.poetry.dependencies]
+python = ">=3.10,<4.0"
+numpy = ">=1.24,<2.0"
+pandas = "^2.0"
+# Add additional production dependencies here as needed
+
+[tool.poetry.dev-dependencies]
+black = "24.10.0"
+flake8 = "7.1.1"
+isort = "5.13.2"
+pre-commit = "4.0.1"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length = 88
+target-version = ["py39", "py310", "py311", "py312"]  # Explicitly include 3.12
+
+[tool.isort]
+profile = "black"
+line_length = 88
+multi_line_output = 3
+include_trailing_comma = true
+
+[tool.flake8]
+max-line-length = 88
+exclude = ["build/", "dist/"]
+
+[tool.pre-commit]
+repos = [
+    { repo = "https://github.com/psf/black", rev = "24.10.0", hooks = [{ id = "black" }] },
+    { repo = "https://github.com/pycqa/isort", rev = "5.13.2", hooks = [{ id = "isort" }] },
+    { repo = "https://github.com/pycqa/flake8", rev = "7.1.1", hooks = [{ id = "flake8" }] },
+    { repo = "https://github.com/pre-commit/pre-commit-hooks", rev = "v4.0.1", hooks = [
+        { id = "trailing-whitespace" },
+        { id = "end-of-file-fixer" },
+        { id = "check-yaml" }
+    ] }
+]
