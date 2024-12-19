@@ -20,6 +20,9 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v3
 
+      - name: Debug Python Version
+        run: "echo 'Using Python version: ${{ matrix.python-version }}'"
+
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
