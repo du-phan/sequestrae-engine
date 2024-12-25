@@ -48,7 +48,7 @@ jobs:
       # Step 6: Run Unit Tests with Coverage
       - name: Run Unit Tests with Coverage
         run: |
-          poetry run pytest --maxfail=3 --disable-warnings --cov=core --cov=methodologies --cov-report=xml --cov-report=html tests/
+          poetry run pytest --maxfail=3 --disable-warnings --cov=core --cov=methodologies --cov-report=xml --cov-report=html sequestrae_engine/tests/
 
       # Step 7: Upload Coverage Report as an Artifact (optional)
       - name: Upload Coverage Report
