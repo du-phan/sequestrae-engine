@@ -19,7 +19,6 @@ jupyterlab = "^4.0.5"
 
 [tool.poetry.dev-dependencies]
 black = "24.10.0"
-flake8 = "7.1.1"
 isort = "5.13.2"
 pre-commit = "4.0.1"
 pytest = "^7.1.2"
@@ -39,10 +38,6 @@ line_length = 100
 multi_line_output = 3
 include_trailing_comma = true
 
-[tool.flake8]
-max-line-length = 100
-exclude = ["build/", "dist/"]
-
 [tool.pre-commit]
 repos = [
     { repo = "https://github.com/psf/black", rev = "24.10.0", hooks = [{ id = "black" }] },
@@ -52,5 +47,4 @@ repos = [
         { id = "trailing-whitespace" },
         { id = "end-of-file-fixer" },
         { id = "check-yaml" }
-    ] }
-]
+    ]}]
