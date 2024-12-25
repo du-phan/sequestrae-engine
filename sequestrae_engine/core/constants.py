@@ -9,3 +9,9 @@ DEFAULT_UNITS = {
     "emissions": None,  # Standard unit for emissions
     "feedstock_quantity": None,  # Standard unit for feedstock quantities
 }
+
+LATEST_METHOD_VERSIONS = {
+    "PuroEarth": "v3",
+    "Verra": "v1",
+    # Add other methodologies here
+}

@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "PuroEarth Methodology-Specific Input Schema",
+  "type": "object",
+  "properties": {
+    "energy_efficiency_documentation": {
+      "type": ["string", "null"],
+      "description": "Optional documentation for energy efficiency calculations (e.g., heat recovery systems).",
+      "format": "uri"
+    },
+    "additional_project_boundary_emissions": {
+      "type": ["number", "null"],
+      "description": "Optional: Additional emissions within the project boundary (e.g., non-biochar-related emissions).",
+      "minimum": 0
+    },
+    "co_benefits": {
+      "type": "object",
+      "description": "Co-benefits achieved by the project (optional).",
+      "properties": {
+        "soil_improvement": {
+          "type": "boolean",
+          "description": "Whether the project improves soil properties."
+        },
+        "biodiversity": {
+          "type": "boolean",
+          "description": "Whether the project enhances biodiversity."
+        }
+      }
+    }
+  }
+}
