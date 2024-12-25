@@ -45,19 +45,12 @@ jobs:
       - name: Install Dependencies
         run: poetry install
 
-      # Step 6: Run Linting (optional, remove if using pre-commit hooks)
-      - name: Lint Code with Black
-        run: poetry run black --check .
-
-      - name: Lint Code with Flake8
-        run: poetry run flake8 .
-
-      # Step 7: Run Unit Tests with Coverage
+      # Step 6: Run Unit Tests with Coverage
       - name: Run Unit Tests with Coverage
         run: |
           poetry run pytest --maxfail=3 --disable-warnings --cov=core --cov=methodologies --cov-report=xml --cov-report=html tests/
 
-      # Step 8: Upload Coverage Report as an Artifact (optional)
+      # Step 7: Upload Coverage Report as an Artifact (optional)
       - name: Upload Coverage Report
         uses: actions/upload-artifact@v3
         with:
