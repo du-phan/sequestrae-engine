@@ -8,7 +8,7 @@ class PuroEarthV3(BaseMethodology):
     Implementation of PuroEarth v3 methodology.
     """
 
-    methodology_name = "PuroEarth"
+    methodology_name = "puro_earth"
     methodology_version = "v3"
 
     def validate_inputs(self, user_input):

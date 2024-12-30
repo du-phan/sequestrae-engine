@@ -21,6 +21,27 @@
         "moisture_content": {
           "type": "number",
           "description": "Percentage of water in the feedstock before processing."
+        },
+        "sustainability_compliance": {
+          "type": "object",
+          "description": "Details about sustainability compliance of the feedstock.",
+          "properties": {
+            "certification": {
+              "type": "string",
+              "description": "Certification type or evidence of sustainability compliance."
+            }
+          },
+          "required": ["certification"]
+        },
+        "origin": {
+          "type": "string",
+          "description": "Source of the feedstock (e.g., farm, forest, urban waste)."
+        },
+        "geography": {
+          "type": "string",
+          "description": "ISO Alpha-2 country code where the feedstock was sourced.",
+          "pattern": "^[A-Z]{2}$",
+          "examples": ["US", "CA", "IN"]
         }
       },
       "required": ["feedstock_type", "moisture_content"],
@@ -37,6 +58,15 @@
         "production_temperature": {
           "type": "number",
           "description": "Operating temperature of the production system in Celsius."
+        },
+        "energy_source": {
+          "type": "string",
+          "description": "Primary energy source used during production (e.g., renewable, fossil-based).",
+          "enum": ["renewable", "fossil_based"]
+        },
+        "process_emissions_control": {
+          "type": "boolean",
+          "description": "Indicates whether emissions control systems (e.g., methane capture) are in place."
         }
       },
       "required": ["technology_type", "production_temperature"],
@@ -69,6 +99,20 @@
         "application_type": {
           "type": "string",
           "description": "The type of application where the biochar is used."
+        },
+        "co_benefits": {
+          "type": "object",
+          "description": "Details about the co-benefits achieved by the project.",
+          "properties": {
+            "soil_improvement": {
+              "type": "boolean",
+              "description": "Indicates whether the project improves soil properties."
+            },
+            "biodiversity": {
+              "type": "boolean",
+              "description": "Indicates whether the project enhances biodiversity."
+            }
+          }
         }
       },
       "required": ["application_type"],
@@ -80,7 +124,7 @@
       "properties": {
         "baseline_emission_evidence": {
           "type": ["string", "null"],
-          "description": "Optional evidence for non-zero baseline emissions."
+          "description": "Optional evidence for non-zero baseline emissions, such as scientific studies or lifecycle assessments. Null indicates default methodology assumptions will be used."
         },
         "process_emissions": {
           "type": "object",
@@ -88,10 +132,22 @@
             "pre_treatment": {
               "type": "number",
               "description": "Emissions from feedstock pre-treatment in tonnes CO2e."
+            },
+            "fugitive_emissions": {
+              "type": ["number", "null"],
+              "description": "Optional: Potential fugitive emissions from storage or handling in tonnes CO2e."
             }
           },
           "required": ["pre_treatment"],
           "additionalProperties": false
+        },
+        "transportation_emissions": {
+          "type": "number",
+          "description": "Emissions from transporting feedstock or biochar in tonnes CO2e."
+        },
+        "transport_mode": {
+          "type": "string",
+          "description": "Mode of transportation for feedstock or biochar. This field is open for user-defined values."
         }
       },
       "required": ["process_emissions"],
