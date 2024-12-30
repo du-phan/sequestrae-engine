@@ -1,7 +1,6 @@
 import pytest
 from jsonschema.exceptions import ValidationError as JsonSchemaValidationError
 
-from sequestrae_engine.core.exceptions import ValidationError
 from sequestrae_engine.core.input_validation import validate_input
 
 
