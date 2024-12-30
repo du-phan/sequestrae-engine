@@ -60,7 +60,7 @@ def load_schema(schema_type, methodology=None, version=None):
     """
     Loads a JSON schema from the file system.
 
-    :param schema_type: Type of schema to load ('shared' or 'methodology').
+    :param schema_type: Type of schema to load ('user_input' or 'methodology').
     :param methodology: Name of the methodology (required if schema_type is 'methodology').
     :param version: Version of the methodology (optional, defaults to latest version).
     :return: Dictionary containing the JSON schema.
@@ -68,7 +68,7 @@ def load_schema(schema_type, methodology=None, version=None):
     """
     base_path = os.path.dirname(__file__)
 
-    if schema_type == "shared":
+    if schema_type == "user_input":
         schema_path = os.path.join(base_path, "../data/input_schema.json")
     elif schema_type == "methodology":
         if not methodology:
@@ -80,7 +80,7 @@ def load_schema(schema_type, methodology=None, version=None):
             f"../data/{methodology}/{methodology}_methodology_input_{version}.json",
         )
     else:
-        raise ValueError("Invalid schema type. Must be 'shared' or 'methodology'.")
+        raise ValueError("Invalid schema type. Must be 'user_input' or 'methodology'.")
 
     return read_json(schema_path)
 

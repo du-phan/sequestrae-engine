@@ -1,13 +1,23 @@
+from sequestrae_engine.methodologies.puro_earth_v3 import PuroEarthV3
+from sequestrae_engine.methodologies.verra_v1 import VerraV1
+
+
 class MethodologyFactory:
-    _registry = {}
+    """
+    Factory for creating and validating methodology-specific logic.
+    """
 
-    @classmethod
-    def register_methodology(cls, name, version, methodology_cls):
-        cls._registry[(name, version)] = methodology_cls
+    METHODOLOGY_CLASSES = {
+        "PuroEarth": {"v3": PuroEarthV3},
+        "Verra": {"v1": VerraV1},
+    }
 
-    @classmethod
-    def get_methodology(cls, name, version):
-        methodology_cls = cls._registry.get((name, version))
-        if not methodology_cls:
-            raise ValueError(f"Methodology {name} version {version} not found.")
-        return methodology_cls()
+    @staticmethod
+    def get_methodology(name, version):
+        """
+        Retrieve the methodology class for a given name and version.
+        """
+        try:
+            return MethodologyFactory.METHODOLOGY_CLASSES[name][version]()
+        except KeyError:
+            raise ValueError(f"Unsupported methodology: {name} version {version}")

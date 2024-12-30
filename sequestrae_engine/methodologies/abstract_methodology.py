@@ -1,21 +1,20 @@
-# This file will contain the abstract base class for different methodologies.
-
 from abc import ABC, abstractmethod
 
 
 class BaseMethodology(ABC):
-    @abstractmethod
-    def validate_inputs(self, inputs):
-        pass
+    """
+    Abstract base class for all methodologies.
+    """
+
+    # Methodology metadata to be defined in subclasses
+    methodology_name = None
+    methodology_version = None
 
     @abstractmethod
-    def calculate_removals(self, inputs):
-        pass
-
-    @abstractmethod
-    def get_metadata(self):
-        pass
-
-    @abstractmethod
-    def format_output(self, results):
+    def validate_inputs(self, user_input):
+        """
+        Validates inputs specific to the methodology.
+        :param user_input: Dictionary of user inputs.
+        :raises: ValidationError if validation fails.
+        """
         pass

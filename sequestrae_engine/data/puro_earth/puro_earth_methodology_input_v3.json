@@ -2,30 +2,110 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "PuroEarth Methodology-Specific Input Schema",
   "type": "object",
+  "required": [
+    "feedstock",
+    "production_process",
+    "biochar_properties",
+    "biochar_application",
+    "lifecycle_emissions"
+  ],
   "properties": {
-    "energy_efficiency_documentation": {
-      "type": ["string", "null"],
-      "description": "Optional documentation for energy efficiency calculations (e.g., heat recovery systems).",
-      "format": "uri"
-    },
-    "additional_project_boundary_emissions": {
-      "type": ["number", "null"],
-      "description": "Optional: Additional emissions within the project boundary (e.g., non-biochar-related emissions).",
-      "minimum": 0
-    },
-    "co_benefits": {
+    "feedstock": {
       "type": "object",
-      "description": "Co-benefits achieved by the project (optional).",
       "properties": {
-        "soil_improvement": {
-          "type": "boolean",
-          "description": "Whether the project improves soil properties."
+        "feedstock_type": {
+          "type": "string",
+          "description": "Accepted feedstock types for PuroEarth.",
+          "enum": [
+            "forestry_residues",
+            "agricultural_waste",
+            "urban_wood_waste"
+          ]
         },
-        "biodiversity": {
-          "type": "boolean",
-          "description": "Whether the project enhances biodiversity."
+        "moisture_content": {
+          "type": "number",
+          "description": "Moisture content must be between 10% and 50%.",
+          "minimum": 10,
+          "maximum": 50
         }
-      }
+      },
+      "required": ["feedstock_type", "moisture_content"],
+      "additionalProperties": false
+    },
+    "production_process": {
+      "type": "object",
+      "properties": {
+        "technology_type": {
+          "type": "string",
+          "description": "Accepted technologies for PuroEarth.",
+          "enum": ["pyrolysis", "gasification"]
+        },
+        "production_temperature": {
+          "type": "number",
+          "description": "Production temperature must be between 500 and 900 degrees Celsius.",
+          "minimum": 500,
+          "maximum": 900
+        }
+      },
+      "required": ["technology_type", "production_temperature"],
+      "additionalProperties": false
+    },
+    "biochar_properties": {
+      "type": "object",
+      "properties": {
+        "h_c_ratio": {
+          "type": "number",
+          "description": "Hydrogen-to-organic-carbon molar ratio must be <= 0.7.",
+          "maximum": 0.7
+        },
+        "organic_carbon_content": {
+          "type": "number",
+          "description": "Organic carbon content must be between 70% and 90%.",
+          "minimum": 70,
+          "maximum": 90
+        },
+        "ash_content": {
+          "type": "number",
+          "description": "Ash content must be <= 10%.",
+          "maximum": 10
+        }
+      },
+      "required": ["h_c_ratio", "organic_carbon_content", "ash_content"],
+      "additionalProperties": false
+    },
+    "biochar_application": {
+      "type": "object",
+      "properties": {
+        "application_type": {
+          "type": "string",
+          "description": "Accepted applications for PuroEarth.",
+          "enum": ["soil", "construction_materials"]
+        }
+      },
+      "required": ["application_type"],
+      "additionalProperties": false
+    },
+    "lifecycle_emissions": {
+      "type": "object",
+      "properties": {
+        "baseline_emission_evidence": {
+          "type": ["string", "null"],
+          "description": "Optional evidence for non-zero baseline emissions."
+        },
+        "process_emissions": {
+          "type": "object",
+          "properties": {
+            "pre_treatment": {
+              "type": "number",
+              "description": "Emissions from feedstock pre-treatment in tonnes CO2e."
+            }
+          },
+          "required": ["pre_treatment"],
+          "additionalProperties": false
+        }
+      },
+      "required": ["process_emissions"],
+      "additionalProperties": false
     }
   }
 }

@@ -1,155 +1,100 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "Shared Input Schema for Biochar Project Evaluation",
+  "title": "Unified User Input Schema for Biochar Project Evaluation",
   "type": "object",
   "required": [
     "feedstock",
     "production_process",
     "biochar_properties",
     "biochar_application",
-    "emissions_lifecycle_data"
+    "lifecycle_emissions"
   ],
   "properties": {
     "feedstock": {
       "type": "object",
-      "required": [
-        "feedstock_type",
-        "moisture_content",
-        "sustainability_compliance"
-      ],
+      "description": "Information about the feedstock used in biochar production.",
       "properties": {
         "feedstock_type": {
           "type": "string",
-          "description": "Type of feedstock used.",
-          "enum": [
-            "agricultural_waste",
-            "food_processing_residues",
-            "forestry_residues",
-            "urban_wood_waste",
-            "aquaculture_plants",
-            "animal_manure",
-            "high_carbon_fly_ash",
-            "other"
-          ]
+          "description": "Type of feedstock used."
         },
         "moisture_content": {
           "type": "number",
-          "description": "Percentage of water in the feedstock before processing.",
-          "minimum": 0,
-          "maximum": 100
-        },
-        "sustainability_compliance": {
-          "type": "object",
-          "required": ["certification"],
-          "properties": {
-            "certification": {
-              "type": "string",
-              "description": "Certification type or evidence of sustainability compliance.",
-              "enum": ["FSC", "PEFC", "ISCC", "RSB", "None", "Other"]
-            },
-            "custom_description": {
-              "type": ["string", "null"],
-              "description": "Provide additional details if 'Other' certification is selected."
-            }
-          }
+          "description": "Percentage of water in the feedstock before processing."
         }
       },
+      "required": ["feedstock_type", "moisture_content"],
       "additionalProperties": false
     },
     "production_process": {
       "type": "object",
-      "required": [
-        "technology_type",
-        "production_temperature",
-        "energy_source",
-        "process_emissions_control"
-      ],
+      "description": "Details about the production process used to create biochar.",
       "properties": {
         "technology_type": {
           "type": "string",
-          "description": "Technology used in biochar production.",
-          "enum": ["pyrolysis", "gasification", "biomass_boiler", "other"]
+          "description": "Technology used in biochar production."
         },
         "production_temperature": {
           "type": "number",
-          "description": "Operating temperature of the production system in Celsius.",
-          "minimum": 0
-        },
-        "energy_source": {
-          "type": "string",
-          "description": "Primary energy source used, e.g., renewable, fossil-based.",
-          "enum": ["renewable", "fossil_based"]
-        },
-        "process_emissions_control": {
-          "type": "boolean",
-          "description": "Indicates whether methane capture or emissions control systems are in place."
+          "description": "Operating temperature of the production system in Celsius."
         }
       },
+      "required": ["technology_type", "production_temperature"],
       "additionalProperties": false
     },
     "biochar_properties": {
       "type": "object",
-      "required": ["h_c_ratio", "organic_carbon_content", "ash_content"],
+      "description": "Properties of the resulting biochar product.",
       "properties": {
         "h_c_ratio": {
           "type": "number",
-          "description": "Hydrogen-to-organic-carbon molar ratio. Must be <= 0.7.",
-          "maximum": 0.7
+          "description": "Hydrogen-to-organic-carbon molar ratio."
         },
         "organic_carbon_content": {
           "type": "number",
-          "description": "Percentage of organic carbon in the biochar on a dry weight basis.",
-          "minimum": 0,
-          "maximum": 100
+          "description": "Percentage of organic carbon in the biochar on a dry weight basis."
         },
         "ash_content": {
           "type": "number",
-          "description": "Percentage of ash content in the biochar.",
-          "minimum": 0,
-          "maximum": 100
+          "description": "Percentage of ash content in the biochar."
         }
       },
+      "required": ["h_c_ratio", "organic_carbon_content", "ash_content"],
       "additionalProperties": false
     },
     "biochar_application": {
-      "type": "string",
-      "description": "The type of application where the biochar is used.",
-      "enum": ["soil", "construction_materials", "water_filtration", "other"]
-    },
-    "emissions_lifecycle_data": {
       "type": "object",
-      "required": ["process_emissions", "transportation_emissions"],
+      "description": "Information about the application of the biochar product.",
+      "properties": {
+        "application_type": {
+          "type": "string",
+          "description": "The type of application where the biochar is used."
+        }
+      },
+      "required": ["application_type"],
+      "additionalProperties": false
+    },
+    "lifecycle_emissions": {
+      "type": "object",
+      "description": "Data related to emissions throughout the biochar production lifecycle.",
       "properties": {
         "baseline_emission_evidence": {
           "type": ["string", "null"],
-          "description": "Optional evidence for non-zero baseline emissions, such as scientific studies or lifecycle assessments.",
-          "format": "uri"
+          "description": "Optional evidence for non-zero baseline emissions."
         },
         "process_emissions": {
           "type": "object",
-          "required": ["pre_treatment"],
           "properties": {
             "pre_treatment": {
               "type": "number",
-              "description": "Emissions from feedstock pre-treatment in tonnes CO2e (measured or calculated)."
-            },
-            "fugitive_emissions": {
-              "type": ["number", "null"],
-              "description": "Optional: Potential fugitive emissions from storage or handling in tonnes CO2e."
+              "description": "Emissions from feedstock pre-treatment in tonnes CO2e."
             }
           },
+          "required": ["pre_treatment"],
           "additionalProperties": false
-        },
-        "transportation_emissions": {
-          "type": "number",
-          "description": "Emissions from transporting feedstock or biochar in tonnes CO2e."
-        },
-        "transport_mode": {
-          "type": "string",
-          "description": "Mode of transportation for feedstock or biochar.",
-          "enum": ["road", "rail", "sea", "air"]
         }
       },
+      "required": ["process_emissions"],
       "additionalProperties": false
     }
   },
