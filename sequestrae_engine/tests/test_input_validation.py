@@ -1,6 +1,7 @@
 import pytest
 from jsonschema.exceptions import ValidationError as JsonSchemaValidationError
 
+from sequestrae_engine.core.exceptions import SequestraeValidationError
 from sequestrae_engine.core.input_validation import validate_input
 
 
@@ -60,7 +61,7 @@ def test_invalid_feedstock_type(valid_user_input, valid_methodology_list):
     user_input = valid_user_input.copy()
     user_input["feedstock"]["feedstock_type"] = "invalid_type"
     data = {"user_inputs": user_input, "methodologies": valid_methodology_list}
-    with pytest.raises(ValidationError):
+    with pytest.raises(SequestraeValidationError):
         validate_input(data)
 
 

@@ -1,5 +1,5 @@
 from sequestrae_engine.core.constants import LATEST_METHOD_VERSIONS
-from sequestrae_engine.core.exceptions import ValidationError
+from sequestrae_engine.core.exceptions import SequestraeValidationError
 from sequestrae_engine.core.utilities import load_schema, validate_json_data
 from sequestrae_engine.methodologies.factory import MethodologyFactory
 
@@ -9,7 +9,7 @@ def validate_user_inputs(input_dict):
     Validates the user inputs against the reference input schema in `data/input_schema.json`.
 
     :param input_dict: Dictionary of user-provided inputs.
-    :raises ValidationError: If the user inputs do not conform to the shared schema.
+    :raises SequestraeValidationError: If the user inputs do not conform to the shared schema.
     """
     schema_json = load_schema("user_input")
     validate_json_data(input_dict, schema_json, context="user inputs")
@@ -87,7 +87,7 @@ def validate_methodology_inputs(user_input, methodology_list):
             if ignored_fields:
                 ignored_fields_messages[f"{name} {version}"] = ignored_fields
 
-        except ValidationError as e:
+        except SequestraeValidationError as e:
             # Log validation errors for this methodology
             errors[f"{name} {version}"] = {
                 "context": f"{name} v{version} inputs",
@@ -127,7 +127,7 @@ def validate_input(data):
              - `validated_methods`: List of methodologies that passed validation.
              - `error_log`: A dictionary of validation errors for failed methodologies.
              - `ignored_fields_messages`: A dictionary of ignored fields for each methodology.
-    :raises: ValidationError if validation fails for all methodologies, leaving no valid methods to process.
+    :raises: SequestraeValidationError if validation fails for all methodologies, leaving no valid methods to process.
     """
     errors = []
 
@@ -153,12 +153,12 @@ def validate_input(data):
 
     # If structure errors exist, raise immediately
     if errors:
-        raise ValidationError(errors)
+        raise SequestraeValidationError(errors)
 
     # Validate user inputs
     try:
         validate_user_inputs(user_input)
-    except ValidationError as e:
+    except SequestraeValidationError as e:
         errors.append({"context": "user_inputs", "message": str(e)})
 
     # Validate the methodologies specified by the user
@@ -169,6 +169,6 @@ def validate_input(data):
 
     # Raise consolidated errors if all methodologies fail
     if not validated_methods:
-        raise ValidationError(errors)
+        raise SequestraeValidationError(errors)
 
     return validated_methods, methodology_errors, ignored_fields_messages
