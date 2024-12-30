@@ -8,8 +8,8 @@ class MethodologyFactory:
     """
 
     METHODOLOGY_CLASSES = {
-        "PuroEarth": {"v3": PuroEarthV3},
-        "Verra": {"v1": VerraV1},
+        "puro_earth": {"v3": PuroEarthV3},
+        "verra": {"v1": VerraV1},
     }
 
     @staticmethod
