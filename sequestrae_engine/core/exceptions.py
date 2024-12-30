@@ -1,7 +1,7 @@
 import json
 
 
-class ValidationError(Exception):
+class SequestraeValidationError(Exception):
     """
     Custom exception for validation errors with structured feedback.
     """

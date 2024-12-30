@@ -1,4 +1,4 @@
-from sequestrae_engine.core.exceptions import ValidationError
+from sequestrae_engine.core.exceptions import SequestraeValidationError
 from sequestrae_engine.core.utilities import load_schema, validate_json_data
 from sequestrae_engine.methodologies.abstract_methodology import BaseMethodology
 
@@ -30,7 +30,7 @@ class PuroEarthV3(BaseMethodology):
         # Example of additional custom validation
         moisture_content = user_input.get("feedstock", {}).get("moisture_content")
         if moisture_content is not None and (moisture_content < 10 or moisture_content > 50):
-            raise ValidationError(
+            raise SequestraeValidationError(
                 [
                     {
                         "field": "feedstock.moisture_content",
