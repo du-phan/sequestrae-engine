@@ -41,7 +41,7 @@ def validate_methodology_inputs(user_input, methodology_list):
     Validates user inputs against methodology-specific rules.
     """
     validated_methods = []
-    errors = {}
+    errors = []
     ignored_fields_messages = {}
 
     for methodology_dict in methodology_list:
@@ -49,30 +49,29 @@ def validate_methodology_inputs(user_input, methodology_list):
         version = methodology_dict.get("version", LATEST_METHOD_VERSIONS.get(name))
 
         if not version:
-            errors[f"{name}"] = [
-                {"context": "version", "message": f"No version specified or available for {name}."}
-            ]
+            errors.append(
+                {"context": f"{name}", "message": f"No version specified or available for {name}."}
+            )
             continue
 
         try:
             specific_schema = load_schema("methodology", methodology=name, version=version)
+            # Rebuild user inputs based on methodology schema and track any ignored fields
             rebuilt_inputs, ignored_fields = rebuild_user_inputs(user_input, specific_schema)
-            validate_json_data(rebuilt_inputs, specific_schema, context=f"{name} v{version} inputs")
+
+            # Instantiate the methodology class and validate inputs
+            methodology_instance = MethodologyFactory.get_methodology(name, version)
+            methodology_instance.validate_inputs(rebuilt_inputs)
+
             validated_methods.append((name, version))
 
             if ignored_fields:
                 ignored_fields_messages[f"{name} {version}"] = ignored_fields
 
         except SequestraeValidationError as e:
-            errors[f"{name} {version}"] = {
-                "context": f"{name} v{version} inputs",
-                "message": str(e),
-            }
+            errors.append({"context": f"{name} {version} inputs", "message": e.errors})
         except Exception as e:
-            errors[f"{name} {version}"] = {
-                "context": f"{name} v{version}",
-                "message": f"Unexpected error: {str(e)}",
-            }
+            errors.append({"context": f"{name} {version}", "message": str(e)})
 
     return validated_methods, errors, ignored_fields_messages
 
@@ -131,14 +130,13 @@ def validate_input(data):
     # Stop here if there are major problems with the input data
     if errors:
         raise SequestraeValidationError(errors)
-
-    validated_methods, methodology_errors, ignored_fields_messages = validate_methodology_inputs(
-        user_input, methodology_list
-    )
-
-    if not validated_methods:
-        raise SequestraeValidationError(
-            [{"context": k, "message": v["message"]} for k, v in methodology_errors.items()]
+    else:
+        validated_methods, methodology_errors, ignored_fields_messages = (
+            validate_methodology_inputs(user_input, methodology_list)
         )
 
-    return validated_methods, methodology_errors, ignored_fields_messages
+        # in case there is problem with all the required methodologies, raise an error
+        if not validated_methods:
+            raise SequestraeValidationError(methodology_errors)
+
+        return validated_methods, methodology_errors, ignored_fields_messages

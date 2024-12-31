@@ -2,10 +2,10 @@ import json
 import logging
 import os
 
-from jsonschema import validate
-from jsonschema.exceptions import ValidationError as JsonSchemaValidationError
+from jsonschema import validate, validators
 
 from sequestrae_engine.core.constants import LATEST_METHOD_VERSIONS
+from sequestrae_engine.core.exceptions import SequestraeValidationError
 
 # Configure logging to include the package name
 logging.basicConfig(
@@ -87,18 +87,28 @@ def load_schema(schema_type, methodology=None, version=None):
 
 def validate_json_data(json_dict, schema, context=""):
     """
-    Validates a JSON data instance against a given schema.
+    Validates a JSON data instance against a schema and returns all validation errors.
 
     :param json_dict: The JSON data instance to validate (typically a dictionary).
     :param schema: The JSON schema to validate against.
     :param context: Context information for error messages.
-    :raises: ValidationError with a clear error message if validation fails.
+    :raises: SequestraeValidationError with all error messages if validation fails.
     """
-    try:
-        validate(instance=json_dict, schema=schema)
-    except JsonSchemaValidationError as e:
-        error_message = f"Validation error in {context}: {e.message}"
-        raise JsonSchemaValidationError(error_message)
+    # Get the validator class from the schema
+    validator_class = validators.validator_for(schema)
+    validator = validator_class(schema)
+
+    # Collect all errors
+    errors = list(validator.iter_errors(json_dict))
+
+    if errors:
+        # Build comprehensive error message
+        error_details = []
+        for error in errors:
+            path = " -> ".join(str(p) for p in error.path) if error.path else "root"
+            error_details.append({"input_field": path, "message": error.message})
+
+        raise SequestraeValidationError(error_details)
 
 
 def remove_empty_dicts(data_list: list) -> list:
