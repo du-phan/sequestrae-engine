@@ -99,3 +99,15 @@ def validate_json_data(json_dict, schema, context=""):
     except JsonSchemaValidationError as e:
         error_message = f"Validation error in {context}: {e.message}"
         raise JsonSchemaValidationError(error_message)
+
+
+def remove_empty_dicts(data_list: list) -> list:
+    """Remove empty dictionaries from a list.
+
+    Args:
+        data_list (list): List containing dictionaries
+
+    Returns:
+        list: List with empty dictionaries removed
+    """
+    return [d for d in data_list if d]  # Empty dicts evaluate to False

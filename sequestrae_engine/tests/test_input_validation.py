@@ -69,5 +69,5 @@ def test_missing_required_fields(valid_user_input, valid_methodology_list):
     user_input = valid_user_input.copy()
     user_input["feedstock"].pop("feedstock_type")
     data = {"user_inputs": user_input, "methodologies": valid_methodology_list}
-    with pytest.raises(JsonSchemaValidationError):
+    with pytest.raises(SequestraeValidationError):
         validate_input(data)
