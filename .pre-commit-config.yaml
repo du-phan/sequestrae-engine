@@ -1,25 +1,18 @@
 repos:
   - repo: https://github.com/psf/black
-    rev: 24.10.0  # Replace with the version of Black you're using
+    rev: 24.10.0 # Replace with the version of Black you're using
     hooks:
       - id: black
-        args: ["--line-length=88"]
+        args: ["--line-length=100"]
 
   - repo: https://github.com/pycqa/isort
-    rev: 5.13.2  # Replace with the version of isort you're using
+    rev: 5.13.2 # Replace with the version of isort you're using
     hooks:
       - id: isort
         args: ["--profile=black"]
 
-  - repo: https://github.com/pycqa/flake8
-    rev: 7.1.1  # Replace with the version of Flake8 you're using
-    hooks:
-      - id: flake8
-        args: ["--max-line-length=88"]
-        additional_dependencies: []
-
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v5.0.0  # Replace with the version of pre-commit you're using
+    rev: v5.0.0 # Replace with the version of pre-commit you're using
     hooks:
       - id: trailing-whitespace
       - id: end-of-file-fixer

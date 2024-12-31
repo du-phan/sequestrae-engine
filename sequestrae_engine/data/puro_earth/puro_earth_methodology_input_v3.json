@@ -1,0 +1,173 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "PuroEarth v3 Methodology-Specific Input Schema",
+  "type": "object",
+  "required": [
+    "feedstock",
+    "production_process",
+    "biochar_properties",
+    "biochar_application",
+    "lifecycle_emissions"
+  ],
+  "properties": {
+    "feedstock": {
+      "type": "object",
+      "description": "Feedstock constraints specific to the PuroEarth methodology.",
+      "properties": {
+        "feedstock_type": {
+          "type": "string",
+          "description": "Accepted feedstock types for PuroEarth.",
+          "enum": [
+            "forestry_residues",
+            "agricultural_waste",
+            "urban_wood_waste"
+          ]
+        },
+        "moisture_content": {
+          "type": "number",
+          "description": "Moisture content must be between 10% and 50% for PuroEarth.",
+          "minimum": 10,
+          "maximum": 50
+        },
+        "sustainability_compliance": {
+          "type": "object",
+          "description": "Sustainability compliance evidence for the feedstock.",
+          "properties": {
+            "certification": {
+              "type": "string",
+              "description": "Accepted certifications for feedstock sustainability.",
+              "enum": ["FSC", "PEFC", "None"]
+            }
+          },
+          "required": ["certification"]
+        }
+      },
+      "required": [
+        "feedstock_type",
+        "moisture_content",
+        "sustainability_compliance"
+      ],
+      "additionalProperties": false
+    },
+    "production_process": {
+      "type": "object",
+      "description": "Production process constraints specific to the PuroEarth methodology.",
+      "properties": {
+        "technology_type": {
+          "type": "string",
+          "description": "Accepted technologies for PuroEarth.",
+          "enum": ["pyrolysis", "gasification"]
+        },
+        "production_temperature": {
+          "type": "number",
+          "description": "Production temperature must be between 500 and 900 degrees Celsius.",
+          "minimum": 500,
+          "maximum": 900
+        },
+        "energy_source": {
+          "type": "string",
+          "description": "Accepted energy sources for PuroEarth production processes.",
+          "enum": ["renewable", "fossil_based"]
+        },
+        "process_emissions_control": {
+          "type": "boolean",
+          "description": "Indicates whether methane capture or other emissions controls are in place."
+        }
+      },
+      "required": [
+        "technology_type",
+        "production_temperature",
+        "energy_source",
+        "process_emissions_control"
+      ],
+      "additionalProperties": false
+    },
+    "biochar_properties": {
+      "type": "object",
+      "description": "Biochar property constraints specific to the PuroEarth methodology.",
+      "properties": {
+        "h_c_ratio": {
+          "type": "number",
+          "description": "Hydrogen-to-organic-carbon molar ratio must be <= 0.7.",
+          "maximum": 0.7
+        },
+        "organic_carbon_content": {
+          "type": "number",
+          "description": "Organic carbon content must be between 70% and 90% for PuroEarth.",
+          "minimum": 70,
+          "maximum": 90
+        },
+        "ash_content": {
+          "type": "number",
+          "description": "Ash content must be <= 10%.",
+          "maximum": 10
+        }
+      },
+      "required": ["h_c_ratio", "organic_carbon_content", "ash_content"],
+      "additionalProperties": false
+    },
+    "biochar_application": {
+      "type": "object",
+      "description": "Application constraints specific to the PuroEarth methodology.",
+      "properties": {
+        "application_type": {
+          "type": "string",
+          "description": "Accepted applications for PuroEarth.",
+          "enum": ["soil", "construction_materials"]
+        },
+        "co_benefits": {
+          "type": "object",
+          "description": "Optional co-benefits associated with the biochar application.",
+          "properties": {
+            "soil_improvement": {
+              "type": "boolean",
+              "description": "Indicates whether the biochar application improves soil properties."
+            },
+            "biodiversity": {
+              "type": "boolean",
+              "description": "Indicates whether the biochar application enhances biodiversity."
+            }
+          }
+        }
+      },
+      "required": ["application_type"],
+      "additionalProperties": false
+    },
+    "lifecycle_emissions": {
+      "type": "object",
+      "description": "Lifecycle emissions constraints specific to the PuroEarth methodology.",
+      "properties": {
+        "baseline_emission_evidence": {
+          "type": ["string", "null"],
+          "description": "Optional evidence for non-zero baseline emissions."
+        },
+        "process_emissions": {
+          "type": "object",
+          "properties": {
+            "pre_treatment": {
+              "type": "number",
+              "description": "Emissions from feedstock pre-treatment in tonnes CO2e."
+            },
+            "fugitive_emissions": {
+              "type": ["number", "null"],
+              "description": "Optional: Potential fugitive emissions from storage or handling in tonnes CO2e."
+            }
+          },
+          "required": ["pre_treatment"],
+          "additionalProperties": false
+        },
+        "transportation_emissions": {
+          "type": "number",
+          "description": "Emissions from transporting feedstock or biochar in tonnes CO2e."
+        },
+        "transport_mode": {
+          "type": "string",
+          "description": "Mode of transportation for feedstock or biochar.",
+          "enum": ["road", "rail", "sea", "air"]
+        }
+      },
+      "required": ["process_emissions"],
+      "additionalProperties": false
+    }
+  }
+}

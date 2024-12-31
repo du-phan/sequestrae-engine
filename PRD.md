@@ -456,7 +456,7 @@ Establish the foundational structure and implement core utilities to support met
 - Fully functional directory structure with placeholder files.
 - Implemented and tested `utilities.py`and `constants.py`
 
-## Week 2: Input Validation Framework
+## Week 2: Input Validation Framework [DONE]
 
 ### Goal
 

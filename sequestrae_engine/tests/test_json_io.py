@@ -2,7 +2,7 @@ import json
 
 import pytest
 
-from core.utilities import read_json, write_json
+from sequestrae_engine.core.utilities import read_json, write_json
 
 
 def test_read_json_valid(tmp_path):
@@ -22,9 +22,7 @@ def test_read_json_invalid(tmp_path):
     with pytest.raises(json.JSONDecodeError) as exc_info:
         read_json(file_path)
 
-    assert "Expecting" in str(
-        exc_info.value
-    )  # Common error message for unclosed JSON objects
+    assert "Expecting" in str(exc_info.value)  # Common error message for unclosed JSON objects
 
 
 def test_write_json(tmp_path):

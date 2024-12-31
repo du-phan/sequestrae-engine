@@ -15,10 +15,10 @@ numpy = ">=1.24,<2.0"
 pandas = "^2.0"
 pydantic = "^1.10.2"
 jsonschema = "^4.16.0"
+jupyterlab = "^4.0.5"
 
 [tool.poetry.dev-dependencies]
 black = "24.10.0"
-flake8 = "7.1.1"
 isort = "5.13.2"
 pre-commit = "4.0.1"
 pytest = "^7.1.2"
@@ -29,18 +29,14 @@ requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.black]
-line-length = 88
+line-length = 100
 target-version = ["py310", "py311", "py312"]
 
 [tool.isort]
 profile = "black"
-line_length = 88
+line_length = 100
 multi_line_output = 3
 include_trailing_comma = true
-
-[tool.flake8]
-max-line-length = 88
-exclude = ["build/", "dist/"]
 
 [tool.pre-commit]
 repos = [
@@ -51,5 +47,4 @@ repos = [
         { id = "trailing-whitespace" },
         { id = "end-of-file-fixer" },
         { id = "check-yaml" }
-    ] }
-]
+    ]}]
