@@ -1,8 +1,14 @@
 import json
+import logging
 import os
 import re
 
 from mistralai import Mistral
+
+logging.basicConfig(
+    level=logging.INFO, format="%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+)
+logger = logging.getLogger(__name__)
 
 
 def read_markdown_file(filepath: str) -> str:
@@ -48,13 +54,13 @@ class AuditReportExtractor:
 
         # Check if file exists and overwrite is False
         if os.path.exists(output_path) and not overwrite:
-            raise FileExistsError(
-                f"Output file already exists at {output_path} and overwrite=False"
-            )
+            logger.info(f"Output file already exists at {output_path} and overwrite=False")
 
         # Save the JSON file
         with open(output_path, "w", encoding="utf-8") as f:
             json.dump(audit_report_dict, f, indent=2)
+
+        logger.info(f"Parsing {audit_report_path} and saving to {output_path}")
 
         return audit_report_dict
 

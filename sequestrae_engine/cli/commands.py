@@ -1,6 +1,8 @@
 import os
+import time
 from pathlib import Path
 
+from sequestrae_engine.document_parsing.extractors import AuditReportExtractor
 from sequestrae_engine.document_parsing.parser import PDFToMarkdownParser
 
 
@@ -29,4 +31,36 @@ def parse_pdfs_command(api_key, project_dir, limit=5):
                     parser.parse_pdf(pdf_path)
 
     print(f"Successfully processed {pdf_count} PDF files")
+    return 0
+
+
+def extract_audit_information_command(api_key, project_dir, limit=100):
+    if limit is None:
+        limit = 100
+    print(f"Max number of files to process: {limit}")
+
+    if not api_key:
+        print("Error: MISTRAL_API_KEY is required")
+        return 1
+
+    extractor = AuditReportExtractor(api_key=api_key)
+    project_path = Path(project_dir)
+
+    if not project_path.exists():
+        print(f"Error: Directory not found at {project_path}")
+        return 1
+
+    markdown_count = 0
+    for folder_path in project_path.iterdir():
+        if not folder_path.name.startswith(".") and folder_path.is_dir() and markdown_count < limit:
+            for md_path in folder_path.glob("*.md"):
+                if md_path.is_file() and "report" in md_path.stem.lower():
+                    markdown_count += 1
+                    try:
+                        extractor.parse_audit_report(audit_report_path=md_path)
+                    except Exception as e:
+                        print(f"Error processing {md_path}: {str(e)}")
+                    time.sleep(1)  # Sleep for 1 second to avoid rate limiting
+
+    print(f"Successfully processed {markdown_count} markdown files")
     return 0
