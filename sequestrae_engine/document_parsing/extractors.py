@@ -133,6 +133,23 @@ class AuditReportExtractor:
             List of analysis results for each topic
         """
         start_time = time.time()
+
+        # Determine output path
+        input_dir = os.path.dirname(audit_path)
+        input_filename = os.path.basename(audit_path)
+        output_filename = os.path.splitext(input_filename)[0] + "_feedstock_analysis.json"
+
+        output_path = os.path.join(
+            output_folder_path if output_folder_path else input_dir, output_filename
+        )
+
+        # Check if file exists and overwrite is False
+        if os.path.exists(output_path) and not overwrite:
+            logger.info(
+                f"Output file already exists at {output_path} and overwrite=False. Skipping."
+            )
+            return
+
         # Load prompts and criteria
         with open(FEEDSTOCK_PROMPT_PATH, "r") as f:
             context_content = f.read()
@@ -178,20 +195,6 @@ class AuditReportExtractor:
             response_content_dict = json.loads(response_content)
             result_list.append(response_content_dict)
             time.sleep(1)  # Rate limiting
-
-        # Determine output path
-        input_dir = os.path.dirname(audit_path)
-        input_filename = os.path.basename(audit_path)
-        output_filename = os.path.splitext(input_filename)[0] + "_feedstock_analysis.json"
-
-        output_path = os.path.join(
-            output_folder_path if output_folder_path else input_dir, output_filename
-        )
-
-        # Check if file exists and overwrite is False
-        if os.path.exists(output_path) and not overwrite:
-            logger.info(f"Output file already exists at {output_path} and overwrite=False")
-            return result_list
 
         # Save the JSON file
         with open(output_path, "w", encoding="utf-8") as f:
