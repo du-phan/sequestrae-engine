@@ -132,6 +132,7 @@ class AuditReportExtractor:
         Returns:
             List of analysis results for each topic
         """
+        start_time = time.time()
         # Load prompts and criteria
         with open(FEEDSTOCK_PROMPT_PATH, "r") as f:
             context_content = f.read()
@@ -158,7 +159,6 @@ class AuditReportExtractor:
 
         # Process each topic in the criteria guideline
         for topic in criteria_guideline.keys():
-            start_time = time.time()
             questions = criteria_guideline.get(topic)
 
             full_message = full_message_template.format(
@@ -177,8 +177,6 @@ class AuditReportExtractor:
             response_content = chat_response.choices[0].message.content
             response_content_dict = json.loads(response_content)
             result_list.append(response_content_dict)
-
-            logger.info(f'Processed topic "{topic}" in {time.time() - start_time:.2f}s')
             time.sleep(1)  # Rate limiting
 
         # Determine output path
@@ -199,5 +197,8 @@ class AuditReportExtractor:
         with open(output_path, "w", encoding="utf-8") as f:
             json.dump(result_list, f, indent=2)
 
-        logger.info(f"Feedstock analysis complete. Results saved to {output_path}")
+        running_time_in_minutes = round((time.time() - start_time) / 60, 2)
+        logger.info(
+            f"Feedstock analysis complete in {running_time_in_minutes} minutes. Results saved to {output_path}"
+        )
         return result_list
