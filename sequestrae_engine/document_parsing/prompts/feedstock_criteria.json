@@ -1,0 +1,256 @@
+{
+  "Biogenic Requirements": [
+    {
+      "criteria": "Feedstock type description",
+      "question": "Does the documentation clearly describe the feedstock type (e.g., wood residues, agricultural by-products), and does it explicitly confirm that it is derived from living or recently living organisms?",
+      "instruction": "Check the project’s feedstock or technical overview for a statement identifying the feedstock as biological (rather than fossil- or synthetic-based). Look for names of materials such as “crop residues” or “sawmill offcuts,” and ensure the language indicates that these are indeed organic sources."
+    },
+    {
+      "criteria": "Proof of Biogenic Source",
+      "question": "How does the documentation demonstrate or confirm that the biomass is genuinely biogenic (e.g., references to origin, supply chain descriptions, certification)?",
+      "instruction": "Review any sections detailing where the biomass is collected (e.g., local farms, sawmills) to ensure no fossil-derived content is included. Seek additional clues such as traceability records, chain-of-custody references, or certifications specifying that the material is of biological origin."
+    }
+  ],
+  "Waste or By-product Status": [
+    {
+      "criteria": "Clarification of Feedstock as Waste or By-product",
+      "question": "Does the documentation identify the feedstock specifically as a waste product (e.g., sawdust, crop residues) or a by-product of another process, indicating it would otherwise be discarded or landfilled?",
+      "instruction": "Search in the feedstock or sourcing section for language stating that the biomass has negligible market value, is regularly discarded, or is leftover from a primary industrial process. Verify that the project justifies its classification as waste or by-product by explaining what would typically happen to this material in the absence of the project."
+    },
+    {
+      "criteria": "Analysis of Competing Use",
+      "question": "Does the project acknowledge possible alternative uses for this biomass (e.g., construction materials, animal bedding, compost) and explain why producing biochar is preferable or permissible?",
+      "instruction": "Look for any “competing uses” or “alternative markets” discussion. A credible project will compare the economic or environmental viability of other uses and justify why biochar does not displace higher-value or more sustainable applications."
+    }
+  ],
+  "By-Product Status (50% Threshold)": [
+    {
+      "criteria": "Allocation of harvested biomass",
+      "question": "Does the documentation include a clear breakdown showing that no more than 50% of the total harvested biomass is used for energy or carbon removal (biochar)?",
+      "instruction": "In the project plan or sustainability sections, look for tables, charts, or text specifying the end-use distribution of the harvested biomass (e.g., how many tons go to lumber, paper, biochar). Confirm that the biochar or energy fraction remains below the 50% threshold if the biomass is considered a by-product."
+    },
+    {
+      "criteria": "Transparency in usage",
+      "question": "Is the documentation transparent about the proportions allocated to various uses, and does it explicitly show compliance with the <50% criterion?",
+      "instruction": "Check whether the project references internal policies, sustainability metrics, or supply chain audits listing each end use’s share. Insufficient detail—such as missing percentages or vague statements—may signal a risk that more than 50% is actually directed to carbon removal or energy."
+    }
+  ],
+  "Counterfactual Assessment": [
+    {
+      "criteria": "Description of alternative scenarios",
+      "question": "Does the documentation explain what would happen to the biomass if it were not used by the biochar project (e.g., landfill, open burning, decomposition, other industrial processes)?",
+      "instruction": "Look for a “counterfactual scenario,” “baseline scenario,” or market analysis describing the feedstock’s typical fate. The project should reference local practices or relevant data showing whether this material is commonly discarded, burned for energy, or used in other industries."
+    }
+  ],
+  "Certification": [
+    {
+      "criteria": "Presence and Type of Certification",
+      "question": "Does the documentation explicitly mention recognized certifications—such as FSC, RSB, or SBP—that cover responsible forest/biomass management?",
+      "instruction": "Look in sections labeled “Sustainability,” “Compliance,” or “Certifications” to see if the project cites a valid certificate (e.g., providing dates, certificate IDs, or links to the certifier’s database). Confirm that the name on the certificate matches the project developer or relevant supplier, and check the expiration date to ensure the certification is current."
+    },
+    {
+      "criteria": "Certification Scope and Chain-of-Custody",
+      "question": "Does the documentation describe how the certification covers social safeguards, ecological considerations, and chain-of-custody (i.e., tracking the biomass from harvest to end use)?",
+      "instruction": "Review any scope statements in the certificate or in an appendix that explains what is included (e.g., does it cover the entire supply chain or only certain forest areas?). Check if it addresses worker rights, biodiversity protection, and timber tracking procedures (such as barcode systems or supplier logs). The project should clarify whether 100% of its feedstock is included under the certificate, or if only certain tracts or suppliers meet the standard."
+    },
+    {
+      "criteria": "Mix of Certified and Non-Certified Feedstock",
+      "question": "If only a portion of the feedstock is certified, does the documentation show what percentage is certified vs. non-certified, and how the project mitigates risks for the non-certified portion?",
+      "instruction": "In the feedstock procurement plan or certification appendix, look for a breakdown of sources. If, for instance, 60% is FSC-certified and 40% is not, see if the project implements risk-based assessments or internal audits for that 40%. The documentation should detail how non-certified feedstock is monitored (e.g., site visits, supply chain checks) to confirm it meets similar sustainability criteria."
+    }
+  ],
+  "Risk-Based Assessment": [
+    {
+      "criteria": "Existence of a Third-Party Risk-Based Assessment",
+      "question": "If no formal certification is cited (or if part of the feedstock is non-certified), does the project have a third-party risk-based review confirming sustainable sourcing?",
+      "instruction": "Locate any “Risk Assessment” or “Sustainability Audit” sections. The documentation should specify who performed the assessment (e.g., an independent consultant or accredited body) and how (e.g., field visits, supplier interviews, desk research). If no external or independent party is involved, or if the project relies solely on self-reported data, the credibility of the risk assessment may be weaker."
+    },
+    {
+      "criteria": "Thoroughness of the Risk-Based Assessment",
+      "question": "Does the assessment detail environmental (e.g., deforestation, habitat loss) and social (e.g., labor conditions, community impacts) risks and outline mitigation measures (e.g., supplier vetting, ongoing monitoring)?",
+      "instruction": "Look for a risk matrix or detailed discussion of each identified risk category (low, medium, high). The documentation should describe specific action plans—like requiring suppliers to meet certain standards or undergo audits—and state follow-up procedures if issues are found. Vague phrases such as “We ensure sustainability” without clear evidence of how risks are identified and managed might signal insufficient due diligence. Thorough reports typically cite on-the-ground observations, stakeholder feedback, or certification guidelines."
+    }
+  ],
+  "Strong governance": [
+    {
+      "criteria": "Regional Oversight and Enforcement",
+      "question": "Does the documentation specify the jurisdiction(s) from which feedstock is sourced, and describe local forestry laws or enforcement measures?",
+      "instruction": "In the project’s “Governance” or “Sourcing” sections, look for explicit references to local regulations (e.g., logging permits, reforestation mandates) and enforcement structures (e.g., forestry inspectors, fines or penalties for illegal logging). A robust project might cite official government data, policy documents, or recognized third-party reports (like NGO audits) indicating whether these laws are effectively enforced. If the documentation only provides generic statements (“We comply with all local laws”) without pointing to actual laws or enforcement records, consider requesting more detail."
+    },
+    {
+      "criteria": "Established Management Standards",
+      "question": "Does the project cite national or regional forest certification standards (beyond voluntary schemes like FSC) or government-led sustainability initiatives?",
+      "instruction": "Check if the documentation mentions mandatory forest programs (e.g., reforestation quotas, sustainable harvest limits) or official government sustainability guidelines. Ensure the project explains how these standards are implemented—for instance, do they undergo compliance audits? Are there penalties or corrective actions if they fail to meet set targets? If the project claims alignment with certain government-led initiatives but offers no evidence of compliance or enforcement, that could signal weak governance."
+    }
+  ],
+  "Corruption Perception Index (CPI)": [
+    {
+      "criteria": "Transparency and Governance Indicators",
+      "question": "Does the documentation reference reputable indices (e.g., Transparency International’s CPI) or other governance metrics for the source country?",
+      "instruction": "Look for a specific CPI score (or range) and any narrative on how corruption might affect forest management (e.g., bribery in issuing logging permits). If the project only states “We operate responsibly in [Country X]” without referencing objective data like the CPI, consider whether the region has known governance challenges. Projects in higher-risk jurisdictions should proactively address corruption risk (e.g., extra documentation, stricter sourcing protocols)."
+    },
+    {
+      "criteria": "Stricter Conditions for Low-CPI Areas",
+      "question": "If the CPI or other indicators suggest a high corruption risk, does the project apply stricter sourcing conditions (e.g., mandatory FSC or equivalent certification), or possibly exclude feedstock from certain areas?",
+      "instruction": "See if the documentation sets thresholds or guidelines for regions with low CPI. For example, “If CPI < X, we require FSC certification or avoid sourcing entirely.” Confirm whether such policies are actually implemented—look for references to supplier screening, chain-of-custody requirements, or risk-based audits in these jurisdictions. The absence of any mention of additional safeguards where corruption risk is high may be a red flag indicating insufficient governance measures."
+    }
+  ],
+  "Exclusion of Sensitive Areas": [
+    {
+      "criteria": "Primary and Old-Growth Forests",
+      "question": "Does the documentation unequivocally confirm that no feedstock is sourced from primary or old-growth forests?",
+      "instruction": "In the project’s forestry or feedstock sourcing sections, look for clear references to official definitions of primary or old-growth (e.g., FAO or UNESCO criteria). Check maps, supplier lists, or satellite imagery that identify the exact sourcing locations. The project should detail how it excludes these forests—such as verifying no part of the supply chain overlaps with such areas. If the documentation is silent on how these forests are defined or avoided, consider it a red flag indicating insufficient safeguards."
+    },
+    {
+      "criteria": "Protected and HCV Areas",
+      "question": "Does the documentation confirm that feedstock is not sourced from protected or high conservation value (HCV) forests unless selective harvest is explicitly recognized by authorities and proven to be low-impact?",
+      "instruction": "Look for references to local laws or forest management plans allowing limited or selective harvesting in designated areas. The project should demonstrate that such harvesting is non-extractive or minimally extractive (e.g., selective logging that does not degrade ecosystem function). Verify whether the project provides evidence of official permits, HCV assessments, or third-party audits confirming no negative impact on biodiversity, ecosystem services, or conservation values."
+    }
+  ],
+  "Ecological function": [
+    {
+      "criteria": "Maintaining Biodiversity and Ecosystem Services",
+      "question": "How does the project show that its forest management practices preserve or improve biodiversity, nutrient cycling, soil health, and hydrologic function?",
+      "instruction": "In any forest management plan, best-practice guidelines, or sustainability section, look for mention of buffer zones, habitat corridors, low-impact logging, or reforestation. The project may cite recognized standards like FSC Principles, scientific studies, or on-the-ground conservation measures (e.g., wildlife monitoring programs). If the documentation only offers vague claims (e.g., “We protect biodiversity”) without detailing actual methods, consider it insufficient."
+    }
+  ],
+  "Carbon stocks": [
+    {
+      "criteria": "Stability or Increase in Regional Carbon Stocks",
+      "question": "Does the documentation show that forest carbon stocks in the sourcing region are stable or increasing, ensuring the project is not contributing to deforestation or degradation?",
+      "instruction": "Look for government data, remote sensing imagery (e.g., satellite maps), or third-party research supporting the claim that forest cover and carbon stocks are maintained or growing. The project might include annual monitoring reports or references to a recognized carbon accounting method. If no concrete data is provided—or if there is a known history of deforestation in the area—this may warrant closer scrutiny."
+    },
+    {
+      "criteria": "Justification for Any Noted Decrease",
+      "question": "If the project acknowledges a decline in carbon stocks, does it explain why (e.g., natural disturbance) and show how it mitigates or offsets the loss?",
+      "instruction": "Seek a rationale backed by official records or scientific studies (e.g., evidence of pest outbreaks, storms). The project should detail mitigation actions (e.g., reforestation projects, restoration programs, carbon offsets) that compensate or address the decline. If the documentation fails to link a carbon stock decrease to clear, uncontrollable events or lacks plans to remediate the impact, it may indicate unsustainable practices."
+    }
+  ],
+  "Restrictions on New Plantations": [
+    {
+      "criteria": "No Plantations Replacing Natural Forests",
+      "question": "Does the documentation confirm that no biomass is sourced from plantation forests established within the last 20 years if they replaced natural forests?",
+      "instruction": "Look for land-use change records, geospatial analysis, or historical satellite imagery showing that the plantation site was not previously a natural forest in the 20 years before establishment. The project should reference official or third-party land registry documents, environmental impact assessments, or other verifiable sources indicating no deforestation occurred for the sake of planting. If the project only makes a broad statement (“we do not use plantations that replaced forests”) without citing any data or maps, that is a red flag signaling potential lack of due diligence."
+    },
+    {
+      "criteria": "Exception for Agricultural Lands",
+      "question": "If an exception exists, does the documentation show that the prior land use was agriculture for at least 10 continuous years, making natural regeneration unlikely?",
+      "instruction": "Check references to official land-use histories, remote sensing data (e.g., satellite images), or agricultural permits. The documentation should detail how they verified continuous farming for at least a decade (for example, by referencing land tax records or crop rotation reports). The project must provide rationale explaining why natural forest regrowth would have been highly improbable (e.g., soil conditions, consistent plowing). If such data is missing or minimal, it may indicate insufficient evidence to justify the exception."
+    }
+  ],
+  "Legal and Customary Rights": [
+    {
+      "criteria": "Recognition of Land Rights and Customary Uses",
+      "question": "Does the project documentation confirm respect for Indigenous Peoples’ and local communities’ legal and customary land rights?",
+      "instruction": "Search the “Land Rights,” “Community Engagement,” or “Social Impact” sections for formal references to treaties, community agreements, or legal titles. The project should provide maps, registry documents, or other verifiable evidence indicating that feedstock sourcing does not encroach on these rights. If only high-level assurances are given (“We respect local rights”) without any mention of specific land tenure documentation or recognized agreements, that signals a lack of concrete proof."
+    },
+    {
+      "criteria": "Absence of Land Disputes and Compliance with FPIC",
+      "question": "Does the documentation explicitly confirm no unresolved land disputes and compliance with free, prior, and informed consent (FPIC) where Indigenous or local communities hold rights?",
+      "instruction": "Look for details on how the project handles conflict resolution (e.g., third-party mediators, community liaisons) and whether consultation records show genuine FPIC processes. If the documentation claims no disputes exist but lacks any evidence (like meeting minutes, community endorsements, or independent audits), consider whether potential conflicts may be underreported."
+    }
+  ],
+  "Community health and welfare": [
+    {
+      "criteria": "Health Impact Assessment",
+      "question": "Does the project address potential impacts on community health from wood processing or transport (e.g., dust, emissions, noise)?",
+      "instruction": "Review environmental or social impact sections for an explicit health impact assessment or mitigation strategies (e.g., dust-control systems, limiting truck operations near homes). A robust plan typically cites measurable thresholds (like air quality indicators) and describes how the project meets or improves upon them. If health considerations are not mentioned, it raises concerns about unrecognized risks."
+    },
+    {
+      "criteria": "Consultation and Mitigation",
+      "question": "If there are identified health or welfare risks, does the project show evidence of consultation with local communities and co-developed mitigation strategies?",
+      "instruction": "Look for records of community meetings, focus groups, or stakeholder committees demonstrating local input. The documentation should describe how the project integrated community feedback into final decisions (for example, adjusting operating hours or providing health facilities). Generic statements (“We discuss issues with locals”) without specific meeting outcomes or follow-up actions may be insufficient."
+    }
+  ],
+  "Socioeconomic Benefits": [
+    {
+      "criteria": "Support for Local Livelihoods",
+      "question": "Does the project demonstrate tangible benefits for local communities, such as employment, revenue-sharing, or skill development?",
+      "instruction": "Check sections labeled “Socioeconomic Impact,” “Community Development,” or “Job Creation.” Look for quantitative data (e.g., number of new hires, local wage standards), clear references to local hiring practices, or formal agreements ensuring a share of project revenue goes to community funds. If the project only makes broad claims (“we benefit the community”) without providing details, it may indicate minimal real-world impact."
+    },
+    {
+      "criteria": "Fair Labor and Avoiding Exploitation",
+      "question": "Does the documentation show that fair labor practices are in place (e.g., fair wages, safe working conditions, no forced or child labor)?",
+      "instruction": "Examine any labor policies, codes of conduct, or references to recognized labor standards (e.g., ILO conventions). The documentation should outline grievance mechanisms or whistleblower protections. If labor rights are only briefly mentioned, request more information on pay scales, worker safety measures, and how the project verifies no exploitation of vulnerable groups (e.g., migrant workers)."
+    }
+  ],
+  "Chain-of-custody": [
+    {
+      "criteria": "Demonstration of Full Traceability",
+      "question": "Does the documentation clearly show how the feedstock is tracked from its origin through transport, processing, and conversion?",
+      "instruction": "Look for specific references to systems like electronic tagging, barcoding, or supplier logs in a “Traceability” or “Chain-of-Custody” section. The project should detail each step (e.g., harvest site, transport route, processing facility), indicating how data is recorded and verified at each stage. Ideally, the documentation will mention recognized standards (e.g., FSC’s chain-of-custody requirements) or internal procedures that have been audited. If the project only states “we track all biomass” without describing the method or evidence of actual traceability (like shipment records or batch codes), consider this a red flag for weak chain-of-custody assurance."
+    },
+    {
+      "criteria": "Certification or Equivalent Traceability Mechanisms",
+      "question": "Does the project mention chain-of-custody certifications (FSC, PEFC, etc.) or explain a robust in-house traceability protocol that ensures accurate record-keeping?",
+      "instruction": "Review any certificates, policy documents, or operational manuals describing how feedstock flows are documented from start to finish. A credible project typically provides documentation of regular audits, procedure updates, or internal tracking systems (e.g., software platforms) that can trace each batch of biomass. If they cite a certification, verify its validity (e.g., check certificate numbers or issuing bodies), and ensure the scope actually covers the entire supply chain rather than only parts of it."
+    }
+  ],
+  "Operational oversight": [
+    {
+      "criteria": "Governance Structures and Monitoring Protocols",
+      "question": "Does the documentation detail who is responsible for monitoring, auditing, and enforcing compliance to prevent illegal or unsustainable sourcing?",
+      "instruction": "In the “Management” or “Governance” sections, look for an organizational chart or narrative explaining oversight bodies, their roles, and how they conduct audits (e.g., monthly internal reviews, annual external audits). The documentation should specify how infractions (like sourcing from prohibited regions) are detected and addressed (e.g., suspension of suppliers, corrective action plans). If the text simply says “we have a governance framework” without describing actual monitoring schedules or enforcement steps, it may signal a lack of operational rigor."
+    },
+    {
+      "criteria": "Managing Third-Party Suppliers",
+      "question": "If the project relies on third-party suppliers, does the documentation show that these suppliers are held to the same transparency and sustainability requirements as the project’s own operations?",
+      "instruction": "Look for information on supplier vetting, contract clauses, or policy statements indicating that external suppliers must adhere to chain-of-custody standards or risk-based assessments. The project should explain how it verifies compliance (e.g., spot checks, documentation reviews, site visits) and what happens if a supplier fails to meet requirements. A credible approach might mention supplier training, periodic audits, or formal contracts referencing recognized sustainability criteria. If external sourcing is mentioned but no due diligence procedures are described, consider that a red flag indicating a potential gap in oversight."
+    }
+  ],
+  "Sufficient Feedstock and Market Volatility": [
+    {
+      "criteria": "Reliability of Supply",
+      "question": "Does the documentation show how the project secures enough feedstock to meet its planned biochar production and carbon credit commitments (e.g., annual volume estimates, supplier arrangements)?",
+      "instruction": "Review the “Feedstock Procurement” or “Supply Chain Management” sections for explicit data on volumes, timeframes, and supplier details (e.g., X tons per year, Y-year contracts). Confirm these numbers align with the project’s stated biochar or carbon credit outputs. If the project references ownership of feedstock sources, verify that the land area or resource capacity is sufficient for the planned duration."
+    },
+    {
+      "criteria": "Proof of Ownership or Formal Agreements",
+      "question": "Does the documentation provide formal proof (e.g., ownership deeds, purchase contracts) guaranteeing long-term access to the feedstock over the project’s lifetime?",
+      "instruction": "Look in the same or related sections for legal documents, contract summaries, or partnership agreements that specify the actual volumes secured (for example, a 5-year contract providing 10,000 tons/year). Confirm the dates and scope of these agreements match the project’s operational timeline and production goals. Vague references to “arrangements” without supporting details may indicate supply uncertainty."
+    },
+    {
+      "criteria": "Contingency Plans for Price Fluctuations",
+      "question": "Does the project describe strategies to handle market volatility (e.g., price changes, supply disruptions) that could threaten feedstock availability?",
+      "instruction": "Check any “Risk Management” or “Contingency Planning” sections to see if they address potential feedstock price spikes or shortages. Look for references to backup suppliers, stockpiling strategies, or financial buffers designed to stabilize procurement costs. A robust contingency plan will often cite specific triggers (for example, if feedstock cost rises above a certain threshold) and corresponding mitigation steps (like switching to secondary sources or using stored materials)."
+    }
+  ],
+  "Avoiding Market Distortion": [
+    {
+      "criteria": "Existing Market Distortion",
+      "question": "Does the documentation provide evidence that the project’s feedstock demand does not distort local or regional markets for agriculture or forestry products?",
+      "instruction": "Look for a “Market Analysis” or “Economic Impact” section describing the local supply-demand balance for this biomass. Check if the project references official statistics, stakeholder surveys, or price trend data showing the feedstock is genuinely surplus or waste. If the feedstock is widely used by other industries, the documentation should explain how those users are not undercut or outcompeted by the project’s demand."
+    },
+    {
+      "criteria": "Competition with Higher-Value Uses",
+      "question": "Does the documentation confirm that the biomass used for biochar does not displace higher-value or more climate-beneficial uses (e.g., timber for construction)?",
+      "instruction": "See if the project includes a comparative assessment, such as stating the biomass is offcuts or scrap unsuitable for long-lived products. Look for data or references to local industry standards demonstrating the feedstock is genuinely low-grade or waste rather than prime material. If there is no discussion of alternative long-lived uses, consider whether the project might be removing biomass from a more sustainable market."
+    }
+  ],
+  "Feedstock Properties for Optimal Carbon Retention": [
+    {
+      "criteria": "Moisture Content, Composition, and Suitability",
+      "question": "Does the documentation provide quantitative data on moisture content and feedstock composition (e.g., lignin/cellulose levels) and explain how these properties influence carbon retention during pyrolysis or thermochemical conversion?",
+      "instruction": "Look for a “Feedstock Analysis” or “Technical Specifications” section. The project should detail how it measures and manages feedstock properties—such as pre-drying to optimal moisture levels or selecting high-lignin residues—to maximize biochar yield and carbon stability. If the project only references generic feedstock descriptions (e.g., “wood chips” or “agricultural residues”) without specifying critical parameters, that may indicate incomplete analysis or potential variability in biochar quality."
+    }
+  ],
+  "Transport and Processing Emissions": [
+    {
+      "criteria": "Inclusion of Transportation in LCA",
+      "question": "Does the LCA or carbon accounting clearly address emissions from feedstock transport (distances, modes, related GHG outputs)?",
+      "instruction": "Check the project’s LCA or carbon footprint calculations for transportation factors (e.g., route mapping, truck vs. rail vs. ship, emission coefficients). The documentation should outline how these emissions are calculated, tracked, or offset, ensuring the total carbon balance isn’t overstated. If transport details are missing, the project may be underestimating its real climate impact."
+    },
+    {
+      "criteria": "Local Sourcing and Minimizing Distances",
+      "question": "Does the project mention local sourcing or strategies to reduce long-distance transport to lower the overall carbon footprint?",
+      "instruction": "Look for policy statements on sourcing feedstock from nearby suppliers, or efforts to relocate production closer to the feedstock source. The project may reference cost-benefit analyses or comparisons of emissions under different sourcing scenarios. If it relies on distant sources without justification, consider whether transport-related GHGs could negate climate benefits."
+    }
+  ],
+  "Energy Use in Pre-processing": [
+    {
+      "criteria": "Assessing and Minimizing Pre-processing Energy",
+      "question": "Does the documentation evaluate energy requirements for drying, size reduction, or other steps, and describe methods to reduce this energy consumption?",
+      "instruction": "Check if the project cites specific energy inputs (e.g., kWh per ton of feedstock) and whether it uses waste heat, renewable energy, or efficient machinery to lower overall GHG emissions. The LCA or technical annex should show that the energy footprint of pre-processing does not erode the net climate benefit. If the project simply states “we dry and grind feedstock” without quantifying energy use or explaining how these processes are optimized, additional scrutiny may be needed."
+    }
+  ]
+}

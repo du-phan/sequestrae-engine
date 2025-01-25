@@ -39,6 +39,25 @@ def main():
         )
     )
 
+    # Evaluate feedstock sustainability command
+    evaluate_feedstock_parser = subparsers.add_parser(
+        "evaluate-feedstock", help="Evaluate feedstock sustainability from markdown report files"
+    )
+    evaluate_feedstock_parser.add_argument(
+        "--mistral-api-key", help="Mistral API key", required=True
+    )
+    evaluate_feedstock_parser.add_argument(
+        "--project-dir", help="Project data directory", required=True
+    )
+    evaluate_feedstock_parser.add_argument(
+        "--limit", help="Maximum number of files to process", type=int
+    )
+    evaluate_feedstock_parser.set_defaults(
+        func=lambda args: commands.evaluate_feedstock_sustainability_command(
+            args.mistral_api_key, args.project_dir, args.limit
+        )
+    )
+
     args = parser.parse_args()
     if hasattr(args, "func"):
         exit_status = args.func(args)
