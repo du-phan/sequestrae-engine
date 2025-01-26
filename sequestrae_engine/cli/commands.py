@@ -2,6 +2,8 @@ import os
 import time
 from pathlib import Path
 
+from sequestrae_engine.db.client import SupabaseClient
+from sequestrae_engine.db.scripts.populate_audit_reports import populate_feedstock_evaluation_table
 from sequestrae_engine.document_parsing.extractors import AuditReportExtractor
 from sequestrae_engine.document_parsing.parser import PDFToMarkdownParser
 
@@ -96,3 +98,18 @@ def evaluate_feedstock_sustainability_command(api_key, project_dir, limit=100):
 
     print(f"Successfully processed {markdown_count} markdown files")
     return 0
+
+
+def populate_feedstock_evaluation_command(supabase_url, supabase_api_key, project_dir):
+    if not supabase_url or not supabase_api_key:
+        print("Error: Supabase URL and api key are required")
+        return 1
+
+    try:
+        supabase_client = SupabaseClient.get_client(supabase_url, supabase_api_key)
+        populate_feedstock_evaluation_table(project_dir, supabase_client)
+        print("Successfully populated feedstock evaluation table")
+        return 0
+    except Exception as e:
+        print(f"Error populating feedstock evaluation table: {str(e)}")
+        return 1

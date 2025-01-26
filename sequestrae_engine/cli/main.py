@@ -58,6 +58,21 @@ def main():
         )
     )
 
+    # Populate feedstock evaluation table command
+    populate_feedstock_parser = subparsers.add_parser(
+        "populate-feedstock-table", help="Populate Supabase with feedstock evaluation data"
+    )
+    populate_feedstock_parser.add_argument("--supabase-url", help="Supabase URL", required=True)
+    populate_feedstock_parser.add_argument("--supabase-api-key", help="Supabase key", required=True)
+    populate_feedstock_parser.add_argument(
+        "--project-dir", help="Project data directory", required=True
+    )
+    populate_feedstock_parser.set_defaults(
+        func=lambda args: commands.populate_feedstock_evaluation_command(
+            args.supabase_url, args.supabase_api_key, args.project_dir
+        )
+    )
+
     args = parser.parse_args()
     if hasattr(args, "func"):
         exit_status = args.func(args)
