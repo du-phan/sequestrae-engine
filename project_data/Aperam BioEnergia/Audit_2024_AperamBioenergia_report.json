@@ -1,0 +1,45 @@
+{
+  "framework": "Puro",
+  "project_name": "Aperam Bioenergia",
+  "country": "Brazil",
+  "reporting_period": [
+    [
+      "2023-05-01",
+      "2024-02-29"
+    ]
+  ],
+  "tons_dry_biochar_under_audit": 36304,
+  "tons_dry_biochar_eligible": 35879,
+  "tons_dry_biochar_produced": null,
+  "tons_dry_biochar_sold": null,
+  "num_credit_under_audit": 52885,
+  "num_eligible_credits": 59357,
+  "feedstock": [
+    "eucalyptus plantations",
+    "forestry residues"
+  ],
+  "tons_feedstock_per_ton_biochar": null,
+  "harvested_feedstock_sustainability_proof": "FSC-certified",
+  "reactor_type": null,
+  "reactor_ignition_fuel": "biomass",
+  "pyrolysis_by_product": null,
+  "h_c_ratio": 0.565,
+  "carbon_content_ratio": null,
+  "min_biochar_moisture_content": null,
+  "avg_biochar_moisture_content": null,
+  "calibrated_weighting_system": true,
+  "biochar_usage": [
+    "soil amendment"
+  ],
+  "biochar_donation": false,
+  "feedstock_transport_distance_km": null,
+  "usage_transport_distance_km": null,
+  "lca_report_cadence": null,
+  "gross_e_stored_kg_per_ton_biochar": null,
+  "e_biomass_kg_per_ton_biochar": null,
+  "e_production_kg_per_ton_biochar": null,
+  "e_use_kg_per_ton_biochar": null,
+  "feedstock_emission_kg_per_ton_biochar": null,
+  "electricity_emission_kg_per_ton_biochar": null,
+  "net_e_stored_kg_per_ton_biochar": null
+}

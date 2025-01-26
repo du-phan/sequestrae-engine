@@ -1,0 +1,49 @@
+{
+  "framework": "Puro",
+  "project_name": "OBIO AS, b.i. PE-71033",
+  "country": "Norway",
+  "reporting_period": [
+    [
+      "2023-01-01"
+    ],
+    [
+      "2024-03-31"
+    ]
+  ],
+  "tons_dry_biochar_under_audit": 286.5,
+  "tons_dry_biochar_eligible": 277,
+  "tons_dry_biochar_produced": 286,
+  "tons_dry_biochar_sold": 332,
+  "num_credit_under_audit": null,
+  "num_eligible_credits": 1013.9,
+  "feedstock": [
+    "wood chips"
+  ],
+  "tons_feedstock_per_ton_biochar": 4.52,
+  "harvested_feedstock_sustainability_proof": "PEFC certified spruce forests",
+  "reactor_type": null,
+  "reactor_ignition_fuel": "campfire",
+  "pyrolysis_by_product": [
+    "syngas"
+  ],
+  "h_c_ratio": 0.29,
+  "carbon_content_ratio": 90.9,
+  "min_biochar_moisture_content": null,
+  "avg_biochar_moisture_content": 0.146,
+  "calibrated_weighting_system": true,
+  "biochar_usage": [
+    "soil amendment",
+    "animal feed"
+  ],
+  "biochar_donation": null,
+  "feedstock_transport_distance_km": 2,
+  "usage_transport_distance_km": 568,
+  "lca_report_cadence": null,
+  "gross_e_stored_kg_per_ton_biochar": 3309,
+  "e_biomass_kg_per_ton_biochar": 133,
+  "e_production_kg_per_ton_biochar": 23,
+  "e_use_kg_per_ton_biochar": 4,
+  "feedstock_emission_kg_per_ton_biochar": null,
+  "electricity_emission_kg_per_ton_biochar": 10,
+  "net_e_stored_kg_per_ton_biochar": 3149
+}

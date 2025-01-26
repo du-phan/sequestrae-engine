@@ -1,8 +1,8 @@
-# DNV PURO.EARTH FACILITY AND OUTPUT AUDIT REPORT
+# PURO.EARTH FACILITY AND OUTPUT AUDIT REPORT
 
-# Carbofex Oy
+Carbofex Oy
 
-# Puro Standard General Rules Edition 2022 (Version v2)
+Puro Standard General Rules Edition 2022 (Version v2)
 
 Audit Start - End date: 21.3.2023 – 21.3.2023
 
@@ -14,29 +14,39 @@ CO2 sink Sector (Puro Scheme): Biochar
 
 # PURO.EARTH Facility and output report v 2.0
 
-# Carbofex Biochar 21.3.2023
+Carbofex Biochar 21.3.2023
 ---
 # Table of contents
 
-- INTRODUCTION ........................................................................................................................3
-- - DNV .........................................................................................................................................3
+# INTRODUCTION
 
-PRODUCTION FACILITY STANDING DATA (PURO GENERAL RULES).............................4
-- - GENERAL INFORMATION .............................................................................................................4
-- BASE FOR CALCULATIONS IN OUTPUT REPORT.............................................................................4
-- SHORT DESCRIPTION OF FACILITY AND ANY EXCLUSIONS FROM VERIFICATION SCOPE OBSERVED....4
-- STATEMENT OF CONFIDENTIALITY ...............................................................................................5
-- DISCLAIMER ..............................................................................................................................5
+DNV
 
-AUDIT RESULTS .......................................................................................................................6
-- - DETAILED OUTPUT REMOVAL VERIFIED ........................................................................................6
-- POSITIVE INDICATIONS ...............................................................................................................6
-- RECOMMENDATIONS FOR IMPROVEMENT .....................................................................................6
+# PRODUCTION FACILITY STANDING DATA (PURO GENERAL RULES)
 
-AUDIT FINDINGS .......................................................................................................................7
-- - DETAILED FINDINGS REQUIRING CORRECTIVE ACTIONS................................................................7
+# GENERAL INFORMATION
 
-CONCLUSION ............................................................................................................................7
+# BASE FOR CALCULATIONS IN OUTPUT REPORT
+
+# SHORT DESCRIPTION OF FACILITY AND ANY EXCLUSIONS FROM VERIFICATION SCOPE OBSERVED
+
+# STATEMENT OF CONFIDENTIALITY
+
+# DISCLAIMER
+
+# AUDIT RESULTS
+
+# DETAILED OUTPUT REMOVAL VERIFIED
+
+# POSITIVE INDICATIONS
+
+# RECOMMENDATIONS FOR IMPROVEMENT
+
+# AUDIT FINDINGS
+
+# DETAILED FINDINGS REQUIRING CORRECTIVE ACTIONS:
+
+# CONCLUSION
 
 # Attachments:
 
@@ -63,37 +73,36 @@ PURO.EARTH Facility and output report v 2.0
 Carbofex Biochar 21.3.2023
 ---
 # Production facility standing data
+(PURO General rules Biochar methodology)
 
-# (PURO General rules Biochar methodology)
+## General information
 
-# General information
+| | |
+|---|---|
+| Facility unique identity | VAT register number 2776845-8 |
+| CO2 Removal Supplier registering the Production Facility | GSRN number 643002406801000763 |
+| Name | Carbofex Oy |
+| Location | Kaarnakatu 1, Nokia, Finland |
+| Date on which the Production Facility became eligible to receive CORCs | 13.3.2023 |
+| Volume of Output during the full calendar year prior to registration | Shipped eligible production volume 949 t during 1.9.2022-28.2.2023 |
+| Removal Method(s) for which the plant is eligible to receive CORCs | Biochar |
+| Production Facility has benefited from public support | No |
+| Removal Method specific information as may be specified in the relevant Removal Method specific Methodology | Biochar, Pyrolysis process. |
 
-|Facility unique identity|VAT register number|2776845-8|
-|---|---|---|
-|CO2 Removal Supplier registering the Production Facility|GSRN number|643002406801000763|
-|Name|Carbofex Oy| |
-|Location|Kaarnakatu 1, Nokia, Finland| |
-|Date on which the Production Facility became eligible to receive CORCs|13.3.2023| |
-|Volume of Output during the full calendar year prior to registration|Shipped eligible production volume|949 t during 1.9.2022-28.2.2023|
-|Removal Method(s) for which the plant is eligible to receive CORCs|Biochar| |
-|Production Facility has benefited from public support|No| |
-|Removal Method specific information as may be specified in the relevant Removal Method specific Methodology|Biochar, Pyrolysis process.| |
+## Base for calculations in Output report
 
-# Base for calculations in Output report
-
-|Calculation parameters|Source|Verification|Value (t)|
+| 4.6 Calculation parameters | | | t |
 |---|---|---|---|
-|Estored|Ecobio Life Cycle Assessment|Verified using the CORC calculation according to ISO 14040 and Puro.Earth Biochar Methodology 20.3.2023.|3,427|
-|Ebiomass|Ecobio Life Cycle Assessment|Verified using the CORC calculation according to ISO 14040 and Puro.Earth Biochar Methodology 20.3.2023.|0,086|
-|Eproduction|Ecobio Life Cycle Assessment|Verified using the CORC calculation according to ISO 14040 and Puro.Earth Biochar Methodology 20.3.2023.|0,093|
-|Euse|Ecobio Life Cycle Assessment|Verified using the CORC calculation according to ISO 14040 and Puro.Earth Biochar Methodology 20.3.2023.|0,061733|
+| Estored | Ecobio Life Cycle Assessment according to ISO 14040 and Puro.Earth Biochar Methodology 20.3.2023. | Verified using the CORC calculation. | 3,427 |
+| Ebiomass | Ecobio Life Cycle Assessment according to ISO 14040 and Puro.Earth Biochar Methodology 20.3.2023. | Verified using the CORC calculation. | 0,086 |
+| Eproduction | Ecobio Life Cycle Assessment according to ISO 14040 and Puro.Earth Biochar Methodology 20.3.2023. | Verified using the CORC calculation. | 0,093 |
+| Euse | Ecobio Life Cycle Assessment according to ISO 14040 and Puro.Earth Biochar Methodology 20.3.2023. | Verified using the CORC calculation. | 0,061733 |
 
-# Short description of facility and any exclusions from verification scope observed
+## Short description of facility and any exclusions from verification scope observed
 
 Running pyrolysis process with process control.
 
 PURO.EARTH Facility and output report v 2.0
-
 Carbofex Biochar 21.3.2023
 ---
 # Statement of confidentiality
@@ -110,31 +119,29 @@ Carbofex Biochar 21.3.2023
 ---
 # Audit results
 
-# SUMMARY AND OUTPUT CALCULATION
+## Detailed output removal verified
 
-Formula: CORCs = Estored - Ebiomass - Eproduction - Euse
+### SUMMARY AND OUTPUT CALCULATION
 
-Period: 1.9.2022 - 28.2.2023
+| Formula: CORCs= Estored-Ebiomass-Eproduction-Euse | 1.9.2022-28.2.2023 |                              |
+|--------------------------------------------------|---------------------|------------------------------|
+| Estored                                          | 3,427               | mt CO2 eq / mt biochar (dry) |
+| Ebiomass                                         | 0,086               | mt CO2 eq / mt biochar (dry) |
+| Eproduction                                      | 0,093               | mt CO2 eq / mt biochar (dry) |
+| Euse                                             | 0,061733            | mt CO2 eq / mt biochar (dry) |
+| CORC FACTOR (net carbon sequestration over 100 years) | 3,184          | mt CO2 eq / mt biochar (dry) |
+| Total number of CORCs                            | 421,53              | CORCs                        |
 
-|Estored|3,427 mt CO2 eq / mt biochar (dry)|
-|---|---|
-|Ebiomass|0,086 mt CO2 eq / mt biochar (dry)|
-|Eproduction|0,093 mt CO2 eq / mt biochar (dry)|
-|Euse|0,061733 mt CO2 eq / mt biochar (dry)|
-|CORC FACTOR (net carbon sequestration over 100 years)|3,184 mt CO2 eq / mt biochar (dry)|
-|Total number of CORCs|421,53 CORCs|
-
-# Positive indications
+## Positive indications
 
 - Data collection and CORC calculations are systematic.
 - File management is systematic.
 
-# Recommendations for improvement
+## Recommendations for improvement
 
 - NA.
 
 PURO.EARTH Facility and output report v 2.0
-
 Carbofex Biochar 21.3.2023
 ---
 # Audit findings

@@ -1,0 +1,42 @@
+{
+  "framework": "Puro",
+  "project_name": "Carbon Hill Limited",
+  "country": "United Kingdom",
+  "reporting_period": [
+    [
+      "2022-09-01",
+      "2023-08-31"
+    ]
+  ],
+  "tons_dry_biochar_under_audit": null,
+  "tons_dry_biochar_eligible": null,
+  "tons_dry_biochar_produced": 201,
+  "tons_dry_biochar_sold": null,
+  "num_credit_under_audit": 484,
+  "num_eligible_credits": 484,
+  "feedstock": null,
+  "tons_feedstock_per_ton_biochar": null,
+  "harvested_feedstock_sustainability_proof": null,
+  "reactor_type": null,
+  "reactor_ignition_fuel": "firewood",
+  "pyrolysis_by_product": null,
+  "h_c_ratio": 0.11,
+  "carbon_content_ratio": 77,
+  "min_biochar_moisture_content": null,
+  "avg_biochar_moisture_content": null,
+  "calibrated_weighting_system": true,
+  "biochar_usage": [
+    "soil_improvement"
+  ],
+  "biochar_donation": null,
+  "feedstock_transport_distance_km": null,
+  "usage_transport_distance_km": null,
+  "lca_report_cadence": null,
+  "gross_e_stored_kg_per_ton_biochar": null,
+  "e_biomass_kg_per_ton_biochar": null,
+  "e_production_kg_per_ton_biochar": 45,
+  "e_use_kg_per_ton_biochar": 20,
+  "feedstock_emission_kg_per_ton_biochar": null,
+  "electricity_emission_kg_per_ton_biochar": null,
+  "net_e_stored_kg_per_ton_biochar": null
+}

@@ -1,0 +1,52 @@
+{
+  "framework": "Puro",
+  "project_name": "Ecoera AB",
+  "country": "Sweden",
+  "reporting_period": [
+    [
+      9,
+      8,
+      2022
+    ],
+    [
+      1,
+      8,
+      2023
+    ]
+  ],
+  "tons_dry_biochar_under_audit": 200.78,
+  "tons_dry_biochar_eligible": 200.78,
+  "tons_dry_biochar_produced": null,
+  "tons_dry_biochar_sold": 200.78,
+  "num_credit_under_audit": null,
+  "num_eligible_credits": 436.16,
+  "feedstock": [
+    "agricultural_residues"
+  ],
+  "tons_feedstock_per_ton_biochar": 4.39,
+  "harvested_feedstock_sustainability_proof": null,
+  "reactor_type": null,
+  "reactor_ignition_fuel": "propane",
+  "pyrolysis_by_product": [
+    "syngas"
+  ],
+  "h_c_ratio": 0.32,
+  "carbon_content_ratio": 74.3,
+  "min_biochar_moisture_content": 0.3,
+  "avg_biochar_moisture_content": null,
+  "calibrated_weighting_system": true,
+  "biochar_usage": [
+    "soil_amendment"
+  ],
+  "biochar_donation": false,
+  "feedstock_transport_distance_km": 7.2,
+  "usage_transport_distance_km": 568,
+  "lca_report_cadence": null,
+  "gross_e_stored_kg_per_ton_biochar": 2722,
+  "e_biomass_kg_per_ton_biochar": null,
+  "e_production_kg_per_ton_biochar": null,
+  "e_use_kg_per_ton_biochar": null,
+  "feedstock_emission_kg_per_ton_biochar": null,
+  "electricity_emission_kg_per_ton_biochar": null,
+  "net_e_stored_kg_per_ton_biochar": 2172
+}

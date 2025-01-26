@@ -1,0 +1,55 @@
+{
+  "framework": "Puro",
+  "project_name": "Four Bordet Groupe Bordet",
+  "country": "France",
+  "reporting_period": [
+    [
+      11,
+      1,
+      2021
+    ],
+    [
+      30,
+      4,
+      2023
+    ]
+  ],
+  "tons_dry_biochar_under_audit": 4082,
+  "tons_dry_biochar_eligible": 672,
+  "tons_dry_biochar_produced": 4082,
+  "tons_dry_biochar_sold": 672,
+  "num_credit_under_audit": null,
+  "num_eligible_credits": 1710.67,
+  "feedstock": [
+    "wooden_edgings",
+    "short_wood_chutes"
+  ],
+  "tons_feedstock_per_ton_biochar": 4,
+  "harvested_feedstock_sustainability_proof": null,
+  "reactor_type": null,
+  "reactor_ignition_fuel": "gas",
+  "pyrolysis_by_product": [
+    "syngas",
+    "tar"
+  ],
+  "h_c_ratio": 0.24,
+  "carbon_content_ratio": 89.7,
+  "min_biochar_moisture_content": 0.3,
+  "avg_biochar_moisture_content": 0.3,
+  "calibrated_weighting_system": true,
+  "biochar_usage": [
+    "soil_amendment",
+    "animal_nutrition"
+  ],
+  "biochar_donation": false,
+  "feedstock_transport_distance_km": null,
+  "usage_transport_distance_km": null,
+  "lca_report_cadence": "cradle-to-consumer",
+  "gross_e_stored_kg_per_ton_biochar": 2942,
+  "e_biomass_kg_per_ton_biochar": 175.7,
+  "e_production_kg_per_ton_biochar": 72,
+  "e_use_kg_per_ton_biochar": 34.2,
+  "feedstock_emission_kg_per_ton_biochar": null,
+  "electricity_emission_kg_per_ton_biochar": null,
+  "net_e_stored_kg_per_ton_biochar": null
+}

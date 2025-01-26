@@ -1,0 +1,426 @@
+[
+  {
+    "analysis": [
+      {
+        "topic": "Biogenic Requirements",
+        "criteria": "Feedstock type description",
+        "question": "Does the documentation clearly describe the feedstock type (e.g., wood residues, agricultural by-products), and does it explicitly confirm that it is derived from living or recently living organisms?",
+        "conclusion": "Meets",
+        "evidenceFound": "The feedstock is described as waste pistachio shells, which are biomass and derived from living organisms. The shells are sourced locally from Wonderful Corp.",
+        "missingOrContradictoryData": ""
+      },
+      {
+        "topic": "Biogenic Requirements",
+        "criteria": "Proof of Biogenic Source",
+        "question": "How does the documentation demonstrate or confirm that the biomass is genuinely biogenic (e.g., references to origin, supply chain descriptions, certification)?",
+        "conclusion": "Meets",
+        "evidenceFound": "The documentation mentions that the pistachio shells are collected from local farms and processors, and shipping documents from Wonderful Corp. are provided as evidence. The supply chain is described, and the biomass is confirmed to be waste that would typically be disposed of in landfills.",
+        "missingOrContradictoryData": ""
+      }
+    ]
+  },
+  {
+    "analysis": [
+      {
+        "topic": "Waste or By-product Status",
+        "criteria": "Clarification of Feedstock as Waste or By-product",
+        "question": "Does the documentation identify the feedstock specifically as a waste product (e.g., sawdust, crop residues) or a by-product of another process, indicating it would otherwise be discarded or landfilled?",
+        "conclusion": "Meets",
+        "evidenceFound": "The audit report specifies that V-Grid Energy utilizes waste pistachio shells for its biochar production. These shells are sourced from a local supplier and would otherwise be disposed of in local landfills. Shipping documents from the supplier, Wonderful Corp., are provided as evidence.",
+        "missingOrContradictoryData": ""
+      },
+      {
+        "topic": "Waste or By-product Status",
+        "criteria": "Analysis of Competing Use",
+        "question": "Does the project acknowledge possible alternative uses for this biomass (e.g., construction materials, animal bedding, compost) and explain why producing biochar is preferable or permissible?",
+        "conclusion": "Partially Meets",
+        "evidenceFound": "The report mentions that biochar is sold primarily for soil amendment and has been utilized for wetland restoration projects and consumer products like cat litter deodorizer. However, there is no explicit discussion on competing uses or justification for choosing biochar production over other potential uses.",
+        "missingOrContradictoryData": "The audit does not provide a clear justification for why producing biochar is preferable or permissible over other alternative uses for the biomass."
+      }
+    ]
+  },
+  {
+    "analysis": [
+      {
+        "topic": "By-Product Status (50% Threshold)",
+        "criteria": "Allocation of harvested biomass",
+        "question": "Does the documentation include a clear breakdown showing that no more than 50% of the total harvested biomass is used for energy or carbon removal (biochar)?",
+        "conclusion": "Inconclusive",
+        "evidenceFound": "The documentation mentions the production of biochar, electricity, bio-oil, and wood vinegar from waste pistachio shells. However, there is no explicit breakdown of the percentage of biomass allocated to each use.",
+        "missingOrContradictoryData": "The audit report does not provide a clear allocation of the biomass used for biochar production versus other uses. Specific percentages or a detailed breakdown are missing."
+      },
+      {
+        "topic": "By-Product Status (50% Threshold)",
+        "criteria": "Transparency in usage",
+        "question": "Is the documentation transparent about the proportions allocated to various uses, and does it explicitly show compliance with the <50% criterion?",
+        "conclusion": "Inconclusive",
+        "evidenceFound": "The audit report states that biochar is used for soil amendment and other applications, but it does not explicitly state the proportion of biomass used for biochar versus other products like electricity, bio-oil, and wood vinegar.",
+        "missingOrContradictoryData": "There is no clear statement or table showing the exact percentages of biomass allocated to each end use, making it difficult to confirm compliance with the <50% criterion."
+      }
+    ]
+  },
+  {
+    "analysis": [
+      {
+        "topic": "Counterfactual Assessment",
+        "criteria": "Description of alternative scenarios",
+        "question": "Does the documentation explain what would happen to the biomass if it were not used by the biochar project (e.g., landfill, open burning, decomposition, other industrial processes)?",
+        "conclusion": "Meets",
+        "evidenceFound": "The audit report mentions that the pistachio shells used as feedstock would typically be disposed of in local landfills if not used by V-Grid Energy Systems. This is supported by the statement in the audit findings that 'V-Grid obtains waste pistachio shells for all operations locally. All pistachio shells would typically be disposed of in local landfills.'",
+        "missingOrContradictoryData": ""
+      }
+    ]
+  },
+  {
+    "analysis": [
+      {
+        "topic": "Certification",
+        "criteria": "Presence and Type of Certification",
+        "question": "Does the documentation explicitly mention recognized certifications\u2014such as FSC, RSB, or SBP\u2014that cover responsible forest/biomass management?",
+        "conclusion": "Does Not Meet",
+        "evidenceFound": "The audit report does not mention any recognized certifications such as FSC, RSB, or SBP that cover responsible forest/biomass management.",
+        "missingOrContradictoryData": "No information provided on certifications, certificate IDs, dates, or links to the certifier\u2019s database."
+      },
+      {
+        "topic": "Certification",
+        "criteria": "Certification Scope and Chain-of-Custody",
+        "question": "Does the documentation describe how the certification covers social safeguards, ecological considerations, and chain-of-custody (i.e., tracking the biomass from harvest to end use)?",
+        "conclusion": "Does Not Meet",
+        "evidenceFound": "There is no mention of certification scope, social safeguards, ecological considerations, or chain-of-custody tracking procedures.",
+        "missingOrContradictoryData": "No details on how the certification covers the supply chain or tracks the biomass from harvest to end use."
+      },
+      {
+        "topic": "Certification",
+        "criteria": "Mix of Certified and Non-Certified Feedstock",
+        "question": "If only a portion of the feedstock is certified, does the documentation show what percentage is certified vs. non-certified, and how the project mitigates risks for the non-certified portion?",
+        "conclusion": "Does Not Meet",
+        "evidenceFound": "The audit report does not provide any information on the certification status of the feedstock or the mix of certified and non-certified feedstock.",
+        "missingOrContradictoryData": "No data on the percentage of certified vs. non-certified feedstock or risk mitigation strategies for non-certified portions."
+      }
+    ]
+  },
+  {
+    "analysis": [
+      {
+        "topic": "Risk-Based Assessment",
+        "criteria": "Existence of a Third-Party Risk-Based Assessment",
+        "question": "If no formal certification is cited (or if part of the feedstock is non-certified), does the project have a third-party risk-based review confirming sustainable sourcing?",
+        "conclusion": "Meets",
+        "evidenceFound": "The audit was conducted by 350Solutions, an independent third-party accredited to ISO/IEC 17020:2012 and ISO 14034 Environmental Technology Verification (ETV) as a Type A (third party) Inspection Body (ANAB Certificate Number: AI-2618). The audit included a review of raw material sources and sustainability, as well as field visits and supplier interviews.",
+        "missingOrContradictoryData": ""
+      },
+      {
+        "topic": "Risk-Based Assessment",
+        "criteria": "Thoroughness of the Risk-Based Assessment",
+        "question": "Does the assessment detail environmental (e.g., deforestation, habitat loss) and social (e.g., labor conditions, community impacts) risks and outline mitigation measures (e.g., supplier vetting, ongoing monitoring)?",
+        "conclusion": "Partially Meets",
+        "evidenceFound": "The audit report discusses the use of waste pistachio shells that would otherwise be disposed of in landfills, indicating a focus on waste reduction. However, there is no detailed risk matrix or specific discussion of identified risks and mitigation measures for environmental and social impacts.",
+        "missingOrContradictoryData": "Detailed risk matrix or specific discussion of identified risks and mitigation measures for environmental and social impacts."
+      }
+    ]
+  },
+  {
+    "analysis": [
+      {
+        "topic": "Strong governance",
+        "criteria": "Regional Oversight and Enforcement",
+        "question": "Does the documentation specify the jurisdiction(s) from which feedstock is sourced, and describe local forestry laws or enforcement measures?",
+        "conclusion": "Partially Meets",
+        "evidenceFound": "The documentation mentions that V-Grid operates under air permits issued by Ventura County Air Pollution Control District and has a temporary operating air permit for its Camarillo facility. Final permits are pending. However, there is no explicit reference to local forestry laws or enforcement measures related to feedstock sourcing.",
+        "missingOrContradictoryData": "The documentation lacks specific details on local forestry laws or enforcement measures related to feedstock sourcing."
+      },
+      {
+        "topic": "Strong governance",
+        "criteria": "Established Management Standards",
+        "question": "Does the project cite national or regional forest certification standards (beyond voluntary schemes like FSC) or government-led sustainability initiatives?",
+        "conclusion": "Does Not Meet",
+        "evidenceFound": "The documentation does not mention any national or regional forest certification standards or government-led sustainability initiatives related to feedstock sourcing.",
+        "missingOrContradictoryData": "There is no evidence provided that the project aligns with any mandatory forest programs or official government sustainability guidelines."
+      }
+    ]
+  },
+  {
+    "analysis": [
+      {
+        "topic": "Corruption Perception Index (CPI)",
+        "criteria": "Transparency and Governance Indicators",
+        "question": "Does the documentation reference reputable indices (e.g., Transparency International\u2019s CPI) or other governance metrics for the source country?",
+        "conclusion": "Does Not Meet",
+        "evidenceFound": "The audit report does not mention any specific CPI scores, governance metrics, or references to Transparency International\u2019s CPI. There is no discussion on corruption risk or its impact on forest management.",
+        "missingOrContradictoryData": "The report lacks any reference to objective data like the CPI or discussion on governance challenges in the source country."
+      },
+      {
+        "topic": "Corruption Perception Index (CPI)",
+        "criteria": "Stricter Conditions for Low-CPI Areas",
+        "question": "If the CPI or other indicators suggest a high corruption risk, does the project apply stricter sourcing conditions (e.g., mandatory FSC or equivalent certification), or possibly exclude feedstock from certain areas?",
+        "conclusion": "Inconclusive",
+        "evidenceFound": "The audit report does not provide any information on CPI scores or governance metrics, so it is unclear if stricter conditions are applied. The report mentions that waste pistachio shells are sourced locally and would typically be disposed of in landfills, but there is no mention of stricter sourcing conditions or certifications.",
+        "missingOrContradictoryData": "The report does not address whether stricter conditions are applied in regions with high corruption risk. No mention of FSC certification or other safeguards."
+      }
+    ]
+  },
+  {
+    "analysis": [
+      {
+        "topic": "Exclusion of Sensitive Areas",
+        "criteria": "Primary and Old-Growth Forests",
+        "question": "Does the documentation unequivocally confirm that no feedstock is sourced from primary or old-growth forests?",
+        "conclusion": "Does Not Meet",
+        "evidenceFound": "The audit report mentions that the feedstock is locally sourced waste pistachio shells, which are typically disposed of in landfills. However, there is no explicit confirmation that the feedstock is not sourced from primary or old-growth forests, nor are there references to official definitions of these forest types or maps/satellite imagery verifying the exclusion of such areas.",
+        "missingOrContradictoryData": "The documentation does not provide clear references to official definitions of primary or old-growth forests (e.g., FAO or UNESCO criteria) or maps, supplier lists, or satellite imagery that identify the exact sourcing locations and confirm the exclusion of these forests."
+      },
+      {
+        "topic": "Exclusion of Sensitive Areas",
+        "criteria": "Protected and HCV Areas",
+        "question": "Does the documentation confirm that feedstock is not sourced from protected or high conservation value (HCV) forests unless selective harvest is explicitly recognized by authorities and proven to be low-impact?",
+        "conclusion": "Does Not Meet",
+        "evidenceFound": "The audit report does not mention any local laws, forest management plans, or permits that allow limited or selective harvesting in designated areas. There is no evidence of official permits, HCV assessments, or third-party audits confirming no negative impact on biodiversity, ecosystem services, or conservation values.",
+        "missingOrContradictoryData": "The documentation lacks references to local laws or forest management plans that allow selective harvesting, and there is no evidence of official permits, HCV assessments, or third-party audits confirming low-impact harvesting."
+      }
+    ]
+  },
+  {
+    "analysis": [
+      {
+        "topic": "Ecological function",
+        "criteria": "Maintaining Biodiversity and Ecosystem Services",
+        "question": "How does the project show that its forest management practices preserve or improve biodiversity, nutrient cycling, soil health, and hydrologic function?",
+        "conclusion": "Inconclusive",
+        "evidenceFound": "The audit report does not provide specific details on forest management practices, buffer zones, habitat corridors, low-impact logging, or reforestation. It mentions that V-Grid Energy Systems utilizes waste pistachio shells from local suppliers, which would typically be disposed of in landfills, and focuses on the production and use of biochar. However, there is no explicit mention of measures to preserve or improve biodiversity, nutrient cycling, soil health, or hydrologic function in the context of forest management.",
+        "missingOrContradictoryData": "The audit report lacks detailed information on specific forest management practices or conservation measures taken to preserve or improve biodiversity and ecosystem services."
+      }
+    ]
+  },
+  {
+    "analysis": [
+      {
+        "topic": "Carbon stocks",
+        "criteria": "Stability or Increase in Regional Carbon Stocks",
+        "question": "Does the documentation show that forest carbon stocks in the sourcing region are stable or increasing, ensuring the project is not contributing to deforestation or degradation?",
+        "conclusion": "Inconclusive",
+        "evidenceFound": "The audit report focuses on the biochar production process and does not provide direct information on the stability or increase of regional carbon stocks. The report mentions the use of waste pistachio shells as feedstock, which are sourced locally and would typically be disposed of in landfills.",
+        "missingOrContradictoryData": "The audit report does not include government data, remote sensing imagery, or third-party research supporting the claim that forest cover and carbon stocks are maintained or growing in the sourcing region. Additional data is needed to confirm the stability or increase in regional carbon stocks."
+      },
+      {
+        "topic": "Carbon stocks",
+        "criteria": "Justification for Any Noted Decrease",
+        "question": "If the project acknowledges a decline in carbon stocks, does it explain why (e.g., natural disturbance) and show how it mitigates or offsets the loss?",
+        "conclusion": "Inconclusive",
+        "evidenceFound": "The audit report does not acknowledge any decline in carbon stocks. The focus is on the biochar production process and the use of waste pistachio shells as feedstock.",
+        "missingOrContradictoryData": "The audit report does not provide information on any decline in carbon stocks or justification for such a decline. Therefore, it is inconclusive whether the project mitigates or offsets any loss in carbon stocks."
+      }
+    ]
+  },
+  {
+    "analysis": [
+      {
+        "topic": "Restrictions on New Plantations",
+        "criteria": "No Plantations Replacing Natural Forests",
+        "question": "Does the documentation confirm that no biomass is sourced from plantation forests established within the last 20 years if they replaced natural forests?",
+        "conclusion": "Inconclusive",
+        "evidenceFound": "The audit report does not provide explicit information about the land-use change records, geospatial analysis, or historical satellite imagery showing that the plantation site was not previously a natural forest. The report mentions that the biomass used is waste pistachio shells from local farm and processors, which would typically be disposed of in local landfills.",
+        "missingOrContradictoryData": "No explicit reference to official or third-party land registry documents, environmental impact assessments, or other verifiable sources indicating no deforestation occurred for the sake of planting."
+      },
+      {
+        "topic": "Restrictions on New Plantations",
+        "criteria": "Exception for Agricultural Lands",
+        "question": "If an exception exists, does the documentation show that the prior land use was agriculture for at least 10 continuous years, making natural regeneration unlikely?",
+        "conclusion": "Inconclusive",
+        "evidenceFound": "The audit report does not provide explicit information about the prior land use being agriculture for at least 10 continuous years. The report mentions that the biomass used is waste pistachio shells from local farm and processors, which would typically be disposed of in local landfills.",
+        "missingOrContradictoryData": "No explicit reference to official land-use histories, remote sensing data, agricultural permits, or rationale explaining why natural forest regrowth would have been highly improbable."
+      }
+    ]
+  },
+  {
+    "analysis": [
+      {
+        "topic": "Legal and Customary Rights",
+        "criteria": "Recognition of Land Rights and Customary Uses",
+        "question": "Does the project documentation confirm respect for Indigenous Peoples\u2019 and local communities\u2019 legal and customary land rights?",
+        "conclusion": "Inconclusive",
+        "evidenceFound": "The audit report does not explicitly mention formal references to treaties, community agreements, or legal titles regarding land rights. It only mentions the use of waste pistachio shells from a local supplier and the locations of the production facilities.",
+        "missingOrContradictoryData": "Specific land tenure documentation or recognized agreements are not mentioned, which is necessary to confirm respect for legal and customary land rights."
+      },
+      {
+        "topic": "Legal and Customary Rights",
+        "criteria": "Absence of Land Disputes and Compliance with FPIC",
+        "question": "Does the documentation explicitly confirm no unresolved land disputes and compliance with free, prior, and informed consent (FPIC) where Indigenous or local communities hold rights?",
+        "conclusion": "Inconclusive",
+        "evidenceFound": "The audit report does not provide details on conflict resolution processes, community liaisons, or any evidence such as meeting minutes, community endorsements, or independent audits to confirm the absence of land disputes and compliance with FPIC.",
+        "missingOrContradictoryData": "Information on how the project handles conflict resolution and evidence of FPIC processes is missing."
+      }
+    ]
+  },
+  {
+    "analysis": [
+      {
+        "topic": "Community health and welfare",
+        "criteria": "Health Impact Assessment",
+        "question": "Does the project address potential impacts on community health from wood processing or transport (e.g., dust, emissions, noise)?",
+        "conclusion": "Inconclusive",
+        "evidenceFound": "The audit report does not explicitly mention health impact assessments or mitigation strategies related to wood processing or transport. There is a brief mention of emissions and air permits, but no specific details on community health considerations.",
+        "missingOrContradictoryData": "Specific health impact assessments, measurable thresholds for air quality, and details on mitigation strategies are missing."
+      },
+      {
+        "topic": "Community health and welfare",
+        "criteria": "Consultation and Mitigation",
+        "question": "If there are identified health or welfare risks, does the project show evidence of consultation with local communities and co-developed mitigation strategies?",
+        "conclusion": "Inconclusive",
+        "evidenceFound": "The audit report does not provide information on community consultations or co-developed mitigation strategies. There is no mention of community meetings, focus groups, or stakeholder committees.",
+        "missingOrContradictoryData": "Details on community engagement, specific meeting outcomes, and follow-up actions are missing."
+      }
+    ]
+  },
+  {
+    "analysis": [
+      {
+        "topic": "Socioeconomic Benefits",
+        "criteria": "Support for Local Livelihoods",
+        "question": "Does the project demonstrate tangible benefits for local communities, such as employment, revenue-sharing, or skill development?",
+        "conclusion": "Inconclusive",
+        "evidenceFound": "The audit report does not provide specific details on employment, revenue-sharing, or skill development for local communities. It mentions that biochar is sold to agricultural users and golf courses, but there is no direct evidence of local livelihood support.",
+        "missingOrContradictoryData": "The report lacks quantitative data on new hires, local wage standards, or formal agreements ensuring a share of project revenue goes to community funds. More information is needed to determine compliance."
+      },
+      {
+        "topic": "Socioeconomic Benefits",
+        "criteria": "Fair Labor and Avoiding Exploitation",
+        "question": "Does the documentation show that fair labor practices are in place (e.g., fair wages, safe working conditions, no forced or child labor)?",
+        "conclusion": "Inconclusive",
+        "evidenceFound": "The audit report does not explicitly address labor policies, codes of conduct, or references to recognized labor standards. There is no mention of grievance mechanisms or whistleblower protections.",
+        "missingOrContradictoryData": "The report lacks details on pay scales, worker safety measures, and verification methods to ensure no exploitation of vulnerable groups. More information is needed to determine compliance."
+      }
+    ]
+  },
+  {
+    "analysis": [
+      {
+        "topic": "Chain-of-custody",
+        "criteria": "Demonstration of Full Traceability",
+        "question": "Does the documentation clearly show how the feedstock is tracked from its origin through transport, processing, and conversion?",
+        "conclusion": "Partially Meets",
+        "evidenceFound": "The audit documents mention that V-Grid utilizes waste pistachio shells from a local supplier and provides shipping documents as evidence. However, there is no specific description of the systems used for tracking, such as electronic tagging, barcoding, or supplier logs, nor is there a clear indication of how data is recorded and verified at each stage.",
+        "missingOrContradictoryData": "The documentation lacks detailed information on the specific methods and systems used for tracking the feedstock from origin through transport, processing, and conversion. There is no mention of recognized standards or internal procedures that have been audited."
+      },
+      {
+        "topic": "Chain-of-custody",
+        "criteria": "Certification or Equivalent Traceability Mechanisms",
+        "question": "Does the project mention chain-of-custody certifications (FSC, PEFC, etc.) or explain a robust in-house traceability protocol that ensures accurate record-keeping?",
+        "conclusion": "Does Not Meet",
+        "evidenceFound": "The audit report does not mention any chain-of-custody certifications such as FSC or PEFC. There is also no detailed description of an in-house traceability protocol that ensures accurate record-keeping.",
+        "missingOrContradictoryData": "There is no information provided on any certifications or robust internal tracking systems that ensure accurate record-keeping from the origin of the feedstock through to the final product."
+      }
+    ]
+  },
+  {
+    "analysis": [
+      {
+        "topic": "Operational oversight",
+        "criteria": "Governance Structures and Monitoring Protocols",
+        "question": "Does the documentation detail who is responsible for monitoring, auditing, and enforcing compliance to prevent illegal or unsustainable sourcing?",
+        "conclusion": "Inconclusive",
+        "evidenceFound": "The audit report mentions that V-Grid energy operates under air permits and internal safety procedures but does not detail specific governance structures, monitoring protocols, or enforcement steps for preventing illegal or unsustainable sourcing. There is no mention of an organizational chart or narrative explaining oversight bodies and their roles.",
+        "missingOrContradictoryData": "Details on specific governance structures, monitoring protocols, and enforcement steps for preventing illegal or unsustainable sourcing are missing."
+      },
+      {
+        "topic": "Operational oversight",
+        "criteria": "Managing Third-Party Suppliers",
+        "question": "If the project relies on third-party suppliers, does the documentation show that these suppliers are held to the same transparency and sustainability requirements as the project\u2019s own operations?",
+        "conclusion": "Partially Meets",
+        "evidenceFound": "The audit report mentions that V-Grid obtains waste pistachio shells from a local supplier, Wonderful Corp., and provides shipping documents as evidence. However, there is no detailed information on supplier vetting, contract clauses, or policy statements indicating that external suppliers must adhere to chain-of-custody standards or risk-based assessments.",
+        "missingOrContradictoryData": "Details on supplier vetting, contract clauses, policy statements, verification methods, and actions taken if a supplier fails to meet requirements are missing."
+      }
+    ]
+  },
+  {
+    "analysis": [
+      {
+        "topic": "Reliability of Supply",
+        "criteria": "Reliability of Supply",
+        "question": "Does the documentation show how the project secures enough feedstock to meet its planned biochar production and carbon credit commitments (e.g., annual volume estimates, supplier arrangements)?",
+        "conclusion": "Partially Meets",
+        "evidenceFound": "The project uses waste pistachio shells from a local supplier, Wonderful Corp., which would typically be disposed of in landfills. Shipping documents from the supplier were provided as evidence. The project produced 82.78 tonnes of biochar during the audit period.",
+        "missingOrContradictoryData": "Specific annual volume estimates and detailed supplier arrangements or contracts are not clearly mentioned."
+      },
+      {
+        "topic": "Proof of Ownership or Formal Agreements",
+        "criteria": "Proof of Ownership or Formal Agreements",
+        "question": "Does the documentation provide formal proof (e.g., ownership deeds, purchase contracts) guaranteeing long-term access to the feedstock over the project\u2019s lifetime?",
+        "conclusion": "Inconclusive",
+        "evidenceFound": "The audit mentions that waste pistachio shells are supplied by Wonderful Corp., but there is no explicit mention of ownership deeds or long-term purchase contracts.",
+        "missingOrContradictoryData": "Details on ownership deeds, purchase contracts, or formal agreements guaranteeing long-term access to feedstock are missing."
+      },
+      {
+        "topic": "Contingency Plans for Price Fluctuations",
+        "criteria": "Contingency Plans for Price Fluctuations",
+        "question": "Does the project describe strategies to handle market volatility (e.g., price changes, supply disruptions) that could threaten feedstock availability?",
+        "conclusion": "Does Not Meet",
+        "evidenceFound": "There is no mention of contingency plans for price fluctuations or supply disruptions in the audit report.",
+        "missingOrContradictoryData": "Information on backup suppliers, stockpiling strategies, or financial buffers to stabilize procurement costs is absent."
+      }
+    ]
+  },
+  {
+    "analysis": [
+      {
+        "topic": "Avoiding Market Distortion",
+        "criteria": "Existing Market Distortion",
+        "question": "Does the documentation provide evidence that the project\u2019s feedstock demand does not distort local or regional markets for agriculture or forestry products?",
+        "conclusion": "Partially Meets",
+        "evidenceFound": "The project uses waste pistachio shells that would otherwise be disposed of in landfills. However, there is no explicit mention of a market analysis or economic impact section describing the local supply-demand balance for this biomass, nor references to official statistics, stakeholder surveys, or price trend data.",
+        "missingOrContradictoryData": "A detailed market analysis or economic impact section is missing, which would describe the local supply-demand balance for the biomass and include references to official statistics, stakeholder surveys, or price trend data."
+      },
+      {
+        "topic": "Avoiding Market Distortion",
+        "criteria": "Competition with Higher-Value Uses",
+        "question": "Does the documentation confirm that the biomass used for biochar does not displace higher-value or more climate-beneficial uses (e.g., timber for construction)?",
+        "conclusion": "Meets",
+        "evidenceFound": "The audit report states that the feedstock is waste pistachio shells, which are offcuts or scrap unsuitable for long-lived products and are destined for landfills. This indicates that the biomass is genuinely low-grade or waste rather than prime material.",
+        "missingOrContradictoryData": ""
+      }
+    ]
+  },
+  {
+    "analysis": [
+      {
+        "topic": "Feedstock Properties for Optimal Carbon Retention",
+        "criteria": "Moisture Content, Composition, and Suitability",
+        "question": "Does the documentation provide quantitative data on moisture content and feedstock composition (e.g., lignin/cellulose levels) and explain how these properties influence carbon retention during pyrolysis or thermochemical conversion?",
+        "conclusion": "Partially Meets",
+        "evidenceFound": "The audit report mentions that the project uses pistachio shells as feedstock and controls moisture content to approximately 20% unless specified otherwise by the customer. It also highlights that the biochar produced has a molar H:C ratio of 0.23. However, specific quantitative data on lignin/cellulose levels and their influence on carbon retention during pyrolysis is not explicitly detailed.",
+        "missingOrContradictoryData": "The report lacks detailed quantitative data on lignin/cellulose levels and how these properties specifically influence carbon retention during the pyrolysis process."
+      }
+    ]
+  },
+  {
+    "analysis": [
+      {
+        "topic": "Transport and Processing Emissions",
+        "criteria": "Inclusion of Transportation in LCA",
+        "question": "Does the LCA or carbon accounting clearly address emissions from feedstock transport (distances, modes, related GHG outputs)?",
+        "conclusion": "Meets",
+        "evidenceFound": "The audit report includes detailed transportation emissions data, such as the average transport distance of 82.5 miles for biomass feed to the facility and emissions of 49 kg CO2eq per tonne biochar for biomass supply inputs. The LCA also considers product distribution emissions, which were verified based on transport distance from Camarillo, CA to purchasers.",
+        "missingOrContradictoryData": ""
+      },
+      {
+        "topic": "Transport and Processing Emissions",
+        "criteria": "Local Sourcing and Minimizing Distances",
+        "question": "Does the project mention local sourcing or strategies to reduce long-distance transport to lower the overall carbon footprint?",
+        "conclusion": "Meets",
+        "evidenceFound": "The project obtains waste pistachio shells locally, which would typically be disposed of in local landfills. The audit mentions that the feedstock is sourced from Wonderful Corp., indicating local sourcing. The average transport distance is 82.5 miles, which suggests efforts to minimize long-distance transport.",
+        "missingOrContradictoryData": ""
+      }
+    ]
+  },
+  {
+    "analysis": [
+      {
+        "topic": "Energy Use in Pre-processing",
+        "criteria": "Assessing and Minimizing Pre-processing Energy",
+        "question": "Does the documentation evaluate energy requirements for drying, size reduction, or other steps, and describe methods to reduce this energy consumption?",
+        "conclusion": "Partially Meets",
+        "evidenceFound": "The audit report mentions materials handling equipment (diesel) and process startup (propane) but does not quantify energy use for drying or size reduction. It notes that site electricity usage is provided by the V-Grid Bioserver units and is therefore zero. The report also mentions the use of a chiller system for biochar cooling, which requires more power but less water.",
+        "missingOrContradictoryData": "The report does not provide specific energy inputs (e.g., kWh per ton of feedstock) for drying or size reduction steps. It also lacks details on methods to reduce energy consumption in these processes."
+      }
+    ]
+  }
+]

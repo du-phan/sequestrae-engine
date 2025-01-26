@@ -1,0 +1,426 @@
+[
+  {
+    "analysis": [
+      {
+        "topic": "Biogenic Requirements",
+        "criteria": "Feedstock type description",
+        "question": "Does the documentation clearly describe the feedstock type (e.g., wood residues, agricultural by-products), and does it explicitly confirm that it is derived from living or recently living organisms?",
+        "conclusion": "Meets",
+        "evidenceFound": "The project uses biomass from Namibian encroacher species, which are invasive and provide sustainable feedstock for the project.",
+        "missingOrContradictoryData": ""
+      },
+      {
+        "topic": "Biogenic Requirements",
+        "criteria": "Proof of Biogenic Source",
+        "question": "How does the documentation demonstrate or confirm that the biomass is genuinely biogenic (e.g., references to origin, supply chain descriptions, certification)?",
+        "conclusion": "Meets",
+        "evidenceFound": "The biomass is sustainably sourced from FSC certified farms. Harvesting permits and physical site visits confirm the existence of invasive bush species in the region. The LCA report and supplier agreements verify the biogenic source.",
+        "missingOrContradictoryData": ""
+      }
+    ]
+  },
+  {
+    "analysis": [
+      {
+        "topic": "Waste or By-product Status",
+        "criteria": "Clarification of Feedstock as Waste or By-product",
+        "question": "Does the documentation identify the feedstock specifically as a waste product (e.g., sawdust, crop residues) or a by-product of another process, indicating it would otherwise be discarded or landfilled?",
+        "conclusion": "Meets",
+        "evidenceFound": "The project utilizes biomass from Namibian encroacher species, which are invasive and provide sustainable feedstock for the project. The charcoal fines, which are a by-product of the charcoal production process, would otherwise be briquetted for fuel or discarded, creating environmental hazards.",
+        "missingOrContradictoryData": ""
+      },
+      {
+        "topic": "Waste or By-product Status",
+        "criteria": "Analysis of Competing Use",
+        "question": "Does the project acknowledge possible alternative uses for this biomass (e.g., construction materials, animal bedding, compost) and explain why producing biochar is preferable or permissible?",
+        "conclusion": "Meets",
+        "evidenceFound": "The project mentions that charcoal fines are typically briquetted for fuel, but the project activity uses them as biochar for soil application, which is environmentally beneficial and financially viable with carbon finance.",
+        "missingOrContradictoryData": ""
+      }
+    ]
+  },
+  {
+    "analysis": [
+      {
+        "topic": "By-Product Status (50% Threshold)",
+        "criteria": "Allocation of harvested biomass",
+        "question": "Does the documentation include a clear breakdown showing that no more than 50% of the total harvested biomass is used for energy or carbon removal (biochar)?",
+        "conclusion": "Inconclusive",
+        "evidenceFound": "The audit report mentions that charcoal fines are used for biochar, but there is no explicit breakdown of the total harvested biomass allocation. It states that charcoal fines make up about 30% of the total production per month, but it does not specify the allocation of the remaining biomass.",
+        "missingOrContradictoryData": "The report lacks a clear breakdown of the total harvested biomass allocation, specifically how much is used for biochar versus other uses like lumber or paper."
+      },
+      {
+        "topic": "By-Product Status (50% Threshold)",
+        "criteria": "Transparency in usage",
+        "question": "Is the documentation transparent about the proportions allocated to various uses, and does it explicitly show compliance with the <50% criterion?",
+        "conclusion": "Partially Meets",
+        "evidenceFound": "The report mentions that charcoal fines, which are about 30% of the total production per month, are used for biochar. However, it does not provide a comprehensive breakdown of all biomass uses or explicitly confirm compliance with the <50% criterion for biochar or energy use.",
+        "missingOrContradictoryData": "There is no comprehensive table or chart detailing the exact proportions of biomass allocated to each use, nor explicit confirmation of compliance with the <50% criterion."
+      }
+    ]
+  },
+  {
+    "analysis": [
+      {
+        "topic": "Counterfactual Assessment",
+        "criteria": "Description of alternative scenarios",
+        "question": "Does the documentation explain what would happen to the biomass if it were not used by the biochar project (e.g., landfill, open burning, decomposition, other industrial processes)?",
+        "conclusion": "Meets",
+        "evidenceFound": "The audit report mentions that charcoal fines, which are a significant part of the charcoal production, are typically briquetted and burned as fuel or discarded in the open, creating environmental hazards. The project uses these fines as biochar, applying them to agricultural land to generate carbon removal credits.",
+        "missingOrContradictoryData": ""
+      }
+    ]
+  },
+  {
+    "analysis": [
+      {
+        "topic": "Certification",
+        "criteria": "Presence and Type of Certification",
+        "question": "Does the documentation explicitly mention recognized certifications\u2014such as FSC, RSB, or SBP\u2014that cover responsible forest/biomass management?",
+        "conclusion": "Meets",
+        "evidenceFound": "The audit report mentions FSC certificates (FSC\u00ae License Code: FSC-C 151846, FSC\u00ae License Code: FSC-C140298) for the farms supplying biomass. It also states that the Forest Stewardship Council\u00ae Forest Management Group Scheme Certificate (SGS-FM/COC-011482) allows the farm to sell FSC certified products.",
+        "missingOrContradictoryData": ""
+      },
+      {
+        "topic": "Certification",
+        "criteria": "Certification Scope and Chain-of-Custody",
+        "question": "Does the documentation describe how the certification covers social safeguards, ecological considerations, and chain-of-custody (i.e., tracking the biomass from harvest to end use)?",
+        "conclusion": "Partially Meets",
+        "evidenceFound": "The report mentions FSC certification and harvesting permits, which include details on permissible quantity and type of species, ensuring sustainability in the supply chain. However, there is no explicit mention of social safeguards or detailed chain-of-custody tracking procedures.",
+        "missingOrContradictoryData": "Information on social safeguards and detailed chain-of-custody tracking procedures is missing."
+      },
+      {
+        "topic": "Certification",
+        "criteria": "Mix of Certified and Non-Certified Feedstock",
+        "question": "If only a portion of the feedstock is certified, does the documentation show what percentage is certified vs. non-certified, and how the project mitigates risks for the non-certified portion?",
+        "conclusion": "Inconclusive",
+        "evidenceFound": "The audit report does not provide a breakdown of certified vs. non-certified feedstock or detail how non-certified feedstock is monitored or mitigated.",
+        "missingOrContradictoryData": "Information on the percentage of certified vs. non-certified feedstock and risk mitigation strategies for non-certified feedstock is missing."
+      }
+    ]
+  },
+  {
+    "analysis": [
+      {
+        "topic": "Risk-Based Assessment",
+        "criteria": "Existence of a Third-Party Risk-Based Assessment",
+        "question": "If no formal certification is cited (or if part of the feedstock is non-certified), does the project have a third-party risk-based review confirming sustainable sourcing?",
+        "conclusion": "Meets",
+        "evidenceFound": "The audit report mentions the involvement of Earthood Services Private Limited, which conducted on-site audits, interviews, and document reviews. The project has FSC certificates and harvesting permits, and the audit team confirmed the sustainability of the biomass feedstock.",
+        "missingOrContradictoryData": ""
+      },
+      {
+        "topic": "Risk-Based Assessment",
+        "criteria": "Thoroughness of the Risk-Based Assessment",
+        "question": "Does the assessment detail environmental (e.g., deforestation, habitat loss) and social (e.g., labor conditions, community impacts) risks and outline mitigation measures (e.g., supplier vetting, ongoing monitoring)?",
+        "conclusion": "Meets",
+        "evidenceFound": "The audit report details the environmental and social safeguards, including FSC certifications, harvesting permits, and stakeholder engagement. The project has procedures to differentiate invasive species and avoid unintended clearing of native vegetation. The LCA report and social audit confirm the quality and social responsibility of the biochar production.",
+        "missingOrContradictoryData": ""
+      }
+    ]
+  },
+  {
+    "analysis": [
+      {
+        "topic": "Strong governance",
+        "criteria": "Regional Oversight and Enforcement",
+        "question": "Does the documentation specify the jurisdiction(s) from which feedstock is sourced, and describe local forestry laws or enforcement measures?",
+        "conclusion": "Meets",
+        "evidenceFound": "The audit report mentions that the biomass is sustainably sourced from FSC certified farms and that harvesting permits are generated by the ministry of agriculture, water and forestry detailing the type of species harvested and quantity. The report also references the Forestry Act 12 of 2001 and the Environmental Management Act 7 of 2007.",
+        "missingOrContradictoryData": ""
+      },
+      {
+        "topic": "Strong governance",
+        "criteria": "Established Management Standards",
+        "question": "Does the project cite national or regional forest certification standards (beyond voluntary schemes like FSC) or government-led sustainability initiatives?",
+        "conclusion": "Does Not Meet",
+        "evidenceFound": "The audit report mentions FSC certification for the farms supplying biomass, but does not cite any national or regional forest certification standards or government-led sustainability initiatives beyond the FSC.",
+        "missingOrContradictoryData": "There is no mention of mandatory forest programs or official government sustainability guidelines."
+      }
+    ]
+  },
+  {
+    "analysis": [
+      {
+        "topic": "Corruption Perception Index",
+        "criteria": "Transparency and Governance Indicators",
+        "question": "Does the documentation reference reputable indices (e.g., Transparency International\u2019s CPI) or other governance metrics for the source country?",
+        "conclusion": "Does Not Meet",
+        "evidenceFound": "The audit report does not reference any reputable indices such as Transparency International\u2019s CPI or other governance metrics for Namibia. The report mentions general governance challenges related to issuing logging permits but does not provide specific CPI scores or narrative on how corruption might affect forest management.",
+        "missingOrContradictoryData": "The audit report lacks specific references to the CPI or other governance metrics for Namibia. There is no mention of objective data like the CPI, which is essential for assessing the corruption risk in the source country."
+      },
+      {
+        "topic": "Corruption Perception Index",
+        "criteria": "Stricter Conditions for Low-CPI Areas",
+        "question": "If the CPI or other indicators suggest a high corruption risk, does the project apply stricter sourcing conditions (e.g., mandatory FSC or equivalent certification), or possibly exclude feedstock from certain areas?",
+        "conclusion": "Inconclusive",
+        "evidenceFound": "The audit report mentions FSC certification for farms supplying biomass and notes that suppliers must follow specific sustainable harvesting practices. However, there is no explicit link to stricter conditions based on the CPI or other governance metrics.",
+        "missingOrContradictoryData": "The report does not provide clear information on whether stricter sourcing conditions are applied due to high corruption risk. It is unclear if the project applies additional safeguards or if the FSC certification is a standard practice regardless of corruption risk."
+      }
+    ]
+  },
+  {
+    "analysis": [
+      {
+        "topic": "Exclusion of Sensitive Areas",
+        "criteria": "Primary and Old-Growth Forests",
+        "question": "Does the documentation unequivocally confirm that no feedstock is sourced from primary or old-growth forests?",
+        "conclusion": "Inconclusive",
+        "evidenceFound": "The audit report mentions the use of invasive species as feedstock and FSC certification for farms supplying biomass. However, there is no explicit reference to the exclusion of primary or old-growth forests or any official definitions of these forests.",
+        "missingOrContradictoryData": "The documentation does not clearly define primary or old-growth forests or provide maps, supplier lists, or satellite imagery to confirm the exclusion of these areas."
+      },
+      {
+        "topic": "Exclusion of Sensitive Areas",
+        "criteria": "Protected and HCV Areas",
+        "question": "Does the documentation confirm that feedstock is not sourced from protected or high conservation value (HCV) forests unless selective harvest is explicitly recognized by authorities and proven to be low-impact?",
+        "conclusion": "Inconclusive",
+        "evidenceFound": "The report mentions harvesting permits and FSC certification but does not explicitly address protected or HCV areas. There is no information on selective harvesting practices or official permits confirming low-impact harvesting.",
+        "missingOrContradictoryData": "The documentation lacks clear references to local laws or forest management plans allowing limited harvesting in protected or HCV areas. There is no evidence of official permits or third-party audits confirming no negative impact on biodiversity, ecosystem services, or conservation values."
+      }
+    ]
+  },
+  {
+    "analysis": [
+      {
+        "topic": "Ecological function",
+        "criteria": "Maintaining Biodiversity and Ecosystem Services",
+        "question": "How does the project show that its forest management practices preserve or improve biodiversity, nutrient cycling, soil health, and hydrologic function?",
+        "conclusion": "Partially Meets",
+        "evidenceFound": "The project mentions sustainable feedstock from FSC certified farms and harvesting permits for invasive species. However, there is no explicit mention of buffer zones, habitat corridors, low-impact logging, or reforestation practices.",
+        "missingOrContradictoryData": "Details on specific measures like buffer zones, habitat corridors, low-impact logging, or reforestation are not provided. Additionally, no mention of recognized standards like FSC Principles or wildlife monitoring programs."
+      }
+    ]
+  },
+  {
+    "analysis": [
+      {
+        "topic": "Carbon stocks",
+        "criteria": "Stability or Increase in Regional Carbon Stocks",
+        "question": "Does the documentation show that forest carbon stocks in the sourcing region are stable or increasing, ensuring the project is not contributing to deforestation or degradation?",
+        "conclusion": "Inconclusive",
+        "evidenceFound": "The audit report mentions that the biomass used is from invasive species and is sustainably sourced from FSC certified farms. However, there is no direct mention of regional carbon stocks or their stability.",
+        "missingOrContradictoryData": "No concrete data on regional carbon stocks or satellite imagery to support the claim that forest cover and carbon stocks are maintained or growing. Additional information is needed to determine compliance."
+      },
+      {
+        "topic": "Carbon stocks",
+        "criteria": "Justification for Any Noted Decrease",
+        "question": "If the project acknowledges a decline in carbon stocks, does it explain why (e.g., natural disturbance) and show how it mitigates or offsets the loss?",
+        "conclusion": "Inconclusive",
+        "evidenceFound": "The audit report does not acknowledge any decline in carbon stocks. It focuses on the sustainability of biomass sourcing and the use of invasive species.",
+        "missingOrContradictoryData": "No information on any decrease in carbon stocks or mitigation actions. Additional details are required to assess compliance."
+      }
+    ]
+  },
+  {
+    "analysis": [
+      {
+        "topic": "Restrictions on New Plantations",
+        "criteria": "No Plantations Replacing Natural Forests",
+        "question": "Does the documentation confirm that no biomass is sourced from plantation forests established within the last 20 years if they replaced natural forests?",
+        "conclusion": "Inconclusive",
+        "evidenceFound": "The audit report mentions the use of invasive species as biomass, but there is no explicit confirmation or documentation regarding the history of the plantation sites, particularly whether they replaced natural forests within the last 20 years.",
+        "missingOrContradictoryData": "No explicit mention of land-use change records, geospatial analysis, or historical satellite imagery showing that the plantation site was not previously a natural forest."
+      },
+      {
+        "topic": "Restrictions on New Plantations",
+        "criteria": "Exception for Agricultural Lands",
+        "question": "If an exception exists, does the documentation show that the prior land use was agriculture for at least 10 continuous years, making natural regeneration unlikely?",
+        "conclusion": "Inconclusive",
+        "evidenceFound": "The audit report mentions the use of biomass from Namibian encroacher species, which are invasive and provide sustainable feedstock. However, there is no specific documentation or references to official land-use histories, remote sensing data, or agricultural permits detailing continuous farming for at least 10 years.",
+        "missingOrContradictoryData": "Lack of detailed documentation on the prior land use and rationale explaining why natural forest regrowth would have been highly improbable."
+      }
+    ]
+  },
+  {
+    "analysis": [
+      {
+        "topic": "Legal and Customary Rights",
+        "criteria": "Recognition of Land Rights and Customary Uses",
+        "question": "Does the project documentation confirm respect for Indigenous Peoples\u2019 and local communities\u2019 legal and customary land rights?",
+        "conclusion": "Partially Meets",
+        "evidenceFound": "The audit report mentions stakeholder engagement and consultation with local communities, including interviews with local stakeholders and a statement from a neighboring farm owner confirming consultation and resolution of queries. However, there is no specific mention of formal references to treaties, community agreements, or legal titles.",
+        "missingOrContradictoryData": "No specific documentation of land tenure or recognized agreements is mentioned."
+      },
+      {
+        "topic": "Legal and Customary Rights",
+        "criteria": "Absence of Land Disputes and Compliance with FPIC",
+        "question": "Does the documentation explicitly confirm no unresolved land disputes and compliance with free, prior, and informed consent (FPIC) where Indigenous or local communities hold rights?",
+        "conclusion": "Partially Meets",
+        "evidenceFound": "The report mentions no negative impact observed by locals due to the project and stakeholder engagement during the Environmental Impact Assessment (EIA). However, there is no explicit confirmation of FPIC processes or detailed records of community endorsements.",
+        "missingOrContradictoryData": "No detailed records of FPIC processes or community endorsements are provided."
+      }
+    ]
+  },
+  {
+    "analysis": [
+      {
+        "topic": "Community health and welfare",
+        "criteria": "Health Impact Assessment",
+        "question": "Does the project address potential impacts on community health from wood processing or transport (e.g., dust, emissions, noise)?",
+        "conclusion": "Inconclusive",
+        "evidenceFound": "The audit mentions a social audit with a positive rating and adequate measures for health and safety, including post-production quenching and cooling of biochar. However, there is no explicit mention of a Health Impact Assessment or specific mitigation strategies for dust, emissions, or noise.",
+        "missingOrContradictoryData": "No explicit Health Impact Assessment or specific mitigation strategies for dust, emissions, or noise are mentioned."
+      },
+      {
+        "topic": "Community health and welfare",
+        "criteria": "Consultation and Mitigation",
+        "question": "If there are identified health or welfare risks, does the project show evidence of consultation with local communities and co-developed mitigation strategies?",
+        "conclusion": "Inconclusive",
+        "evidenceFound": "The audit report mentions a stakeholder consultation and engagement during the EIA, and a local stakeholder meeting participant confirmed that locals were consulted before the project was established. However, there are no specific details about community meetings, focus groups, or stakeholder committees demonstrating local input or follow-up actions.",
+        "missingOrContradictoryData": "No specific details about community meetings, focus groups, or stakeholder committees demonstrating local input or follow-up actions are provided."
+      }
+    ]
+  },
+  {
+    "analysis": [
+      {
+        "topic": "Socioeconomic Benefits",
+        "criteria": "Support for Local Livelihoods",
+        "question": "Does the project demonstrate tangible benefits for local communities, such as employment, revenue-sharing, or skill development?",
+        "conclusion": "Inconclusive",
+        "evidenceFound": "The audit report mentions interviews with local stakeholders but does not provide quantitative data or clear references to local hiring practices, revenue-sharing, or skill development. It only mentions that no negative impact was observed by the locals due to the establishment of the retort charcoal production facility.",
+        "missingOrContradictoryData": "Quantitative data on employment, revenue-sharing, or skill development programs. Clear references to local hiring practices or formal agreements ensuring a share of project revenue goes to community funds."
+      },
+      {
+        "topic": "Socioeconomic Benefits",
+        "criteria": "Fair Labor and Avoiding Exploitation",
+        "question": "Does the documentation show that fair labor practices are in place (e.g., fair wages, safe working conditions, no forced or child labor)?",
+        "conclusion": "Partially Meets",
+        "evidenceFound": "The audit report mentions safety measures in place at the production facility, including worker safety protocols and emergency procedures. It also states that all new employees are trained before starting and health and safety issues are documented. An overall positive rating was obtained by the production facility in the social audit.",
+        "missingOrContradictoryData": "Specific labor policies, codes of conduct, or references to recognized labor standards (e.g., ILO conventions). Details on pay scales, worker safety measures, and how the project verifies no exploitation of vulnerable groups (e.g., migrant workers)."
+      }
+    ]
+  },
+  {
+    "analysis": [
+      {
+        "topic": "Chain-of-custody",
+        "criteria": "Demonstration of Full Traceability",
+        "question": "Does the documentation clearly show how the feedstock is tracked from its origin through transport, processing, and conversion?",
+        "conclusion": "Partially Meets",
+        "evidenceFound": "The audit mentions the verification of delivery notes and inventory logs for feedstock receipt, but it does not detail specific tracking methods like electronic tagging or barcoding. The audit also examines production logs and material handling procedures but lacks a comprehensive description of the chain-of-custody mechanisms.",
+        "missingOrContradictoryData": "Specific references to electronic tagging, barcoding, or detailed supplier logs that demonstrate full traceability are missing."
+      },
+      {
+        "topic": "Chain-of-custody",
+        "criteria": "Certification or Equivalent Traceability Mechanisms",
+        "question": "Does the project mention chain-of-custody certifications (FSC, PEFC, etc.) or explain a robust in-house traceability protocol that ensures accurate record-keeping?",
+        "conclusion": "Meets",
+        "evidenceFound": "The project mentions FSC certification for farms supplying biomass and provides FSC license codes and certificates. The audit also verifies supplier agreements and harvesting permits, confirming that the biomass is sustainably sourced.",
+        "missingOrContradictoryData": ""
+      }
+    ]
+  },
+  {
+    "analysis": [
+      {
+        "topic": "Operational oversight",
+        "criteria": "Governance Structures and Monitoring Protocols",
+        "question": "Does the documentation detail who is responsible for monitoring, auditing, and enforcing compliance to prevent illegal or unsustainable sourcing?",
+        "conclusion": "Partially Meets",
+        "evidenceFound": "The audit report mentions an on-site visit and reviews of delivery notes and inventory logs, but it lacks a clear organizational chart or narrative explaining oversight bodies, their roles, and how they conduct audits. There are details about supplier agreements and certifications, but no explicit mention of monitoring schedules or enforcement steps for infractions.",
+        "missingOrContradictoryData": "There is no explicit mention of monitoring schedules, enforcement steps for infractions, or how illegal or unsustainable sourcing is detected and addressed."
+      },
+      {
+        "topic": "Operational oversight",
+        "criteria": "Managing Third-Party Suppliers",
+        "question": "If the project relies on third-party suppliers, does the documentation show that these suppliers are held to the same transparency and sustainability requirements as the project\u2019s own operations?",
+        "conclusion": "Meets",
+        "evidenceFound": "The audit report details supplier vetting through FSC certifications and harvesting permits. It also mentions that suppliers must adhere to chain-of-custody standards and risk-based assessments. The project verifies compliance through spot checks, documentation reviews, and site visits. Supplier training and periodic audits are also mentioned.",
+        "missingOrContradictoryData": ""
+      }
+    ]
+  },
+  {
+    "analysis": [
+      {
+        "topic": "Sufficient Feedstock and Market Volatility",
+        "criteria": "Reliability of Supply",
+        "question": "Does the documentation show how the project secures enough feedstock to meet its planned biochar production and carbon credit commitments (e.g., annual volume estimates, supplier arrangements)?",
+        "conclusion": "Partially Meets",
+        "evidenceFound": "The project uses biomass from Namibian encroacher species, which are invasive and provide sustainable feedstock. The facility produces 150 tons of charcoal fines per month, which are used as biochar. However, specific annual volume estimates and supplier arrangements are not explicitly detailed.",
+        "missingOrContradictoryData": "Explicit data on annual volume estimates and detailed supplier arrangements are missing."
+      },
+      {
+        "topic": "Sufficient Feedstock and Market Volatility",
+        "criteria": "Proof of Ownership or Formal Agreements",
+        "question": "Does the documentation provide formal proof (e.g., ownership deeds, purchase contracts) guaranteeing long-term access to the feedstock over the project\u2019s lifetime?",
+        "conclusion": "Meets",
+        "evidenceFound": "The project has FSC certifications for the farms supplying biomass and supplier agreements to sell the produce to the project developer. Harvesting permits and physical site visits confirm the existence of invasive bush species.",
+        "missingOrContradictoryData": ""
+      },
+      {
+        "topic": "Sufficient Feedstock and Market Volatility",
+        "criteria": "Contingency Plans for Price Fluctuations",
+        "question": "Does the project describe strategies to handle market volatility (e.g., price changes, supply disruptions) that could threaten feedstock availability?",
+        "conclusion": "Inconclusive",
+        "evidenceFound": "There is no explicit mention of contingency plans for price fluctuations or supply disruptions in the audit report.",
+        "missingOrContradictoryData": "Information on contingency plans for market volatility is missing."
+      }
+    ]
+  },
+  {
+    "analysis": [
+      {
+        "topic": "Avoiding Market Distortion",
+        "criteria": "Existing Market Distortion",
+        "question": "Does the documentation provide evidence that the project\u2019s feedstock demand does not distort local or regional markets for agriculture or forestry products?",
+        "conclusion": "Partially Meets",
+        "evidenceFound": "The project utilizes biomass from Namibian encroacher species, which are invasive and provide sustainable feedstock. The charcoal fines used for biochar are classified as waste and would otherwise be briquetted or discarded, creating environmental hazards. The project does not mention any official statistics, stakeholder surveys, or price trend data to support the claim that the feedstock is genuinely surplus or waste.",
+        "missingOrContradictoryData": "Official statistics, stakeholder surveys, or price trend data showing the feedstock is genuinely surplus or waste."
+      },
+      {
+        "topic": "Avoiding Market Distortion",
+        "criteria": "Competition with Higher-Value Uses",
+        "question": "Does the documentation confirm that the biomass used for biochar does not displace higher-value or more climate-beneficial uses (e.g., timber for construction)?",
+        "conclusion": "Meets",
+        "evidenceFound": "The biomass used is from invasive encroacher species, which are not suitable for long-lived products like timber. The project mentions that charcoal fines are offcuts and scraps, unsuitable for higher-value uses. The LCA report confirms that the biomass is genuinely low-grade or waste.",
+        "missingOrContradictoryData": ""
+      }
+    ]
+  },
+  {
+    "analysis": [
+      {
+        "topic": "Feedstock Properties for Optimal Carbon Retention",
+        "criteria": "Moisture Content, Composition, and Suitability",
+        "question": "Does the documentation provide quantitative data on moisture content and feedstock composition (e.g., lignin/cellulose levels) and explain how these properties influence carbon retention during pyrolysis or thermochemical conversion?",
+        "conclusion": "Partially Meets",
+        "evidenceFound": "The audit report mentions the use of invasive biomass species and sustainable sourcing but lacks specific quantitative data on moisture content and feedstock composition. It discusses the production process and the use of retorts for pyrolysis but does not detail how these properties influence carbon retention.",
+        "missingOrContradictoryData": "Specific quantitative data on moisture content, lignin/cellulose levels, and their influence on carbon retention during pyrolysis or thermochemical conversion are missing."
+      }
+    ]
+  },
+  {
+    "analysis": [
+      {
+        "topic": "Transport and Processing Emissions",
+        "criteria": "Inclusion of Transportation in LCA",
+        "question": "Does the LCA or carbon accounting clearly address emissions from feedstock transport (distances, modes, related GHG outputs)?",
+        "conclusion": "Partially Meets",
+        "evidenceFound": "The audit mentions that transportation emissions are included in the LCA, with an average transport distance of 35 km. However, specific details on modes and GHG outputs are not explicitly stated.",
+        "missingOrContradictoryData": "Details on the modes of transportation and specific GHG outputs are missing."
+      },
+      {
+        "topic": "Transport and Processing Emissions",
+        "criteria": "Local Sourcing and Minimizing Distances",
+        "question": "Does the project mention local sourcing or strategies to reduce long-distance transport to lower the overall carbon footprint?",
+        "conclusion": "Meets",
+        "evidenceFound": "The project sources biomass from nearby suppliers with an average transport distance of 35 km, indicating a strategy to minimize long-distance transport.",
+        "missingOrContradictoryData": ""
+      }
+    ]
+  },
+  {
+    "analysis": [
+      {
+        "topic": "Energy Use in Pre-processing",
+        "criteria": "Assessing and Minimizing Pre-processing Energy",
+        "question": "Does the documentation evaluate energy requirements for drying, size reduction, or other steps, and describe methods to reduce this energy consumption?",
+        "conclusion": "Partially Meets",
+        "evidenceFound": "The audit report mentions the use of cooling boxes for biochar cooling, which implies negligible water usage. However, there is no specific mention of energy inputs (e.g., kWh per ton of feedstock) or methods to optimize energy use for pre-processing steps like drying or size reduction.",
+        "missingOrContradictoryData": "The audit report lacks quantified energy use for pre-processing steps and explicit methods to minimize energy consumption."
+      }
+    ]
+  }
+]

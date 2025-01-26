@@ -1,0 +1,44 @@
+{
+  "framework": "Puro",
+  "project_name": "American BioCarbon CT, LLC",
+  "country": "United States",
+  "reporting_period": [
+    [
+      "2022-07-05",
+      "2023-04-07"
+    ]
+  ],
+  "tons_dry_biochar_under_audit": 177.6,
+  "tons_dry_biochar_eligible": 127.5,
+  "tons_dry_biochar_produced": null,
+  "tons_dry_biochar_sold": null,
+  "num_credit_under_audit": 205,
+  "num_eligible_credits": 143,
+  "feedstock": [
+    "sugar cane bagasse"
+  ],
+  "tons_feedstock_per_ton_biochar": null,
+  "harvested_feedstock_sustainability_proof": null,
+  "reactor_type": null,
+  "reactor_ignition_fuel": "natural gas",
+  "pyrolysis_by_product": null,
+  "h_c_ratio": 0.5,
+  "carbon_content_ratio": null,
+  "min_biochar_moisture_content": null,
+  "avg_biochar_moisture_content": null,
+  "calibrated_weighting_system": true,
+  "biochar_usage": [
+    "agricultural enhancer"
+  ],
+  "biochar_donation": null,
+  "feedstock_transport_distance_km": null,
+  "usage_transport_distance_km": null,
+  "lca_report_cadence": null,
+  "gross_e_stored_kg_per_ton_biochar": null,
+  "e_biomass_kg_per_ton_biochar": null,
+  "e_production_kg_per_ton_biochar": null,
+  "e_use_kg_per_ton_biochar": null,
+  "feedstock_emission_kg_per_ton_biochar": null,
+  "electricity_emission_kg_per_ton_biochar": null,
+  "net_e_stored_kg_per_ton_biochar": null
+}

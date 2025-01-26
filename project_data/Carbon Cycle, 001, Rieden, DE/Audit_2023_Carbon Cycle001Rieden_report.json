@@ -1,0 +1,54 @@
+{
+  "framework": "Puro",
+  "project_name": "Carbon Cycle GmbH & Co KG",
+  "country": "Germany",
+  "reporting_period": [
+    [
+      1,
+      10,
+      2022
+    ],
+    [
+      30,
+      9,
+      2023
+    ]
+  ],
+  "tons_dry_biochar_under_audit": null,
+  "tons_dry_biochar_eligible": null,
+  "tons_dry_biochar_produced": 210,
+  "tons_dry_biochar_sold": 210,
+  "num_credit_under_audit": null,
+  "num_eligible_credits": 618,
+  "feedstock": [
+    "coniferous_wood"
+  ],
+  "tons_feedstock_per_ton_biochar": null,
+  "harvested_feedstock_sustainability_proof": "PEFC certificates",
+  "reactor_type": null,
+  "reactor_ignition_fuel": "propane",
+  "pyrolysis_by_product": [
+    "bio-oil",
+    "pyrolysis_gases"
+  ],
+  "h_c_ratio": 0.16,
+  "carbon_content_ratio": 92,
+  "min_biochar_moisture_content": 0.12,
+  "avg_biochar_moisture_content": 0.2,
+  "calibrated_weighting_system": true,
+  "biochar_usage": [
+    "animal_feed",
+    "soil_improvement"
+  ],
+  "biochar_donation": false,
+  "feedstock_transport_distance_km": null,
+  "usage_transport_distance_km": null,
+  "lca_report_cadence": null,
+  "gross_e_stored_kg_per_ton_biochar": 3010,
+  "e_biomass_kg_per_ton_biochar": null,
+  "e_production_kg_per_ton_biochar": null,
+  "e_use_kg_per_ton_biochar": null,
+  "feedstock_emission_kg_per_ton_biochar": null,
+  "electricity_emission_kg_per_ton_biochar": null,
+  "net_e_stored_kg_per_ton_biochar": null
+}

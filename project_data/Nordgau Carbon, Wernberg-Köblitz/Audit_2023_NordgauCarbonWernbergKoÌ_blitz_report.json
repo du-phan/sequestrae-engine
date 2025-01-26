@@ -1,0 +1,52 @@
+{
+  "framework": "Puro",
+  "project_name": "Nordgau Carbon GmbH & Co. KG",
+  "country": "Germany",
+  "reporting_period": [
+    [
+      "1",
+      "4",
+      "2022"
+    ],
+    [
+      "31",
+      "3",
+      "2023"
+    ]
+  ],
+  "tons_dry_biochar_under_audit": 199,
+  "tons_dry_biochar_eligible": null,
+  "tons_dry_biochar_produced": 199,
+  "tons_dry_biochar_sold": 251,
+  "num_credit_under_audit": null,
+  "num_eligible_credits": 692,
+  "feedstock": [
+    "coniferous_wood"
+  ],
+  "tons_feedstock_per_ton_biochar": null,
+  "harvested_feedstock_sustainability_proof": "PEFC certificate",
+  "reactor_type": null,
+  "reactor_ignition_fuel": "propane",
+  "pyrolysis_by_product": [
+    "syngas"
+  ],
+  "h_c_ratio": 0.22,
+  "carbon_content_ratio": 88.15,
+  "min_biochar_moisture_content": 0.28,
+  "avg_biochar_moisture_content": 0.3,
+  "calibrated_weighting_system": false,
+  "biochar_usage": [
+    "soil_additive"
+  ],
+  "biochar_donation": false,
+  "feedstock_transport_distance_km": null,
+  "usage_transport_distance_km": 317,
+  "lca_report_cadence": null,
+  "gross_e_stored_kg_per_ton_biochar": null,
+  "e_biomass_kg_per_ton_biochar": 133,
+  "e_production_kg_per_ton_biochar": 218.63,
+  "e_use_kg_per_ton_biochar": 43.6,
+  "feedstock_emission_kg_per_ton_biochar": null,
+  "electricity_emission_kg_per_ton_biochar": 57.8,
+  "net_e_stored_kg_per_ton_biochar": null
+}

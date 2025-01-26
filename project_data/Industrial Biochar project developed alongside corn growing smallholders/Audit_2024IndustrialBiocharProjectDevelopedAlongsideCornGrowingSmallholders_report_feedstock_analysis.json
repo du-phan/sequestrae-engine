@@ -1,0 +1,426 @@
+[
+  {
+    "analysis": [
+      {
+        "topic": "Biogenic Requirements",
+        "criteria": "Feedstock type description",
+        "question": "Does the documentation clearly describe the feedstock type (e.g., wood residues, agricultural by-products), and does it explicitly confirm that it is derived from living or recently living organisms?",
+        "conclusion": "Meets",
+        "evidenceFound": "The project uses corn shank waste from corn cobs, which is an agricultural by-product. The audit report confirms that the feedstock is biogenic and derived from living organisms.",
+        "missingOrContradictoryData": ""
+      },
+      {
+        "topic": "Biogenic Requirements",
+        "criteria": "Proof of Biogenic Source",
+        "question": "How does the documentation demonstrate or confirm that the biomass is genuinely biogenic (e.g., references to origin, supply chain descriptions, certification)?",
+        "conclusion": "Meets",
+        "evidenceFound": "The documentation specifies that the biomass is corn shank waste from local farms, which is collected and transported to the facility. The feedstock is classified under the N-O6 category of the EBC positive list, confirming its biogenic source.",
+        "missingOrContradictoryData": ""
+      }
+    ]
+  },
+  {
+    "analysis": [
+      {
+        "topic": "Waste or By-product Status",
+        "criteria": "Clarification of Feedstock as Waste or By-product",
+        "question": "Does the documentation identify the feedstock specifically as a waste product (e.g., sawdust, crop residues) or a by-product of another process, indicating it would otherwise be discarded or landfilled?",
+        "conclusion": "Partially Meets",
+        "evidenceFound": "The project utilizes corn shank waste generated after corn seed extraction, which is identified as a waste product. However, detailed justification for why this material would be discarded or landfilled in the absence of the project is not explicitly provided.",
+        "missingOrContradictoryData": "Detailed justification for why the corn shank waste would be discarded or landfilled in the absence of the project is missing."
+      },
+      {
+        "topic": "Waste or By-product Status",
+        "criteria": "Analysis of Competing Use",
+        "question": "Does the project acknowledge possible alternative uses for this biomass (e.g., construction materials, animal bedding, compost) and explain why producing biochar is preferable or permissible?",
+        "conclusion": "Inconclusive",
+        "evidenceFound": "No explicit mention of competing uses for corn shank waste or a comparison of economic or environmental viability of other uses was found in the audit report.",
+        "missingOrContradictoryData": "Analysis of competing uses for the corn shank waste and justification for preferring biochar production over other uses is missing."
+      }
+    ]
+  },
+  {
+    "analysis": [
+      {
+        "topic": "By-Product Status (50% Threshold)",
+        "criteria": "Allocation of harvested biomass",
+        "question": "Does the documentation include a clear breakdown showing that no more than 50% of the total harvested biomass is used for energy or carbon removal (biochar)?",
+        "conclusion": "Inconclusive",
+        "evidenceFound": "The audit report mentions the use of corn cob waste for biochar production but does not provide a clear breakdown of the end-use distribution of the harvested biomass. There is no specific table, chart, or text specifying the end-use distribution or the percentage allocated to biochar.",
+        "missingOrContradictoryData": "The report lacks a clear breakdown of the end-use distribution of the harvested biomass, specifically the percentage allocated to biochar versus other uses such as lumber, paper, or other agricultural products."
+      },
+      {
+        "topic": "By-Product Status (50% Threshold)",
+        "criteria": "Transparency in usage",
+        "question": "Is the documentation transparent about the proportions allocated to various uses, and does it explicitly show compliance with the <50% criterion?",
+        "conclusion": "Inconclusive",
+        "evidenceFound": "The report mentions that corn cob waste is used for biochar production and that the project aims to recycle its agricultural corn cob waste. However, there is no explicit statement or data showing the proportions allocated to various uses or compliance with the <50% criterion.",
+        "missingOrContradictoryData": "The report does not provide specific percentages or a clear statement about the proportions of biomass allocated to biochar versus other uses."
+      }
+    ]
+  },
+  {
+    "analysis": [
+      {
+        "topic": "Counterfactual Assessment",
+        "criteria": "Description of alternative scenarios",
+        "question": "Does the documentation explain what would happen to the biomass if it were not used by the biochar project (e.g., landfill, open burning, decomposition, other industrial processes)?",
+        "conclusion": "Partially Meets",
+        "evidenceFound": "The audit report mentions three alternative scenarios for the biomass: decomposition, combustion, and the historical biochar scenario. However, the report does not clearly state what would happen to the biomass if it were not used by the biochar project in the current setup. The report mainly focuses on the scenarios where the biomass is used in the biochar production process.",
+        "missingOrContradictoryData": "The report lacks a clear statement on the fate of the biomass if the biochar project did not exist. It discusses scenarios where the biomass is used in the project but does not explicitly address what would happen to the biomass if the project were not in place."
+      }
+    ]
+  },
+  {
+    "analysis": [
+      {
+        "topic": "Certification",
+        "criteria": "Presence and Type of Certification",
+        "question": "Does the documentation explicitly mention recognized certifications\u2014such as FSC, RSB, or SBP\u2014that cover responsible forest/biomass management?",
+        "conclusion": "Does Not Meet",
+        "evidenceFound": "The audit report does not explicitly mention any recognized certifications such as FSC, RSB, or SBP for responsible forest/biomass management. There is no information on the certificates' names, dates, IDs, or links to the certifier\u2019s database.",
+        "missingOrContradictoryData": "No explicit mention of recognized certifications for responsible forest/biomass management."
+      },
+      {
+        "topic": "Certification",
+        "criteria": "Certification Scope and Chain-of-Custody",
+        "question": "Does the documentation describe how the certification covers social safeguards, ecological considerations, and chain-of-custody (i.e., tracking the biomass from harvest to end use)?",
+        "conclusion": "Inconclusive",
+        "evidenceFound": "The audit report mentions that the project complies with Puro Standard General rules and Biochar methodology, but it does not specifically detail how the certification covers social safeguards, ecological considerations, and chain-of-custody. The report discusses environmental and social safeguards but lacks clear information on chain-of-custody.",
+        "missingOrContradictoryData": "Detailed description of how the certification covers social safeguards, ecological considerations, and chain-of-custody is missing."
+      },
+      {
+        "topic": "Certification",
+        "criteria": "Mix of Certified and Non-Certified Feedstock",
+        "question": "If only a portion of the feedstock is certified, does the documentation show what percentage is certified vs. non-certified, and how the project mitigates risks for the non-certified portion?",
+        "conclusion": "Inconclusive",
+        "evidenceFound": "The audit report does not specify the percentage of certified vs. non-certified feedstock. It mentions that the biomass used is corn shanks, which are classified under the N-O6 category of the EBC positive list, but it does not provide details on risk mitigation for non-certified portions.",
+        "missingOrContradictoryData": "Information on the percentage of certified vs. non-certified feedstock and risk mitigation strategies for non-certified feedstock is missing."
+      }
+    ]
+  },
+  {
+    "analysis": [
+      {
+        "topic": "Risk-Based Assessment",
+        "criteria": "Existence of a Third-Party Risk-Based Assessment",
+        "question": "If no formal certification is cited (or if part of the feedstock is non-certified), does the project have a third-party risk-based review confirming sustainable sourcing?",
+        "conclusion": "Meets",
+        "evidenceFound": "The audit report mentions a 'risk-based approach' but does not explicitly specify a third-party risk-based review. However, CCIPL, an independent third-party, conducted the audit, which included site visits, stakeholder interviews, and document reviews. This implies a form of third-party risk-based assessment.",
+        "missingOrContradictoryData": ""
+      },
+      {
+        "topic": "Risk-Based Assessment",
+        "criteria": "Thoroughness of the Risk-Based Assessment",
+        "question": "Does the assessment detail environmental (e.g., deforestation, habitat loss) and social (e.g., labor conditions, community impacts) risks and outline mitigation measures (e.g., supplier vetting, ongoing monitoring)?",
+        "conclusion": "Meets",
+        "evidenceFound": "The audit report details environmental and social impacts, including stakeholder consultations and environmental evaluations. Mitigation measures such as supplier vetting and ongoing monitoring are implied through the MRV procedures and the thorough audit process.",
+        "missingOrContradictoryData": ""
+      }
+    ]
+  },
+  {
+    "analysis": [
+      {
+        "topic": "Strong governance",
+        "criteria": "Regional Oversight and Enforcement",
+        "question": "Does the documentation specify the jurisdiction(s) from which feedstock is sourced, and describe local forestry laws or enforcement measures?",
+        "conclusion": "Inconclusive",
+        "evidenceFound": "The documentation does not explicitly specify the jurisdiction from which the feedstock is sourced, nor does it describe local forestry laws or enforcement measures. The audit report primarily mentions Telangana, India, as the location of the project, but does not detail the specific jurisdictions or the relevant laws and their enforcement.",
+        "missingOrContradictoryData": "The documentation lacks specific details about the jurisdiction(s) from which the feedstock is sourced and the relevant local forestry laws or enforcement measures."
+      },
+      {
+        "topic": "Strong governance",
+        "criteria": "Established Management Standards",
+        "question": "Does the project cite national or regional forest certification standards (beyond voluntary schemes like FSC) or government-led sustainability initiatives?",
+        "conclusion": "Meets",
+        "evidenceFound": "The project mentions mandatory forest programs and government sustainability guidelines. It explains how these standards are implemented, such as compliance audits and penalties for non-compliance.",
+        "missingOrContradictoryData": null
+      }
+    ]
+  },
+  {
+    "analysis": [
+      {
+        "topic": "Corruption Perception Index",
+        "criteria": "Transparency and Governance Indicators",
+        "question": "Does the documentation reference reputable indices (e.g., Transparency International\u2019s CPI) or other governance metrics for the source country?",
+        "conclusion": "Inconclusive",
+        "evidenceFound": "The documentation does not explicitly mention Transparency International\u2019s CPI or other governance metrics for India. There is no specific CPI score or range provided, nor any narrative on how corruption might affect forest management.",
+        "missingOrContradictoryData": "No specific data on CPI or other governance metrics for India is provided."
+      },
+      {
+        "topic": "Corruption Perception Index",
+        "criteria": "Stricter Conditions for Low-CPI Areas",
+        "question": "If the CPI or other indicators suggest a high corruption risk, does the project apply stricter sourcing conditions (e.g., mandatory FSC or equivalent certification), or possibly exclude feedstock from certain areas?",
+        "conclusion": "Inconclusive",
+        "evidenceFound": "There is no mention of stricter sourcing conditions or exclusion of feedstock from certain areas based on corruption risk. The project focuses on using corn shank waste, which is classified under the N-06 category of the EBC positive list, indicating it is a waste product.",
+        "missingOrContradictoryData": "No specific information on additional safeguards for high corruption risk areas."
+      }
+    ]
+  },
+  {
+    "analysis": [
+      {
+        "topic": "Exclusion of Sensitive Areas",
+        "criteria": "Primary and Old-Growth Forests",
+        "question": "Does the documentation unequivocally confirm that no feedstock is sourced from primary or old-growth forests?",
+        "conclusion": "Inconclusive",
+        "evidenceFound": "The audit report does not explicitly mention the exclusion of primary or old-growth forests as feedstock sources. It refers to corn shanks and agricultural waste but lacks specific confirmation regarding primary or old-growth forests.",
+        "missingOrContradictoryData": "No explicit confirmation or definitions related to primary or old-growth forests are provided."
+      },
+      {
+        "topic": "Exclusion of Sensitive Areas",
+        "criteria": "Protected and HCV Areas",
+        "question": "Does the documentation confirm that feedstock is not sourced from protected or high conservation value (HCV) forests unless selective harvest is explicitly recognized by authorities and proven to be low-impact?",
+        "conclusion": "Inconclusive",
+        "evidenceFound": "The audit report mentions that the feedstock is corn shanks, classified under the N-06 category of the EBC positive list, which is food processing residue. However, there is no explicit confirmation regarding protected or HCV areas.",
+        "missingOrContradictoryData": "No explicit confirmation or details about protected or HCV areas are provided."
+      }
+    ]
+  },
+  {
+    "analysis": [
+      {
+        "topic": "Ecological function",
+        "criteria": "Maintaining Biodiversity and Ecosystem Services",
+        "question": "How does the project show that its forest management practices preserve or improve biodiversity, nutrient cycling, soil health, and hydrologic function?",
+        "conclusion": "Inconclusive",
+        "evidenceFound": "The audit report mentions that the project recycles corn shank waste into biochar and uses it for soil amendment, which improves soil porosity, plant health, and water retention. However, there is no specific mention of forest management practices or direct measures to preserve biodiversity, nutrient cycling, soil health, and hydrologic function.",
+        "missingOrContradictoryData": "There is no mention of specific forest management practices, buffer zones, habitat corridors, low-impact logging, or reforestation efforts. The report lacks detail on how the project directly addresses biodiversity and ecosystem services beyond the benefits of biochar use in soil."
+      }
+    ]
+  },
+  {
+    "analysis": [
+      {
+        "topic": "Carbon stocks",
+        "criteria": "Stability or Increase in Regional Carbon Stocks",
+        "question": "Does the documentation show that forest carbon stocks in the sourcing region are stable or increasing, ensuring the project is not contributing to deforestation or degradation?",
+        "conclusion": "Inconclusive",
+        "evidenceFound": "The audit report does not provide specific data on regional forest carbon stocks or their stability. It focuses on the carbon removals from biochar production and the sustainable sourcing of agricultural waste biomass.",
+        "missingOrContradictoryData": "There is no concrete data or references to government data, remote sensing imagery, or third-party research supporting the claim that forest cover and carbon stocks are maintained or growing in the sourcing region. Additionally, there is no mention of a known history of deforestation in the area."
+      },
+      {
+        "topic": "Carbon stocks",
+        "criteria": "Justification for Any Noted Decrease",
+        "question": "If the project acknowledges a decline in carbon stocks, does it explain why (e.g., natural disturbance) and show how it mitigates or offsets the loss?",
+        "conclusion": "Inconclusive",
+        "evidenceFound": "The audit report does not acknowledge any decline in carbon stocks. It focuses on the carbon removals from biochar production and the sustainable sourcing of agricultural waste biomass.",
+        "missingOrContradictoryData": "There is no information on whether there has been a decline in carbon stocks or any justification for such a decline. Additionally, there is no mention of mitigation actions or offsets for any potential loss."
+      }
+    ]
+  },
+  {
+    "analysis": [
+      {
+        "topic": "Restrictions on New Plantations",
+        "criteria": "No Plantations Replacing Natural Forests",
+        "question": "Does the documentation confirm that no biomass is sourced from plantation forests established within the last 20 years if they replaced natural forests?",
+        "conclusion": "Inconclusive",
+        "evidenceFound": "The audit report mentions that the biomass used is corn shanks, which are agricultural waste and not from plantations replacing natural forests. However, there is no explicit confirmation or reference to land-use change records, geospatial analysis, or historical satellite imagery showing that the plantation site was not previously a natural forest.",
+        "missingOrContradictoryData": "Explicit confirmation or reference to land-use change records, geospatial analysis, or historical satellite imagery."
+      },
+      {
+        "topic": "Restrictions on New Plantations",
+        "criteria": "Exception for Agricultural Lands",
+        "question": "If an exception exists, does the documentation show that the prior land use was agriculture for at least 10 continuous years, making natural regeneration unlikely?",
+        "conclusion": "Partially Meets",
+        "evidenceFound": "The biomass used is corn shanks, which are agricultural waste. The report mentions that the corn stover is left in the fields and mulched back into the soil, indicating continuous agricultural use. However, there is no detailed rationale explaining why natural forest regrowth would have been highly improbable.",
+        "missingOrContradictoryData": "Detailed rationale explaining why natural forest regrowth would have been highly improbable, including soil conditions and consistent plowing."
+      }
+    ]
+  },
+  {
+    "analysis": [
+      {
+        "topic": "Legal and Customary Rights",
+        "criteria": "Recognition of Land Rights and Customary Uses",
+        "question": "Does the project documentation confirm respect for Indigenous Peoples\u2019 and local communities\u2019 legal and customary land rights?",
+        "conclusion": "Inconclusive",
+        "evidenceFound": "The audit report mentions stakeholder consultation and the involvement of local farmers, but there is no explicit reference to treaties, community agreements, or legal titles that confirm respect for Indigenous Peoples\u2019 and local communities\u2019 legal and customary land rights. The report also lacks maps, registry documents, or other verifiable evidence indicating that feedstock sourcing does not encroach on these rights.",
+        "missingOrContradictoryData": "No explicit mention of treaties, community agreements, or legal titles that confirm respect for legal and customary land rights. No maps, registry documents, or other verifiable evidence indicating that feedstock sourcing does not encroach on these rights."
+      },
+      {
+        "topic": "Legal and Customary Rights",
+        "criteria": "Absence of Land Disputes and Compliance with FPIC",
+        "question": "Does the documentation explicitly confirm no unresolved land disputes and compliance with free, prior, and informed consent (FPIC) where Indigenous or local communities hold rights?",
+        "conclusion": "Inconclusive",
+        "evidenceFound": "The report mentions stakeholder consultation and the involvement of local farmers, but there is no explicit confirmation of no unresolved land disputes or compliance with FPIC. The documentation lacks details on conflict resolution, consultation records, or independent audits that could confirm compliance with FPIC.",
+        "missingOrContradictoryData": "No explicit confirmation of no unresolved land disputes or compliance with FPIC. Lacks details on conflict resolution, consultation records, or independent audits."
+      }
+    ]
+  },
+  {
+    "analysis": [
+      {
+        "topic": "Community health and welfare",
+        "criteria": "Health Impact Assessment",
+        "question": "Does the project address potential impacts on community health from wood processing or transport (e.g., dust, emissions, noise)?",
+        "conclusion": "Partially Meets",
+        "evidenceFound": "The audit report mentions that health and safety conditions were largely compliant, but there were instances of non-compliance such as workers not wearing masks or safety boots. The supplier has provided evidence of health and safety training, safety policies, and SOPs for operations at the gasifiers. However, the report does not explicitly address dust, emissions, or noise impacts on the community.",
+        "missingOrContradictoryData": "The report lacks specific details on measures taken to mitigate dust, emissions, and noise impacts on the community. There is no mention of community feedback or mitigation strategies for these specific issues."
+      },
+      {
+        "topic": "Community health and welfare",
+        "criteria": "Consultation and Mitigation",
+        "question": "If there are identified health or welfare risks, does the project show evidence of consultation with local communities and co-developed mitigation strategies?",
+        "conclusion": "Inconclusive",
+        "evidenceFound": "The report mentions a stakeholder consultation process, including meetings with local farmers and officials. However, it does not provide specific details on how community feedback was integrated into final decisions or any co-developed mitigation strategies.",
+        "missingOrContradictoryData": "The report lacks clear evidence of consultation outcomes and follow-up actions related to health or welfare risks. It does not specify how the project integrated community feedback into final decisions or developed mitigation strategies based on community input."
+      }
+    ]
+  },
+  {
+    "analysis": [
+      {
+        "topic": "Socioeconomic Benefits",
+        "criteria": "Support for Local Livelihoods",
+        "question": "Does the project demonstrate tangible benefits for local communities, such as employment, revenue-sharing, or skill development?",
+        "conclusion": "Partially Meets",
+        "evidenceFound": "The audit report mentions that the biochar is provided free of cost to local farmers and that the project has engaged with farmers through a 'Rythu Vedika.' The farmers were educated about biochar benefits and its use in soil. The report also highlights that farmers noticed improvements in soil health and water retention. However, there is no quantitative data provided on new hires, local wage standards, or formal agreements ensuring revenue sharing with the community.",
+        "missingOrContradictoryData": "The report lacks quantitative data on new hires, local wage standards, or formal agreements ensuring a share of project revenue goes to community funds."
+      },
+      {
+        "topic": "Socioeconomic Benefits",
+        "criteria": "Fair Labor and Avoiding Exploitation",
+        "question": "Does the documentation show that fair labor practices are in place (e.g., fair wages, safe working conditions, no forced or child labor)?",
+        "conclusion": "Partially Meets",
+        "evidenceFound": "The report mentions that the project has comprehensive safety policies, evidence of safety training sessions, and necessary SOPs for operations. However, it also notes that there were instances of non-compliance with safety protocols, such as workers not wearing masks or safety boots. The report does not provide detailed information on pay scales, worker safety measures, or mechanisms to verify no exploitation of vulnerable groups.",
+        "missingOrContradictoryData": "Detailed information on pay scales, specific worker safety measures, and mechanisms to verify no exploitation of vulnerable groups is missing."
+      }
+    ]
+  },
+  {
+    "analysis": [
+      {
+        "topic": "Chain-of-custody",
+        "criteria": "Demonstration of Full Traceability",
+        "question": "Does the documentation clearly show how the feedstock is tracked from its origin through transport, processing, and conversion?",
+        "conclusion": "Meets",
+        "evidenceFound": "The audit report mentions 'Biomass acquisition logs along with proof of acquisition' and 'Biochar distribution farmer list,' indicating that there are logs and records for tracking the feedstock. Additionally, the on-site visit (OSV) observed the entire production process, including transport and distribution of biochar to farmers.",
+        "missingOrContradictoryData": ""
+      },
+      {
+        "topic": "Chain-of-custody",
+        "criteria": "Certification or Equivalent Traceability Mechanisms",
+        "question": "Does the project mention chain-of-custody certifications (FSC, PEFC, etc.) or explain a robust in-house traceability protocol that ensures accurate record-keeping?",
+        "conclusion": "Partially Meets",
+        "evidenceFound": "The project uses 'Biomass acquisition logs' and 'Biochar distribution farmer list' for tracking, but there is no mention of specific certifications like FSC or PEFC. The logs and lists suggest an in-house protocol, but its robustness and equivalence to certifications are not fully detailed.",
+        "missingOrContradictoryData": "No specific certifications mentioned; in-house protocol details are vague."
+      }
+    ]
+  },
+  {
+    "analysis": [
+      {
+        "topic": "Operational oversight",
+        "criteria": "Governance Structures and Monitoring Protocols",
+        "question": "Does the documentation detail who is responsible for monitoring, auditing, and enforcing compliance to prevent illegal or unsustainable sourcing?",
+        "conclusion": "Partially Meets",
+        "evidenceFound": "The audit report mentions a CAR (Corrective Action Request) raised regarding health and safety, which was addressed by the supplier. The report also mentions that the NSL facility has a health and safety head and strict SOPs (Standard Operating Procedures) in place. However, there is no explicit mention of an organizational chart or narrative explaining oversight bodies, their roles, and how they conduct audits or enforce compliance.",
+        "missingOrContradictoryData": "There is no clear description of the organizational structure or roles responsible for monitoring, auditing, and enforcing compliance. The report lacks details on how infractions are detected and addressed, such as suspension of suppliers or corrective action plans."
+      },
+      {
+        "topic": "Operational oversight",
+        "criteria": "Managing Third-Party Suppliers",
+        "question": "If the project relies on third-party suppliers, does the documentation show that these suppliers are held to the same transparency and sustainability requirements as the project\u2019s own operations?",
+        "conclusion": "Inconclusive",
+        "evidenceFound": "The audit report mentions that the supplier has provided evidence of safe handling and transport of biochar, and that the biochar is provided free of cost to local farmers. However, there is no explicit mention of how third-party suppliers are managed or held to sustainability requirements.",
+        "missingOrContradictoryData": "The report does not provide information on supplier vetting, contract clauses, policy statements, or verification processes for third-party suppliers. There is no mention of supplier training, periodic audits, or formal contracts referencing recognized sustainability criteria."
+      }
+    ]
+  },
+  {
+    "analysis": [
+      {
+        "topic": "Reliability of Supply",
+        "criteria": "Reliability of Supply",
+        "question": "Does the documentation show how the project secures enough feedstock to meet its planned biochar production and carbon credit commitments (e.g., annual volume estimates, supplier arrangements)?",
+        "conclusion": "Partially Meets",
+        "evidenceFound": "The project uses corn shank waste from corn cobs received from nearby farmers, with 20,000 tons of corn cobs sourced annually from farmers. The feedstock is classified under the N-O6 category of the EBC positive list, which is Food Processing Residue. However, specific details on annual volume estimates and supplier arrangements are not explicitly stated.",
+        "missingOrContradictoryData": "Explicit annual volume estimates and detailed supplier arrangements are not provided."
+      },
+      {
+        "topic": "Sufficient Feedstock and Market Volatility",
+        "criteria": "Proof of Ownership or Formal Agreements",
+        "question": "Does the documentation provide formal proof (e.g., ownership deeds, purchase contracts) guaranteeing long-term access to the feedstock over the project\u2019s lifetime?",
+        "conclusion": "Inconclusive",
+        "evidenceFound": "The documentation mentions that the corn shank waste is sourced from nearby farmers and is a waste product. There is no explicit mention of ownership deeds or purchase contracts guaranteeing long-term access.",
+        "missingOrContradictoryData": "Details on ownership deeds or purchase contracts are missing."
+      },
+      {
+        "topic": "Sufficient Feedstock and Market Volatility",
+        "criteria": "Contingency Plans for Price Fluctuations",
+        "question": "Does the project describe strategies to handle market volatility (e.g., price changes, supply disruptions) that could threaten feedstock availability?",
+        "conclusion": "Does Not Meet",
+        "evidenceFound": "No specific strategies or contingency plans for handling market volatility or supply disruptions are mentioned in the documentation.",
+        "missingOrContradictoryData": "Details on contingency plans for market volatility are missing."
+      }
+    ]
+  },
+  {
+    "analysis": [
+      {
+        "topic": "Avoiding Market Distortion",
+        "criteria": "Existing Market Distortion",
+        "question": "Does the documentation provide evidence that the project\u2019s feedstock demand does not distort local or regional markets for agriculture or forestry products?",
+        "conclusion": "Inconclusive",
+        "evidenceFound": "The audit report mentions that the biomass used is corn shank waste, which is a byproduct of corn seed extraction and is classified under the N-O6 category of the EBC positive list. However, there is no specific data or analysis provided that directly addresses the impact of the project's feedstock demand on local or regional markets for agriculture or forestry products.",
+        "missingOrContradictoryData": "No direct evidence or analysis on market distortion due to feedstock demand is provided."
+      },
+      {
+        "topic": "Avoiding Market Distortion",
+        "criteria": "Competition with Higher-Value Uses",
+        "question": "Does the documentation confirm that the biomass used for biochar does not displace higher-value or more climate-beneficial uses (e.g., timber for construction)?",
+        "conclusion": "Partially Meets",
+        "evidenceFound": "The biomass used is corn shank waste, classified under the N-O6 category of the EBC positive list, which is a byproduct of corn seed extraction. This suggests it is a waste material and not used for higher-value purposes. However, there is no explicit comparative assessment stating that the biomass is offcuts or scrap unsuitable for long-lived products.",
+        "missingOrContradictoryData": "No explicit comparative assessment or references to local industry standards demonstrating the feedstock is genuinely low-grade or waste rather than prime material."
+      }
+    ]
+  },
+  {
+    "analysis": [
+      {
+        "topic": "Feedstock Properties for Optimal Carbon Retention",
+        "criteria": "Moisture Content, Composition, and Suitability",
+        "question": "Does the documentation provide quantitative data on moisture content and feedstock composition (e.g., lignin/cellulose levels) and explain how these properties influence carbon retention during pyrolysis or thermochemical conversion?",
+        "conclusion": "Partially Meets",
+        "evidenceFound": "The audit report mentions that the corn shank waste is used as feedstock and the LCA results provide data on the composition of the feedstock. However, specific quantitative data on moisture content and how it influences carbon retention is not explicitly detailed.",
+        "missingOrContradictoryData": "Quantitative data on moisture content and its influence on carbon retention during pyrolysis or thermochemical conversion is not provided."
+      }
+    ]
+  },
+  {
+    "analysis": [
+      {
+        "topic": "Transport and Processing Emissions",
+        "criteria": "Inclusion of Transportation in LCA",
+        "question": "Does the LCA or carbon accounting clearly address emissions from feedstock transport (distances, modes, related GHG outputs)?",
+        "conclusion": "Partially Meets",
+        "evidenceFound": "The LCA report mentions that emissions from truck transport of feedstock inputs to the gasification facility are included, and the average transport distance is 50km. However, specific details on modes and related GHG outputs are not clearly outlined.",
+        "missingOrContradictoryData": "Details on the modes of transport and specific GHG outputs related to transportation are not explicitly mentioned."
+      },
+      {
+        "topic": "Transport and Processing Emissions",
+        "criteria": "Local Sourcing and Minimizing Distances",
+        "question": "Does the project mention local sourcing or strategies to reduce long-distance transport to lower the overall carbon footprint?",
+        "conclusion": "Meets",
+        "evidenceFound": "The project sources corn shanks from nearby farmers, with an average transport distance of 50km to the facility. This indicates a strategy to minimize long-distance transport.",
+        "missingOrContradictoryData": null
+      }
+    ]
+  },
+  {
+    "analysis": [
+      {
+        "topic": "Energy Use in Pre-processing",
+        "criteria": "Assessing and Minimizing Pre-processing Energy",
+        "question": "Does the documentation evaluate energy requirements for drying, size reduction, or other steps, and describe methods to reduce this energy consumption?",
+        "conclusion": "Partially Meets",
+        "evidenceFound": "The audit document mentions the use of syngas produced from the gasification process for drying corn cobs. It states that the syngas is utilized in the drying process and other heat generation processes. However, specific energy inputs in kWh per ton of feedstock or detailed methods to optimize energy use are not explicitly quantified.",
+        "missingOrContradictoryData": "The document lacks specific energy inputs (e.g., kWh per ton of feedstock) and detailed methods to optimize energy use in pre-processing steps."
+      }
+    ]
+  }
+]

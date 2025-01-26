@@ -1,4 +1,4 @@
-# DNV PURO.EARTH FACILITY AND OUTPUT AUDIT REPORT
+# PURO.EARTH FACILITY AND OUTPUT AUDIT REPORT
 
 # Puro Standard General Rules Edition 2022 (Version V2)
 
@@ -70,65 +70,42 @@ We are committed to support our customers to transition and realize their long-t
 
 # MunkaLjungby and Svedala 4_2023
 ---
-# Production facility standing data
+Production facility standing data
+(PURO General rules Biochar methodology)
 
-# (PURO General rules Biochar methodology)
+## General information
 
-# General information
+| Field | Value |
+|-------|-------|
+| Facility unique identity | SE559276670201 |
+| CO2 Removal Supplier registering the Production Facility | GSRN number 643002406801000206 (Munka-Ljungby<br>GSRN number 643002406801000190 (Svedala) |
+| Name | Bussme Biochar AB |
+| Locations | Lärlingsgatan 4, 266 35 Munka-Ljungby and<br>Bäckgatan 4, 233 44 Svedala, Sweden |
+| Date on which the Production Facility became eligible to receive CORCs | |
+| Volume of Output during the full calendar year prior to registration | Shipped eligible production volume during<br>1.1.2022-31.12.2022<br>Munka-Ljungby 831 m3<br>Svedala 2794 m3 |
+| Removal Method(s) for which the plant is eligible to receive CORCs | Biochar |
+| Production Facility has benefited from public support | No |
+| Removal Method specific information as may be specified in the relevant Removal Method specific Methodology | Biochar, Pyrolysis process. |
 
-Facility unique identity: SE559276670201
+## Base for calculations in Output report
 
-CO2 Removal Supplier registering the Production Facility:
+### 4.6 Calculation parameters, MunkaLjungby
 
-- GSRN number 643002406801000206 (Munka-Ljungby)
-- GSRN number 643002406801000190 (Svedala)
+| Parameter | Document check | Verification | t |
+|-----------|----------------|--------------|---|
+| Estored | Document check. | Verified using the LCA and CORC calculation. | 3,051 |
+| Ebiomass | Document check. | Verified using the LCA and CORC calculation. | 0,176 |
+| Eproduction | Document check. | Verified using the LCA and CORC calculation. | 0,106 |
+| Euse | Document check. | Verified using the LCA and CORC calculation. | 0,12 |
 
-Name: Bussme Biochar AB
+### 4.6 Calculation parameters, Svedala
 
-Locations: Lärlingsgatan 4, 266 35 Munka-Ljungby and Bäckgatan 4, 233 44 Svedala, Sweden
-
-Date on which the Production Facility became eligible to receive CORCs
-
-# Volume of Output during the full calendar year prior to registration
-
-1.1.2022-31.12.2022
-
-|Location|Shipped eligible production volume|
-|---|---|
-|Munka-Ljungby|831 m3|
-|Svedala|2794 m3|
-
-# Removal Method(s) for which the plant is eligible to receive CORCs
-
-Biochar
-
-# Production Facility has benefited from public support
-
-No
-
-# Removal Method specific information
-
-Biochar, Pyrolysis process.
-
-# Base for calculations in Output report
-
-# 4.6 Calculation parameters, Munka-Ljungby
-
-|Parameter|Document check|Verified using the LCA and CORC calculation|Value (t)|
-|---|---|---|---|
-|Estored| | |3,051|
-|Ebiomass| | |0,176|
-|Eproduction| | |0,106|
-|Euse| | |0,12|
-
-# 4.6 Calculation parameters, Svedala
-
-|Parameter|Document check|Verified using the LCA and CORC calculation|Value (t)|
-|---|---|---|---|
-|Estored| | |3,212|
-|Ebiomass| | |0,210|
-|Eproduction| | |0,11|
-|Euse| | |0,151|
+| Parameter | Document check | Verification | t |
+|-----------|----------------|--------------|---|
+| Estored | Document check. | Verified using the LCA and CORC calculation. | 3,212 |
+| Ebiomass | Document check. | Verified using the LCA and CORC calculation. | 0,210 |
+| Eproduction | Document check. | Verified using the LCA and CORC calculation. | 0,11 |
+| Euse | Document check. | Verified using the LCA and CORC calculation. | 0,151 |
 
 PURO facility and output report Bussme MunkaLjungby and Svedala 4_2023
 ---
@@ -148,44 +125,39 @@ PURO facility and output report Bussme MunkaLjungby and Svedala 4_2023
 ---
 # Audit results
 
-# SUMMARY AND OUTPUT CALCULATION
+Detailed output removal verified
 
-# MunkaLjungby
+| SUMMARY AND OUTPUT CALCULATION | MunkaLjungby |  |
+|--------------------------------|--------------|--|
+| Formula: CORCs= Estored-Ebiomass-Eproduction-Euse | 1.1.-31.12.2022 |  |
+| Estored | 3,051 | mt CO2 eq / mt biochar (dry) |
+| Ebiomass | 0,176 | mt CO2 eq / mt biochar (dry) |
+| Eproduction | 0,106 | mt CO2 eq / mt biochar (dry) |
+| Euse | 0,120 | mt CO2 eq / mt biochar (dry) |
+| CORC FACTOR (net carbon sequestration over 100 years) | 2,649 | mt CO2 eq / mt biochar (dry) |
+| Total number of CORCs | 174,24 | CORCs |
 
-Formula: CORCs = Estored - Ebiomass - Eproduction - Euse
+| SUMMARY AND OUTPUT CALCULATION | Svedala |  |
+|--------------------------------|---------|--|
+| Formula: CORCs= Estored-Ebiomass-Eproduction-Euse | 1.1.-31.12.2022 |  |
+| Estored | 3,212 | mt CO2 eq / mt biochar (dry) |
+| Ebiomass | 0,210 | mt CO2 eq / mt biochar (dry) |
+| Eproduction | 0,110 | mt CO2 eq / mt biochar (dry) |
+| Euse | 0,151 | mt CO2 eq / mt biochar (dry) |
+| CORC FACTOR (net carbon sequestration over 100 years) | 2,741 | mt CO2 eq / mt biochar (dry) |
+| Total number of CORCs | 597,93 | CORCs |
 
-|Estored|3,051|mt CO2 eq / mt biochar (dry)|
-|---|---|---|
-|Ebiomass|0,176|mt CO2 eq / mt biochar (dry)|
-|Eproduction|0,106|mt CO2 eq / mt biochar (dry)|
-|Euse|0,120|mt CO2 eq / mt biochar (dry)|
-|CORC FACTOR (net carbon sequestration over 100 years)|2,649|mt CO2 eq / mt biochar (dry)|
-|Total number of CORCs|174,24|CORCs|
-
-# SUMMARY AND OUTPUT CALCULATION
-
-# Svedala
-
-Formula: CORCs = Estored - Ebiomass - Eproduction - Euse
-
-|Estored|3,212|mt CO2 eq / mt biochar (dry)|
-|---|---|---|
-|Ebiomass|0,210|mt CO2 eq / mt biochar (dry)|
-|Eproduction|0,110|mt CO2 eq / mt biochar (dry)|
-|Euse|0,151|mt CO2 eq / mt biochar (dry)|
-|CORC FACTOR (net carbon sequestration over 100 years)|2,741|mt CO2 eq / mt biochar (dry)|
-|Total number of CORCs|597,93|CORCs|
-
-# Positive indications
+## Positive indications
 
 - Data collection and CORC calculations are systematic.
 - File management is systematic.
 
-# Recommendations for improvement
+## Recommendations for improvement
 
 - To calculate wood based raw material certification percentage if and when needed.
 
-PURO facility and output report Bussme MunkaLjungby and Svedala 4_2023
+PURO facility and output report Bussme
+MunkaLjungby and Svedala 4_2023
 ---
 # Audit findings
 
@@ -201,35 +173,33 @@ The company is found NOT to be fully compliant towards CORC requirement and corr
 
 PURO facility and output report Bussme MunkaLjungby and Svedala 4_2023
 ---
-# 1.1. Requirements for activities to be eligible under the Biochar Methodology
+ATTACHMENT 1
 
-# 1.1.1 Methodology
+Biochar Methodology
+Requirements and verification results
 
-Biochar must be produced from sustainable biomass: wood waste or food waste, wastewater treatment, insulation material, as agricultural waste, biodegradable waste, urban sustainably sourced biomass, or waste biomass such as fuel or reductant uses. Biochar must not be used in applications that destroy its carbon storage property (e.g. greenhouse substrates, landfill/mine absorber, soil additive, surface water barrier, animal feed additive).
+| Company: | Bussme Biochar AB, sites MunkaLjungby and Svedala |
+|----------|---------------------------------------------------|
+| Facility address: | Lärlingsgatan 4, 266 35 Munka-Ljungby and Bäckgatan 4, 233 44 Svedala, Sweden |
+| Date: | 19.4.2023 |
+| Auditor: | Pasi Nissinen |
+| Participants: | Janne Kantero |
+| | Carna Walle |
+| | Mari Tuomaala |
 
-Biochar must be used in applications that preserve its carbon storage property.
+### 1.1. Requirements for activities to be eligible under the methodology
 
-# 1.1.2 Requirements and verification results
+#### 1.1.1
 
-Date: 19.4.2023
+| Requirement | Verification method | Verification remarks | Compliance |
+|-------------|---------------------|----------------------|------------|
+| Biochar must be used in applications that preserve its carbon storage property (e.g. greenhouse substrates, surface water barrier, animal feed additive, landfill/mine absorber, soil additive). Biochar must not be used in applications that destroy its carbon storage, e.g. fuel or reductant uses. | Document check. | According to the interviews 100 % of biochar products are used as soil additives. | Yes |
 
-Participants:
+#### 1.1.2
 
-Company: Bussme Biochar AB, sites Munka-Ljungby and Svedala
-
-Auditor: Janne Kantero
-
-Facility address: Lärlingsgatan 4, 266 35 Munka-Ljungby and Bäckgatan 4, 233 44 Svedala, Sweden
-
-# Document check
-
-|Verification method|Verification remarks|Compliance|
-|---|---|---|
-|DNV|Bussme|Yes|
-| |Bussme|Yes|
-| |DNV| |
-
-According to the interviews 100% of biochar products are used as soil additives. Bussme is using branches and treetops which are classified as waste wood. Two wood suppliers of which one is PEFC certified.
+| Requirement | Verification method | Verification remarks | Compliance |
+|-------------|---------------------|----------------------|------------|
+| Biochar must be produced from sustainable biomass: sustainably sourced biomass, or waste biomass such as agricultural waste, biodegradable waste, urban wood waste or food waste. | Document check. | Bussme is using branches and treetops which are classified as waste wood. Two wood suppliers of which one is PEFC certified. | Yes |
 ---
 # 1.1.3
 
@@ -237,157 +207,84 @@ As renewable energy or materials. Bio-oil and pyrolysis gases can be stored for 
 
 # 1.1.4
 
-In the biochar production process, the pyrolysis gases and volatiles are produced. The same reaction chamber is not permitted, as any other energy and material input used during the biochar production process must be included in the LCA (i.e. supply of fuel, combustion of fuel, fugitive emissions), as for the greenhouse gas emissions associated with use of carbon may be mixed with the biochar product. However, the co-firing of fossil fuels and biomass in the biochar production process is permitted. The heating of the pyrolysis reactor is permitted.
+In the biochar production process, the pyrolysis gases and volatiles are produced. The same reaction chamber is not permitted, as any other energy and material input used during the production process must be included in the LCA (i.e. supply of fuel, combustion of fuel, fugitive emissions), as for the producer must demonstrate net-negativity with greenhouse gas emissions associated with use of carbon. The carbon may be mixed with the biochar product. However, the co-firing of fossil fuels and biomass in the biochar production process, and of the biochar use, results from a life cycle assessment (LCA) or carbon footprint of the biomass production and supply, including disaggregated information on the emissions arising at different stages and from different fuels (coal, oil, natural gas) for ignition, pre-heating, and heating of the pyrolysis reactor is permitted.
 
 # 1.1.5
 
-The producer must demonstrate net-negativity with results from a life cycle assessment (LCA) or carbon footprint of the biomass production and supply, including disaggregated information on the emissions arising at different stages and from different fuels (coal, oil, natural gas) for ignition, pre-heating, and greenhouse gases.
+Document check. Yes
 
-# Document check.
+Document check. Yes
 
-|Document check.|Yes|
-|---|---|
-|Document check.|Yes|
-|Document check.|Yes|
+Document check. Yes
 
 # Process description. Pyrolysis
 
-CORC calculation. Biochar production and use for life cycle assessment of Bussme’s biochar. 2050 Consulting Life cycle calculation 28.2.2023.
+CORC calculation. Biochar production and use for life cycle assessment of Bussme’s calculation 28.2.2023. Production and use for CORC assessment of Bussme’s biochar 2050 Consulting Life cycle.
 ---
-# 1.1.6
-
-appropriate flue gas treatment systems.requirements existing in the jurisdiction where production quenching and cooling of biochar, andor pyrolysis deficiencies (Schimmelpfennig and Glaser providing a Material Safety Data Sheet, post- Such safety measures include, but are not limited to, ratio is an indicator of the degree of carbonisation biochar, e.g. to prevent fire, dust and health hazards. The molar H/Corg ratio must be less than 0.7. H/Corg section 5.3.6), and safe handling and transport of environment, cleaner production principles (see Measures must be taken for ensuring safe working must be legal to use in the manner proposed. considered. In other words, the biochar produced biochar is used and for the specific applications The biochar produced must meet any product quality 2012). exceeding 0.7 are an indication of non-pyrolytic chars and therefore of the biochar stability. Values
-
-# 1.1.7
-
-Video plant tour in Svedala. Document check. Document check. pyrolysis process. No chemicals are used indated 6.2.2023. example instructions to use PPEs. Verified during the plant tour: for q.inspecta AG EBC certificate Munka and 0,04 in Svedala. calculation the ratio is 0,10 in According to the CORC
-
-# 1.1.8
-
-Yes
-Yes
-Yes
+| 1.1.6 | 1.1.7 | 1.1.8 |
+|-------|-------|-------|
+| The molar H/Corg ratio must be less than 0.7. H/Corg ratio is an indicator of the degree of carbonisation and therefore of the biochar stability. Values exceeding 0.7 are an indication of non-pyrolytic chars (Schimmelpfennig and Glaser 2012). | The biochar produced must meet any product quality requirements existing in the jurisdiction where biochar is used and for the specific applications considered. In other words, the biochar produced must be legal to use in the manner proposed. | Measures must be taken for ensuring safe working environment, cleaner production principles (see section 5.3.6), and safe handling and transport of biochar, e.g. to prevent fire, dust and health hazards. Such safety measures include, but are not limited to, providing a Material Safety Data Sheet, post-production quenching and cooling of biochar, and appropriate flue gas treatment systems. |
+| Document check. | Document check. | Video plant tour in Svedala. |
+| According to the CORC calculation the ratio is 0,10 in Munka and 0,04 in Svedala. | q.inspecta AG EBC certificate dated 6.2.2023. | Verified during the plant tour: for example instructions to use PPEs. No chemicals are used in pyrolysis process. |
+| Yes | Yes | Yes |
 ---
-# 1.2. Requirements for the Production Facility Audit
-
-To demonstrate additionality, CO2 removal Supplier not required by existing laws, regulations, or other binding obligations. Suppliers must also show that the project is updated. The project must be project-specific, conservative and periodically demonstrate Environmental and Social Safeguards.
-
-Counterfactual analysis based on Baselines that shall be additional if investment is required, risk is substantial non-carbon finance support, projects can demonstrate that the CO2 removals are a result of carbon finance. Even with Facility against the Requirements for activities to be eligible under the general rules of Puro Standard and demonstrate additionality, meaning that the project must convincingly demonstrate that the CO2 Removal Supplier (section 5).
-
-The CO2 Removal Supplier shall be able to present, and/or human capital must be developed. The specific requirement in this methodology (section 1.1.), and the Proofs and evidence needed from the environment or local communities. The CO2 Removal Supplier shall be able to demonstrate significant harm to the surrounding natural environment.
-
-# Verification method
-
-Document check.
-Document check.
-Video plant tour in Svedala.
-
-# Verification remarks
-
-Compliance
-Yes
-Yes
-Yes
+| 1.2. Requirements for the Production Facility Audit | Verification method | Verification remarks | Compliance |
+|-------------------------------------------------------|----------------------|------------------------|------------|
+| 1.2.1 The Production Facility Auditor checks the Production Facility against the Requirements for activities to be eligible under the general rules of Puro Standard and the specific requirement in this methodology (section 1.1.), and the Proofs and evidence needed from the CO2 Removal Supplier (section 5). | Video plant tour in Svedala. | Verified during the plant tour. | Yes |
+| 1.2.2 The CO2 Removal Supplier shall be able to demonstrate Environmental and Social Safeguards and that the Production Facility activities do no significant harm to the surrounding natural environment or local communities. | Document check. | Both sites have environmental permit. The level of air emissions (particles, NOx and CO) of Munka site was checked during the audit and verified to be under ordered limits | Yes |
+| 1.2.3 The CO2 Removal Supplier shall be able to demonstrate additionality, meaning that the project must demonstrate that the CO2 removals are a result of carbon finance. Even with substantial non-carbon finance support, projects can be additional if investment is required, risk is present, and/or human capital must be developed. To demonstrate additionality, CO2 removal Supplier must provide full project financials and counterfactual analysis based on Baselines that shall be project-specific, conservative and periodically updated. Suppliers must also show that the project is not required by existing laws, regulations, or other binding obligations. | Document check. | Additionality questions for suppliers (Puro document). | Yes |
 ---
-# 5.2. Biomass production and supply
-
-# 1.2.4
-
-# 1.2.5
-
-of major greenhouse gases. described in section 4.3, as well as the contribution the contribution of the different life cycle stages must be presented in a disaggregated way exhibiting documented. In particular, climate change impact production and supply must be provided and Life cycle assessment data for the biomass This check also prepares the CO2 Removal Supplier audits. feedstock used must be kept in records, be submitted to Puro, and made available for Output Proof of origin and sustainability of the biomass CO2 Removal Supplier. quantifying the biochar output in a reliable manner, the standing data of the Production Facility and the The Production Facility Auditor collects and checks Collection of standing data of the Production Facility. for producing the periodic Output Report. for the Quantification of CO2 Removal (section 4). Production Facility is capable of metering and The Production Facility Auditor checks that the
-
-# Document check.
-
-# Verification method
-
-CORC calculation. biochar production and use for was verified during the audit. Life cycle assessment of Bussme’s All the information mentioned in reports. CORC calculation and production GSNR numbers checked. the CORC calculation Excel file reports. CORC calculation and production
-
-# Verification remarks
-
-# Compliance
-
-Yes
-Yes
-Yes
-Yes
+| 1.2.4 | 1.2.5 | 5.2. Biomass production and supply | 5.2.1 | 5.2.2 |
+|-------|-------|-----------------------------------|-------|-------|
+| The Production Facility Auditor checks that the production facility is capable of metering and quantifying the biochar output in a reliable manner, for producing the periodic Output Report. | Collection of standing data of the Production Facility. The Production Facility Auditor collects and checks the standing data of the Production Facility and the CO2 Removal Supplier. | Proof of origin and sustainability of the biomass feedstock used must be kept in records, be submitted to Puro, and made available for audits. | Life cycle assessment data for the biomass production and supply must be provided and documented. In particular, climate change impact must be presented in a disaggregated way exhibiting the contribution of the different life cycle stages described in section 4.3, as well as the contribution of major greenhouse gases. |
+| Document check. | Document check. | Document check. | Document check. |
+| CORC calculation and production reports. | All the information mentioned in the CORC calculation Excel file was verified during the audit. GSNR numbers checked. | CORC calculation and production reports. | Life cycle assessment of Bussme's biochar production and use for CORC calculation. |
+| Yes | Yes | Yes | Yes |
 ---
-# 5.5. Proof of no double counting
-
-The underlying physical product (biochar) is a carbon sink, if the CO2 is stored and not sold. No marketing and branding claims can be made by the end-user (user of biochar) that the underlying product (biochar) is removed from the underlying certificate associated with the underlying physical product.
-
-Check of the packaging of the product (how the product is marketed) is needed, if the CO2 removal certificate has been sold to another stakeholder not associated with the physical product.
-
-# Verification method
-
-Document check. Plant tour. Document check.
-
-# Verification remarks
-
-Statement is sent with invoices confirming that the customer information of the product does not give any rights to claim carbon sink. All other packaging is containing only the company name.
-
-# Compliance
-
-Yes
-Yes
-Yes
+| 5.5. Proof of no double counting | 5.5.2 | 5.5.2 | 5.5.3 |
+|----------------------------------|-------|-------|-------|
+| A statement is needed from the CO2 Removal Document supplier that the underlying physical product (biochar) in which the CO2 is stored will not be sold or marketed as "climate positive" if the CO2 removal certificate associated with the underlying physical product (biochar) is removed from the underlying product and sold to another stakeholder not associated with the end-user (user of biochar). No marketing and branding claims can be made by the end-user (user of biochar) that the underlying physical product (biochar) is a carbon sink, if the CO2 removal certificate associated with the underlying physical product (biochar) is removed from the underlying product. | Check of the packaging of the product (how the product is branded) and statement is needed, if CO2 removal certificate has been sold to and decoupled CO2 removal certificate from the underlying physical product. | Certificate associated with the underlying physical product (biochar) is removed from the underlying product. A statement is sent with invoices confirming that the customer does not give any rights to claim carbon sink. | No marketing and branding claims can be made by the end-user (user of biochar) that the underlying physical product (biochar) is a carbon sink, if the CO2 removal certificate has been sold to and decoupled CO2 certificate from the underlying physical product. |
+| Verification method | Document check. | Plant tour. | Document check. |
+| Verification remarks | Statement is sent with invoices confirming that the customer does not give any rights to claim carbon sink. Packaging is containing only company name. All other information of the product is mentioned in the invoices. | Packaging is containing only company name. All other information of the product is mentioned in the invoices. | Statement is sent with invoices confirming that the customer does not give any rights to claim carbon sink. |
+| Compliance | Yes | Yes | Yes |
 ---
 # 4.6 Calculation parameters, Munka-Ljungby
 
-Total number of CORCs
-
-|years|use|CORC FACTOR (net carbon sequestration over 100|E|production|
+|Total number of CORCs|years)use|CORC FACTOR (net carbon sequestration over 100|E|productionE|
 |---|---|---|---|---|
-|biomass|use|biomass|stored| |
-|Formula: CORCs = Estored - Ebiomass - Eproduction -|Formula: CORCs = Estored - Ebiomass - Eproduction -|Formula: CORCs = Estored - Ebiomass - Eproduction -|Formula: CORCs = Estored - Ebiomass - Eproduction -|Formula: CORCs = Estored - Ebiomass - Eproduction -|
+|biomass|use|biomass|stored|Formula: CORCs= Estored-Ebiomass-Eproduction-|
 |SUMMARY AND OUTPUT CALCULATION|SUMMARY AND OUTPUT CALCULATION|SUMMARY AND OUTPUT CALCULATION|SUMMARY AND OUTPUT CALCULATION|SUMMARY AND OUTPUT CALCULATION|
 |Document check.|Document check.|Document check.|Document check.| |
-
-# Verification method
-
-1.1.-31.12.2022 Munka-Ljungby
-
-|174,242,649|0,120|0,106|0,176|3,051|
-|---|---|---|---|---|
-|CORCs mt CO2 eq / mt biochar (dry)|mt CO2 eq / mt biochar (dry)|mt CO2 eq / mt biochar (dry)|mt CO2 eq / mt biochar (dry)|Verified using the LCA and CORC calculation.|
-|mt CO2 eq / mt biochar (dry)|mt CO2 eq / mt biochar (dry)|mt CO2 eq / mt biochar (dry)|mt CO2 eq / mt biochar (dry)|Verified using the LCA and CORC calculation.|
-|Verified using the LCA and CORC calculation.|Verified using the LCA and CORC calculation.|Verified using the LCA and CORC calculation.|Verified using the LCA and CORC calculation.|Verified using the LCA and CORC calculation.|
-
-# Verification remarks
-
-0,12 0,106 0,176 3,051 t
+|Verification method|1.1.-31.12.2022|Munka-Ljungby|174,242,649|0,120|
+|0,106|0,176|3,051| | |
+|CORCsmt CO2 eq / mt biochar (dry)|mt CO2 eq / mt biochar (dry)|mt CO2 eq / mt biochar (dry)|mt CO2 eq / mt biochar (dry)|Verified using the LCA and CORC calculation.|
+|calculation.|Verified using the LCA and CORC calculation.|Verified using the LCA and CORC calculation.|Verified using the LCA and CORC calculation.| |
+|Verification remarks|0,12|0,106|0,176|3,051|
+|t| | | | |
 ---
 # 4.6 Calculation parameters, Svedala
 
-Total number of CORCs (years) use
+Total number of CORCs
 
-|CORC FACTOR (net carbon sequestration over 100|E|production E|
-|---|---|---|
-|biomass use|biomass stored|Formula: CORCs = Estored - Ebiomass - Eproduction -|
-|SUMMARY AND OUTPUT CALCULATION| | |
+|years)use|CORC FACTOR (net carbon sequestration over 100|E|productionE|
+|---|---|---|---|
+|biomass|use|biomass|stored|
+|Formula: CORCs= Estored-Ebiomass-Eproduction-|Formula: CORCs= Estored-Ebiomass-Eproduction-|Formula: CORCs= Estored-Ebiomass-Eproduction-|Formula: CORCs= Estored-Ebiomass-Eproduction-|
+|SUMMARY AND OUTPUT CALCULATION|SUMMARY AND OUTPUT CALCULATION|SUMMARY AND OUTPUT CALCULATION|SUMMARY AND OUTPUT CALCULATION|
+|Document check.|Document check.|Document check.|Document check.|
 
-Document check.
-
-Verification method
+# Verification method
 
 1.1.-31.12.2022
 
-597,932,741
-0,151
-0,110
-0,210
-3,212
-Svedala
-CORCs mt CO2 eq / mt biochar (dry)
+|597,932,741|0,151|0,110|0,210|3,212|Svedala|
+|---|---|---|---|---|---|
+|CORCsmt CO2 eq / mt biochar (dry)|mt CO2 eq / mt biochar (dry)|mt CO2 eq / mt biochar (dry)|mt CO2 eq / mt biochar (dry)|Verified using the LCA and CORC|mt CO2 eq / mt biochar (dry)|
+|calculation.|calculation.|calculation.|calculation.|calculation.|Verified using the LCA and CORC calculation.|
+|Verified using the LCA and CORC calculation.|Verified using the LCA and CORC calculation.|Verified using the LCA and CORC calculation.|Verified using the LCA and CORC calculation.|Verified using the LCA and CORC calculation.|Verified using the LCA and CORC calculation.|
 
-mt CO2 eq / mt biochar (dry)
+# Verification remarks
 
-mt CO2 eq / mt biochar (dry)
+0,1510,11 0,2103,212
 
-mt CO2 eq / mt biochar (dry)
-
-Verified using the LCA and CORC calculation.
-
-Verification remarks
-
-0,151 0,11 0,210 3,212 t
+t

@@ -1,8 +1,8 @@
-# CLEAN MAINE CARBON PRODUCTION FACILITY & OUTPUT AUDIT REPORT
+# PRODUCTION FACILITY & OUTPUT AUDIT REPORT
 
 # For PURO.EARTH
 
-# Company / CO2 Removal Supplier
+# Company / CO2 Removal
 
 Clean Maine Carbon, LLC
 
@@ -12,11 +12,13 @@ Greenville Facility
 
 # Production Facility Address
 
-185 Greenville Steam Rd, Greenville, Maine, 04441
+185 Greenville Steam Rd,
+Greenville, Maine, 04441
 
 # Production Facility Coordinates
 
-45°45'57"N, -69°58'77"W
+45°45'57"N
+-69°58'77"W
 
 # Net Volume of CO2 Removal
 
@@ -32,38 +34,29 @@ August 2023 – August 2024
 
 # Auditors
 
-Bill Chatterton, Tim Hansen
+Bill Chatterton
+Tim Hansen
 
-# ISSUED
+ISSUED: OCTOBER 30, 2024
 
-OCTOBER 30, 2024
-
-# Version
-
+08/27/2024
 V 2.0
-
-# Page
-
-0 of 32
+page 0 of 32
 ---
-# 350 SOLUTIONS
-
-# CLEANTECH CARBON | VERIFIED
-
 # Contents
 
 1. Introduction .......................................................................................................................................... 2
-2. Technology Description .................................................................................................................... 3
+2. Technology Description ........................................................................................................................ 3
 3. Audit Summary ..................................................................................................................................... 6
-1. Audit Approach ................................................................................................................................... 6
+4. 1. Audit Approach ................................................................................................................................... 6
 2. Process Inputs & Outputs ............................................................................................................. 7
 3. Verified Output & CORCs .............................................................................................................. 9
-4. Audit Findings ....................................................................................................................................... 9
-1. Summary of Audit Findings ........................................................................................................... 9
+
+Audit Findings ....................................................................................................................................... 9
+5. 1. Summary of Audit Findings ........................................................................................................... 9
 2. Audit Issues & Recommendations .............................................................................................. 11
-1. Audit Issues ......................................................................................................................... 12
-2. Opportunities for Improvement ......................................................................................... 14
-5. Eligibility for Ongoing Issuance Rights ............................................................................................ 15
+
+Eligibility for Ongoing Issuance Rights ................................................................................................ 15
 
 Revision History .......................................................................................................................................... 15
 
@@ -71,54 +64,46 @@ Auditor Signatures .............................................................
 
 References .................................................................................................................................................. 17
 
-Appendix 1: Puro.Earth Biochar Methodology Audit Checklist ............................................................... 18
+Appendix 1: Puro.Earth Biochar Methodology Audit Checklist .................................................................. 18
 
-Appendix 2: Site Visit Photos .................................................................................................................. 25
+Appendix 2: Site Visit Photos ...................................................................................................................... 25
 
-Appendix 3: Verifier Qualifications ......................................................................................................... 27
+Appendix 3: Verifier Qualifications ............................................................................................................. 27
 
-10/30/2024 V2.1 page 1 of 32
+10/30/2024                                                                                    V2.1                                                                              page  1 of  32
 ---
 # PRODUCTION FACILITY & OUTPUT AUDIT REPORT
 
-Company: Clean Maine Carbon, LLC
-
-Company Contact: David Mott, Director of Operations
-
-Audit Team: *Bill Chatterton, Tim Hansen, PE
-
-Removal Method: Biochar
-
-Report Date: 10-30-2024
-
-Document No: 350VP-CMC-PU2404
-
-Rev: 2.1
+| Company: Clean Maine Carbon, LLC | Company Contact: | Audit Team: |
+|----------------------------------|-------------------|-------------|
+| Removal Method: Biochar | David Mott, Director of | *Bill Chatterton |
+| Report Date: 10-30-2024 | Operations | Tim Hansen, PE |
+| Document No: 350VP-CMC-PU2404 | | |
+| Rev: 2.1 | | |
 
 *Primary contact/lead author
 
-# 1. INTRODUCTION
+## 1. INTRODUCTION
 
-350Solutions was contracted to perform an audit and validation of the production facility as well as verification of carbon dioxide removal credit (CORC) claims for Clean Maine Carbon’s (CMC) biochar production and utilization. CMC utilizes a slow pyrolysis process at its Greenville, ME facility to produce biochar from woody biomass from regional forest waste.
+350Solutions was contracted to perform an audit and validation of the production facility as well as verification of carbon dioxide removal credit (CORC) claims for Clean Maine Carbon's (CMC) biochar production and utilization. CMC utilizes a slow pyrolysis process at its Greenville, ME facility to produce biochar from woody biomass from regional forest waste.
 
-Regional forestry management and lumber production operations provide sustainable process feedstock streams to support CMC operations. CMC’s use of these residual by-product streams to produce biochar presents a higher value use that leads to carbon sequestration. CMC currently supplies biochar as a soil amendment application to several end users.
+Regional forestry management and lumber production operations provide sustainable process feedstock streams to support CMC operations. CMC's use of these residual by-product streams to produce biochar presents a higher value use that leads to carbon sequestration. CMC currently supplies biochar as a soil amendment application to several end users.
 
-350Solutions conducted an audit of the process, lifecycle CO2 emissions assessment (LCA), and other administrative details to verify compliance with the requirements of the Puro.Earth Standard General Rules V3.1 [1] and Biochar Methodology (Edition 2022 Version 3) [2]. The audit and verification included a document review, a detailed data audit, and a site visit on September 27th, 2024.
+350Solutions conducted an audit of the process, lifecycle CO₂ emissions assessment (LCA), and other administrative details to verify compliance with the requirements of the Puro.Earth Standard General Rules V3.1 [1] and Biochar Methodology (Edition 2022 Version 3) [2]. The audit and verification included a document review, a detailed data audit, and a site visit on September 27th, 2024.
 
-# TABLE 1. CMC VERIFICATION SUMMARY
+### TABLE 1. CMC VERIFICATION SUMMARY
 
-|CO2 Removal Supplier|Clean Maine Carbon|
-|---|---|
-|Production Facility Name|Greenville Steam Facility|
-|GSRN|643002406801000909|
-|Removal Method|Biochar – Production from woody forest waste and use as soil amendment|
-|Claimed CORCs|114.3 CORCs|
-|Verification Report Date|10-30-2024|
-|Site Visit Date|09-27-2024|
-|Verification Period|08-14-2023 to 08-18-2024|
-|Production Facility Location|185 Greenville Steam Rd, Greenville, Maine|
-|Address and GPS Coordinates|34°22'45"N, 081°46'07"W|
-|Verification Type|Combined Production Facility Audit and Output Audit for Puro.Earth, including on-site visit and facility audit; Puro Standard General Rules (v.3.1) and Annex A: Biochar Methodology (v3)|
+| Verification Summary |
+|----------------------|
+| **CO₂ Removal Supplier** | Clean Maine Carbon |
+| **Production Facility Name** | Greenville Steam Facility<br>GSRN: 643002406801000909 |
+| **Removal Method** | Biochar – Production from woody forest waste and use as soil amendment |
+| **Claimed CORCs** | 114.3 CORCs |
+| **Verification Report Date** | 10-30-2024 |
+| **Site Visit Date** | 09-27-2024 |
+| **Verification Period** | 08-14-2023 to 08-18-2024 |
+| **Production Facility Location<br>(Address and GPS Coordinates)** | 185 Greenville Steam Rd, Greenville, Maine<br>34°22'45"N<br>081°46'07"W |
+| **Verification Type** | Combined Production Facility Audit and Output Audit for Puro.Earth, including on-site visit and facility audit; Puro Standard General Rules (v.3.1) and Annex A: Biochar Methodology (v3) |
 
 10/30/2024 V2.1 page 2 of 32
 ---
@@ -132,8 +117,6 @@ As shown in Figure 2 below, the biochar manufacturing process is comprised of a 
 
 10/30/2024 V2.1 page 3 of 32
 ---
-# 7
-
 # FIGURE 2. CMC’S BIOCHAR PRODUCTION PROCESS SCHEMATIC
 
 Chamber C is a refractory-lined rotary drum pyrolysis kiln, in which thermal energy from Chamber B makes contact via countercurrent flow with the biomass feedstock (input into the process at point 1 in the diagram). Gases generated during the pyrolysis process in Chamber C increase the thermal energy of the system above the thermal energy in Chamber B. Chamber D is a thermal oxidation chamber that provides space and residence time to facilitate combustion of gases generated in Chamber C. Chamber E is the exhaust stack. CMC anticipates possible future scenarios that involve using the exhaust gases for other purposes including facility heating or power generation.
@@ -145,8 +128,6 @@ Currently, CMC acquires feedstock from one regional lumber company. The feedstoc
 Feedstock stockpiled at the site is managed and fed into the biochar process by a diesel fuel powered front-end loader. The actual quantity of fuel used by this equipment is metered at an on-site fuel tank and equipment filling station and recorded on a weekly basis. The biochar production process is typically operated 24 hours per day, 5 days per week.
 
 10/30/2024 V2.1 page 4 of 32
-
-10/30/2024 V2.1
 ---
 # FIGURE 3. CMC’S BIOCHAR PRODUCTION PROCESS
 
@@ -162,17 +143,17 @@ CMC collects biochar samples on a weekly basis for proximate analyses provided b
 ---
 # 3. AUDIT SUMMARY
 
-# 3.1 AUDIT APPROACH
+## 3.1 AUDIT APPROACH
 
 A planned series of audit activities were conducted by 350Solutions to independently validate and verify the production facility, its operations, production, and output data, and CORC claims. The audit was conducted following the specifications of Puro General Rules (v3.1) and the Biochar Methodology (v3). Specific audit activities conducted are summarized in Table 2. A completed Puro Biochar Methodology Compliance Checklist used during the verification is attached to this report as Appendix 1: Puro.Earth Biochar Methodology Audit Checklist. Verifier qualifications are attached as Appendix 3.
 
-# TABLE 2. AUDIT ACTIVITIES
+### TABLE 2. AUDIT ACTIVITIES
 
-|Date(s)|Verification Activity|Verification Tasks|Documents Reviewed*|
-|---|---|---|---|
-|09/12-26/2024|Introductory Document Review|- Review of LCA - Review of Puro CORC calculations - Review of facility registries and permits|- Puro_Registration_643002406801000909.pdf - Articles of Conversion to Clean Maine Carbon RS.pdf - Audit Document Index - Biochar - Review 4.xlsx - CMC LCA Projections Report_Final.docx - CMC GHG LCA Workbook updated_Final.xlsx - CORC Report Summary - Biochar_Final_v2.xlsx - A1164AN.pdf (air permit) - Report - CMC Air Emissions Test Report -Oct 2023.pdf - Environmental Evaluation Report_CMC_updated July 2024.pdf - GreenvillePermitLetter.pdf - 01_Stakeholder Engagement Report_CMC_04182023.pdf|
-|Data Review|- Review of waste biomass sources and sustainability - Review of system inputs and outputs - Review evidence of product output - Review of biochar properties - Review of biochar end use|- Additionality Form Signed.pdf - Clean Main Carbon - Cost Analysis - Financial Additionality (5.3.2023) (3).xlsx - Puro additionality questions to suppliers v1.8_CMC.docx - Biomass types and origins list _ CMC.xlsx - Letter from Feedstock Supplier.pdf - Summary of Forest Management in Maine.pdf - Feedstock invoices.pdf - Mass and energy balance of production process 5-14-24.xlsx - Biochar production equipment questionnaire 5-6-24.xlsx - Various facility digital graphics and video files - CMC_BiocharTestingProcedure_Final.docx - CMC_BiocharMoistureProcedure_Final.docx - End user invoices.pdf - 3060579-01 IBI Biochar Report.pdf - 3070467-01 Proximate Biochar Report.pdf - Deriving Soil Temperature for Biochar Application Using Invoice Addresses.docx - Soil Temperature Selection.png - Biochar Safety.pdf - CMC Carbon Pilot platform account; https://carbonpilot.vercel.app/company/output-report/overview| |
-|On-site Visit|- Opening meeting and process walk through - Witness of operations, measurement points, and instrumentation - Review of equipment and calibrations|- Verifier observations of operations, measurement points, and instrumentation (see compliance checklist) - Observation and documentation of feedstock receipt, production logs, equipment utilized, data collected, material handling equipment and procedures - Product Weight Verification_CMC.pdf - Electricity Usage Records_scan.png| |
+| Date(s) | Verification Activity | Verification Tasks | Documents Reviewed* |
+|---------|----------------------|---------------------|---------------------|
+| 09/12-26/2024 | Introductory Document Review | - Review of LCA<br>- Review of Puro CORC calculations<br>- Review of facility registries and permits | - Puro_Registration_643002406801000909.pdf<br>- Articles of Conversion to Clean Maine Carbon RS.pdf<br>- Audit Document Index - Biochar - Review 4.xlsx<br>- CMC LCA Projections Report_Final.docx<br>- CMC GHG LCA Workbook updated_Final.xlsx<br>- CORC Report Summary - Biochar_Final_v2.xlsx<br>- A1164AN.pdf (air permit)<br>- Report - CMC Air Emissions Test Report -Oct 2023.pdf<br>- Environmental Evaluation Report_CMC_updated July 2024.pdf<br>- GreenvillePermitLetter.pdf<br>- 01_Stakeholder Engagement Report_CMC_04182023.pdf |
+| 09/12-26/2024 | Data Review | - Review of waste biomass sources and sustainability<br>- Review of system inputs and outputs<br>- Review evidence of product output<br>- Review of biochar properties<br>- Review of biochar end use | - Additionality Form Signed.pdf<br>- Clean Main Carbon - Cost Analysis - Financial Additionality (5.3.2023) (3).xlsx<br>- Puro additionality questions to suppliers v1.8_CMC.docx<br>- Biomass types and origins list _ CMC.xlsx<br>- Letter from Feedstock Supplier.pdf<br>- Summary of Forest Management in Maine.pdf<br>- Feedstock invoices.pdf<br>- Mass and energy balance of production process 5-14-24.xlsx<br>- Biochar production equipment questionnaire 5-6-24.xlsx<br>- Various facility digital graphics and video files<br>- CMC_BiocharTestingProcedure_Final.docx<br>- CMC_BiocharMoistureProcedure_Final.docx<br>- End user invoices.pdf<br>- 3060579-01 IBI Biochar Report.pdf<br>- 3070467-01 Proximate Biochar Report.pdf<br>- Deriving Soil Temperature for Biochar Application Using Invoice Addresses.docx<br>- Soil Temperature Selection.png<br>- Biochar Safety.pdf<br>- CMC Carbon Pilot platform account; https://carbonpilot.vercel.app/company/output-report/overview |
+| 09/27/2024 | On-site Visit | - Opening meeting and process walk through<br>- Witness of operations, measurement points, and instrumentation<br>- Review of equipment and calibrations | - Verifier observations of operations, measurement points, and instrumentation (see compliance checklist)<br>- Observation and documentation of feedstock receipt, production logs, equipment utilized, data collected, material handling equipment and procedures<br>- Product Weight Verification_CMC.pdf<br>- Electricity Usage Records_scan.png |
 
 10/30/2024 V2.1 page 6 of 32
 ---
@@ -188,9 +169,7 @@ A planned series of audit activities were conducted by 350Solutions to independe
 - Verification of mass of dry biochar shipped to end users and end use applications
 - Confirmation of LCA boundary – feedstock processing (E biomass)
 
-# Observations and Assessments
-
-The following operations at the Greenville facility were observed and assessed during verification and site audit:
+# The following operations at the Greenville facility were observed and assessed during verification and site audit:
 
 - Receipt of biomass from regional lumber operations, with documentation of feedstock delivered quantity, and acceptance of waste wood;
 - Woody biomass from lumber operations as waste wood conveyed to the pyrolysis process;
@@ -215,68 +194,62 @@ The CMC process uses waste biomass as its primary feedstock, with air input to s
 ---
 process uses water for biochar handling safety and moisture content management of final product. This water is contained in the final product (there is no process water waste stream). The production and LCA data verified here includes sporadic process operations during the reporting period of 08-14-2023 to 08-18-2024 for a total of 3818 hours of production. Table 3 summarizes the observed inputs and outputs from the process and typical rates from supplied operational data.
 
-# Table 3. Verified Production Facility Inputs & Outputs
+## Table 3. Verified Production Facility Inputs & Outputs
 
-|Input/Output|Verified Rate|Notes<br/>(Specifications, source, etc.)|
-|---|---|---|
-|
-|Waste Biomass input (forest and lumber mill woody waste)|Average 6.7 tonne wet biomass input/dry tonne biochar|Hardwood lumber mill waste, chipped to 2-inch size, from regional lumbering operations.|
-|Biomass supply inputs (collection, handling, transportation emissions), (Ebiomass)|130 kg CO2-eq./dry tonne biochar|Emissions are from the transport of biomass feed to facility. Average roundtrip transport distance is 110 mi.|
-|Production inputs:| | |
-|- diesel (material handling equip)|Average 5.9 gal/operational day|Daily power consumption value estimated from equipment specifications and historical utility meter readings.|
-|- site electricity use|Average 100 kWh/operational day| |
-|- propane (startup)|Average 109 gal/startup event|Measured average propane used for process startup and stabilization.|
-|Production water input|Not recorded at the time of the audit|Water use for biochar quench as needed, is estimated to be equivalent to the moisture content of the biochar.|
-| |130.4 dry tonne produced, 45.0 dry tonne sold for end use|Biochar production and distribution during reporting period. Sold biochar end use is direct soil amendment or co-amendment.|
-|Production and operation emissions output (Eproduction)|180 kg CO2/tonne biochar|Emissions from all production process and supporting equipment, including process startup, burnout, process operations, syngas destruction, material handling equipment fuel usage, packaging, and equipment manufacture.|
-|Product distribution emissions output (Euse)|250 kg CO2/tonne biochar|Verified based on actual transport distances from production facility to purchasers. Assumes end use emissions are included in material application baselines (biochar is comingled with baseline applicants).|
+| Input/Output | Verified Rate | Notes (Specifications, source, etc.) |
+|--------------|---------------|--------------------------------------|
+| Waste Biomass input (forest and lumber mill woody waste) | Average 6.7 tonne wet biomass input/dry tonne biochar | Hardwood lumber mill waste, chipped to 2-inch size, from regional lumbering operations. |
+| Biomass supply inputs (collection, handling, transportation emissions), (Ebiomass) | 130 kg CO₂-eq. /dry tonne biochar | Emissions are from the transport of biomass feed to facility. Average roundtrip transport distance is 110 mi. |
+| Production inputs: <br>- diesel (material handling equip) <br>- site electricity use <br>- propane (startup) | Average 5.9 gal/operational day <br>Average 100 kWh/operational day <br>Average 109 gal/startup event | On-site diesel filling station meter used to record weekly loader consumption. <br>Daily power consumption value estimated from equipment specifications and historical utility meter readings. <br>Measured average propane used for process startup and stabilization. |
+| Production water input | Not recorded at the time of the audit | Water use for biochar quench as needed, is estimated to be equivalent to the moisture content of the biochar. Emissions associated with estimated annual water use (30 cubic meters) are negligible and not currently included in Eproduction. |
+| Biochar production output | 130.4 dry tonne produced, 45.0 dry tonne sold for end use | Biochar production and distribution during reporting period. Sold biochar end use is direct soil amendment or co-amendment |
+| Production and operation emissions output (Eproduction) | 180 kg CO₂e/tonne biochar DMB | Emissions from all production process and supporting equipment, including process startup, burnout, process operations, syngas destruction, material handling equipment fuel usage, packaging, and equipment manufacture. |
+| Product distribution emissions output (Euse) | 250 kg CO₂e/tonne biochar DMB | Verified based on actual transport distances from production facility to purchasers. Assumes end use emissions are included in material application baselines (biochar is comingled with baseline applicants). |
 
-10/30/2024
-
-V2.1
-
-page 8 of 32
+10/30/2024 V2.1 page 8 of 32
 ---
-# 3.3. VERIFIED OUTPUT & CORCS
+### 3.3. VERIFIED OUTPUT & CORCS
 
 Table 4 includes the specific CORCs claimed by CMC at its Greenville facility for the specified reporting period, and the values verified by 350Solutions during the on-site audit and data review.
 
-# TABLE 4. VERIFIED CORCS FOR THE CMC GREENVILLE FACILITY
+#### TABLE 4. VERIFIED CORCS FOR THE CMC GREENVILLE FACILITY
 
-|Performance Metric Name / Description|Claimed Value|Verified Value|Data Source|Reporting Period|
-|---|---|---|---|---|
-|CORC Factor|2.54 tonne CO2/ tonne biochar|2.54 tonne CO2/ tonne biochar|- CMC LCA Projections Report_Final.docx|08/14/23|
-|Biochar Production|45.0 dry tonne|45.0 dry tonne|- CORC Report Summary - Biochar_Final_v2.xlsx|08/18/24|
-|Total CORCs|114.3 CORCs|114.3 CORCs|- CarbonPilot CMC account| |
+| Performance Metric Name / Description | Claimed Value¹ | Verified Value | Data Source | Reporting Period |
+|---------------------------------------|----------------|----------------|-------------|------------------|
+| CORC Factor | 2.54 tonne CO₂/ tonne biochar | 2.54 tonne CO₂/ tonne biochar | - CMC LCA Projections Report_Final.docx<br>- CMC GHG LCA Workbook updated_Final.xlsx<br>- CORC Report Summary - Biochar_Final_v2.xlsx<br>- CarbonPilot CMC account | 08/14/23 to 08/18/24 |
+| Biochar Production | 45.0 dry tonne | 45.0 dry tonne |
+| Total CORCs | 114.3 CORCs | 114.3 CORCs |
 
-1 Claimed values are those submitted by CMC after completion of LCA revisions based on results of Puro reviews and independent audit. Verified values are based on verification of final biochar production records for the reporting period. Output is reported in dry biochar tonnes in accordance with Puro guidance.
+¹ Claimed values are those submitted by CMC after completion of LCA revisions based on results of Puro reviews and independent audit. Verified values are based on verification of final biochar production records for the reporting period. Output is reported in dry biochar tonnes in accordance with Puro guidance.
 
-# 4. AUDIT FINDINGS
+## 4. AUDIT FINDINGS
 
-# 4.1. SUMMARY OF AUDIT FINDINGS
+### 4.1. SUMMARY OF AUDIT FINDINGS
 
 350Solutions has reviewed and audited the documentation of the technology, the instrumentation, the procedures, performance and collected data and has found that the data presented in the Puro Audit Package and during the site visit and follow up:
 
-- ☐ Meets the requirements of the Puro General Rules V3.1 and the Annex A Biochar Methodology V3
-- ☒ Meets the requirements of the Puro General Rules V3.1 and the Annex A Biochar Methodology V3 with minor modifications
-- ☐ Does Not Meet the requirements of the Puro General Rules V3.1 and the Annex A Biochar Methodology V3
+☐ Meets the requirements of the Puro General Rules V3.1 and the Annex A Biochar Methodology V3
+
+☒ Meets the requirements of the Puro General Rules V3.1 and the Annex A Biochar Methodology V3 with minor modifications
+
+☐ Does Not Meet the requirements of the Puro General Rules V3.1 and the Annex A Biochar Methodology V3
 
 A summary of specific findings associated with each requirement of the Puro Standard and Biochar Methodology and any identified issues with the audit are summarized in Table 5 below.
----
-# TABLE 5. AUDIT FINDINGS
 
-|Puro Standard|Audit Verification Topic|Findings|
-|---|---|---|
-|1.1.1|Sustainable Feedstock|Acceptable. CMC obtains waste forest biomass from local logging and lumbering process facilities. Under the baseline alternative, the woody waste would typically be left to rot at the facilities, utilized as furnace fuel, or landfilled.|
-|1.1.2|Biochar Use|Acceptable. CMC has demonstrated that the biochar is sold to a variety of customers using the product as a soil additive or enhancement. Transport emissions associated with biochar transport and delivery are considered in the LCA.|
-|1.1.3|Net-Negative LCA|Acceptable with modifications. CMC has demonstrated an appropriate basis for CORCs according to the Puro Biochar Methodology. CMC utilizes the CarbonPilot software platform to record, track, and process data supporting calculations used for the LCA and CORC quantifications. Opportunities for improvements and modifications for collection and recording of supporting data are provided in Section 4.2 below. The supplier does not currently provide numerical evidence demonstrating that plant maintenance and end-of-life emissions are below the chosen LCA cutoff. The LCA does not currently include emissions associated with application of biochar by end users where applicable (in this case, land applications of biochar are generally co-mingled with existing land spreading materials and therefore associated emissions are zero).|
-|1.1.4|Prohibition of Fossil fuel use for process heat|Acceptable. Process heat is provided by internal combustion of biomass and biomass-derived syngas. Propane is only used for process startup and transition to steady operation. Propane consumption is not metered at the kiln level but estimated based on bulk storage tank readings.|
-|1.1.5|Negligible methane emissions|Acceptable. Emissions from the process only occur from the oxidizer exhaust. The oxidizer operates at conditions such that low methane emissions are evident. Total hydrocarbon (THC) emissions were measured during a regulatory stack test for the State of Maine and currently quantified at 0.03 lbs/hr and included in the LCA (speciated methane emissions are a subset of the THC value).|
-|1.1.6, 5.3.4|Molar H:C Ratio < 0.7 & Biochar Qualities|Acceptable. Biochar analytical results have demonstrated an average molar H:C ratio of 0.17 (std dev 0.07) over six samples analyzed during the reporting period.|
-|1.1.7|Safe Environment & Biochar Handling|Acceptable. CMC operates under an air permit issued by the State of Maine Department of Environmental Protection – Permit A-1164-71-A-N, expiration 10-25-2032. Produced biochar is quenched, collected in super sacks, labeled, and stored on-site until sale and delivery.|
-|1.2.2|Environmental & Social Safeguards|Acceptable. CMC operates under air permits discussed above and written internal safety and operational procedures. Community and stakeholder outreach activities are documented.|
-|1.2.3|Demonstrated Additionality|Acceptable. CMC has submitted that: The project is not required by existing laws, regulations, or other binding obligations. Additional revenue derived from CORC sales will support CMC by providing needed revenue to improve the system and company financials. Without biochar production, the feedstock used at CMC currently would otherwise decompose at the supplying lumber facility.|
-|1.2.4|Biochar Quantification|Acceptable with modifications. The final packaged biochar dispatched from the facility to end users is measured at the facility using a hanging supersack weigh scale. Scale calibration is checked using a non-traceable weight, and cross checked with a second scale on handling equipment. A traceable standard calibration weight or traceable calibration certificate is required for future product mass.|
+10/30/2024 V2.1 page 9 of 32
+---
+| Puro Standard Biochar Method. Section Ref. | Audit Verification Topic | Findings |
+|----------------------------------|---------------------------|----------|
+| 1.1.1 5.2.1 | Sustainable Feedstock | Acceptable. CMC obtains waste forest biomass from local logging and lumbering process facilities. Under the baseline alternative, the woody waste would typically be left to rot at the facilities, utilized as furnace fuel, or landfilled. |
+| 1.1.2 5.4.2 | Biochar Use | Acceptable. CMC has demonstrated that the biochar is sold to a variety of customers using the product as a soil additive or enhancement. Transport emissions associated with biochar transport and delivery are considered in the LCA. |
+| 1.1.3 5.2.2 5.3.3 5.4.1 | Net-Negative LCA | Acceptable with modifications. CMC has demonstrated an appropriate basis for CORCs according to the Puro Biochar Methodology. CMC utilizes the CarbonPilot software platform to record, track, and process data supporting calculations used for the LCA and CORC quantifications. Opportunities for improvements and modifications for collection and recording of supporting data are provided in Section 4.2 below. The supplier does not currently provide numerical evidence demonstrating that plant maintenance and end-of-life emissions are below the chosen LCA cutoff. The LCA does not currently include emissions associated with application of biochar by end users where applicable (in this case, land applications of biochar are generally co-mingled with existing land spreading materials and therefore associated emissions are zero). |
+| 1.1.4 | Prohibition of Fossil fuel use for process heat | Acceptable. Process heat is provided by internal combustion of biomass and biomass-derived syngas. Propane is only used for process startup and transition to steady operation. Propane consumption is not metered at the kiln level but estimated based on bulk storage tank readings. |
+| 1.1.5 | Negligible methane emissions | Acceptable. Emissions from the process only occur from the oxidizer exhaust. The oxidizer operates at conditions such that low methane emissions are evident. Total hydrocarbon (THC) emissions were measured during a regulatory stack test for the State of Maine and currently quantified at 0.03 lbs/hr and included in the LCA (speciated methane emissions are a subset of the THC value). |
+| 1.1.6, 5.3.4 | Molar H:C Ratio < 0.7 & Biochar Qualities | Acceptable. Biochar analytical results have demonstrated an average molar H:C ratio of 0.17 (std dev 0.07) over six samples analyzed during the reporting period. |
+| 1.1.7 | Safe Environment & Biochar Handling | Acceptable. CMC operates under an air permit issued by the State of Maine Department of Environmental Protection – Permit A-1164-71-A-N, expiration 10-25-2032. Produced biochar is quenched, collected in super sacks, labeled, and stored on-site until sale and delivery. |
+| 1.2.2 | Environmental & Social Safeguards | Acceptable. CMC operates under air permits discussed above and written internal safety and operational procedures. Community and stakeholder outreach activities are documented. |
+| 1.2.3 | Demonstrated Additionality | Acceptable. CMC has submitted that: The project is not required by existing laws, regulations, or other binding obligations. Additional revenue derived from CORC sales will support CMC by providing needed revenue to improve the system and company financials. Without biochar production, the feedstock used at CMC currently would otherwise decompose at the supplying lumber facility. |
+| 1.2.4 5.3.1 5.3.2 | Biochar Quantification | Acceptable with modifications. The final packaged biochar dispatched from the facility to end users is measured at the facility using a hanging supersack weigh scale. Scale calibration is checked using a non-traceable weight, and cross checked with a second scale on handling equipment. A traceable standard calibration weight or traceable calibration certificate is required for future product mass |
 
 10/30/2024 V2.1 page 10 of 32
 ---
@@ -310,34 +283,33 @@ Findings for the verification of the production facility and the output audit in
 
 10/30/2024 V2.1 page 11 of 32
 ---
-|Finding Category|Finding Description|Recommended Corrective Action|
-|---|---|---|
-|Audit Issue|The Puro Biochar Methodology mandates calibrated load cell measurements for biochar production quantification.|Procure services for traceable calibration of biochar weigh scale or procure range appropriate calibration standards for in-house calibrations.|
-| |The Puro Biochar Methodology mandates calibrated instrumentation for determination of biochar moisture content.|Procure services for traceable calibration of moisture analyzer balance or procure range appropriate calibration standards for in-house calibration.|
-|Opportunity for Improvement|Electricity consumption of the biochar production process is currently estimated and not directly measured or recorded.|Install appropriate metering equipment to facilitate measurement and reporting of electricity consumption.|
+350 Solutions logo
 
-CMC Implementation Status
+## TABLE 6. AUDIT ISSUES AND RECOMMENDATIONS
 
-CMC has initiated the process of procuring a new digital scale for mass biochar measurements that will include a traceable calibration certification. CMC has included procurement of a new moisture analyzer with calibrated balance in their 2025 operating budget and plans to implement use of the instrument during that reporting period. CMC is consulting with an electrical contractor about implementation of a power meter isolated to biochar production processes only. No action has been implemented to date.
+| Finding Category | Finding Description | Recommended Corrective Action | CMC Implementation Status |
+|------------------|----------------------|-------------------------------|---------------------------|
+| Audit Issue | The Puro Biochar Methodology mandates calibrated load cell measurements for biochar production quantification. | Procure services for traceable calibration of biochar weigh scale or procure range appropriate calibration standards for in-house calibrations. | CMC has initiated the process of procuring a new digital scale for mass biochar measurements that will include a traceable calibration certification. |
+| | The Puro Biochar Methodology mandates calibrated instrumentation for determination of biochar moisture content. | Procure services for traceable calibration of moisture analyzer balance or procure range appropriate calibration standards for in-house calibration. | CMC has included procurement of a new moisture analyzer with calibrated balance in their 2025 operating budget and plans to implement use of the instrument during that reporting period. |
+| Opportunity for Improve-ment | Electricity consumption of the biochar production process is currently estimated and not directly measured or recorded. | Install appropriate metering equipment to facilitate measurement and reporting of electricity consumption. | CMC is consulting with an electrical contractor about implementation of a power meter isolated to biochar production processes only. No action has been implemented to date. |
 
-# 4.2.1. Audit Issues
+### 4.2.1. Audit Issues
 
-Verifiers reviewed the findings of Puro’s internal review of the original CMC audit package submission and LCA calculations. Significant CMC submittal issues and required action items were identified by Puro. As such, these issues were reviewed during this audit to verify that items were addressed and rectified as necessary by CMC. Corrections were implemented by CMC in the form of modified iterations of documents, LCA assumptions and calculations, and CORC calculations. These included:
+Verifiers reviewed the findings of Puro's internal review of the original CMC audit package submission and LCA calculations. Significant CMC submittal issues and required action items were identified by Puro. As such, these issues were reviewed during this audit to verify that items were addressed and rectified as necessary by CMC. Corrections were implemented by CMC in the form of modified iterations of documents, LCA assumptions and calculations, and CORC calculations. These included:
 
 - Environmental Evaluation Report: The Environmental Evaluation Report was edited, resubmitted, and verified as complete.
+
 - MRV for Quantification of dry biochar produced: Procedures and protocols for quantification of biochar production on dry basis have been revised and submitted. Certain MRV parameters of note include:
-- Biochar production rate – Biochar production is reported as a function of the mass of biochar collected in super sacks (wet basis). Each super sack is weighed using an acceptable weigh scale (RESHY Digital Crane Scale 1000Kg Digital Hanging Scale). Scale accuracy is assessed by operators using a standard weight (not metrologically traceable) and by cross checking against the scale on the material handling tractor (also not calibrated). For future audits, the facility must have the primary super sack hanging scale calibrated against metrologically traceable standard weights. Plans are in place to address this finding.
-- Wet basis super sack weights are corrected to dry mass basis using on-site biochar moisture determinations. Sampling and analytical procedures are conducted according to recommended guidance [3], but the balance used for weighing the biochar samples does not have a traceable calibration. Traceable balance calibration should be obtained, or a replacement balance with a traceable certification of calibration should be procured for this determination. Plans are in place to address this finding.
+  - Biochar production rate – Biochar production is reported as a function of the mass of biochar collected in super sacks (wet basis). Each super sack is weighed using an acceptable weigh scale (RESHY Digital Crane Scale 1000Kg Digital Hanging Scale). Scale accuracy is assessed by operators using a standard weight (not metrologically traceable) and by cross checking against the scale on the material handling tractor (also not calibrated). For future audits, the facility must have the primary super sack hanging scale calibrated against metrologically traceable standard weights. Plans are in place to address this finding.
+  - Wet basis super sack weights are corrected to dry mass basis using on-site biochar moisture determinations. Sampling and analytical procedures are conducted according to recommended guidance [3], but the balance used for weighing the biochar samples does not have a traceable calibration. Traceable balance calibration should be obtained, or a replacement balance with a traceable certification of calibration should be procured for this determination. Plans are in place to address this finding.
 
 10/30/2024 V2.1 page 12 of 32
-
-10/30/2024 V2.1
 ---
 Biomass input records from the scale-equipped loader tractor and biochar output records from the super sack hanging scale are now input to the CMC’s CarbonPilot account using an operator employed mobile app.
 
 Other opportunities for MRV improvements are provided in Section 4.2.2.
 
-# LCA errors and omissions:
+# LCA errors and omissions
 
 Several omissions and errors were identified in early iterations of the LCA calculations. The current iteration of the LCA is verified to have addressed and included the following findings:
 
@@ -347,14 +319,14 @@ Several omissions and errors were identified in early iterations of the LCA calc
 - Equipment lifetimes updated as 10 years;
 - Using the CarbonPilot software tool, referenced emission factors, and complete inclusion of all required LCA inputs, verifiers have confirmed that the current LCA iteration used to derive CORCs during the reporting period are complete.
 
-# CORC Summary Report – Quantification of CORCs:
+# CORC Summary Report – Quantification of CORCs
 
 The CORC summary report was revised and verified to rectify the following omissions and inconsistencies noted during the Puro reviews:
 
 - Biochar characterization of the carbon content and H:C ratio is reported from samples relevant to the reporting periods and verified;
 - Biochar moisture levels are reported based on samples relevant to the reporting periods and determined on-site according to the sampling protocol (see comments above for more detail).
 
-# Documentation of biochar end use and required analysis:
+# Documentation of biochar end use and required analysis
 
 Biochar end use is currently documented in production logs entered into the CarbonPilot software, as well as customer invoices that document the customer, location, and mass of biomass shipped. Because biochar analytical requirements may differ depending on the end use application, the intended end use application of each customer shipment should be documented in future reporting periods to ensure that all required biochar analyses are completed.
 
@@ -378,34 +350,43 @@ Recommendations for improving the quality of data and accuracy of the LCA and CO
 
 10/30/2024 V2.1 page 14 of 32
 ---
-# 5. ELIGIBILITY FOR ONGOING ISSUANCE RIGHTS
+## 5. ELIGIBILITY FOR ONGOING ISSUANCE RIGHTS
 
-Puro.earth are currently transitioning to use the 4.0 version of the Puro General Rules. Although the CMC facility and output audits described in this report were conducted using version 3.1 of the General Rules, certain rules described in the updated version of the document (v4.0), such as the Ongoing Issuance Right, are applicable to all projects currently registered or in the process of getting registered on the registry. Specifically, Appendix A of the updated rules dictates that “the evaluation of the Ongoing Issuance Right is done in the performance verification by the 3rd party Auditor as part of the Output Audit” (A.4.1) and that "This evaluation can be done when a Production Facility has demonstrated regular industrial operation and successfully completed performance verification for the previous Monitoring Period with a minimum of 3 months of Output” (A.4.2).
+Puro.earth are currently transitioning to use the 4.0 version of the Puro General Rules. Although the CMC facility and output audits described in this report were conducted using version 3.1 of the General Rules, certain rules described in the updated version of the document (v4.0), such as the Ongoing Issuance Right, are applicable to all projects currently registered or in the process of getting registered on the registry. Specifically, Appendix A of the updated rules dictates that "the evaluation of the Ongoing Issuance Right is done in the performance verification by the 3rd party Auditor as part of the Output Audit" (A.4.1) and that "This evaluation can be done when a Production Facility has demonstrated regular industrial operation and successfully completed performance verification for the previous Monitoring Period with a minimum of 3 months of Output" (A.4.2).
 
-Based on the operational history of the CMC Greenville facility, stability of operations, and production data submitted by CMC, 350Solutions confirms that the facility is able to maintain regular industrial operation and repeat the procedures for regular output monitoring. Additionally, CMC has confirmed plans to address each of the audit issues and opportunities for improvement identified in Section 4.2 above during the next operational year. Many of these MRV upgrades and improvements, when coupled with CMC’s continued utilization of the CarbonPilot platform to record and track production and emissions, will be critical to CMC’s gradual transition to full dMRV and digital real-time monitoring of performance in the future.
+Based on the operational history of the CMC Greenville facility, stability of operations, and production data submitted by CMC, 350Solutions confirms that the facility is able to maintain regular industrial operation and repeat the procedures for regular output monitoring. Additionally, CMC has confirmed plans to address each of the audit issues and opportunities for improvement identified in Section 4.2 above during the next operational year. Many of these MRV upgrades and improvements, when coupled with CMC's continued utilization of the CarbonPilot platform to record and track production and emissions, will be critical to CMC's gradual transition to full dMRV and digital real-time monitoring of performance in the future.
 
 350Solutions has reviewed and audited the documentation of the technology, the instrumentation, the procedures, performance and collected data and has found that the CMC Greenville facility:
 
-☒ Meets the requirements for ongoing Issuance rights of the Puro General Rules V4.0 Appendix A☐ Meets the requirements for ongoing Issuance rights of the Puro General Rules V4.0 Appendix A with minor modifications☐ Does Not Meets the requirements for ongoing Issuance rights of the Puro General Rules V4.0 Appendix A.
+☒ Meets the requirements for ongoing Issuance rights of the Puro General Rules V4.0 Appendix A
+☐ Meets the requirements for ongoing Issuance rights of the Puro General Rules V4.0 Appendix A with minor modifications
+☐ Does Not Meets the requirements for ongoing Issuance rights of the Puro General Rules V4.0 Appendix A.
 
-# REVISION HISTORY
+### REVISION HISTORY
 
-|Version|Date Issued|Noted Changes|
-|---|---|---|
-|Draft Version (v1.0)|10-08-2024|NA|
-|Draft Version post-QA (v1.1)|10-23-2024|Minor edits and clarifications|
-|Draft Version post-CMC Review (v1.2)|10-25-2024|Minor edits and clarifications and addition of verifier evaluation of Ongoing Issuance rights|
-|Final Version 2.1|10-30-2024|Incorporates review comments from Puro.Earth|
+| Version | Date Issued | Noted Changes |
+|---------|-------------|----------------|
+| Draft Version (v1.0) | 10-08-2024 | NA |
+| Draft Version post-QA (v1.1) | 10-23-2024 | Minor edits and clarifications |
+| Draft Version post-CMC Review (v1.2) | 10-25-2024 | Minor edits and clarifications and addition of verifier evaluation of Ongoing Issuance rights |
+| Final Version 2.1 | 10-30-2024 | Incorporates review comments from Puro.Earth |
 
-10/30/2024 V2.1 page 15 of 32
+10/30/2024                                V2.1                                page 15 of 32
 ---
-# AUDITOR SIGNATURES
 
-|Bill Chatterton|Bill Chatterton (Lead Auditor)|Tim Hansen (Quality Assurance)|
-|---|---|---|
-|Carbon Removal Verification Engineer|Carbon Removal Verification Engineer|350Solutions, Inc.|
-|350Solutions, Inc.| | |
-|10/30/2024|V2.1|page 16 of 32|
+AUDITOR SIGNATURES
+
+| Bill Chatterton | Timothy A. Hansen |
+|-----------------|-------------------|
+| Bill Chatterton (Lead Auditor) | Tim Hansen (Quality Assurance) |
+| Carbon Removal Verification Engineer | Carbon Removal Verification Engineer |
+| 350Solutions, Inc. | 350Solutions, Inc |
+
+Digitally signed by Timothy A. Hansen
+Date: 2024.11.01 14:54:03 -05'00'
+
+10/30/2024                            V2.1                                 page 16 of 32
+
 ---
 # REFERENCES
 
@@ -415,46 +396,38 @@ Based on the operational history of the CMC Greenville facility, stability of op
 
 10/30/2024 V2.1 page 17 of 32
 ---
-# APPENDIX 1:
+# APPENDIX 1: PURO.EARTH BIOCHAR METHODOLOGY AUDIT CHECKLIST
 
-# PURO.EARTH BIOCHAR METHODOLOGY AUDIT CHECKLIST
+| Production Facility and Output Audit - Biochar Methodology |                                           |
+|-----------------------------------------------------------|-------------------------------------------|
+| Audit ID                                                  | 350PU-CMC-01                              |
+| Audit Inception Date                                      | 19 Sept 2024                              |
+| Production Facility ID                                    | CMC Biochar                               |
+| Production Facility Location                              | Greenville Steam Rd, Greenville, ME, 04441|
+| Auditing Body                                             | 350Solutions, Inc.                        |
+| Auditor Initials                                          | BC                                        |
+| QA                                                        | TH                                        |
 
-# Production Facility and Output Audit - Biochar Methodology
-
-|Audit ID|350PU-CMC-01|
-|---|---|
-|Audit Inception Date|19 Sept 2024|
-|Production Facility ID|CMC Biochar|
-|Production Facility Location|Greenville Steam Rd, Greenville, ME, 04441|
-|Auditing Body|350Solutions, Inc.|
-|Auditor Initials|BC|
-|QA|TH|
-
-10/30/2024 V2.1 page 18 of 32
+10/30/2024                                      V2.1                                                              page 18 of 32
 ---
-# Require-Guideline
+| Guideline Ref | Requirement | Require-ment Met Y/N | Verification Remarks Insert auditors comments | Evidence Document Insert evidence used to verify requirement |
+|---------------|-------------|-------------------|------------------------------------------|------------------------------------------------------------------|
+| | A certified trade registry extract for the CO2 Removal Supplier | Y | CMC provided their articles of conversion effective 04-13-2020 | Articles of Conversion CMC RS, Puro_Registration_643002406801000909.pdf |
+| | CO2 Removal Supplier registering Production Facility | Y | CMC registered the Production Facility at Greenville Steam facility with Puro | Signed Puro registration |
+| | Evidence of the location of the Production Facility | Y | 185 Greenville Steam Rd, Greenville, Maine 34°22'45"N, 081°46'07"W | Signed Puro registration, site visit and audit |
+| 1.2.5 | Evidence of the Volume of Output for the full calendar year prior to registration | Y | Data provided for August 14, 2023 - August 18, 2024, which is the reporting period specified | CMC LCA Projections Report_Final.docx CMC GHG LCA Workbook updated_Final.xlsx CORC Report Summary - Biochar_Final_v2.xlsx |
+| | Evidence of the Removal Method(s) for which the plant is eligible to receive CORCs | Y | Biochar production from waste wood is an acceptable removal method for receipt of CORCs | CMC LCA Projections Report_Final.docx, site visit and audit |
+| | If the Production Facility has benefited from public support, evidence to show this | Y | No benefit from public support | N/A |
+| | Documentation on Environmental and Social Safeguards imposed | Y | Air quality permit from the state of Indiana and documentation in support of biochar from NRCS were provided. | A1164AN.pdf (air permit) Report - CMC Air Emissions Test Report -Oct 2023.pdf Environmental Evaluation Report_CMC_updated July 2024.pdf GreenvillePermitLetter.pdf |
+| | Proof of sustainability of raw material for forest biomass (FSC, SFI, PEFC, other certifications) | Y | Vast sources of waste woody biomass in production facility region | Biomass types and origins list _ CMC.xlsx Letter from Feedstock Supplier.pdf Summary of Forest Management in Maine.pdf Puro additionality questions to suppliers v1.8 |
+| | Proof of sustainability of raw material for waste biomass | N/A | | |
+| 5 | LCA data for biomass and biochar production, supply and use, including climate change impact and the contribution of each life cycle stages. | Y | LCA is complete with Estored, Ebiomass, Eprod, and Euse calculated separately. No CH4 or N2O emissions expected. Emissions factors used include non-CO2 greenhouse gases to determine CO2-eq | CMC LCA Projections Report_Final.docx CMC GHG LCA Workbook updated_Final.xlsx CORC Report Summary - Biochar_Final_v2.xlsx CMC Carbon Pilot platform account |
+| | Proof of product quality: laboratory analysis of total organic carbon content, hydrogen content and H/Corg | Y | Control Labs is a widely used biochar analysis lab | 3060579-01 IBI Biochar Report.pdf 3070467-01 Proximate Biochar Report.pdf |
+| | Proof of production volume: documentation for the whole period and methodology applied to calculate the dry mass of biochar produced. | Y | All material was bagged during this reporting period. Each bag was weighed using a loadcell under the rack that holds the supersack | CORC Report Summary - Biochar_Final_v2.xlsx CMC Carbon Pilot platform account Inspection of operator field logs |
 
-|Requirement Ref|Requirement|Met Y/N|Verification Remarks|Evidence Document|
-|---|---|---|---|---|
-|A certified trade registry extract for the CO2 Removal Supplier|CMC provided their articles of conversion effective|Y|04-13-2020|Articles of Conversion CMC RS, Puro_Registration_643002406801000909.pdf|
-|CO2 Removal Supplier registering Production Facility|CMC registered the Production Facility at|Y|Greenville Steam facility with Puro|Signed Puro registration|
-|Evidence of the location of the Production Facility|185 Greenville Steam Rd, Greenville, Maine|Y|34°22'45"N, 081°46'07"W|Signed Puro registration, site visit and audit|
-|Evidence of the Volume of Output for the full calendar year prior to registration|Data provided for August 14, 2023 - August 18, 2024, which is the reporting period specified|Y| |CMC LCA Projections Report_Final.docx, CMC GHG LCA Workbook updated_Final.xlsx, CORC Report Summary - Biochar_Final_v2.xlsx|
-|Evidence of the Removal Method(s) for which the plant is eligible to receive CORCs|Biochar production from waste wood is an acceptable removal method for receipt of CORCs|Y| |CMC LCA Projections Report_Final.docx, site visit and audit|
-|If the Production Facility has benefited from public support, evidence to show this|No benefit from public support|Y|N/A|A1164AN.pdf (air permit)|
-|Documentation on Environmental and Social Safeguards imposed|Air quality permit from the state of Indiana and documentation in support of biochar from NRCS were provided.|Y| |Report - CMC Air Emissions Test Report -Oct 2023.pdf, Environmental Evaluation Report_CMC_updated July 2024.pdf, GreenvillePermitLetter.pdf, Biomass types and origins list _ CMC.xlsx|
-|Proof of sustainability of raw material for forest biomass (FSC, SFI, PEFC, other certifications)|Vast sources of waste woody biomass in production facility region|Y| |Letter from Feedstock Supplier.pdf, Summary of Forest Management in Maine.pdf, Puro additionality questions to suppliers v1.8|
-|Proof of sustainability of raw material for waste biomass| |N/A|LCA is complete with Estored, Ebiomass, Eprod, and Euse calculated separately. No CH4 or N2O emissions expected. Emissions factors used include non-CO2 greenhouse gases to determine CO2-eq|CMC LCA Projections Report_Final.docx, CMC GHG LCA Workbook updated_Final.xlsx, CORC Report Summary - Biochar_Final_v2.xlsx|
-|Proof of product quality: laboratory analysis of total organic carbon content, hydrogen content and H/Corg|Control Labs is a widely used biochar analysis lab|Y| |3060579-01 IBI Biochar Report.pdf, 3070467-01 Proximate Biochar Report.pdf|
-|Proof of production volume: documentation for the whole period and methodology applied to calculate the dry mass of biochar produced.|All material was bagged during this reporting period. Each bag was weighed using a loadcell under the rack that holds the supersack|Y| |CORC Report Summary - Biochar_Final_v2.xlsx, CMC Carbon Pilot platform account, Inspection of operator field logs|
-
-10/30/2024
-
-V2.1
-
-page 19 of 32
+10/30/2024 V2.1 page 19 of 32
 ---
-# Proof of Load and Usage of Biochar
+# Proof of Load and Measurements
 
 For mobile units or carbonizer operator: proof of load cell measurement of the biochar for the whole period, N/A and water input measurement.
 
@@ -462,7 +435,7 @@ For mobile units or carbonizer operator: proof of load cell measurement of the b
 
 Proof of end use of biochar: offtake agreement, shipment, and other records indicating the intended use of biochar. Biochar is used for application on farm fields or for other soil enhancements. Customers submitted letters stating they would not burn the material. Biochar is mostly used in Maine and New England region. The average temperature over one year is 9.4 degrees C. Global datasets for annual average soil temperature (at depth of 5-15 cm) used.
 
-# Justification on the Soil Temperature
+# Justification on Soil Temperature
 
 Justification on the soil temperature selected for the calculation of the biochar sequestration.
 
@@ -478,31 +451,27 @@ Proof of sales. Copies of sold product invoices provided.
 
 # Biochar Applications
 
-# 1.1.1 Biochar is used in applications other than energy.
+1.1.1 Biochar is used in applications other than energy. Biochar applied to fields or used as soil enhancement or amendment.
 
-Biochar applied to fields or used as soil enhancement or amendment.
+# Biochar Production
 
-# 1.1.2 Biochar is produced from sustainable forest or waste biomass raw materials.
+1.1.2 Biochar is produced from sustainable forest or waste biomass raw materials (consult list of raw materials). Biochar is produced from waste forest wood that would otherwise decompose. Biomass is a waste material and is appropriately placed outside the system boundary; Biomass transportation is accounted for using an average distance traveled; Biochar production emissions from propane, diesel, and electricity consumption is conservative; Emissions from packaging material (supersacks) production are included; Infrastructure and equipment manufacturing are accounted for.
 
-Biochar is produced from waste forest wood that would otherwise decompose. Biomass is a waste material and is appropriately placed outside the system boundary; Biomass transportation is accounted for using an average distance traveled; Biochar production emissions from propane, diesel, and electricity consumption is conservative; Emissions from packaging material (supersacks) production are included; Infrastructure and equipment manufacturing are accounted for.
+# LCA Shows
 
-# 1.1.3 LCA shows:
+1.1.3 LCA shows: carbon footprint of the biomass production and supply, emissions from the biochar production process, carbon footprint of the biochar end use - cradle to grave.
 
-- Carbon footprint of the biomass production and supply
-- Emissions from the biochar production process
-- Carbon footprint of the biochar end use - cradle to grave
+# Pyrolysis Reactor Input Fuel
 
-# 1.1.4 Pyrolysis Reactor Input Fuel
+1.1.4 Pyrolysis reactor input fuel for heating is not a fossil fuel. Unless only used for ignition/pre heating or in a mobile unit and the emissions are fully included in the LCA. The use of waste heat from other industrial processes (eg. Biodigesters, cement production) is permitted. Propane is only used for cold start-up ignition and kiln draft stabilization and is accounted for in the LCA.
 
-Pyrolysis reactor input fuel for heating is not a fossil fuel. Unless only used for ignition/pre heating or in a mobile unit and the emissions are fully included in the LCA. The use of waste heat from other industrial processes (eg. Biodigesters, cement production) is permitted. Propane is only used for cold start-up ignition and kiln draft stabilization and is accounted for in the LCA.
+# Pyrolysis Gases
 
-# 1.1.5 Pyrolysis Gases
+1.1.5 Pyrolysis gases are combusted or recovered. Bio-oil and produced gases are combusted in thermal oxidizer attached to gasifier.
 
-Pyrolysis gases are combusted or recovered. Bio-oil and produced gases are combusted in thermal oxidizer attached to gasifier.
+# Molar H/Corg Ratio
 
-# 1.1.6 Molar H/Corg Ratio
-
-The molar H/Corg ratio is less than 0.7. Average H/Corg during production period = 0.17.
+1.1.6 The molar H/Corg ratio is less than 0.7. Average H/Corg during production period = 0.17.
 
 10/30/2024 V2.1 page 20 of 32
 ---
@@ -552,78 +521,22 @@ V2.1
 
 page 21 of 32
 ---
+350 Solutions logo
+
 Baselines that shall be project-specific, conservative and periodically updated. Suppliers must also show that the project is not required by existing laws, regulations, or other binding obligations.
 
-|The Production Facility's documentation system is|Followed example biomass and biochar delivery|Site visit, operator interviews|
-|---|---|---|
-|accurate and reliable|Y|from input to database during site visit|
-| |CMC Carbon Pilot platform account|Operational field logs and records|
+| Requirement | Y/N | Details | Evidence |
+|-------------|-----|---------|----------|
+| The Production Facility's documentation system is accurate and reliable | Y | Followed example biomass and biochar delivery from input to database during site visit | Site visit, operator interviews<br>CMC Carbon Pilot platform account<br>Operational field logs and records |
+| The quantity of the biochar produced and sold is quantified and documented in a reliable manner | Y | Invoices provided; demonstrated invoice production during site visit. On-site biochar weigh scale to be calibrated to traceable standard. | Site visit, operator interviews<br>Operational field logs and records<br>Customer invoice **.pdf (39 total) |
+| Relevant meters are in place and they are calibrated; | Y | Daily average electricity, diesel, and propane usage based on site meter readings. On-site biochar weigh scale to be calibrated to traceable standard. | Site visit, operator interviews<br>Operational field logs and records |
+| 1.2.4 The emissions from the cultivating, harvesting and transporting of the biomass are estimated and calculated in a reliable manner | Y | Biomass is a waste material so emissions associated with production are outside of the LCA scope. Transportation emissions are accounted for by using the tonnes of biomass delivered and the average delivery distance to facility | |
+| The energy use of the Production Facility can be quantified and the emissions from the process calculated | Y | Daily average electricity, diesel, and propane usage based on site meter readings. All energy use attributed to biochar production. EPA emissions factors used. | CMC LCA Projections Report_Final.docx<br>CMC GHG LCA Workbook updated_Final.xlsx<br>CMC Carbon Pilot platform account<br>Site visit, operator interviews<br>Operational field logs and records |
+| The auditor goes through the Quantification of CO2 Removal requirements with the CO2 Removal Supplier, so that the Supplier is able to calculate the CO2 Removal independently in its Output Report | Y | CMC can independently calculate CORCs, utilizes CarbonPilot software platform, https://carbonpilot.vercel.app/company/output-report/overview | |
+| 3.1 The CO2 Removal Supplier shall provide a life cycle assessment (LCA) for biochar activity including disaggregated information on the emissions arising at different stages. The system boundary is set cradle-to-grave and shall include emissions from production and supply of the biomass, from biomass conversion to biochar, and from biochar distribution and use. | Y | Logging woody feedstock is a waste biomass and thus the production can be excluded from the LCA system boundary (Fig 2B in Methodology) | CMC LCA Projections Report_Final.docx |
+| 3.2 Life cycle assessment (LCA) shall follow ISO standard, WRI GHG protocol or similar method. | Y | The analysis has been conducted and presented consistent with Puro.Earth's Biochar Methodology for quantifying net CO₂ Removals and guidance from WRI's GHG Protocol. | CMC LCA Projections Report_Final.docx<br>CMC GHG LCA Workbook updated_Final.xlsx<br>CMC Carbon Pilot platform account |
 
-The quantity of the biochar produced and sold is quantified and documented in a reliable manner
-
-|Invoices provided; demonstrated invoice|Site visit, operator interviews|
-|---|---|
-|Y|production during site visit. On-site biochar weigh|
-| |Operational field logs and records|
-| |Customer invoice **.pdf (39 total)|
-
-Relevant meters are in place and they are calibrated;
-
-|Y|usage based on site meter readings. On-site|
-|---|---|
-| |biochar weigh scale to be calibrated to traceable standard.|
-| | |
-
-Biomass is a waste material so emissions associated with production are outside of the LCA
-
-# 1.2.4
-
-transporting of the biomass are estimated and calculated in a reliable manner
-
-|Y|scope. Transportation emissions are accounted for|
-|---|---|
-| |by using the tonnes of biomass delivered and the average delivery distance to facility|
-
-The energy use of the Production Facility can be quantified and the emissions from the process calculated
-
-|Daily average electricity, diesel, and propane|CMC LCA Projections Report_Final.docx|
-|---|---|
-|Y|usage based on site meter readings. All energy use|
-| |attributed to biochar production. EPA emissions|
-| |factors used.|
-| |CMC Carbon Pilot platform account|
-| |Site visit, operator interviews|
-| |Operational field logs and records|
-
-The auditor goes through the Quantification of CO2 Removal requirements with the CO2 Removal Supplier,
-
-|Y|CarbonPilot software platform,|
-|---|---|
-| |https://carbonpilot.vercel.app/company/output-report/overview|
-
-The CO2 Removal Supplier shall provide a life cycle assessment (LCA) for biochar activity including disaggregated information on the emissions arising at
-
-# 3.1
-
-different stages. The system boundary is set cradle-to-grave and shall include emissions from production and supply of the biomass, from biomass conversion to biochar, and from biochar distribution and use.
-
-The analysis has been conducted and presented
-
-CMC LCA Projections Report_Final.docx
-
-# 3.2
-
-Life cycle assessment (LCA) shall follow ISO standard, WRI GHG protocol or similar method.
-
-Y consistent with Puro.Earth’s Biochar Methodology
-
-CMC GHG LCA Workbook updated_Final.xlsxCMC Carbon Pilot platform account
-
-10/30/2024
-
-V2.1
-
-page 22 of 32
+10/30/2024 V2.1 page 22 of 32
 ---
 The default baseline emission scenario for the project activity feedstock is zero, which is a conservative assumption since it is not taking into account methane emissions derived from decay of manure or combustion of waste biomass. If a non-zero baseline presented, needs to be accepted by Puro.earth.
 
@@ -672,23 +585,17 @@ Customer attestations that the biochar is not burned were provided.
 
 10/30/2024 V2.1 page 23 of 32
 ---
-|Guideline Ref|Requirement|Requirement Met|Verification Remarks|Value|Units|
-|---|---|---|---|---|---|
-| |Qbiochar = Quantity of biochar produced and sold to end user. (dry char)|Y| |45.0|tonnes|
-| |FpTHTs = c + m x H/Corg|Y| |1.00|N/A|
-|4.2|C Biochar = carbon content of biochar|Y| |89.4%|N/A|
-| |Estored = biochar carbon storage = Qbiochar x Cbiocharorg x FpTHTs x 44/12|Y| |3,100| |
-|4.3|Ebiomass = LCA emissions of production and supply of biomass: With allocation|Y| |130|kg CO2e/tonne|
-|4.4|Eproduction = LCA emissions from biochar manufacturing: With allocation|Y| |180|biochar|
-|4.5|Euse = LCA emissions of the use of biochar, including distribution up to the point of final use: With allocation|Y| |250| |
-| |CORCs = Estored - Ebiomass - Eproduction - Euse: with allocation|Y| |114.3|tonnes|
-|4.1|Quantity of CORCs (in evidence).|Y| |114.3|tonnes|
-
-10/30/2024
-
-V2.1
-
-page 24 of 32
+| Guideline Ref | Requirement | Requirement Met Y/N | Verification Remarks Insert auditors comments | Value | Units |
+|---------------|--------------|---------------------|------------------------------------------------|-------|-------|
+| | Qbiochar = Quantity of biochar produced and sold to end user. (dry char) | Y | | 45.0 | tonnes |
+| | FpTHTs = c + m x H/Corg | Y | | 1.00 | N/A |
+| 4.2 | C Biochar = carbon content of biochar | Y | | 89.4% | N/A |
+| | Estored = biochar carbon storage = Qbiochar x Cbiocharorg x FpTHTs x 44/12 | Y | | 3,100 | |
+| 4.3 | Ebiomass = LCA emissions of production and supply of biomass: With allocation | Y | | 130 | kg CO₂e/tonne biochar |
+| 4.4 | Eproduction = LCA emissions from biochar manufacturing: With allocation | Y | | 180 | |
+| 4.5 | Euse = LCA emissions of the use of biochar, including distribution up to the point of final use: With allocation | Y | | 250 | |
+| 4.1 | CORCs = Estored - Ebiomass - Eproduction - Euse: with allocation | Y | | 114.3 | tonnes |
+| | Quantity of CORCs (in evidence). | Y | | 114.3 | tonnes |
 ---
 # APPENDIX 2: SITE VISIT PHOTOS
 
@@ -698,74 +605,45 @@ page 24 of 32
 
 10/30/2024 V2.1 page 25 of 32
 ---
-# Figure A2-3. CMC Biochar Production Process – Kiln Exit
+                           Figure A2-3. CMC Biochar Production Process – Kiln Exit
+            Figure A2-4. CMC Biochar Production Process – Kiln Temperature Control Screen
 
-|Propane OFF|Stoker ON|Conveyor|Fuel|Fuel Bin 6#t|
-|---|---|---|---|---|
-|Chip Conveyor On|Chip Bin On|Stoker On|Drum On| |
-|Burner SP|1850.0|Fuel Sensor|Outlizer|Propane Inanttor|
-|Drum Auger On|Propane SP|00.20|Controller Pump|Drumtx Baz|
-|1670.|100-|102.5|Burner Fugers On| |
-|1900 0|Burner|Drum1|Drum2|Drum4|
-|1687.1|1088.0|1183|918.6|766.2|
-|Damper ON| | |Burner Ainock Omt| |
-|Orect|159.6|Water Output|Carbon 1|140.1|
-|Carbon|225 ml/min|B Carbon|166|Carbon|
-|407 ml/min|Dropbox|ml/min|B Carbon 2|1111.0|
-|D Carbon 2|132-|Auger Shaft|200 ml/min| |
-
-# Figure A2-4. CMC Biochar Production Process – Kiln Temperature Control Screen
-
-10/30/2024
-
-V2.1
-
-page 26 of 32
+10/30/2024                                                  V2.1                           page 26 of 32
 ---
-# APPENDIX
-
-# 3: VERIFIER QUALIFICATIONS
+# APPENDIX 3: VERIFIER QUALIFICATIONS
 
 Supporting documentation, including verifier resumes, and verifier or corporate accreditations are also included in this appendix.
 
-# Verifier Qualifications
+## Verifier Qualifications
 
-Company Name: Clean Maine Biochar
+| Company Name: | Clean Maine Biochar |
+|---------------|----------------------|
+| Date: | 9/10/2024 |
 
-Date: 9/10/2024
+| Verifier Name: | Bill Chatterton and Tim Hansen |
+|-----------------|--------------------------------|
+| Company Name (where applicable): | 350Solutions |
+| Verifier Contact Information: | bill@350solutions.com, 984-215-0585 |
+| Verifier Address: | 1053 E. Whitaker Mill Rd. Suite 115, Raleigh, NC 27604 |
+| Verifier Scope of Activities: | Verification through observation and review of key technology components and documentation. |
 
-Verifier Name: Bill Chatterton and Tim Hansen
+| Verifier Qualifications | Criteria Met? | Evidence / Notes (note how the criteria was met, specific documents - resume/CV, publications, certifications, etc.). |
+|-------------------------|---------------|------------------------------------------------------------------------------------------------------------------------|
+| Verifier has relevant technical knowledge of the type of technology being evaluated and carbon removal processes in general | | |
+| A) Does Verifier have: | | |
+| 1. An in-depth technical knowledge of the technology type under verification; | ✓ | 350Solutions is accredited to ISO/IEC 17020:2012 and ISO 14034 Environmental Technology Verification (ETV) as a Type A (third party) Inspection Body (ANAB Certificate Number: AI-2618). The technical scope of 350's accreditation includes verification of performance and environmental impact as it relates to design, materials, equipment, installation and operations of technologies in the categories of Energy, Clean Production and Process, and Air Pollution Monitoring and Abatement. As documented in 350Solutions' ETV Standard Operating Procedure (ETV QPM 350-223-03), and Quality Systems Procedures for verifier qualifications (QSP-350-005-02), 350Solutions conforms to the requirements of ISO 17020 Annex A with respect to verifier qualifications and procedures relevant to the Puro.Earth General Standard. |
+| 2. Knowledge of specific risk areas associated with performance of such technologies (i.e. common failure points, performance issues, barriers to scaleup); | ✓ | |
+| 3. Knowledge of the environmental implications related to the use of the technology from a life cycle perspective, such as impact of the technology on lifecycle CO2 emissions and carbon removal; | ✓ | |
+| 4. Knowledge of relevant applicable test methods and standards for evaluating performance or impact of the technology; | ✓ | 350 staff have participated in the evaluation and development of small scale biomass gasification and biofuels technologies. 350 also served as lead verifier for the Carbon XPrize competition and contributed to the development of procedures and processes for verification of relevant calculations, modeling, and statistical methods in order to assess team results and calculations of performance metrics and uncertainty. 350 has demonstrated knowledge of data quality and data validation approaches and execution in supporting verification of performance claims and results. |
+| 5. Knowledge of relevant calculation, modeling, and statistical methods in order to assess test results and calculations of performance metrics and uncertainty, as applicable; | ✓ | |
+| 6. Knowledge of data quality and data validation approaches, including QA/QC procedures, for example. | ✓ | |
+| Verifier is a credible independent 3rd party | | |
+| B) Is Verifier: | | |
+| 1. third-party body independent of the team registered for the Puro Earth CORCs; | ✓ | 350Solutions is accredited to ISO/IEC 17020:2012 and ISO 14034 ETV as a Type A (third party) Inspection Body. As documented in 350Solutions ETV Policy Manual (ETV QPM 350-200-03), 350Solutions conforms to the requirements of ISO 17020 Annex A with respect to impartiality for Type A inspections, pursuant to ISO 14034 activities. These procedures and quality management programs are generally relevant to verification under the Puro.Earth General Standard. Note that verifications completed for Puro.Earth are not equivalent to ISO 14034 verifications. |
+| 2. Not directly involved in the design, manufacture or construction, marketing, installation, use or maintenance of the specific technologies submitted to Puro.Earth for verification, or represent the parties engaged in those activities. | ✓ | |
+| 3. Not part of a legal entity that is engaged in design, manufacture, supply, installation, purchase, ownership, use or maintenance of the items inspected. | ✓ | |
 
-Company Name (where applicable): 350Solutions
-
-Verifier Contact Information:
-
-Verifier Address: 1053 E. Whitaker Mill Rd. Suite 115, Raleigh, NC 27604
-
-Verifier Scope of Activities: Verification through observation and review of key technology components and documentation.
-
-# Evidence / Notes
-
-|Verifier Qualifications|Criteria Met?|
-|---|---|
-|Verifier has relevant technical knowledge of the type of technology being evaluated and carbon removal processes in general| |
-|A) Does Verifier have:| |
-|1. An in-depth technical knowledge of the technology type under verification;|350Solutions is accredited to ISO/IEC 17020:2012 and ISO 14034 Environmental Technology Verification (ETV) as a Type A (third party) Inspection Body (ANAB Certificate Number: AI-2618). The technical scope of 350’s accreditation includes verification of performance and environmental impact as it relates to design, materials, equipment, installation and operations of technologies in the categories of Energy, Clean Production and Process, and Air Pollution Monitoring and Abatement. As documented in 350Solutions’ ETV Standard Operating Procedure (ETV QPM 350-223-03), and Quality Systems Procedures for verifier qualifications (QSP-350-005-02), 350Solutions conforms to the requirements of ISO 17020 Annex A with respect to verifier qualifications and procedures relevant to the Puro.Earth General Standard.|
-|2. Knowledge of specific risk areas associated with performance of such technologies (i.e. common failure points, performance issues, barriers to scaleup);| |
-|3. Knowledge of the environmental implications related to the use of the technology from a life cycle perspective, such as impact of the technology on lifecycle CO2 emissions and carbon removal;| |
-|4. Knowledge of relevant applicable test methods and standards for evaluating performance or impact of the technology;|350 staff have participated in the evaluation and development of small scale biomass gasification and biofuels technologies. 350 also served as lead verifier for the Carbon XPrize competition and contributed to the development of procedures and processes for verification of relevant calculations, modeling, and statistical methods in order to assess team results and calculations of performance metrics and uncertainty. 350 has demonstrated knowledge of data quality and data validation approaches and execution in supporting verification of performance claims and results.|
-|5. Knowledge of relevant calculation, modeling, and statistical methods in order to assess test results and calculations of performance metrics and uncertainty, as applicable;| |
-|6. Knowledge of data quality and data validation approaches, including QA/QC procedures, for example.| |
-|B) Is Verifier:| |
-|1. third-party body independent of the team registered for the Puro Earth CORCs;|350Solutions is accredited to ISO/IEC 17020:2012 and ISO 14034 ETV as a Type A (third party) Inspection Body. As documented in 350Solutions ETV Policy Manual (ETV QPM 350-200-03), 350Solutions conforms to the requirements of ISO 17020 Annex A with respect to impartiality for Type A inspections, pursuant to ISO 14034 activities. These procedures and quality management programs are generally relevant to verification under the Puro.Earth General Standard.|
-|2. Not directly involved in the design, manufacture or construction, marketing, installation, use or maintenance of the specific technologies submitted to Puro.Earth for verification, or represent the parties engaged in those activities.| |
-|3. Not part of a legal entity that is engaged in design, manufacture, supply, installation, purchase, ownership, use or maintenance of the items inspected.|Note that verifications completed for Puro.Earth are not equivalent to ISO 14034 verifications.|
-
-10/30/2024
-
-V2.1
-
-page 27 of 32
+10/30/2024 V2.1 page 27 of 32
 ---
 # William Chatterton
 
@@ -791,41 +669,35 @@ Program Manager, Energy & Environment Technologies: As Program Manager, Mr. Chat
 
 10/30/2024 V2.1 page 28 of 32
 ---
+350Solutions logo
+
 # Tim Hansen, P.E.
+## Founder and CEO, 350Solutions
 
-# Founder and CEO, 350Solutions
+### EDUCATION:
+- B.S., Chemical Engineering, University of Virginia, 1993
+- M.S., Engineering Science, Thayer School of Engineering, Dartmouth College, 1995
 
-# EDUCATION:
-
-B.S., Chemical Engineering, University of Virginia, 1993
-
-M.S., Engineering Science, Thayer School of Engineering, Dartmouth College, 1995
-
-# EXPERIENCE SUMMARY:
-
+### EXPERIENCE SUMMARY:
 Mr. Hansen has 26 years of experience in management of energy and environmental technology development and demonstration projects and programs, as well as multimedia environmental engineering efforts. These majority of his recent work has focused on the evaluation of innovative carbon capture, utilization, and removal technologies. Mr. Hansen has led the development and management of large technology evaluation programs in the advanced energy, transportation, and climate change areas.
 
-# RESEARCH AND PROFESSIONAL EXPERIENCE:
-
-2019-Present: Founder – CEO, 350Solutions, Inc.
-
+### RESEARCH AND PROFESSIONAL EXPERIENCE:
+**2019-Present    Founder – CEO, 350Solutions, Inc.**
 Owns and operates a small cleantech engineering consulting business focused on the independent evaluation of new cleantech innovations and their impact on the environment and carbon emissions. Provides engineering consulting, testing and evaluation, techno-economic assessment, and other support to companies developing, using, or investing in new clean technology innovations. Manages administrative, business development, and project activities for 350Solutions.
 
-2012-2019: Director - Energy and Environment, Southern Research
+**2012-2019:    Director - Energy and Environment, Southern Research**
+Manages scientific and technical staff performing research, development, and evaluation of innovative clean energy technologies. Projects range from $25,000 to $6million in size, and are funded by the US Department of Energy, Department of Defense, and commercial partners. Technical focus areas are conversion of biomass to fuels and chemicals, carbon capture and utilization, energy efficient building technologies and renewable energy generation.
 
-Manages scientific and technical staff performing research, development, and evaluation of innovative clean energy technologies. Projects range from $25,000 to $6 million in size, and are funded by the US Department of Energy, Department of Defense, and commercial partners. Technical focus areas are conversion of biomass to fuels and chemicals, carbon capture and utilization, energy efficient building technologies and renewable energy generation.
+**2009-2012:    Program Manager – Transportation & Climate Change Technology, Southern Research**
 
-2009-2012: Program Manager – Transportation & Climate Change Technology, Southern Research
+**2003-2009     Sr. Project Leader, Environmental Engineer, Southern Research**
 
-2003-2009: Sr. Project Leader, Environmental Engineer, Southern Research
+**1996-2003     Environmental Engineer, Bensinger & Garrison Environmental**
 
-1996-2003: Environmental Engineer, Bensinger & Garrison Environmental
+### PROJECT EXPERIENCE:
+Mr. Hansen has executed several independent technology performance verifications of emerging carbon, energy and transportation technologies, as CEO of 350Solutions, Director of Energy & Environment at Southern Research, and Director of the U.S. EPA's Greenhouse Gas Technology Center. Mr. Hansen has completed clean technology evaluations for the Department of Defense, state energy agencies, commercial clients, investors, and technology developers, involving evaluation of commercial feasibility, economic and environmental impacts, and technology performance. Mr. Hansen served as the Measurement and Verification Program Lead for the NRG COSIA Carbon XPrize – a $20M prize competition for technologies that capture and beneficially utilize CO₂. Mr. Hansen also served as U.S. Technical Expert for the development and implementation of ISO 14034 – Environmental Technology Verification, an international standard, issued in 2016
 
-# PROJECT EXPERIENCE:
-
-Mr. Hansen has executed several independent technology performance verifications of emerging carbon, energy and transportation technologies, as CEO of 350Solutions, Director of Energy & Environment at Southern Research, and Director of the U.S. EPA’s Greenhouse Gas Technology Center. Mr. Hansen has completed clean technology evaluations for the Department of Defense, state energy agencies, commercial clients, investors, and technology developers, involving evaluation of commercial feasibility, economic and environmental impacts, and technology performance. Mr. Hansen served as the Measurement and Verification Program Lead for the NRG COSIA Carbon XPrize – a $20M prize competition for technologies that capture and beneficially utilize CO. Mr. Hansen also served as U.S. Technical Expert for the development and implementation of ISO 14034 – Environmental Technology Verification, an international standard, issued in 2016.
-
-10/30/2024 V2.1 page 29 of 32
+10/30/2024                                  V2.1                                page 29 of 32
 ---
 # 350Solutions, Inc. Corporate Experience
 
@@ -833,95 +705,6 @@ Mr. Hansen has executed several independent technology performance verifications
 
 10/30/2024                                                       V2.1                                     page 30 of 32
 ---
-# ANAB
-
-# ANSI National Accreditation Board
-
-# CERTIFICATE OF ACCREDITATION
-
-The ANSI National Accreditation Board hereby attests that
-
-# 350Solutions, Inc
-
-1053 E. Whitaker Mill Rd:, Suite 115
-
-Raleigh, NC 27604
-
-Fulfills the requirements of
-
-# ISO/IEC 17020:2012
-
-# and
-
-# ISO 14034:2016, Environmental Management Technology Verification (ETV) Environmental
-
-In the field of
-
-# INSPECTION
-
-This certificate is valid only when accompanied by a current scope of accreditation document. The current scope of accreditation can be verified at www.anab.org:
-
-1c40 Jtation
-
-AMAB
-
-1 49J po
-
-R. Douglas Leonard Jr., VP. PILR SBU
-
-Expiry Date: 25 September 2024
-
-Certificate Number: AF-261&
-
-ibac MRA
-
-# ANAB
-
-An inspection body's fulfilment of the requirements of ISO IEC 17020:2012 means the inspection body meets both the technical competence requirements and management system requirements that are necessary for it to consistently deliver technically valid inspection results (refer to joint ISO-ILAC-IAF Communique dated Sept 2013)
-
-10/30/2024 V2.1 page 31 of 32
+10/30/2024  V2.1  page 31 of 32
 ---
-# ANAB
-
-# ANSI National Accreditation Board
-
-# SCOPE OF ACCREDITATION TO ISO/IEC 1720.2012 and ISO 14034.2016, Environmental Management Verification (ETV) Environmental Technology
-
-1053E 350 Solutions, Inc.
-
-Whitaker Mill Rd, Suite 115
-
-Tim Hasen thasent@350solutions.com
-
-Raleigh, NC 27604
-
-(919) 675-6432
-
-# INSPECTION TYPE 4 (THIRD-PARTY) BODY
-
-Valid: September 25, 2024
-
-Certificate Number: AI-2618
-
-|General Products Categories|Range|Stage|Methods and Procedures|
-|---|---|---|---|
-|Every Technologies|Performance and Environmental impact as it relates to design materials, equipment installation and operations|Operating|QSP-350-223-02 SOP ISO 14034 ETV|
-|Clear Processes|Production and Performance and Environmental impact as it relates to design materials, equipment installation and operations|Operating|QSP-350-223-02 SOP ISO 14034 ETV|
-|Pollution Monitoring and Abatement (AFP)|Performance and Environmental impact as it relates to design materials, equipment installation and operations|Operating|QSP-350-223-02 SOP ISO 14034 ETV|
-|Water Monitoring and Treatment (WMD)|Performance and Environmental impact as it relates to design materials, equipment installation and operations|Operating|QSP-350-223-02 SOP ISO 14034 ETV|
-
-Note: This scope is valid until No. 41-2618
-
-Version: 005
-
-Issued: August 09, 2022
-
-ANAB
-
-Page 1 of 1
-
-10/30/2024
-
-V2.1
-
-Page 32 of 32
+10/30/2024  V2.1  page 32 of 32

@@ -1,0 +1,426 @@
+[
+  {
+    "analysis": [
+      {
+        "topic": "Biogenic Requirements",
+        "criteria": "Feedstock type description",
+        "question": "Does the documentation clearly describe the feedstock type (e.g., wood residues, agricultural by-products), and does it explicitly confirm that it is derived from living or recently living organisms?",
+        "conclusion": "Meets",
+        "evidenceFound": "The feedstock is described as coniferous wood extracted through sustainable forest management, which is a biogenic source.",
+        "missingOrContradictoryData": ""
+      },
+      {
+        "topic": "Biogenic Requirements",
+        "criteria": "Proof of Biogenic Source",
+        "question": "How does the documentation demonstrate or confirm that the biomass is genuinely biogenic (e.g., references to origin, supply chain descriptions, certification)?",
+        "conclusion": "Meets",
+        "evidenceFound": "The documentation mentions PEFC certificates for all suppliers, indicating sustainable forest management practices and confirming the biogenic origin of the feedstock.",
+        "missingOrContradictoryData": ""
+      }
+    ]
+  },
+  {
+    "analysis": [
+      {
+        "topic": "Waste or By-product Status",
+        "criteria": "Clarification of Feedstock as Waste or By-product",
+        "question": "Does the documentation identify the feedstock specifically as a waste product (e.g., sawdust, crop residues) or a by-product of another process, indicating it would otherwise be discarded or landfilled?",
+        "conclusion": "Partially Meets",
+        "evidenceFound": "The audit report mentions the use of coniferous wood from sustainable forest management but does not explicitly state it as waste or by-product. PEFC certificates are mentioned, but no clear justification is provided for its classification as waste or by-product.",
+        "missingOrContradictoryData": "The report lacks explicit statements confirming the feedstock as waste or by-product and its alternative fate if not used in the project."
+      },
+      {
+        "topic": "Waste or By-product Status",
+        "criteria": "Analysis of Competing Use",
+        "question": "Does the project acknowledge possible alternative uses for this biomass (e.g., construction materials, animal bedding, compost) and explain why producing biochar is preferable or permissible?",
+        "conclusion": "Meets",
+        "evidenceFound": "The report states that coniferous wood is commonly not used in construction and includes an analysis justifying the use of biochar production over other uses.",
+        "missingOrContradictoryData": ""
+      }
+    ]
+  },
+  {
+    "analysis": [
+      {
+        "topic": "By-Product Status (50% Threshold)",
+        "criteria": "Allocation of harvested biomass",
+        "question": "Does the documentation include a clear breakdown showing that no more than 50% of the total harvested biomass is used for energy or carbon removal (biochar)?",
+        "conclusion": "Inconclusive",
+        "evidenceFound": "The audit report does not explicitly provide a breakdown of the end-use distribution of the harvested biomass. It mentions the biochar is not used for energy purposes and lists two product groups: 'Pflanzenkohle \u00d6KO FEED' for animal feed and animal litter, and 'Pflanzenkohle \u00d6KO TERR' for soil improvement.",
+        "missingOrContradictoryData": "No clear breakdown of the end-use distribution of the harvested biomass is provided. The report does not confirm whether the biochar or energy fraction remains below the 50% threshold."
+      },
+      {
+        "topic": "By-Product Status (50% Threshold)",
+        "criteria": "Transparency in usage",
+        "question": "Is the documentation transparent about the proportions allocated to various uses, and does it explicitly show compliance with the <50% criterion?",
+        "conclusion": "Inconclusive",
+        "evidenceFound": "The report mentions the use of biochar for animal feed, animal litter, and soil improvement, but does not provide specific percentages or a clear breakdown of the proportions allocated to these uses. There is no explicit statement confirming compliance with the <50% criterion.",
+        "missingOrContradictoryData": "Specific percentages or a clear breakdown of the proportions allocated to various uses are missing. No explicit confirmation of compliance with the <50% criterion is provided."
+      }
+    ]
+  },
+  {
+    "analysis": [
+      {
+        "topic": "Counterfactual Assessment",
+        "criteria": "Description of alternative scenarios",
+        "question": "Does the documentation explain what would happen to the biomass if it were not used by the biochar project (e.g., landfill, open burning, decomposition, other industrial processes)?",
+        "conclusion": "Partially Meets",
+        "evidenceFound": "The audit report mentions that coniferous wood extracted through sustainable forest management is not commonly used in construction and is included in the EBC list of permissible inputs. However, there is no explicit description of what would happen to the biomass if it were not used for biochar production.",
+        "missingOrContradictoryData": "The report lacks a clear counterfactual scenario describing the typical fate of the biomass if not used by the biochar project. Relevant data or market analysis explaining whether this material is commonly discarded, burned for energy, or used in other industries is missing."
+      }
+    ]
+  },
+  {
+    "analysis": [
+      {
+        "topic": "Certification",
+        "criteria": "Presence and Type of Certification",
+        "question": "Does the documentation explicitly mention recognized certifications\u2014such as FSC, RSB, or SBP\u2014that cover responsible forest/biomass management?",
+        "conclusion": "Partially Meets",
+        "evidenceFound": "The audit mentions PEFC certificates for all suppliers of raw material and sustainable forest management, but it does not provide specific dates, certificate IDs, or links to the certifier\u2019s database.",
+        "missingOrContradictoryData": "Specific details such as dates, certificate IDs, and links to the certifier's database are missing."
+      },
+      {
+        "topic": "Certification",
+        "criteria": "Certification Scope and Chain-of-Custody",
+        "question": "Does the documentation describe how the certification covers social safeguards, ecological considerations, and chain-of-custody (i.e., tracking the biomass from harvest to end use)?",
+        "conclusion": "Partially Meets",
+        "evidenceFound": "The audit mentions PEFC certificates and sustainable forest management, which implies coverage of ecological considerations. However, there is no explicit mention of social safeguards or detailed chain-of-custody tracking procedures.",
+        "missingOrContradictoryData": "Details on social safeguards, biodiversity protection, and chain-of-custody tracking procedures are missing."
+      },
+      {
+        "topic": "Certification",
+        "criteria": "Mix of Certified and Non-Certified Feedstock",
+        "question": "If only a portion of the feedstock is certified, does the documentation show what percentage is certified vs. non-certified, and how the project mitigates risks for the non-certified portion?",
+        "conclusion": "Does Not Meet",
+        "evidenceFound": "The audit mentions PEFC certificates for a significant supplier sample size, but does not provide a breakdown of certified vs. non-certified feedstock percentages or any risk mitigation strategies for non-certified portions.",
+        "missingOrContradictoryData": "Breakdown of certified vs. non-certified feedstock percentages and risk mitigation strategies for non-certified portions are missing."
+      }
+    ]
+  },
+  {
+    "analysis": [
+      {
+        "topic": "Risk-Based Assessment",
+        "criteria": "Existence of a Third-Party Risk-Based Assessment",
+        "question": "If no formal certification is cited (or if part of the feedstock is non-certified), does the project have a third-party risk-based review confirming sustainable sourcing?",
+        "conclusion": "Inconclusive",
+        "evidenceFound": "The audit report mentions PEFC certificates for suppliers but does not specify any third-party risk-based assessment for feedstock sustainability.",
+        "missingOrContradictoryData": "No explicit mention of a third-party risk-based review or assessment for non-certified feedstock."
+      },
+      {
+        "topic": "Risk-Based Assessment",
+        "criteria": "Thoroughness of the Risk-Based Assessment",
+        "question": "Does the assessment detail environmental (e.g., deforestation, habitat loss) and social (e.g., labor conditions, community impacts) risks and outline mitigation measures (e.g., supplier vetting, ongoing monitoring)?",
+        "conclusion": "Inconclusive",
+        "evidenceFound": "The audit report mentions PEFC certificates and sustainable forest management, but there is no detailed risk matrix or discussion of specific environmental and social risks and mitigation measures.",
+        "missingOrContradictoryData": "No detailed risk assessment or mitigation measures for environmental and social risks are provided."
+      }
+    ]
+  },
+  {
+    "analysis": [
+      {
+        "topic": "Strong governance",
+        "criteria": "Regional Oversight and Enforcement",
+        "question": "Does the documentation specify the jurisdiction(s) from which feedstock is sourced, and describe local forestry laws or enforcement measures?",
+        "conclusion": "Partially Meets",
+        "evidenceFound": "The audit mentions PEFC certificates for suppliers, implying adherence to sustainable forest management standards, but does not explicitly specify the jurisdictions or local forestry laws and enforcement measures.",
+        "missingOrContradictoryData": "Explicit references to local forestry laws, jurisdictions, and enforcement structures are missing."
+      },
+      {
+        "topic": "Strong governance",
+        "criteria": "Established Management Standards",
+        "question": "Does the project cite national or regional forest certification standards (beyond voluntary schemes like FSC) or government-led sustainability initiatives?",
+        "conclusion": "Meets",
+        "evidenceFound": "The project mentions PEFC certificates, which are recognized certification standards for sustainable forest management. It also indicates compliance with EBC and GMP+ standards.",
+        "missingOrContradictoryData": ""
+      }
+    ]
+  },
+  {
+    "analysis": [
+      {
+        "topic": "Corruption Perception Index (CPI)",
+        "criteria": "Transparency and Governance Indicators",
+        "question": "Does the documentation reference reputable indices (e.g., Transparency International\u2019s CPI) or other governance metrics for the source country?",
+        "conclusion": "Does Not Meet",
+        "evidenceFound": "No specific CPI score or other governance metrics were mentioned in the audit report.",
+        "missingOrContradictoryData": "The report lacks any reference to the CPI or other governance metrics for the source country. There is no narrative on how corruption might affect forest management."
+      },
+      {
+        "topic": "Corruption Perception Index (CPI)",
+        "criteria": "Stricter Conditions for Low-CPI Areas",
+        "question": "If the CPI or other indicators suggest a high corruption risk, does the project apply stricter sourcing conditions (e.g., mandatory FSC or equivalent certification), or possibly exclude feedstock from certain areas?",
+        "conclusion": "Inconclusive",
+        "evidenceFound": "The documentation mentions PEFC certificates for sustainable forest management, which is a positive indicator. However, there is no specific mention of stricter conditions or guidelines for regions with low CPI.",
+        "missingOrContradictoryData": "The report does not provide clear evidence of additional safeguards or stricter sourcing conditions for high-risk jurisdictions. There is no information on supplier screening, chain-of-custody requirements, or risk-based audits in these jurisdictions."
+      }
+    ]
+  },
+  {
+    "analysis": [
+      {
+        "topic": "Exclusion of Sensitive Areas",
+        "criteria": "Primary and Old-Growth Forests",
+        "question": "Does the documentation unequivocally confirm that no feedstock is sourced from primary or old-growth forests?",
+        "conclusion": "Partially Meets",
+        "evidenceFound": "The audit mentions sustainable forest management and PEFC certificates, but there is no explicit reference to primary or old-growth forests or their definitions.",
+        "missingOrContradictoryData": "Clear references to official definitions of primary or old-growth forests (e.g., FAO or UNESCO criteria) and detailed maps or supplier lists identifying sourcing locations are missing."
+      },
+      {
+        "topic": "Exclusion of Sensitive Areas",
+        "criteria": "Protected and HCV Areas",
+        "question": "Does the documentation confirm that feedstock is not sourced from protected or high conservation value (HCV) forests unless selective harvest is explicitly recognized by authorities and proven to be low-impact?",
+        "conclusion": "Partially Meets",
+        "evidenceFound": "The audit mentions PEFC certificates and sustainable forest management, but there is no specific reference to HCV areas or selective harvesting practices.",
+        "missingOrContradictoryData": "Detailed evidence of official permits, HCV assessments, or third-party audits confirming no negative impact on biodiversity, ecosystem services, or conservation values is missing."
+      }
+    ]
+  },
+  {
+    "analysis": [
+      {
+        "topic": "Ecological function",
+        "criteria": "Maintaining Biodiversity and Ecosystem Services",
+        "question": "How does the project show that its forest management practices preserve or improve biodiversity, nutrient cycling, soil health, and hydrologic function?",
+        "conclusion": "Partially Meets",
+        "evidenceFound": "The audit report mentions sustainable forest management and PEFC certificates but lacks specific details on buffer zones, habitat corridors, low-impact logging, or reforestation. There is no mention of recognized standards like FSC Principles or specific on-the-ground conservation measures such as wildlife monitoring programs.",
+        "missingOrContradictoryData": "Details on specific forest management practices that preserve or improve biodiversity, nutrient cycling, soil health, and hydrologic function are missing."
+      }
+    ]
+  },
+  {
+    "analysis": [
+      {
+        "topic": "Carbon stocks",
+        "criteria": "Stability or Increase in Regional Carbon Stocks",
+        "question": "Does the documentation show that forest carbon stocks in the sourcing region are stable or increasing, ensuring the project is not contributing to deforestation or degradation?",
+        "conclusion": "Inconclusive",
+        "evidenceFound": "The audit mentions sustainable forest management and PEFC certificates for suppliers, but there is no direct evidence or data supporting the stability or increase in regional carbon stocks.",
+        "missingOrContradictoryData": "No concrete data on forest carbon stocks or remote sensing imagery is provided. Historical data on deforestation in the area is also missing."
+      },
+      {
+        "topic": "Carbon stocks",
+        "criteria": "Justification for Any Noted Decrease",
+        "question": "If the project acknowledges a decline in carbon stocks, does it explain why (e.g., natural disturbance) and show how it mitigates or offsets the loss?",
+        "conclusion": "Inconclusive",
+        "evidenceFound": "No decline in carbon stocks is mentioned in the audit report.",
+        "missingOrContradictoryData": "Since no decline is noted, there is no justification provided. However, the absence of data on carbon stocks makes it difficult to confirm compliance."
+      }
+    ]
+  },
+  {
+    "analysis": [
+      {
+        "topic": "Restrictions on New Plantations",
+        "criteria": "No Plantations Replacing Natural Forests",
+        "question": "Does the documentation confirm that no biomass is sourced from plantation forests established within the last 20 years if they replaced natural forests?",
+        "conclusion": "Inconclusive",
+        "evidenceFound": "The audit mentions sustainable forest management and PEFC certificates for suppliers, but there is no specific mention of land-use change records, geospatial analysis, or historical satellite imagery showing that the plantation site was not previously a natural forest in the 20 years before establishment.",
+        "missingOrContradictoryData": "Details on land-use change records, geospatial analysis, or historical satellite imagery are missing."
+      },
+      {
+        "topic": "Restrictions on New Plantations",
+        "criteria": "Exception for Agricultural Lands",
+        "question": "If an exception exists, does the documentation show that the prior land use was agriculture for at least 10 continuous years, making natural regeneration unlikely?",
+        "conclusion": "Inconclusive",
+        "evidenceFound": "No specific references to official land-use histories, remote sensing data, or agricultural permits are provided in the audit report. The report does not detail how continuous farming for at least a decade was verified, nor does it provide rationale explaining why natural forest regrowth would have been highly improbable.",
+        "missingOrContradictoryData": "Details on official land-use histories, remote sensing data, agricultural permits, and rationale for natural forest regrowth being unlikely are missing."
+      }
+    ]
+  },
+  {
+    "analysis": [
+      {
+        "topic": "Legal and Customary Rights",
+        "criteria": "Recognition of Land Rights and Customary Uses",
+        "question": "Does the project documentation confirm respect for Indigenous Peoples\u2019 and local communities\u2019 legal and customary land rights?",
+        "conclusion": "Inconclusive",
+        "evidenceFound": "The audit report does not explicitly mention any treaties, community agreements, or legal titles that confirm respect for Indigenous Peoples\u2019 and local communities\u2019 legal and customary land rights. There are references to PEFC certificates for sustainable forest management, but these do not specifically address land tenure documentation or recognized agreements.",
+        "missingOrContradictoryData": "There is no specific mention of maps, registry documents, or other verifiable evidence indicating that feedstock sourcing does not encroach on Indigenous Peoples\u2019 and local communities\u2019 land rights."
+      },
+      {
+        "topic": "Legal and Customary Rights",
+        "criteria": "Absence of Land Disputes and Compliance with FPIC",
+        "question": "Does the documentation explicitly confirm no unresolved land disputes and compliance with free, prior, and informed consent (FPIC) where Indigenous or local communities hold rights?",
+        "conclusion": "Inconclusive",
+        "evidenceFound": "The audit report does not provide details on conflict resolution mechanisms or consultation records that show genuine FPIC processes. There is no explicit confirmation of the absence of land disputes or evidence such as meeting minutes, community endorsements, or independent audits.",
+        "missingOrContradictoryData": "There is a lack of evidence confirming the absence of land disputes and compliance with FPIC processes."
+      }
+    ]
+  },
+  {
+    "analysis": [
+      {
+        "topic": "Community health and welfare",
+        "criteria": "Health Impact Assessment",
+        "question": "Does the project address potential impacts on community health from wood processing or transport (e.g., dust, emissions, noise)?",
+        "conclusion": "Inconclusive",
+        "evidenceFound": "The audit report does not explicitly mention any health impact assessment or mitigation strategies related to wood processing or transport. There is a reference to safe handling and transport of biochar, including measures like moistening biochar and covering it during transport, but no specific details on health impacts from wood processing or transport are provided.",
+        "missingOrContradictoryData": "No explicit health impact assessment or mitigation strategies for wood processing or transport are mentioned."
+      },
+      {
+        "topic": "Community health and welfare",
+        "criteria": "Consultation and Mitigation",
+        "question": "If there are identified health or welfare risks, does the project show evidence of consultation with local communities and co-developed mitigation strategies?",
+        "conclusion": "Inconclusive",
+        "evidenceFound": "The audit report does not provide any information on identified health or welfare risks, consultation with local communities, or co-developed mitigation strategies. There is no mention of community meetings, focus groups, or stakeholder committees demonstrating local input.",
+        "missingOrContradictoryData": "No information on community consultation or co-developed mitigation strategies is provided."
+      }
+    ]
+  },
+  {
+    "analysis": [
+      {
+        "topic": "Socioeconomic Benefits",
+        "criteria": "Support for Local Livelihoods",
+        "question": "Does the project demonstrate tangible benefits for local communities, such as employment, revenue-sharing, or skill development?",
+        "conclusion": "Does Not Meet",
+        "evidenceFound": "The audit report does not provide specific details on local hiring practices, quantitative data on new hires, local wage standards, or formal agreements ensuring a share of project revenue goes to community funds.",
+        "missingOrContradictoryData": "There is no mention of tangible benefits for local communities, such as employment, revenue-sharing, or skill development."
+      },
+      {
+        "topic": "Socioeconomic Benefits",
+        "criteria": "Fair Labor and Avoiding Exploitation",
+        "question": "Does the documentation show that fair labor practices are in place (e.g., fair wages, safe working conditions, no forced or child labor)?",
+        "conclusion": "Inconclusive",
+        "evidenceFound": "The report mentions that production figures are consolidated and corroborated with daily production protocols, but there is no explicit reference to labor policies, codes of conduct, or grievance mechanisms.",
+        "missingOrContradictoryData": "Clear references to labor standards, pay scales, worker safety measures, and verification of no exploitation of vulnerable groups are missing."
+      }
+    ]
+  },
+  {
+    "analysis": [
+      {
+        "topic": "Chain-of-custody",
+        "criteria": "Demonstration of Full Traceability",
+        "question": "Does the documentation clearly show how the feedstock is tracked from its origin through transport, processing, and conversion?",
+        "conclusion": "Partially Meets",
+        "evidenceFound": "The audit mentions PEFC certificates for a significant supplier sample size, indicating sustainable forest management. It also notes that biomass delivery is disclosed on a monthly basis and sample delivery notes are cross-checked. However, there is no specific mention of electronic tagging, barcoding, or detailed supplier logs that track each step from harvest site to processing facility.",
+        "missingOrContradictoryData": "Detailed traceability methods such as electronic tagging, barcoding, or specific supplier logs are not mentioned. Clear evidence of actual traceability (e.g., shipment records or batch codes) is absent."
+      },
+      {
+        "topic": "Chain-of-custody",
+        "criteria": "Certification or Equivalent Traceability Mechanisms",
+        "question": "Does the project mention chain-of-custody certifications (FSC, PEFC, etc.) or explain a robust in-house traceability protocol that ensures accurate record-keeping?",
+        "conclusion": "Partially Meets",
+        "evidenceFound": "The project mentions PEFC certificates for sustainable forest management and verifies that no peatlands are in areas where raw material is sourced. There is a reference to cross-checking delivery notes with biomass purchases, but no mention of a robust in-house traceability protocol or regular audits.",
+        "missingOrContradictoryData": "No mention of regular audits, procedure updates, or internal tracking systems that ensure accurate record-keeping from start to finish."
+      }
+    ]
+  },
+  {
+    "analysis": [
+      {
+        "topic": "Operational oversight",
+        "criteria": "Governance Structures and Monitoring Protocols",
+        "question": "Does the documentation detail who is responsible for monitoring, auditing, and enforcing compliance to prevent illegal or unsustainable sourcing?",
+        "conclusion": "Inconclusive",
+        "evidenceFound": "The audit report mentions the role of the auditor and the LCA provider, but there is no explicit detail on the governance structures or monitoring protocols for compliance, especially regarding illegal or unsustainable sourcing.",
+        "missingOrContradictoryData": "Details on specific governance structures, monitoring schedules, and enforcement steps for preventing illegal or unsustainable sourcing are missing."
+      },
+      {
+        "topic": "Operational oversight",
+        "criteria": "Managing Third-Party Suppliers",
+        "question": "If the project relies on third-party suppliers, does the documentation show that these suppliers are held to the same transparency and sustainability requirements as the project\u2019s own operations?",
+        "conclusion": "Inconclusive",
+        "evidenceFound": "The report mentions PEFC certificates for suppliers and sustainable forest management, but there is no explicit information on how suppliers are vetted, verified, or held accountable to the same transparency and sustainability requirements.",
+        "missingOrContradictoryData": "Specific details on supplier vetting, contract clauses, policy statements, verification methods, and corrective actions for non-compliant suppliers are missing."
+      }
+    ]
+  },
+  {
+    "analysis": [
+      {
+        "topic": "Sufficient Feedstock and Market Volatility",
+        "criteria": "Reliability of Supply",
+        "question": "Does the documentation show how the project secures enough feedstock to meet its planned biochar production and carbon credit commitments (e.g., annual volume estimates, supplier arrangements)?",
+        "conclusion": "Partially Meets",
+        "evidenceFound": "The audit mentions a list of biomass purchases and delivery notes, but it does not provide explicit data on annual volumes or supplier arrangements. The audit references PEFC certificates for suppliers and mentions that wood chips are sourced from sustainable forest management.",
+        "missingOrContradictoryData": "Explicit data on annual volume estimates and detailed supplier arrangements are missing."
+      },
+      {
+        "topic": "Sufficient Feedstock and Market Volatility",
+        "criteria": "Proof of Ownership or Formal Agreements",
+        "question": "Does the documentation provide formal proof (e.g., ownership deeds, purchase contracts) guaranteeing long-term access to the feedstock over the project\u2019s lifetime?",
+        "conclusion": "Does Not Meet",
+        "evidenceFound": "The audit does not mention any ownership deeds, purchase contracts, or formal agreements guaranteeing long-term access to feedstock.",
+        "missingOrContradictoryData": "Details on ownership deeds, purchase contracts, or formal agreements are absent."
+      },
+      {
+        "topic": "Sufficient Feedstock and Market Volatility",
+        "criteria": "Contingency Plans for Price Fluctuations",
+        "question": "Does the project describe strategies to handle market volatility (e.g., price changes, supply disruptions) that could threaten feedstock availability?",
+        "conclusion": "Does Not Meet",
+        "evidenceFound": "The audit does not discuss any contingency plans for handling market volatility, price changes, or supply disruptions.",
+        "missingOrContradictoryData": "Information on contingency plans for price fluctuations is missing."
+      }
+    ]
+  },
+  {
+    "analysis": [
+      {
+        "topic": "Avoiding Market Distortion",
+        "criteria": "Existing Market Distortion",
+        "question": "Does the documentation provide evidence that the project\u2019s feedstock demand does not distort local or regional markets for agriculture or forestry products?",
+        "conclusion": "Partially Meets",
+        "evidenceFound": "The audit mentions that coniferous wood is sourced through sustainable forest management and PEFC certificates are provided for suppliers. However, there is no explicit market analysis or price trend data showing the feedstock is genuinely surplus or waste.",
+        "missingOrContradictoryData": "No market analysis or stakeholder surveys are provided to confirm that the project\u2019s feedstock demand does not distort local or regional markets."
+      },
+      {
+        "topic": "Avoiding Market Distortion",
+        "criteria": "Competition with Higher-Value Uses",
+        "question": "Does the documentation confirm that the biomass used for biochar does not displace higher-value or more climate-beneficial uses (e.g., timber for construction)?",
+        "conclusion": "Meets",
+        "evidenceFound": "The audit states that coniferous wood is commonly not used in construction and that timber qualities that could be used for construction are assumed to have been precluded from the production of wood chips. The feedstock is included in the EBC list of permissible inputs.",
+        "missingOrContradictoryData": ""
+      }
+    ]
+  },
+  {
+    "analysis": [
+      {
+        "topic": "Feedstock Properties for Optimal Carbon Retention",
+        "criteria": "Moisture Content, Composition, and Suitability",
+        "question": "Does the documentation provide quantitative data on moisture content and feedstock composition (e.g., lignin/cellulose levels) and explain how these properties influence carbon retention during pyrolysis or thermochemical conversion?",
+        "conclusion": "Partially Meets",
+        "evidenceFound": "The audit report mentions that the biochar is moistened to an average of 20% (minimum 12%) and covered during transport. It also references EUROFINS laboratory analysis and EBC certifications, which suggests some level of feedstock analysis. However, there is no explicit quantitative data on moisture content and feedstock composition provided.",
+        "missingOrContradictoryData": "Quantitative data on moisture content and feedstock composition (e.g., lignin/cellulose levels) is not explicitly provided. Explanation on how these properties influence carbon retention during pyrolysis or thermochemical conversion is missing."
+      }
+    ]
+  },
+  {
+    "analysis": [
+      {
+        "topic": "Transport and Processing Emissions",
+        "criteria": "Inclusion of Transportation in LCA",
+        "question": "Does the LCA or carbon accounting clearly address emissions from feedstock transport (distances, modes, related GHG outputs)?",
+        "conclusion": "Partially Meets",
+        "evidenceFound": "The LCA study includes emissions from the production and supply of biomass, including transport. However, the Weighted Average Distance (km) for calculation of A4 emissions of biochar transport is only partly verifiable due to incomplete addresses and distances for some clients. There is also a discrepancy in the distances for certain suppliers.",
+        "missingOrContradictoryData": "Complete addresses of customers must be provided to allow for verification of distances. Distances must be provided for all customers and carefully measured. Revised distances for said suppliers before submitting an updated LCA calculation based on revised distances and weighed average distance."
+      },
+      {
+        "topic": "Transport and Processing Emissions",
+        "criteria": "Local Sourcing and Minimizing Distances",
+        "question": "Does the project mention local sourcing or strategies to reduce long-distance transport to lower the overall carbon footprint?",
+        "conclusion": "Partially Meets",
+        "evidenceFound": "The project mentions sustainable forest management and PEFC certificates for suppliers, suggesting local sourcing. However, there are discrepancies in the reported distances for feedstock transport, which may indicate underreporting. The project does not explicitly mention strategies to minimize transport distances.",
+        "missingOrContradictoryData": "Clear strategies for local sourcing or minimizing transport distances are not explicitly mentioned. There are discrepancies in the reported distances for feedstock transport which need to be addressed."
+      }
+    ]
+  },
+  {
+    "analysis": [
+      {
+        "topic": "Energy Use in Pre-processing",
+        "criteria": "Assessing and Minimizing Pre-processing Energy",
+        "question": "Does the documentation evaluate energy requirements for drying, size reduction, or other steps, and describe methods to reduce this energy consumption?",
+        "conclusion": "Partially Meets",
+        "evidenceFound": "The audit mentions the use of waste heat (650 KWh out of 800 KWh) for drying wood chips and heating installations, which indicates an effort to optimize energy use. However, specific energy inputs (e.g., kWh per ton of feedstock) and detailed methods to reduce energy consumption are not explicitly quantified or described.",
+        "missingOrContradictoryData": "Detailed quantification of energy use for drying and size reduction processes, and specific methods to minimize energy consumption are not provided."
+      }
+    ]
+  }
+]

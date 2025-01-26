@@ -1,0 +1,426 @@
+[
+  {
+    "analysis": [
+      {
+        "topic": "Biogenic Requirements",
+        "criteria": "Feedstock type description",
+        "question": "Does the documentation clearly describe the feedstock type (e.g., wood residues, agricultural by-products), and does it explicitly confirm that it is derived from living or recently living organisms?",
+        "conclusion": "Meets",
+        "evidenceFound": "The audit report mentions that the biochar is produced from wood material supplied by Mets\u00e4nhoitoyhdistys Pohjois-Pirkka ry, indicating that the feedstock is biological.",
+        "missingOrContradictoryData": ""
+      },
+      {
+        "topic": "Biogenic Requirements",
+        "criteria": "Proof of Biogenic Source",
+        "question": "How does the documentation demonstrate or confirm that the biomass is genuinely biogenic (e.g., references to origin, supply chain descriptions, certification)?",
+        "conclusion": "Meets",
+        "evidenceFound": "The audit report states that the wood material deliverer is Mets\u00e4nhoitoyhdistys Pohjois-Pirkka ry, with a certificate issued by Kest\u00e4v\u00e4n Mets\u00e4talouden Yhdistys ry, confirming the biogenic origin of the biomass.",
+        "missingOrContradictoryData": ""
+      }
+    ]
+  },
+  {
+    "analysis": [
+      {
+        "topic": "Waste or By-product Status",
+        "criteria": "Clarification of Feedstock as Waste or By-product",
+        "question": "Does the documentation identify the feedstock specifically as a waste product (e.g., sawdust, crop residues) or a by-product of another process, indicating it would otherwise be discarded or landfilled?",
+        "conclusion": "Inconclusive",
+        "evidenceFound": "The audit report mentions that the biomass is sustainable and includes agricultural waste, biodegradable waste, urban wood waste, or food waste. However, it does not explicitly state that the feedstock is a waste product or by-product that would otherwise be discarded or landfilled.",
+        "missingOrContradictoryData": "Explicit identification of the feedstock as waste or by-product and what typically happens to this material in the absence of the project is missing."
+      },
+      {
+        "topic": "Waste or By-product Status",
+        "criteria": "Analysis of Competing Use",
+        "question": "Does the project acknowledge possible alternative uses for this biomass (e.g., construction materials, animal bedding, compost) and explain why producing biochar is preferable or permissible?",
+        "conclusion": "Does Not Meet",
+        "evidenceFound": "There is no mention in the audit report of any competing uses for the biomass or an analysis of why producing biochar is preferable.",
+        "missingOrContradictoryData": "Discussion on competing uses and justification for biochar production over other uses is missing."
+      }
+    ]
+  },
+  {
+    "analysis": [
+      {
+        "topic": "By-Product Status (50% Threshold)",
+        "criteria": "Allocation of harvested biomass",
+        "question": "Does the documentation include a clear breakdown showing that no more than 50% of the total harvested biomass is used for energy or carbon removal (biochar)?",
+        "conclusion": "Inconclusive",
+        "evidenceFound": "The audit report does not provide a clear breakdown of the end-use distribution of the harvested biomass. There is mention of biochar production but no specific details on the percentage of biomass allocated to biochar or other uses.",
+        "missingOrContradictoryData": "No explicit breakdown or percentages of biomass allocation to biochar or other uses."
+      },
+      {
+        "topic": "By-Product Status (50% Threshold)",
+        "criteria": "Transparency in usage",
+        "question": "Is the documentation transparent about the proportions allocated to various uses, and does it explicitly show compliance with the <50% criterion?",
+        "conclusion": "Inconclusive",
+        "evidenceFound": "The report mentions sustainable biomass sourcing and biochar production but lacks specific details on the proportions of biomass allocated to different uses. There is no explicit statement or data confirming compliance with the <50% criterion.",
+        "missingOrContradictoryData": "Missing specific percentages or detailed allocation of biomass to various end uses."
+      }
+    ]
+  },
+  {
+    "analysis": [
+      {
+        "topic": "Counterfactual Assessment",
+        "criteria": "Description of alternative scenarios",
+        "question": "Does the documentation explain what would happen to the biomass if it were not used by the biochar project (e.g., landfill, open burning, decomposition, other industrial processes)?",
+        "conclusion": "Inconclusive",
+        "evidenceFound": "The audit document mentions the sustainability of the biomass feedstock and its certification, but it does not explicitly describe alternative scenarios for the biomass if not used in the biochar project.",
+        "missingOrContradictoryData": "No explicit description of the counterfactual scenario or baseline for the biomass feedstock."
+      }
+    ]
+  },
+  {
+    "analysis": [
+      {
+        "topic": "Certification",
+        "criteria": "Presence and Type of Certification",
+        "question": "Does the documentation explicitly mention recognized certifications\u2014such as FSC, RSB, or SBP\u2014that cover responsible forest/biomass management?",
+        "conclusion": "Partially Meets",
+        "evidenceFound": "The audit mentions a certificate from Kest\u00e4v\u00e4n Mets\u00e4talouden Yhdistys ry for the wood material deliverer Mets\u00e4nhoitoyhdistys Pohjois-Pirkka ry. However, it does not specify if this certificate is recognized internationally or if it matches the project developer's name.",
+        "missingOrContradictoryData": "The type of certification and its recognition status are unclear. There is no mention of certificate IDs, links to the certifier\u2019s database, or expiration dates."
+      },
+      {
+        "topic": "Certification",
+        "criteria": "Certification Scope and Chain-of-Custody",
+        "question": "Does the documentation describe how the certification covers social safeguards, ecological considerations, and chain-of-custody (i.e., tracking the biomass from harvest to end use)?",
+        "conclusion": "Does Not Meet",
+        "evidenceFound": "There is no detailed description of the certification scope, social safeguards, ecological considerations, or chain-of-custody in the audit report.",
+        "missingOrContradictoryData": "Information on worker rights, biodiversity protection, and timber tracking procedures is absent."
+      },
+      {
+        "topic": "Certification",
+        "criteria": "Mix of Certified and Non-Certified Feedstock",
+        "question": "If only a portion of the feedstock is certified, does the documentation show what percentage is certified vs. non-certified, and how the project mitigates risks for the non-certified portion?",
+        "conclusion": "Inconclusive",
+        "evidenceFound": "The audit report does not provide a breakdown of certified vs. non-certified feedstock or mention any risk mitigation strategies for non-certified portions.",
+        "missingOrContradictoryData": "There is no information on the percentage of certified feedstock or how non-certified feedstock is monitored."
+      }
+    ]
+  },
+  {
+    "analysis": [
+      {
+        "topic": "Risk-Based Assessment",
+        "criteria": "Existence of a Third-Party Risk-Based Assessment",
+        "question": "If no formal certification is cited (or if part of the feedstock is non-certified), does the project have a third-party risk-based review confirming sustainable sourcing?",
+        "conclusion": "Inconclusive",
+        "evidenceFound": "The audit report mentions a certificate review for the wood material deliverer, Mets\u00e4nhoitoyhdistys Pohjois-Pirkka ry, issued by Kest\u00e4v\u00e4n Mets\u00e4talouden Yhdistys ry. However, there is no explicit mention of a third-party risk-based assessment or review confirming sustainable sourcing.",
+        "missingOrContradictoryData": "No clear indication of a third-party risk-based assessment or review process. Details on who performed the assessment and how it was conducted are missing."
+      },
+      {
+        "topic": "Risk-Based Assessment",
+        "criteria": "Thoroughness of the Risk-Based Assessment",
+        "question": "Does the assessment detail environmental (e.g., deforestation, habitat loss) and social (e.g., labor conditions, community impacts) risks and outline mitigation measures (e.g., supplier vetting, ongoing monitoring)?",
+        "conclusion": "Inconclusive",
+        "evidenceFound": "The audit report mentions environmental and social safeguards but does not provide detailed information on specific risks such as deforestation, habitat loss, labor conditions, or community impacts. There is no risk matrix or detailed discussion of identified risk categories.",
+        "missingOrContradictoryData": "No detailed risk assessment or mitigation measures are outlined. Specific action plans and follow-up procedures are not clearly described."
+      }
+    ]
+  },
+  {
+    "analysis": [
+      {
+        "topic": "Strong governance",
+        "criteria": "Regional Oversight and Enforcement",
+        "question": "Does the documentation specify the jurisdiction(s) from which feedstock is sourced, and describe local forestry laws or enforcement measures?",
+        "conclusion": "Partially Meets",
+        "evidenceFound": "The audit report mentions that the wood material deliverer is Mets\u00e4nhoitoyhdistys Pohjois-Pirkka ry, and the certificate issuing body is Kest\u00e4v\u00e4n Mets\u00e4talouden Yhdistys ry. However, there is no explicit description of local forestry laws or enforcement measures.",
+        "missingOrContradictoryData": "Details on local forestry laws and enforcement structures are not provided."
+      },
+      {
+        "topic": "Strong governance",
+        "criteria": "Established Management Standards",
+        "question": "Does the project cite national or regional forest certification standards (beyond voluntary schemes like FSC) or government-led sustainability initiatives?",
+        "conclusion": "Does Not Meet",
+        "evidenceFound": "The audit report does not mention any national or regional forest certification standards or government-led sustainability initiatives.",
+        "missingOrContradictoryData": "Information on mandatory forest programs, official government sustainability guidelines, compliance audits, or penalties for non-compliance is absent."
+      }
+    ]
+  },
+  {
+    "analysis": [
+      {
+        "topic": "Corruption Perception Index (CPI)",
+        "criteria": "Transparency and Governance Indicators",
+        "question": "Does the documentation reference reputable indices (e.g., Transparency International\u2019s CPI) or other governance metrics for the source country?",
+        "conclusion": "Does Not Meet",
+        "evidenceFound": "No specific mention of Transparency International\u2019s CPI or any other governance metrics for the source country. The documentation only states the facility is in Finland and general compliance with Puro standards.",
+        "missingOrContradictoryData": "No reference to specific governance metrics or indices."
+      },
+      {
+        "topic": "Corruption Perception Index (CPI)",
+        "criteria": "Stricter Conditions for Low-CPI Areas",
+        "question": "If the CPI or other indicators suggest a high corruption risk, does the project apply stricter sourcing conditions (e.g., mandatory FSC or equivalent certification), or possibly exclude feedstock from certain areas?",
+        "conclusion": "Inconclusive",
+        "evidenceFound": "The documentation does not mention any CPI scores or stricter sourcing conditions based on corruption risk. It does mention sustainable sourcing of biomass and certificates from Mets\u00e4nhoitoyhdistys Pohjois-Pirkka ry, but no specific measures related to corruption risk.",
+        "missingOrContradictoryData": "No information on CPI scores or specific measures for high corruption risk areas."
+      }
+    ]
+  },
+  {
+    "analysis": [
+      {
+        "topic": "Exclusion of Sensitive Areas",
+        "criteria": "Primary and Old-Growth Forests",
+        "question": "Does the documentation unequivocally confirm that no feedstock is sourced from primary or old-growth forests?",
+        "conclusion": "Inconclusive",
+        "evidenceFound": "The audit report mentions that the wood material deliverer is Mets\u00e4nhoitoyhdistys Pohjois-Pirkka ry and that a certificate is issued by Kest\u00e4v\u00e4n Mets\u00e4talouden Yhdistys ry. However, there is no explicit mention of primary or old-growth forests or how they are excluded from the supply chain.",
+        "missingOrContradictoryData": "The documentation does not provide clear references to official definitions of primary or old-growth forests (e.g., FAO or UNESCO criteria), maps, supplier lists, or satellite imagery that identify the exact sourcing locations and how primary or old-growth forests are excluded."
+      },
+      {
+        "topic": "Exclusion of Sensitive Areas",
+        "criteria": "Protected and HCV Areas",
+        "question": "Does the documentation confirm that feedstock is not sourced from protected or high conservation value (HCV) forests unless selective harvest is explicitly recognized by authorities and proven to be low-impact?",
+        "conclusion": "Inconclusive",
+        "evidenceFound": "The audit report does not provide specific information on whether the feedstock is sourced from protected or HCV areas, nor does it mention any official permits, HCV assessments, or third-party audits confirming no negative impact on biodiversity, ecosystem services, or conservation values.",
+        "missingOrContradictoryData": "There is no evidence provided on local laws or forest management plans allowing limited or selective harvesting in designated areas, nor any proof of official permits or third-party audits confirming low-impact harvesting."
+      }
+    ]
+  },
+  {
+    "analysis": [
+      {
+        "topic": "Ecological function",
+        "criteria": "Maintaining Biodiversity and Ecosystem Services",
+        "question": "How does the project show that its forest management practices preserve or improve biodiversity, nutrient cycling, soil health, and hydrologic function?",
+        "conclusion": "Inconclusive",
+        "evidenceFound": "The audit report mentions that the wood material deliverer is Mets\u00e4nhoitoyhdistys Pohjois-Pirkka ry, and the certificate issuing body is Kest\u00e4v\u00e4n Mets\u00e4talouden Yhdistys ry. There is no specific mention of forest management practices that preserve or improve biodiversity, nutrient cycling, soil health, and hydrologic function.",
+        "missingOrContradictoryData": "Detailed information on buffer zones, habitat corridors, low-impact logging, reforestation, recognized standards like FSC Principles, scientific studies, or on-the-ground conservation measures is missing."
+      }
+    ]
+  },
+  {
+    "analysis": [
+      {
+        "topic": "Carbon stocks",
+        "criteria": "Stability or Increase in Regional Carbon Stocks",
+        "question": "Does the documentation show that forest carbon stocks in the sourcing region are stable or increasing, ensuring the project is not contributing to deforestation or degradation?",
+        "conclusion": "Inconclusive",
+        "evidenceFound": "The audit report mentions that the biomass supplier is Mets\u00e4nhoitoyhdistys Pohjois-Pirkka ry, certified by Kest\u00e4v\u00e4n Mets\u00e4talouden Yhdistys ry. However, there is no explicit information on the stability or increase in regional carbon stocks or any references to government data, remote sensing imagery, or third-party research supporting the claim that forest cover and carbon stocks are maintained or growing.",
+        "missingOrContradictoryData": "Data on the stability or increase in regional carbon stocks, government data, remote sensing imagery, or third-party research supporting the claim that forest cover and carbon stocks are maintained or growing."
+      },
+      {
+        "topic": "Carbon stocks",
+        "criteria": "Justification for Any Noted Decrease",
+        "question": "If the project acknowledges a decline in carbon stocks, does it explain why (e.g., natural disturbance) and show how it mitigates or offsets the loss?",
+        "conclusion": "Inconclusive",
+        "evidenceFound": "The audit report does not mention any decline in carbon stocks or provide any justification for a decrease. There is no information on natural disturbances, mitigation actions, or offsetting measures.",
+        "missingOrContradictoryData": "Information on any decline in carbon stocks, justification for a decrease, mitigation actions, or offsetting measures."
+      }
+    ]
+  },
+  {
+    "analysis": [
+      {
+        "topic": "Restrictions on New Plantations",
+        "criteria": "No Plantations Replacing Natural Forests",
+        "question": "Does the documentation confirm that no biomass is sourced from plantation forests established within the last 20 years if they replaced natural forests?",
+        "conclusion": "Inconclusive",
+        "evidenceFound": "The audit report mentions that the wood material deliverer is Mets\u00e4nhoitoyhdistys Pohjois-Pirkka ry and the certificate issuing body is Kest\u00e4v\u00e4n Mets\u00e4talouden Yhdistys ry. However, there is no specific mention of land-use change records, geospatial analysis, or historical satellite imagery showing that the plantation site was not previously a natural forest in the 20 years before establishment.",
+        "missingOrContradictoryData": "No specific data or maps are cited to confirm that no biomass is sourced from plantation forests established within the last 20 years if they replaced natural forests."
+      },
+      {
+        "topic": "Restrictions on New Plantations",
+        "criteria": "Exception for Agricultural Lands",
+        "question": "If an exception exists, does the documentation show that the prior land use was agriculture for at least 10 continuous years, making natural regeneration unlikely?",
+        "conclusion": "Does Not Meet",
+        "evidenceFound": "There is no mention in the audit report of any land-use histories, remote sensing data, agricultural permits, or rationale explaining why natural forest regrowth would have been highly improbable.",
+        "missingOrContradictoryData": "No data is provided to justify any exception for agricultural lands."
+      }
+    ]
+  },
+  {
+    "analysis": [
+      {
+        "topic": "Legal and Customary Rights",
+        "criteria": "Recognition of Land Rights and Customary Uses",
+        "question": "Does the project documentation confirm respect for Indigenous Peoples\u2019 and local communities\u2019 legal and customary land rights?",
+        "conclusion": "Does Not Meet",
+        "evidenceFound": "The audit report does not provide any formal references to treaties, community agreements, or legal titles confirming respect for Indigenous Peoples\u2019 and local communities\u2019 legal and customary land rights. There is a mention of a certificate issuing body for the wood material deliverer, but no specific land tenure documentation or recognized agreements are referenced.",
+        "missingOrContradictoryData": "No specific maps, registry documents, or verifiable evidence indicating that feedstock sourcing does not encroach on land rights."
+      },
+      {
+        "topic": "Legal and Customary Rights",
+        "criteria": "Absence of Land Disputes and Compliance with FPIC",
+        "question": "Does the documentation explicitly confirm no unresolved land disputes and compliance with free, prior, and informed consent (FPIC) where Indigenous or local communities hold rights?",
+        "conclusion": "Inconclusive",
+        "evidenceFound": "The audit report lacks details on conflict resolution methods or consultation records showing genuine FPIC processes. There is no explicit confirmation of the absence of land disputes or evidence of community endorsements or independent audits.",
+        "missingOrContradictoryData": "No mention of meeting minutes, community endorsements, or independent audits to confirm the absence of land disputes and compliance with FPIC."
+      }
+    ]
+  },
+  {
+    "analysis": [
+      {
+        "topic": "Community health and welfare",
+        "criteria": "Health Impact Assessment",
+        "question": "Does the project address potential impacts on community health from wood processing or transport (e.g., dust, emissions, noise)?",
+        "conclusion": "Does Not Meet",
+        "evidenceFound": "The audit report discusses safety measures for workers and mentions 'Turvallisuus- ja toimintaohjeistus biohiilen tuotantolaitteistolle' and 'pelastussuunnitelma', but it lacks explicit details on community health impacts from wood processing or transport.",
+        "missingOrContradictoryData": "There is no mention of specific health impact assessments or mitigation strategies for the community regarding dust, emissions, or noise from wood processing or transport."
+      },
+      {
+        "topic": "Community health and welfare",
+        "criteria": "Consultation and Mitigation",
+        "question": "If there are identified health or welfare risks, does the project show evidence of consultation with local communities and co-developed mitigation strategies?",
+        "conclusion": "Inconclusive",
+        "evidenceFound": "The report does not provide any information on identified health or welfare risks, community consultation, or co-developed mitigation strategies.",
+        "missingOrContradictoryData": "There is no documentation or records of community meetings, focus groups, or stakeholder committees demonstrating local input or follow-up actions."
+      }
+    ]
+  },
+  {
+    "analysis": [
+      {
+        "topic": "Socioeconomic Benefits",
+        "criteria": "Support for Local Livelihoods",
+        "question": "Does the project demonstrate tangible benefits for local communities, such as employment, revenue-sharing, or skill development?",
+        "conclusion": "Inconclusive",
+        "evidenceFound": "The audit report mentions a systematic way of maintaining production reports but lacks specific details on local hiring practices, revenue-sharing, or skill development for local communities.",
+        "missingOrContradictoryData": "There is no quantitative data on the number of new hires, local wage standards, or formal agreements ensuring a share of project revenue goes to community funds."
+      },
+      {
+        "topic": "Socioeconomic Benefits",
+        "criteria": "Fair Labor and Avoiding Exploitation",
+        "question": "Does the documentation show that fair labor practices are in place (e.g., fair wages, safe working conditions, no forced or child labor)?",
+        "conclusion": "Partially Meets",
+        "evidenceFound": "The audit report mentions that a safe working environment was discussed during the factory visit and in meetings, and that all new employees are trained before starting. The health and safety issues are documented in 'Turvallisuus- ja toimintaohjeistus biohiilen tuotantolaitteistolle'.",
+        "missingOrContradictoryData": "There is no explicit mention of fair wages, grievance mechanisms, whistleblower protections, or verification processes to ensure no exploitation of vulnerable groups such as migrant workers."
+      }
+    ]
+  },
+  {
+    "analysis": [
+      {
+        "topic": "Chain-of-custody",
+        "criteria": "Demonstration of Full Traceability",
+        "question": "Does the documentation clearly show how the feedstock is tracked from its origin through transport, processing, and conversion?",
+        "conclusion": "Partially Meets",
+        "evidenceFound": "The audit report mentions that proof of origin and sustainability of the biomass feedstock is kept in records and submitted to Puro. It also states that LCA calculations include transportation distances, transported mass, density, and ton-kilometers. However, there is no specific description of the methods used for tracking the feedstock, such as electronic tagging, barcoding, or supplier logs.",
+        "missingOrContradictoryData": "Specific methods for tracking feedstock through each stage (e.g., electronic tagging, barcoding) and details on how data is recorded and verified at each stage are not provided."
+      },
+      {
+        "topic": "Chain-of-custody",
+        "criteria": "Certification or Equivalent Traceability Mechanisms",
+        "question": "Does the project mention chain-of-custody certifications (FSC, PEFC, etc.) or explain a robust in-house traceability protocol that ensures accurate record-keeping?",
+        "conclusion": "Partially Meets",
+        "evidenceFound": "The report mentions that the wood material deliverer is Mets\u00e4nhoitoyhdistys Pohjois-Pirkka ry and the certificate issuing body is Kest\u00e4v\u00e4n Mets\u00e4talouden Yhdistys ry. However, there is no clear indication of whether these certifications cover the entire supply chain or if there is a robust in-house traceability protocol in place.",
+        "missingOrContradictoryData": "Details on the scope of the certifications and any in-house traceability protocols or regular audits are not provided."
+      }
+    ]
+  },
+  {
+    "analysis": [
+      {
+        "topic": "Operational oversight",
+        "criteria": "Governance Structures and Monitoring Protocols",
+        "question": "Does the documentation detail who is responsible for monitoring, auditing, and enforcing compliance to prevent illegal or unsustainable sourcing?",
+        "conclusion": "Inconclusive",
+        "evidenceFound": "The audit report mentions systematic maintenance of production reports but lacks specific details on governance structures, monitoring protocols, and enforcement steps for illegal or unsustainable sourcing.",
+        "missingOrContradictoryData": "No detailed information on governance structures, monitoring protocols, or enforcement steps for illegal or unsustainable sourcing."
+      },
+      {
+        "topic": "Operational oversight",
+        "criteria": "Managing Third-Party Suppliers",
+        "question": "If the project relies on third-party suppliers, does the documentation show that these suppliers are held to the same transparency and sustainability requirements as the project\u2019s own operations?",
+        "conclusion": "Meets",
+        "evidenceFound": "The sustainability of the biomass feedstock is verified through certificates from the supplier Mets\u00e4nhoitoyhdistys Pohjois-Pirkka ry, issued by Kest\u00e4v\u00e4n Mets\u00e4talouden Yhdistys ry. There is also mention of life cycle assessment data for the biomass production and supply.",
+        "missingOrContradictoryData": ""
+      }
+    ]
+  },
+  {
+    "analysis": [
+      {
+        "topic": "Sufficient Feedstock and Market Volatility",
+        "criteria": "Reliability of Supply",
+        "question": "Does the documentation show how the project secures enough feedstock to meet its planned biochar production and carbon credit commitments (e.g., annual volume estimates, supplier arrangements)?",
+        "conclusion": "Inconclusive",
+        "evidenceFound": "The audit mentions that the wood material deliverer is Mets\u00e4nhoitoyhdistys Pohjois-Pirkka ry and that sustainability certificates are in place. However, there are no explicit data on volumes, timeframes, or supplier details that confirm the feedstock supply aligns with the project\u2019s biochar or carbon credit outputs.",
+        "missingOrContradictoryData": "Explicit data on annual volume estimates, supplier arrangements, and timeframes are missing."
+      },
+      {
+        "topic": "Sufficient Feedstock and Market Volatility",
+        "criteria": "Proof of Ownership or Formal Agreements",
+        "question": "Does the documentation provide formal proof (e.g., ownership deeds, purchase contracts) guaranteeing long-term access to the feedstock over the project\u2019s lifetime?",
+        "conclusion": "Inconclusive",
+        "evidenceFound": "The audit mentions sustainability certificates and the biomass supplier, but there are no details on ownership deeds, purchase contracts, or long-term agreements that specify the actual volumes secured.",
+        "missingOrContradictoryData": "Details on ownership deeds, purchase contracts, or long-term agreements specifying actual volumes secured are missing."
+      },
+      {
+        "topic": "Sufficient Feedstock and Market Volatility",
+        "criteria": "Contingency Plans for Price Fluctuations",
+        "question": "Does the project describe strategies to handle market volatility (e.g., price changes, supply disruptions) that could threaten feedstock availability?",
+        "conclusion": "Does Not Meet",
+        "evidenceFound": "There is no mention of contingency plans, backup suppliers, stockpiling strategies, or financial buffers to handle market volatility or feedstock price changes.",
+        "missingOrContradictoryData": "Information on contingency plans for market volatility is absent."
+      }
+    ]
+  },
+  {
+    "analysis": [
+      {
+        "topic": "Avoiding Market Distortion",
+        "criteria": "Existing Market Distortion",
+        "question": "Does the documentation provide evidence that the project\u2019s feedstock demand does not distort local or regional markets for agriculture or forestry products?",
+        "conclusion": "Inconclusive",
+        "evidenceFound": "The audit report mentions that the wood material deliverer is Mets\u00e4nhoitoyhdistys Pohjois-Pirkka ry, and the certificate issuing body is Kest\u00e4v\u00e4n Mets\u00e4talouden Yhdistys ry. However, there is no specific analysis or data on local supply-demand balance, price trends, or stakeholder surveys to confirm that the feedstock demand does not distort local or regional markets.",
+        "missingOrContradictoryData": "Market analysis or economic impact data showing the feedstock is genuinely surplus or waste."
+      },
+      {
+        "topic": "Avoiding Market Distortion",
+        "criteria": "Competition with Higher-Value Uses",
+        "question": "Does the documentation confirm that the biomass used for biochar does not displace higher-value or more climate-beneficial uses (e.g., timber for construction)?",
+        "conclusion": "Inconclusive",
+        "evidenceFound": "The report states that the wood material deliverer is Mets\u00e4nhoitoyhdistys Pohjois-Pirkka ry and the certificate issuing body is Kest\u00e4v\u00e4n Mets\u00e4talouden Yhdistys ry, suggesting sustainably sourced biomass. However, there is no explicit mention of whether the biomass is offcuts or scrap unsuitable for long-lived products, nor any discussion of alternative long-lived uses.",
+        "missingOrContradictoryData": "Comparative assessment or data demonstrating the feedstock is genuinely low-grade or waste."
+      }
+    ]
+  },
+  {
+    "analysis": [
+      {
+        "topic": "Feedstock Properties for Optimal Carbon Retention",
+        "criteria": "Moisture Content, Composition, and Suitability",
+        "question": "Does the documentation provide quantitative data on moisture content and feedstock composition (e.g., lignin/cellulose levels) and explain how these properties influence carbon retention during pyrolysis or thermochemical conversion?",
+        "conclusion": "Does Not Meet",
+        "evidenceFound": "The audit report does not provide specific quantitative data on moisture content or feedstock composition such as lignin/cellulose levels. There is no detailed explanation of how these properties influence carbon retention during pyrolysis or thermochemical conversion.",
+        "missingOrContradictoryData": "Quantitative data on moisture content and feedstock composition (e.g., lignin/cellulose levels) and explanation of their influence on carbon retention during pyrolysis or thermochemical conversion."
+      }
+    ]
+  },
+  {
+    "analysis": [
+      {
+        "topic": "Transport and Processing Emissions",
+        "criteria": "Inclusion of Transportation in LCA",
+        "question": "Does the LCA or carbon accounting clearly address emissions from feedstock transport (distances, modes, related GHG outputs)?",
+        "conclusion": "Meets",
+        "evidenceFound": "The audit mentions that Carbofex has provided transportation distances, transported mass, density, ton-kilometers, and transportation vehicle types for the basis of LCA calculations.",
+        "missingOrContradictoryData": ""
+      },
+      {
+        "topic": "Transport and Processing Emissions",
+        "criteria": "Local Sourcing and Minimizing Distances",
+        "question": "Does the project mention local sourcing or strategies to reduce long-distance transport to lower the overall carbon footprint?",
+        "conclusion": "Inconclusive",
+        "evidenceFound": "There is no explicit mention of local sourcing or strategies to minimize long-distance transport in the audit report.",
+        "missingOrContradictoryData": "Information on local sourcing or strategies to reduce long-distance transport is missing."
+      }
+    ]
+  },
+  {
+    "analysis": [
+      {
+        "topic": "Energy Use in Pre-processing",
+        "criteria": "Assessing and Minimizing Pre-processing Energy",
+        "question": "Does the documentation evaluate energy requirements for drying, size reduction, or other steps, and describe methods to reduce this energy consumption?",
+        "conclusion": "Inconclusive",
+        "evidenceFound": "The audit report does not provide specific details on the energy requirements for pre-processing steps such as drying or size reduction. However, it mentions that fossil fuel is used as start-up fuel and in forklifts/rigs, indicating some energy use in the process. There is no mention of waste heat, renewable energy, or efficient machinery to lower overall GHG emissions.",
+        "missingOrContradictoryData": "Specific energy inputs (e.g., kWh per ton of feedstock) and methods to reduce energy consumption are not provided. The LCA or technical annex should show that the energy footprint of pre-processing does not erode the net climate benefit, but this information is missing."
+      }
+    ]
+  }
+]

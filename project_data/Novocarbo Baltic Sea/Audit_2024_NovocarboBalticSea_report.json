@@ -1,0 +1,48 @@
+{
+  "framework": "Puro",
+  "project_name": "Novocarbo Baltic Sea",
+  "country": "Germany",
+  "reporting_period": [
+    [
+      "11.02.2024"
+    ],
+    [
+      "30.06.2024"
+    ]
+  ],
+  "tons_dry_biochar_under_audit": 1100,
+  "tons_dry_biochar_eligible": null,
+  "tons_dry_biochar_produced": 58.75,
+  "tons_dry_biochar_sold": 57.35,
+  "num_credit_under_audit": 133084,
+  "num_eligible_credits": null,
+  "feedstock": [
+    "waste_wood"
+  ],
+  "tons_feedstock_per_ton_biochar": null,
+  "harvested_feedstock_sustainability_proof": "Both the FSC and PEFC Chain-of-Custody certificates have expired on November 19, 2023. The SURE-EU Certification Scheme which testifies compliance with the sustainability criteria under Directive (EU) 2018/2001 has expired on January 25, 2024.",
+  "reactor_type": null,
+  "reactor_ignition_fuel": "LPG gas",
+  "pyrolysis_by_product": [
+    "syngas"
+  ],
+  "h_c_ratio": 0.32,
+  "carbon_content_ratio": 89.45,
+  "min_biochar_moisture_content": 0.2,
+  "avg_biochar_moisture_content": null,
+  "calibrated_weighting_system": true,
+  "biochar_usage": [
+    "soil_additive"
+  ],
+  "biochar_donation": null,
+  "feedstock_transport_distance_km": null,
+  "usage_transport_distance_km": null,
+  "lca_report_cadence": "cradle-to-grave",
+  "gross_e_stored_kg_per_ton_biochar": 3277,
+  "e_biomass_kg_per_ton_biochar": null,
+  "e_production_kg_per_ton_biochar": null,
+  "e_use_kg_per_ton_biochar": null,
+  "feedstock_emission_kg_per_ton_biochar": null,
+  "electricity_emission_kg_per_ton_biochar": null,
+  "net_e_stored_kg_per_ton_biochar": null
+}

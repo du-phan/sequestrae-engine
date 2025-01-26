@@ -1,0 +1,426 @@
+[
+  {
+    "analysis": [
+      {
+        "topic": "Biogenic Requirements",
+        "criteria": "Feedstock type description",
+        "question": "Does the documentation clearly describe the feedstock type (e.g., wood residues, agricultural by-products), and does it explicitly confirm that it is derived from living or recently living organisms?",
+        "conclusion": "Meets",
+        "evidenceFound": "The audit report confirms that the feedstock is composed of rice husks obtained from the production of rice, which are waste biomass and thus of biological origin.",
+        "missingOrContradictoryData": ""
+      },
+      {
+        "topic": "Biogenic Requirements",
+        "criteria": "Proof of Biogenic Source",
+        "question": "How does the documentation demonstrate or confirm that the biomass is genuinely biogenic (e.g., references to origin, supply chain descriptions, certification)?",
+        "conclusion": "Partially Meets",
+        "evidenceFound": "The audit report mentions that the rice husks came from existing piles located in the rice mill and were transported to the Production Facility by truck. However, there is no explicit mention of traceability records, chain-of-custody references, or certifications specifying that the material is of biological origin.",
+        "missingOrContradictoryData": "There is no explicit mention of traceability records, chain-of-custody references, or certifications specifying that the material is of biological origin."
+      }
+    ]
+  },
+  {
+    "analysis": [
+      {
+        "topic": "Waste or By-product Status",
+        "criteria": "Clarification of Feedstock as Waste or By-product",
+        "question": "Does the documentation identify the feedstock specifically as a waste product (e.g., sawdust, crop residues) or a by-product of another process, indicating it would otherwise be discarded or landfilled?",
+        "conclusion": "Meets",
+        "evidenceFound": "The audit report states that the feedstock was composed of rice husks obtained from the production of rice, which came from existing piles located in the rice mill. This indicates that the feedstock is a waste product that would otherwise be discarded.",
+        "missingOrContradictoryData": ""
+      },
+      {
+        "topic": "Waste or By-product Status",
+        "criteria": "Analysis of Competing Use",
+        "question": "Does the project acknowledge possible alternative uses for this biomass (e.g., construction materials, animal bedding, compost) and explain why producing biochar is preferable or permissible?",
+        "conclusion": "Inconclusive",
+        "evidenceFound": "The audit report does not explicitly mention any competing uses for the rice husks or justify why producing biochar is preferable over other potential uses.",
+        "missingOrContradictoryData": "There is no information provided on competing uses or justification for preferring biochar production."
+      }
+    ]
+  },
+  {
+    "analysis": [
+      {
+        "topic": "By-Product Status (50% Threshold)",
+        "criteria": "Allocation of harvested biomass",
+        "question": "Does the documentation include a clear breakdown showing that no more than 50% of the total harvested biomass is used for energy or carbon removal (biochar)?",
+        "conclusion": "Inconclusive",
+        "evidenceFound": "The audit report mentions that the biochar is produced from waste biomass, specifically rice husks from existing piles. However, there is no explicit breakdown of the end-use distribution of the harvested biomass to confirm the 50% threshold.",
+        "missingOrContradictoryData": "The audit report lacks a detailed table or chart specifying the end-use distribution of the harvested biomass. Clarification on the exact proportions used for biochar versus other uses is needed."
+      },
+      {
+        "topic": "By-Product Status (50% Threshold)",
+        "criteria": "Transparency in usage",
+        "question": "Is the documentation transparent about the proportions allocated to various uses, and does it explicitly show compliance with the <50% criterion?",
+        "conclusion": "Inconclusive",
+        "evidenceFound": "The report confirms that the biochar is used as a soil additive and not for energy purposes. It also mentions that the feedstock is waste biomass. However, there is no clear statement or data showing the exact proportions of biomass used for biochar versus other purposes.",
+        "missingOrContradictoryData": "The report does not provide explicit percentages or a clear statement confirming compliance with the <50% criterion for biochar or energy use. Detailed allocation percentages are necessary for a conclusive assessment."
+      }
+    ]
+  },
+  {
+    "analysis": [
+      {
+        "topic": "Counterfactual Assessment",
+        "criteria": "Description of alternative scenarios",
+        "question": "Does the documentation explain what would happen to the biomass if it were not used by the biochar project (e.g., landfill, open burning, decomposition, other industrial processes)?",
+        "conclusion": "Partially Meets",
+        "evidenceFound": "The audit report mentions that the feedstock is composed of rice husks obtained from existing piles located in the rice mill. However, there is no explicit description of what would happen to these rice husks if they were not used for biochar production.",
+        "missingOrContradictoryData": "The documentation does not explicitly state the alternative fate of the rice husks if not used for biochar production. Clarification on whether they would be discarded, burned, or used in other industries is needed."
+      }
+    ]
+  },
+  {
+    "analysis": [
+      {
+        "topic": "Certification",
+        "criteria": "Presence and Type of Certification",
+        "question": "Does the documentation explicitly mention recognized certifications\u2014such as FSC, RSB, or SBP\u2014that cover responsible forest/biomass management?",
+        "conclusion": "Does Not Meet",
+        "evidenceFound": "The audit report does not mention any recognized certifications such as FSC, RSB, or SBP for responsible forest/biomass management.",
+        "missingOrContradictoryData": "No information on certifications is provided in the audit report."
+      },
+      {
+        "topic": "Certification",
+        "criteria": "Certification Scope and Chain-of-Custody",
+        "question": "Does the documentation describe how the certification covers social safeguards, ecological considerations, and chain-of-custody (i.e., tracking the biomass from harvest to end use)?",
+        "conclusion": "Does Not Meet",
+        "evidenceFound": "The audit report mentions that the project meets environmental and social safeguards and that the local government has approved the project, but it does not specify any certification scope or chain-of-custody details.",
+        "missingOrContradictoryData": "No specific details on certification scope or chain-of-custody are provided."
+      },
+      {
+        "topic": "Certification",
+        "criteria": "Mix of Certified and Non-Certified Feedstock",
+        "question": "If only a portion of the feedstock is certified, does the documentation show what percentage is certified vs. non-certified, and how the project mitigates risks for the non-certified portion?",
+        "conclusion": "Does Not Meet",
+        "evidenceFound": "The audit report states that the feedstock is composed of rice husks obtained from existing piles located in the rice mill, but there is no mention of certification percentages or risk mitigation for non-certified feedstock.",
+        "missingOrContradictoryData": "No information on the percentage of certified vs. non-certified feedstock or risk mitigation strategies for non-certified portions."
+      }
+    ]
+  },
+  {
+    "analysis": [
+      {
+        "topic": "Risk-Based Assessment",
+        "criteria": "Existence of a Third-Party Risk-Based Assessment",
+        "question": "If no formal certification is cited (or if part of the feedstock is non-certified), does the project have a third-party risk-based review confirming sustainable sourcing?",
+        "conclusion": "Inconclusive",
+        "evidenceFound": "The audit report does not explicitly mention a third-party risk-based assessment or any independent consultant or accredited body performing such an assessment. The report focuses on auditing the production process and LCA rather than feedstock sourcing risks.",
+        "missingOrContradictoryData": "Details on who performed the risk assessment and how it was conducted are missing."
+      },
+      {
+        "topic": "Risk-Based Assessment",
+        "criteria": "Thoroughness of the Risk-Based Assessment",
+        "question": "Does the assessment detail environmental (e.g., deforestation, habitat loss) and social (e.g., labor conditions, community impacts) risks and outline mitigation measures (e.g., supplier vetting, ongoing monitoring)?",
+        "conclusion": "Inconclusive",
+        "evidenceFound": "The audit report confirms that the feedstock is waste biomass (rice husks) and mentions environmental safeguards and approval from the local government. However, there is no detailed risk matrix or specific action plans for identified risks.",
+        "missingOrContradictoryData": "A detailed discussion of environmental and social risks, specific mitigation measures, and follow-up procedures is missing."
+      }
+    ]
+  },
+  {
+    "analysis": [
+      {
+        "topic": "Strong governance",
+        "criteria": "Regional Oversight and Enforcement",
+        "question": "Does the documentation specify the jurisdiction(s) from which feedstock is sourced, and describe local forestry laws or enforcement measures?",
+        "conclusion": "Does Not Meet",
+        "evidenceFound": "The audit report mentions that the feedstock is sourced from rice husks in Nueva Ecija, Philippines, and that the local government has approved the biochar production project. However, there is no explicit reference to local forestry laws, logging permits, reforestation mandates, or enforcement structures such as forestry inspectors, fines, or penalties for illegal logging.",
+        "missingOrContradictoryData": "Explicit details on local forestry laws and enforcement measures are missing."
+      },
+      {
+        "topic": "Strong governance",
+        "criteria": "Established Management Standards",
+        "question": "Does the project cite national or regional forest certification standards (beyond voluntary schemes like FSC) or government-led sustainability initiatives?",
+        "conclusion": "Does Not Meet",
+        "evidenceFound": "The audit report does not mention any national or regional forest certification standards or government-led sustainability initiatives. It only confirms that the local government has approved the project, which is not sufficient to meet this criteria.",
+        "missingOrContradictoryData": "Specific references to mandatory forest programs, official government sustainability guidelines, compliance audits, penalties, or corrective actions are absent."
+      }
+    ]
+  },
+  {
+    "analysis": [
+      {
+        "topic": "Corruption Perception Index (CPI)",
+        "criteria": "Transparency and Governance Indicators",
+        "question": "Does the documentation reference reputable indices (e.g., Transparency International\u2019s CPI) or other governance metrics for the source country?",
+        "conclusion": "Does Not Meet",
+        "evidenceFound": "The audit report does not mention any specific CPI score, range, or other governance metrics related to the Philippines. There is no narrative on how corruption might affect forest management or any reference to objective data like the CPI.",
+        "missingOrContradictoryData": "The report lacks any discussion on governance challenges or corruption risk in the Philippines, which is essential for assessing feedstock sustainability in high-risk jurisdictions."
+      },
+      {
+        "topic": "Corruption Perception Index (CPI)",
+        "criteria": "Stricter Conditions for Low-CPI Areas",
+        "question": "If the CPI or other indicators suggest a high corruption risk, does the project apply stricter sourcing conditions (e.g., mandatory FSC or equivalent certification), or possibly exclude feedstock from certain areas?",
+        "conclusion": "Inconclusive",
+        "evidenceFound": "The audit report does not provide any information on CPI or other governance metrics, nor does it mention any stricter sourcing conditions or additional safeguards implemented due to corruption risk. The report confirms that the feedstock is waste biomass (rice husks) sourced from existing piles at a rice mill.",
+        "missingOrContradictoryData": "There is no mention of supplier screening, chain-of-custody requirements, or risk-based audits that would indicate stricter conditions for low-CPI areas."
+      }
+    ]
+  },
+  {
+    "analysis": [
+      {
+        "topic": "Exclusion of Sensitive Areas",
+        "criteria": "Primary and Old-Growth Forests",
+        "question": "Does the documentation unequivocally confirm that no feedstock is sourced from primary or old-growth forests?",
+        "conclusion": "Inconclusive",
+        "evidenceFound": "The audit report confirms that the feedstock is composed of rice husks obtained from the production of rice, which came from existing piles located in the rice mill. However, there is no explicit mention of measures taken to ensure that no feedstock is sourced from primary or old-growth forests.",
+        "missingOrContradictoryData": "The documentation does not provide clear references to official definitions of primary or old-growth forests (e.g., FAO or UNESCO criteria) or maps, supplier lists, or satellite imagery that identify the exact sourcing locations to confirm the exclusion of these forests."
+      },
+      {
+        "topic": "Exclusion of Sensitive Areas",
+        "criteria": "Protected and HCV Areas",
+        "question": "Does the documentation confirm that feedstock is not sourced from protected or high conservation value (HCV) forests unless selective harvest is explicitly recognized by authorities and proven to be low-impact?",
+        "conclusion": "Inconclusive",
+        "evidenceFound": "The audit report mentions that the local government has approved the biochar production project, but there is no specific reference to whether the feedstock is sourced from protected or HCV areas or any selective harvesting practices.",
+        "missingOrContradictoryData": "The documentation lacks evidence of official permits, HCV assessments, or third-party audits confirming no negative impact on biodiversity, ecosystem services, or conservation values in relation to feedstock sourcing."
+      }
+    ]
+  },
+  {
+    "analysis": [
+      {
+        "topic": "Ecological function",
+        "criteria": "Maintaining Biodiversity and Ecosystem Services",
+        "question": "How does the project show that its forest management practices preserve or improve biodiversity, nutrient cycling, soil health, and hydrologic function?",
+        "conclusion": "Inconclusive",
+        "evidenceFound": "The audit report does not provide specific details on forest management practices, buffer zones, habitat corridors, low-impact logging, or reforestation efforts. It mentions that the feedstock is rice husks from existing piles, not involving forest management directly.",
+        "missingOrContradictoryData": "No specific information on forest management practices or conservation measures is provided. The focus is on waste biomass (rice husks) rather than forest biomass."
+      }
+    ]
+  },
+  {
+    "analysis": [
+      {
+        "topic": "Carbon stocks",
+        "criteria": "Stability or Increase in Regional Carbon Stocks",
+        "question": "Does the documentation show that forest carbon stocks in the sourcing region are stable or increasing, ensuring the project is not contributing to deforestation or degradation?",
+        "conclusion": "Inconclusive",
+        "evidenceFound": "The audit report does not provide specific information on the stability or increase of forest carbon stocks in the sourcing region. It mentions that the feedstock is composed of rice husks obtained from existing piles located in the rice mill, which suggests waste biomass rather than forest biomass.",
+        "missingOrContradictoryData": "No concrete data is provided on the stability or increase of forest carbon stocks in the sourcing region. Information on government data, remote sensing imagery, or third-party research supporting the claim that forest cover and carbon stocks are maintained or growing is missing."
+      },
+      {
+        "topic": "Carbon stocks",
+        "criteria": "Justification for Any Noted Decrease",
+        "question": "If the project acknowledges a decline in carbon stocks, does it explain why (e.g., natural disturbance) and show how it mitigates or offsets the loss?",
+        "conclusion": "Inconclusive",
+        "evidenceFound": "The audit report does not acknowledge any decline in carbon stocks. It focuses on the use of waste biomass (rice husks) as feedstock, which does not directly relate to forest carbon stocks.",
+        "missingOrContradictoryData": "No information is provided on any noted decrease in carbon stocks or justifications for such a decrease. Details on natural disturbances, mitigation actions, or offsets are absent."
+      }
+    ]
+  },
+  {
+    "analysis": [
+      {
+        "topic": "Restrictions on New Plantations",
+        "criteria": "No Plantations Replacing Natural Forests",
+        "question": "Does the documentation confirm that no biomass is sourced from plantation forests established within the last 20 years if they replaced natural forests?",
+        "conclusion": "Inconclusive",
+        "evidenceFound": "The audit report mentions that the feedstock was composed of rice husks obtained from the production of rice. There is no specific mention of land-use change records, geospatial analysis, or historical satellite imagery showing that the plantation site was not previously a natural forest.",
+        "missingOrContradictoryData": "Information on land-use change records, geospatial analysis, or historical satellite imagery is missing."
+      },
+      {
+        "topic": "Restrictions on New Plantations",
+        "criteria": "Exception for Agricultural Lands",
+        "question": "If an exception exists, does the documentation show that the prior land use was agriculture for at least 10 continuous years, making natural regeneration unlikely?",
+        "conclusion": "Inconclusive",
+        "evidenceFound": "The audit report indicates that the rice husks came from existing piles located in the rice mill, suggesting agricultural use. However, there is no detailed information on the land-use history, remote sensing data, agricultural permits, or rationale explaining why natural forest regrowth would have been highly improbable.",
+        "missingOrContradictoryData": "Detailed land-use history, remote sensing data, agricultural permits, and rationale for the exception are missing."
+      }
+    ]
+  },
+  {
+    "analysis": [
+      {
+        "topic": "Legal and Customary Rights",
+        "criteria": "Recognition of Land Rights and Customary Uses",
+        "question": "Does the project documentation confirm respect for Indigenous Peoples\u2019 and local communities\u2019 legal and customary land rights?",
+        "conclusion": "Inconclusive",
+        "evidenceFound": "The audit report mentions that the local government approved the biochar production project but does not provide specific details on land rights or customary uses.",
+        "missingOrContradictoryData": "There is no mention of specific land tenure documentation, recognized agreements, maps, or registry documents that confirm respect for legal and customary land rights."
+      },
+      {
+        "topic": "Legal and Customary Rights",
+        "criteria": "Absence of Land Disputes and Compliance with FPIC",
+        "question": "Does the documentation explicitly confirm no unresolved land disputes and compliance with free, prior, and informed consent (FPIC) where Indigenous or local communities hold rights?",
+        "conclusion": "Inconclusive",
+        "evidenceFound": "The audit report does not address land disputes or FPIC processes directly.",
+        "missingOrContradictoryData": "No evidence of meeting minutes, community endorsements, or independent audits that would confirm compliance with FPIC."
+      }
+    ]
+  },
+  {
+    "analysis": [
+      {
+        "topic": "Community health and welfare",
+        "criteria": "Health Impact Assessment",
+        "question": "Does the project address potential impacts on community health from wood processing or transport (e.g., dust, emissions, noise)?",
+        "conclusion": "Inconclusive",
+        "evidenceFound": "The audit report does not explicitly mention any health impact assessment or mitigation strategies related to the potential impacts on community health from wood processing or transport.",
+        "missingOrContradictoryData": "Details on health impact assessments, dust-control systems, or measures to limit truck operations near homes are missing."
+      },
+      {
+        "topic": "Community health and welfare",
+        "criteria": "Consultation and Mitigation",
+        "question": "If there are identified health or welfare risks, does the project show evidence of consultation with local communities and co-developed mitigation strategies?",
+        "conclusion": "Inconclusive",
+        "evidenceFound": "The audit report does not provide specific information on community consultation or co-developed mitigation strategies for identified health or welfare risks.",
+        "missingOrContradictoryData": "Details on records of community meetings, focus groups, stakeholder committees, or specific follow-up actions are missing."
+      }
+    ]
+  },
+  {
+    "analysis": [
+      {
+        "topic": "Socioeconomic Benefits",
+        "criteria": "Support for Local Livelihoods",
+        "question": "Does the project demonstrate tangible benefits for local communities, such as employment, revenue-sharing, or skill development?",
+        "conclusion": "Inconclusive",
+        "evidenceFound": "The audit report does not provide specific details about the project's impact on local livelihoods, such as employment opportunities, revenue-sharing agreements, or skill development initiatives.",
+        "missingOrContradictoryData": "Request more information on local hiring practices, number of new hires, local wage standards, and any formal agreements ensuring a share of project revenue goes to community funds."
+      },
+      {
+        "topic": "Socioeconomic Benefits",
+        "criteria": "Fair Labor and Avoiding Exploitation",
+        "question": "Does the documentation show that fair labor practices are in place (e.g., fair wages, safe working conditions, no forced or child labor)?",
+        "conclusion": "Inconclusive",
+        "evidenceFound": "The audit report mentions that the project complies with the Fortum \u2013 Supplier Code of Conduct, which includes ethical requirements, but it does not provide specific details about labor policies, codes of conduct, pay scales, worker safety measures, or grievance mechanisms.",
+        "missingOrContradictoryData": "Request more information on pay scales, worker safety measures, and how the project verifies no exploitation of vulnerable groups (e.g., migrant workers)."
+      }
+    ]
+  },
+  {
+    "analysis": [
+      {
+        "topic": "Chain-of-custody",
+        "criteria": "Demonstration of Full Traceability",
+        "question": "Does the documentation clearly show how the feedstock is tracked from its origin through transport, processing, and conversion?",
+        "conclusion": "Partially Meets",
+        "evidenceFound": "The audit report mentions that the feedstock is rice husks from existing piles located in the rice mill and transported to the Production Facility by truck. However, there is no detailed description of the tracking method or systems like electronic tagging, barcoding, or supplier logs.",
+        "missingOrContradictoryData": "Detailed tracking methods and systems such as electronic tagging, barcoding, or supplier logs are not specified."
+      },
+      {
+        "topic": "Chain-of-custody",
+        "criteria": "Certification or Equivalent Traceability Mechanisms",
+        "question": "Does the project mention chain-of-custody certifications (FSC, PEFC, etc.) or explain a robust in-house traceability protocol that ensures accurate record-keeping?",
+        "conclusion": "Does Not Meet",
+        "evidenceFound": "The audit report does not mention any chain-of-custody certifications or a robust in-house traceability protocol. There is a recommendation for Alcom to enhance record-keeping procedures, but no specific traceability protocol is detailed.",
+        "missingOrContradictoryData": "No mention of certifications or a detailed in-house traceability protocol."
+      }
+    ]
+  },
+  {
+    "analysis": [
+      {
+        "topic": "Operational oversight",
+        "criteria": "Governance Structures and Monitoring Protocols",
+        "question": "Does the documentation detail who is responsible for monitoring, auditing, and enforcing compliance to prevent illegal or unsustainable sourcing?",
+        "conclusion": "Inconclusive",
+        "evidenceFound": "The audit report mentions the roles of the auditor and the peer reviewer but does not specify an organizational chart or narrative explaining oversight bodies, their roles, and how they conduct audits. There is no detailed description of monitoring schedules or enforcement steps for illegal or unsustainable sourcing.",
+        "missingOrContradictoryData": "Information on specific governance structures, monitoring protocols, and enforcement mechanisms for illegal or unsustainable sourcing is missing."
+      },
+      {
+        "topic": "Operational oversight",
+        "criteria": "Managing Third-Party Suppliers",
+        "question": "If the project relies on third-party suppliers, does the documentation show that these suppliers are held to the same transparency and sustainability requirements as the project\u2019s own operations?",
+        "conclusion": "Partially Meets",
+        "evidenceFound": "The audit confirms that the feedstock was composed of rice husks obtained from the production of rice, which came from existing piles located in the rice mill. However, there is no mention of supplier vetting, contract clauses, or policy statements indicating that external suppliers must adhere to chain-of-custody standards or risk-based assessments.",
+        "missingOrContradictoryData": "Details on supplier vetting, contract clauses, policy statements, and verification procedures for third-party suppliers are missing."
+      }
+    ]
+  },
+  {
+    "analysis": [
+      {
+        "topic": "Sufficient Feedstock and Market Volatility",
+        "criteria": "Reliability of Supply",
+        "question": "Does the documentation show how the project secures enough feedstock to meet its planned biochar production and carbon credit commitments (e.g., annual volume estimates, supplier arrangements)?",
+        "conclusion": "Partially Meets",
+        "evidenceFound": "The audit mentions that the feedstock was composed of rice husks obtained from the production of rice, with no specific volume estimates or supplier arrangement details provided.",
+        "missingOrContradictoryData": "No explicit data on annual volume estimates or supplier arrangements were found."
+      },
+      {
+        "topic": "Sufficient Feedstock and Market Volatility",
+        "criteria": "Proof of Ownership or Formal Agreements",
+        "question": "Does the documentation provide formal proof (e.g., ownership deeds, purchase contracts) guaranteeing long-term access to the feedstock over the project\u2019s lifetime?",
+        "conclusion": "Does Not Meet",
+        "evidenceFound": "No information was found regarding ownership deeds, purchase contracts, or any formal agreements guaranteeing long-term access to the feedstock.",
+        "missingOrContradictoryData": "Formal proof of ownership or agreements is missing."
+      },
+      {
+        "topic": "Sufficient Feedstock and Market Volatility",
+        "criteria": "Contingency Plans for Price Fluctuations",
+        "question": "Does the project describe strategies to handle market volatility (e.g., price changes, supply disruptions) that could threaten feedstock availability?",
+        "conclusion": "Inconclusive",
+        "evidenceFound": "No direct mention of contingency plans for price fluctuations or supply disruptions was found in the audit report.",
+        "missingOrContradictoryData": "Information on contingency plans for market volatility is missing."
+      }
+    ]
+  },
+  {
+    "analysis": [
+      {
+        "topic": "Avoiding Market Distortion",
+        "criteria": "Existing Market Distortion",
+        "question": "Does the documentation provide evidence that the project\u2019s feedstock demand does not distort local or regional markets for agriculture or forestry products?",
+        "conclusion": "Inconclusive",
+        "evidenceFound": "The audit report mentions that the feedstock is composed of rice husks obtained from the production of rice. The rice husks came from existing piles located in the rice mill, which suggests that the feedstock is waste material. However, there is no explicit mention of local market supply-demand balance, official statistics, stakeholder surveys, or price trend data showing the feedstock is genuinely surplus or waste.",
+        "missingOrContradictoryData": "No explicit evidence of local market supply-demand balance, official statistics, stakeholder surveys, or price trend data."
+      },
+      {
+        "topic": "Avoiding Market Distortion",
+        "criteria": "Competition with Higher-Value Uses",
+        "question": "Does the documentation confirm that the biomass used for biochar does not displace higher-value or more climate-beneficial uses (e.g., timber for construction)?",
+        "conclusion": "Meets",
+        "evidenceFound": "The feedstock is composed of rice husks, which are waste biomass from rice production. There is no indication that this biomass is suitable for higher-value or more climate-beneficial uses.",
+        "missingOrContradictoryData": ""
+      }
+    ]
+  },
+  {
+    "analysis": [
+      {
+        "topic": "Feedstock Properties for Optimal Carbon Retention",
+        "criteria": "Moisture Content, Composition, and Suitability",
+        "question": "Does the documentation provide quantitative data on moisture content and feedstock composition (e.g., lignin/cellulose levels) and explain how these properties influence carbon retention during pyrolysis or thermochemical conversion?",
+        "conclusion": "Inconclusive",
+        "evidenceFound": "The audit report mentions the feedstock is composed of rice husks and suggests periodic monitoring of moisture content in biochar, but it lacks specific quantitative data on moisture content and feedstock composition like lignin/cellulose levels.",
+        "missingOrContradictoryData": "Quantitative data on moisture content and feedstock composition (e.g., lignin/cellulose levels) and their influence on carbon retention during pyrolysis or thermochemical conversion."
+      }
+    ]
+  },
+  {
+    "analysis": [
+      {
+        "topic": "Transport and Processing Emissions",
+        "criteria": "Inclusion of Transportation in LCA",
+        "question": "Does the LCA or carbon accounting clearly address emissions from feedstock transport (distances, modes, related GHG outputs)?",
+        "conclusion": "Partially Meets",
+        "evidenceFound": "The LCA included projected data for fuel consumption and feedstock transport emissions, but the auditor noted miscalculations in GHG emissions associated with transport to end-users and application phase. The LCA used kilograms of feedstock instead of biochar weight, and the same GHG emissions factor for diesel consumption for transport and stationary usage.",
+        "missingOrContradictoryData": "Detailed actual data on feedstock transport distances, modes, and related GHG outputs are missing. The LCA needs to be revisited periodically to confirm applicability for ongoing biochar production operations."
+      },
+      {
+        "topic": "Transport and Processing Emissions",
+        "criteria": "Local Sourcing and Minimizing Distances",
+        "question": "Does the project mention local sourcing or strategies to reduce long-distance transport to lower the overall carbon footprint?",
+        "conclusion": "Meets",
+        "evidenceFound": "The feedstock was composed of rice husks obtained from the production of rice and came from existing piles located in the rice mill, which were transported to the Production Facility by truck.",
+        "missingOrContradictoryData": ""
+      }
+    ]
+  },
+  {
+    "analysis": [
+      {
+        "topic": "Energy Use in Pre-processing",
+        "criteria": "Assessing and Minimizing Pre-processing Energy",
+        "question": "Does the documentation evaluate energy requirements for drying, size reduction, or other steps, and describe methods to reduce this energy consumption?",
+        "conclusion": "Partially Meets",
+        "evidenceFound": "The audit report mentions that the LCA considered electricity and fuel consumption for pre-heating and mobile equipment. It also suggests implementing a robust procedure to accurately measure actual electricity and fuel consumption over time. The LCA is based on an 18-day trial period and includes conservative assumptions, but it lacks specific details on energy inputs (e.g., kWh per ton of feedstock) and methods to optimize energy use.",
+        "missingOrContradictoryData": "Specific energy inputs (e.g., kWh per ton of feedstock) and detailed methods to optimize energy use are not provided. The LCA data is based on a short trial period and may not reflect ongoing operations accurately."
+      }
+    ]
+  }
+]

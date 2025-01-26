@@ -1,0 +1,51 @@
+{
+  "framework": "Puro",
+  "project_name": "V-Grid Biochar Facility",
+  "country": "United States",
+  "reporting_period": [
+    [
+      "2023-01-01",
+      "2024-02-29"
+    ]
+  ],
+  "tons_dry_biochar_under_audit": 82.78,
+  "tons_dry_biochar_eligible": 82.78,
+  "tons_dry_biochar_produced": 82.78,
+  "tons_dry_biochar_sold": null,
+  "num_credit_under_audit": 207,
+  "num_eligible_credits": 207,
+  "feedstock": [
+    "pistachio shells"
+  ],
+  "tons_feedstock_per_ton_biochar": 7.56,
+  "harvested_feedstock_sustainability_proof": "Waste biomass used is pistachio shells, from delivery load log",
+  "reactor_type": "Gasifier",
+  "reactor_ignition_fuel": "propane",
+  "pyrolysis_by_product": [
+    "syngas",
+    "bio-oil",
+    "wood vinegar"
+  ],
+  "h_c_ratio": 0.23,
+  "carbon_content_ratio": 87.8,
+  "min_biochar_moisture_content": null,
+  "avg_biochar_moisture_content": null,
+  "calibrated_weighting_system": true,
+  "biochar_usage": [
+    "soil amendment",
+    "wetland restoration",
+    "golf courses",
+    "cat litter deodorizer"
+  ],
+  "biochar_donation": false,
+  "feedstock_transport_distance_km": 82.5,
+  "usage_transport_distance_km": 756,
+  "lca_report_cadence": null,
+  "gross_e_stored_kg_per_ton_biochar": 2884,
+  "e_biomass_kg_per_ton_biochar": 49,
+  "e_production_kg_per_ton_biochar": 257,
+  "e_use_kg_per_ton_biochar": 79,
+  "feedstock_emission_kg_per_ton_biochar": null,
+  "electricity_emission_kg_per_ton_biochar": null,
+  "net_e_stored_kg_per_ton_biochar": 2502
+}

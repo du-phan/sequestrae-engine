@@ -1,0 +1,44 @@
+{
+  "framework": "Puro",
+  "project_name": "Sylva Fertilis France",
+  "country": "France",
+  "reporting_period": [
+    [
+      "01-09-2023",
+      "31-08-2024"
+    ]
+  ],
+  "tons_dry_biochar_under_audit": 106,
+  "tons_dry_biochar_eligible": null,
+  "tons_dry_biochar_produced": 106,
+  "tons_dry_biochar_sold": 100,
+  "num_credit_under_audit": null,
+  "num_eligible_credits": null,
+  "feedstock": [
+    "wood_pellets"
+  ],
+  "tons_feedstock_per_ton_biochar": 4.35,
+  "harvested_feedstock_sustainability_proof": "PEFC / FR ST of the French Forest Certification Scheme",
+  "reactor_type": null,
+  "reactor_ignition_fuel": "wood_chips",
+  "pyrolysis_by_product": null,
+  "h_c_ratio": 0.16,
+  "carbon_content_ratio": 91.65,
+  "min_biochar_moisture_content": 1.4,
+  "avg_biochar_moisture_content": 1.4,
+  "calibrated_weighting_system": true,
+  "biochar_usage": [
+    "soil_improvement"
+  ],
+  "biochar_donation": false,
+  "feedstock_transport_distance_km": null,
+  "usage_transport_distance_km": 1804,
+  "lca_report_cadence": null,
+  "gross_e_stored_kg_per_ton_biochar": 3360,
+  "e_biomass_kg_per_ton_biochar": 181,
+  "e_production_kg_per_ton_biochar": 205,
+  "e_use_kg_per_ton_biochar": null,
+  "feedstock_emission_kg_per_ton_biochar": null,
+  "electricity_emission_kg_per_ton_biochar": null,
+  "net_e_stored_kg_per_ton_biochar": 2470
+}

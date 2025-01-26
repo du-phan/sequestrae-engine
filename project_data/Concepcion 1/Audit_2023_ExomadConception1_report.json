@@ -1,0 +1,46 @@
+{
+  "framework": "Puro",
+  "project_name": "Exomad SRL",
+  "country": "Bolivia",
+  "reporting_period": [
+    [
+      "2023-04-03",
+      "2023-06-19"
+    ]
+  ],
+  "tons_dry_biochar_under_audit": 2044.107,
+  "tons_dry_biochar_eligible": null,
+  "tons_dry_biochar_produced": null,
+  "tons_dry_biochar_sold": null,
+  "num_credit_under_audit": 4038,
+  "num_eligible_credits": 3840,
+  "feedstock": [
+    "forestry and wood processing waste"
+  ],
+  "tons_feedstock_per_ton_biochar": null,
+  "harvested_feedstock_sustainability_proof": null,
+  "reactor_type": "Rotary kiln",
+  "reactor_ignition_fuel": "LPG, firewood",
+  "pyrolysis_by_product": [
+    "syngas"
+  ],
+  "h_c_ratio": 0.356,
+  "carbon_content_ratio": null,
+  "min_biochar_moisture_content": null,
+  "avg_biochar_moisture_content": null,
+  "calibrated_weighting_system": true,
+  "biochar_usage": [
+    "soil amendment for agricultural purposes"
+  ],
+  "biochar_donation": false,
+  "feedstock_transport_distance_km": null,
+  "usage_transport_distance_km": null,
+  "lca_report_cadence": null,
+  "gross_e_stored_kg_per_ton_biochar": null,
+  "e_biomass_kg_per_ton_biochar": null,
+  "e_production_kg_per_ton_biochar": null,
+  "e_use_kg_per_ton_biochar": null,
+  "feedstock_emission_kg_per_ton_biochar": null,
+  "electricity_emission_kg_per_ton_biochar": null,
+  "net_e_stored_kg_per_ton_biochar": null
+}

@@ -1,0 +1,55 @@
+{
+  "framework": "Puro",
+  "project_name": "West Fraser Joanna Facility",
+  "country": "United States",
+  "reporting_period": [
+    [
+      "07",
+      "01",
+      "2023"
+    ],
+    [
+      "12",
+      "31",
+      "2023"
+    ]
+  ],
+  "tons_dry_biochar_under_audit": 8157,
+  "tons_dry_biochar_eligible": 2773,
+  "tons_dry_biochar_produced": 8157,
+  "tons_dry_biochar_sold": 2773,
+  "num_credit_under_audit": 6022,
+  "num_eligible_credits": 5995.27,
+  "feedstock": [
+    "waste forest biomass",
+    "waste biomass from sister mills",
+    "waste bark from log peeling",
+    "OSB boards unfit for sale"
+  ],
+  "tons_feedstock_per_ton_biochar": 13.6,
+  "harvested_feedstock_sustainability_proof": "Sustainable Forestry Initiative (SFI)-audited",
+  "reactor_type": "Rotary kiln gasifier",
+  "reactor_ignition_fuel": "Natural gas",
+  "pyrolysis_by_product": [
+    "syngas"
+  ],
+  "h_c_ratio": 0.29,
+  "carbon_content_ratio": 76.5,
+  "min_biochar_moisture_content": null,
+  "avg_biochar_moisture_content": null,
+  "calibrated_weighting_system": true,
+  "biochar_usage": [
+    "soil additive"
+  ],
+  "biochar_donation": false,
+  "feedstock_transport_distance_km": 100,
+  "usage_transport_distance_km": 100,
+  "lca_report_cadence": null,
+  "gross_e_stored_kg_per_ton_biochar": 2329,
+  "e_biomass_kg_per_ton_biochar": 21,
+  "e_production_kg_per_ton_biochar": 119,
+  "e_use_kg_per_ton_biochar": 27,
+  "feedstock_emission_kg_per_ton_biochar": null,
+  "electricity_emission_kg_per_ton_biochar": null,
+  "net_e_stored_kg_per_ton_biochar": 2162
+}
