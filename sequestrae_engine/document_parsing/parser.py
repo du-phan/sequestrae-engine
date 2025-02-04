@@ -60,7 +60,7 @@ class PDFToMarkdownParser:
         with open(output_path, "w") as md_file:
             md_file.write(markdown_content)
 
-    def parse_pdf_folder(self, folder_path, output_path=None):
+    def parse_pdf_folder(self, folder_path, output_path=None, overwrite=False):
         """
         Parse all PDF files in a folder (excluding those with '_report' in name)
         and concatenate their content into a single markdown file.
@@ -70,8 +70,9 @@ class PDFToMarkdownParser:
             folder_path: Path to the folder containing PDFs
             output_path: Optional output path. If None, defaults to
                         {folder_path}/parsed_markdown/concatenated_documentation.md
+            overwrite: If True, overwrite existing output file. If False, skip processing
+                      if output file exists
         """
-        start_time = time.time()
         if output_path is None:
             output_path = os.path.join(
                 folder_path, "parsed_markdown", "concatenated_documentation.md"
@@ -79,14 +80,19 @@ class PDFToMarkdownParser:
             # Create the parsed_markdown directory if it doesn't exist
             os.makedirs(os.path.dirname(output_path), exist_ok=True)
 
+        # Check if output file exists and respect overwrite flag
+        if os.path.exists(output_path) and not overwrite:
+            logger.info(
+                f"Output file {output_path} already exists and overwrite=False. Skipping processing."
+            )
+            return
+
         # Get all files in the folder
         all_files = os.listdir(folder_path)
         pdf_files = [
             f for f in all_files if f.lower().endswith(".pdf") and "report" not in f.lower()
         ]
         report_files = [f for f in all_files if f.lower().endswith(".md") and "report" in f.lower()]
-
-        print("Report file: ", report_files)
 
         if not pdf_files and not report_files:
             logger.warning(f"No eligible files found in {folder_path}")
@@ -137,6 +143,3 @@ class PDFToMarkdownParser:
         final_content = "".join(combined_content)
         self.save_markdown(final_content, output_path)
         logger.info(f"Combined markdown saved to {output_path}")
-        end_time = time.time()
-        duration_in_seconds = round(end_time - start_time, 2)
-        logger.info(f"Processing completed in {duration_in_seconds} seconds")

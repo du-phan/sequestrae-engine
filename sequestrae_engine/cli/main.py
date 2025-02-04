@@ -73,6 +73,26 @@ def main():
         )
     )
 
+    # Due diligence analyze command
+    process_analyze_parser = subparsers.add_parser(
+        "due-diligence-analyze",
+        help="Process PDFs and analyze due diligence criteria for all projects",
+    )
+    process_analyze_parser.add_argument(
+        "--llama-api-key", help="Llama API key for PDF parsing", required=True
+    )
+    process_analyze_parser.add_argument(
+        "--mistral-api-key", help="Mistral API key for analysis", required=True
+    )
+    process_analyze_parser.add_argument(
+        "--project-dir", help="Project data directory", required=True
+    )
+    process_analyze_parser.set_defaults(
+        func=lambda args: commands.analyze_due_diligence_command(
+            args.llama_api_key, args.mistral_api_key, args.project_dir
+        )
+    )
+
     args = parser.parse_args()
     if hasattr(args, "func"):
         exit_status = args.func(args)

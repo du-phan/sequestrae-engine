@@ -5,6 +5,7 @@ import re
 import time
 from typing import Dict, List
 
+import pandas as pd
 from mistralai import Mistral
 
 from sequestrae_engine.core.utilities import load_json_file
@@ -18,6 +19,10 @@ logger = logging.getLogger(__name__)
 # Define paths relative to this file
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 SYSTEM_PROMPT_PATH = os.path.join(SCRIPT_DIR, "prompts/system_prompt.txt")
+DUE_DILIGENCE_SYSTEM_PROMPT_PATH = os.path.join(
+    SCRIPT_DIR, "prompts/due_diligence_system_prompt.txt"
+)
+DUE_DILIGENCE_CRITERIA_PATH = os.path.join(SCRIPT_DIR, "prompts/due_diligence_criteria.csv")
 FEEDSTOCK_PROMPT_PATH = os.path.join(SCRIPT_DIR, "prompts/feedstock_prompt.txt")
 FEEDSTOCK_CRITERIA_PATH = os.path.join(SCRIPT_DIR, "prompts/feedstock_criteria.json")
 
@@ -117,6 +122,98 @@ class AuditReportExtractor:
         audit_dict = json.loads(audit_info)
 
         return audit_dict
+
+    def analyze_due_diligence_criteria(
+        self, project_name: str, markdown_document_path: str, output_path=None, overwrite=False
+    ):
+
+        if output_path is None:
+            # output_path = os.path.join(markdown_document_path, "../", "analysis", "{}_analysis.json".format(project_name))
+            output_path = os.path.join(
+                os.path.dirname(os.path.dirname(markdown_document_path)),
+                "analysis",
+                f"{project_name}_analysis.json",
+            )
+
+        # Check if file exists and overwrite is False
+        if os.path.exists(output_path) and not overwrite:
+            logger.info(
+                f"Output file already exists at {output_path} and overwrite=False. Skipping."
+            )
+            return
+
+        with open(DUE_DILIGENCE_SYSTEM_PROMPT_PATH, "r") as f:
+            context_content = f.read()
+
+        criteria_df = pd.read_csv(DUE_DILIGENCE_CRITERIA_PATH)
+        grouped_criteria_df = (
+            criteria_df.groupby(["topic", "sub_topic", "risk_factor"])
+            .apply(lambda x: dict(zip(x["question"], x["instruction"])))
+            .reset_index(name="qa_pairs")
+        )
+
+        # Template for the full message
+        full_message_template = """
+        {context_content}
+
+        **Criteria Guideline**
+
+        Topic: {topic}
+        Subtopic: {sub_topic}
+        Risk factor: {risk_factor}
+        Questions & Instruction: {questions}
+
+        **Project documents**
+
+        {audit_report}
+        """
+
+        with open(markdown_document_path, "r") as file:
+            concatenated_project_doc = file.read()
+
+        result_list = []
+        for _, r in grouped_criteria_df.iterrows():
+            question_list = []
+            template_instruction = """
+                Question: {question}.
+                Instruction: {instruction}
+                ----
+            """
+
+            for question, instruction in r["qa_pairs"].items():
+                question_list.append(
+                    template_instruction.format(question=question, instruction=instruction)
+                )
+
+                joined_question = "".join(question_list)
+
+            full_message = full_message_template.format(
+                context_content=context_content,
+                topic=r["topic"],
+                sub_topic=r["sub_topic"],
+                risk_factor=r["risk_factor"],
+                questions=joined_question,
+                audit_report=concatenated_project_doc,
+            )
+            messages = [{"role": "user", "content": full_message}]
+
+            chat_response = self.mistral_client.chat.complete(
+                model="mistral-large-latest",
+                messages=messages,
+                response_format={"type": "json_object"},
+            )
+
+            response_content = chat_response.choices[0].message.content
+            response_content_dict = json.loads(response_content)
+            result_list.extend(response_content_dict.get("analysis"))
+            time.sleep(1)  # Rate limiting
+
+        # Create parent directory if it doesn't exist
+        output_dir = os.path.dirname(output_path)
+        if output_dir:  # Only create directory if path has a parent directory
+            os.makedirs(output_dir, exist_ok=True)
+        with open(output_path, "w", encoding="utf-8") as f:
+            json.dump(result_list, f, indent=2)
 
     def analyze_feedstock_sustainability(
         self, audit_path: str, output_folder_path=None, overwrite=False

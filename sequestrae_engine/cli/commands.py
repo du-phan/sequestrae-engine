@@ -1,3 +1,4 @@
+import logging
 import os
 import time
 from pathlib import Path
@@ -7,21 +8,27 @@ from sequestrae_engine.db.scripts.populate_audit_reports import populate_feedsto
 from sequestrae_engine.document_parsing.extractors import AuditReportExtractor
 from sequestrae_engine.document_parsing.parser import PDFToMarkdownParser
 
+# Configure logger
+logging.basicConfig(
+    level=logging.INFO, format="%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+)
+logger = logging.getLogger(__name__)
+
 
 def parse_pdfs_command(api_key, project_dir, limit=5):
     if limit is None:
         limit = 5
-    print(f"Max number of files to process: {limit}")
+    logger.info(f"Max number of files to process: {limit}")
 
     if not api_key:
-        print("Error: LLAMA_API_KEY is required")
+        logger.error("LLAMA_API_KEY is required")
         return 1
 
     parser = PDFToMarkdownParser(api_key=api_key)
     project_path = Path(project_dir)
 
     if not project_path.exists():
-        print(f"Error: Directory not found at {project_path}")
+        logger.error(f"Directory not found at {project_path}")
         return 1
 
     pdf_count = 0
@@ -32,24 +39,24 @@ def parse_pdfs_command(api_key, project_dir, limit=5):
                     pdf_count += 1
                     parser.parse_pdf(pdf_path)
 
-    print(f"Successfully processed {pdf_count} PDF files")
+    logger.info(f"Successfully processed {pdf_count} PDF files")
     return 0
 
 
 def extract_audit_information_command(api_key, project_dir, limit=100):
     if limit is None:
         limit = 100
-    print(f"Max number of files to process: {limit}")
+    logger.info(f"Max number of files to process: {limit}")
 
     if not api_key:
-        print("Error: MISTRAL_API_KEY is required")
+        logger.error("MISTRAL_API_KEY is required")
         return 1
 
     extractor = AuditReportExtractor(api_key=api_key)
     project_path = Path(project_dir)
 
     if not project_path.exists():
-        print(f"Error: Directory not found at {project_path}")
+        logger.error(f"Directory not found at {project_path}")
         return 1
 
     markdown_count = 0
@@ -61,27 +68,27 @@ def extract_audit_information_command(api_key, project_dir, limit=100):
                     try:
                         extractor.parse_audit_report(audit_report_path=md_path)
                     except Exception as e:
-                        print(f"Error processing {md_path}: {str(e)}")
+                        logger.error(f"Error processing {md_path}: {str(e)}")
                     time.sleep(1)  # Sleep for 1 second to avoid rate limiting
 
-    print(f"Successfully processed {markdown_count} markdown files")
+    logger.info(f"Successfully processed {markdown_count} markdown files")
     return 0
 
 
 def evaluate_feedstock_sustainability_command(api_key, project_dir, limit=100):
     if limit is None:
         limit = 100
-    print(f"Max number of files to process: {limit}")
+    logger.info(f"Max number of files to process: {limit}")
 
     if not api_key:
-        print("Error: MISTRAL_API_KEY is required")
+        logger.error("MISTRAL_API_KEY is required")
         return 1
 
     extractor = AuditReportExtractor(api_key=api_key)
     project_path = Path(project_dir)
 
     if not project_path.exists():
-        print(f"Error: Directory not found at {project_path}")
+        logger.error(f"Directory not found at {project_path}")
         return 1
 
     markdown_count = 0
@@ -93,23 +100,83 @@ def evaluate_feedstock_sustainability_command(api_key, project_dir, limit=100):
                     try:
                         extractor.analyze_feedstock_sustainability(audit_path=md_path)
                     except Exception as e:
-                        print(f"Error processing {md_path}: {str(e)}")
+                        logger.error(f"Error processing {md_path}: {str(e)}")
                     time.sleep(1)  # Sleep for 1 second to avoid rate limiting
 
-    print(f"Successfully processed {markdown_count} markdown files")
+    logger.info(f"Successfully processed {markdown_count} markdown files")
     return 0
 
 
 def populate_feedstock_evaluation_command(supabase_url, supabase_api_key, project_dir):
     if not supabase_url or not supabase_api_key:
-        print("Error: Supabase URL and api key are required")
+        logger.error("Supabase URL and api key are required")
         return 1
 
     try:
         supabase_client = SupabaseClient.get_client(supabase_url, supabase_api_key)
         populate_feedstock_evaluation_table(project_dir, supabase_client)
-        print("Successfully populated feedstock evaluation table")
+        logger.info("Successfully populated feedstock evaluation table")
         return 0
     except Exception as e:
-        print(f"Error populating feedstock evaluation table: {str(e)}")
+        logger.error(f"Error populating feedstock evaluation table: {str(e)}")
         return 1
+
+
+def analyze_due_diligence_command(llama_api_key, mistral_api_key, project_dir):
+    """
+    Process all PDFs in project subfolders and analyze due diligence criteria.
+
+    Args:
+        llama_api_key: API key for PDF parsing
+        mistral_api_key: API key for analysis
+        project_dir: Root directory containing project folders
+    """
+    max_num_folder = 25
+
+    if not llama_api_key or not mistral_api_key:
+        logger.error("Both LLAMA_API_KEY and MISTRAL_API_KEY are required")
+        return 1
+
+    project_path = Path(project_dir)
+    if not project_path.exists():
+        logger.error(f"Directory not found at {project_path}")
+        return 1
+
+    pdf_parser = PDFToMarkdownParser(llama_api_key=llama_api_key)
+    audit_extractor = AuditReportExtractor(api_key=mistral_api_key)
+
+    processed_folder = 0
+    for folder_path in project_path.iterdir():
+        if processed_folder >= max_num_folder:
+            break
+
+        if not folder_path.name.startswith(".") and folder_path.is_dir():
+            project_name = "_".join(folder_path.name.split())
+            logger.info(f"Analyzing project {project_name} ...")
+
+            # Parse PDFs in folder
+            start_time = time.time()
+            pdf_parser.parse_pdf_folder(folder_path, overwrite=False)
+            logger.info(
+                f"--------- PDF processing completed in {round((time.time() - start_time)/60, 2)} minutes ---------"
+            )
+
+            # Analyze due diligence
+            markdown_document_path = os.path.join(
+                folder_path, "parsed_markdown", "concatenated_documentation.md"
+            )
+            start_time = time.time()
+            try:
+                audit_extractor.analyze_due_diligence_criteria(
+                    project_name=project_name, markdown_document_path=markdown_document_path
+                )
+                logger.info(
+                    f"--------- Due diligence analysis complete in {round((time.time() - start_time)/60, 2)} minutes."
+                )
+                processed_folder += 1
+            except Exception as e:
+                logger.error(f"Error analyzing {project_name}: {str(e)}")
+                continue
+
+    logger.info("Completed processing all projects")
+    return 0
