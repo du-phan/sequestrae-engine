@@ -1,12 +1,16 @@
 import logging
 import os
+import pathlib
 import time
 
+import httpx
 import nest_asyncio
+from google import genai
+from google.genai import types
 from llama_index.core import SimpleDirectoryReader
 from llama_parse import LlamaParse
 
-nest_asyncio.apply()
+# nest_asyncio.apply()
 
 logging.basicConfig(
     level=logging.INFO, format="%(asctime)s - %(name)s - %(levelname)s - %(message)s"
@@ -15,9 +19,11 @@ logger = logging.getLogger(__name__)
 
 
 class PDFToMarkdownParser:
-    def __init__(self, llama_api_key):
-        self.llama_api_key = llama_api_key
+    def __init__(self, gemini_api_key):
+        # self.llama_api_key = llama_api_key
+        self.gemini_client = genai.Client(api_key=gemini_api_key)
 
+    """
     def parse_pdf(self, pdf_path, output_folder_path=None, overwrite=False):
         pdf_dir = os.path.dirname(pdf_path)
         pdf_name = os.path.splitext(os.path.basename(pdf_path))[0]
@@ -55,6 +61,7 @@ class PDFToMarkdownParser:
         markdown_content = doc_dict.get("text")
 
         self.save_markdown(markdown_content, output_path)
+    """
 
     def save_markdown(self, markdown_content, output_path):
         with open(output_path, "w") as md_file:
@@ -62,80 +69,82 @@ class PDFToMarkdownParser:
 
     def parse_pdf_folder(self, folder_path, output_path=None, overwrite=False):
         """
-        Parse all PDF files in a folder (excluding those with '_report' in name)
-        and concatenate their content into a single markdown file.
-        Also includes content from existing _report.md files.
-
-        Args:
-            folder_path: Path to the folder containing PDFs
-            output_path: Optional output path. If None, defaults to
-                        {folder_path}/parsed_markdown/concatenated_documentation.md
-            overwrite: If True, overwrite existing output file. If False, skip processing
-                      if output file exists
+        Parse PDFs in a folder or use existing markdown files if available.
+        For each PDF, checks if a corresponding .md file exists:
+        - If yes, use the markdown content directly
+        - If no, parse the PDF to markdown
         """
         if output_path is None:
             output_path = os.path.join(
                 folder_path, "parsed_markdown", "concatenated_documentation.md"
             )
-            # Create the parsed_markdown directory if it doesn't exist
             os.makedirs(os.path.dirname(output_path), exist_ok=True)
 
-        # Check if output file exists and respect overwrite flag
         if os.path.exists(output_path) and not overwrite:
             logger.info(
                 f"Output file {output_path} already exists and overwrite=False. Skipping processing."
             )
             return
 
-        # Get all files in the folder
-        all_files = os.listdir(folder_path)
-        pdf_files = [
-            f for f in all_files if f.lower().endswith(".pdf") and "report" not in f.lower()
-        ]
-        report_files = [f for f in all_files if f.lower().endswith(".md") and "report" in f.lower()]
+        # Get all PDF files in the folder
+        pdf_files = [f for f in os.listdir(folder_path) if f.lower().endswith(".pdf")]
 
-        if not pdf_files and not report_files:
-            logger.warning(f"No eligible files found in {folder_path}")
+        if not pdf_files:
+            logger.warning(f"No PDF files found in {folder_path}")
             return
-
-        # Initialize parser once for all files
-        parser = LlamaParse(
-            language="en",
-            result_type="markdown",
-            disable_image_extraction=True,
-            skip_diagonal_text=True,
-            output_tables_as_HTML=True,
-            api_key=self.llama_api_key,
-        )
-        file_extractor = {".pdf": parser}
 
         combined_content = []
 
-        # Process regular PDFs
+        # Process each PDF file
         for pdf_file in pdf_files:
-            pdf_path = os.path.join(folder_path, pdf_file)
-            logger.info(f"Processing PDF: {pdf_file}")
+            base_name = os.path.splitext(pdf_file)[0]
+            md_file = f"{base_name}.md"
+            md_path = os.path.join(folder_path, md_file)
 
-            documents = SimpleDirectoryReader(
-                input_files=[pdf_path], file_extractor=file_extractor
-            ).load_data()
+            # Check if corresponding markdown file exists
+            if os.path.exists(md_path):
+                logger.info(f"Using existing markdown file for: {pdf_file}")
+                with open(md_path, "r") as f:
+                    doc_content = f.read()
+            else:
+                # Parse the PDF if no markdown exists
+                pdf_path = os.path.join(folder_path, pdf_file)
+                logger.info(f"Processing PDF: {pdf_file}")
 
-            doc_content = documents[0].dict().get("text")
+                with open(pdf_path, "rb") as f:
+                    pdf_bytes = f.read()
+
+                prompt = """
+                Perform OCR on the following pages and convert the content into Markdown format.
+
+                - Output **only** the Markdown text—do not include any additional comments, explanations, or summaries.
+                - The document pertains to a biochar project and may include project documentation, audit reports, or related materials.
+                - Ignore the table of contents—it is not needed.
+                - Preserve section headings, bullet points, and emphasized text (bold, italic) as they appear in the document.
+
+                ### Table Handling:
+                - **Extract all tables** from the document—**do not skip any tables.**
+                - Convert tables into **structured and readable Markdown tables** instead of HTML.
+                - If a table's format is unclear or difficult to read, **restructure or transpose it** for better clarity while preserving the original meaning.
+                - If a table is spread across multiple pages, **reconstruct it properly** in the output.
+                - If the document contains tabular data without clear table formatting, **detect and format it as a Markdown table** to improve readability.
+                """
+                response = self.gemini_client.models.generate_content(
+                    model="gemini-2.0-flash-001",
+                    contents=[
+                        types.Part.from_bytes(
+                            data=pdf_bytes,
+                            mime_type="application/pdf",
+                        ),
+                        prompt,
+                    ],
+                )
+
+                doc_content = response.text
+                time.sleep(1)  # Sleep for 1 second to avoid rate limiting
+
             file_section = (
                 f"# The following text is the content of file: {pdf_file}\n{doc_content}\n\n"
-            )
-            combined_content.append(file_section)
-            time.sleep(1)  # Sleep for 1 second to avoid rate limiting
-
-        # Add content from report markdown files
-        for md_file in report_files:
-            md_path = os.path.join(folder_path, md_file)
-            logger.info(f"Adding report file: {md_file}")
-
-            with open(md_path, "r") as f:
-                report_content = f.read()
-            file_section = (
-                f"# The following text is the content of file: {md_file}\n{report_content}\n\n"
             )
             combined_content.append(file_section)
 

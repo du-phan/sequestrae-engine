@@ -122,19 +122,19 @@ def populate_feedstock_evaluation_command(supabase_url, supabase_api_key, projec
         return 1
 
 
-def analyze_due_diligence_command(llama_api_key, mistral_api_key, project_dir):
+def analyze_due_diligence_command(gemini_api_key, mistral_api_key, project_dir):
     """
     Process all PDFs in project subfolders and analyze due diligence criteria.
 
     Args:
-        llama_api_key: API key for PDF parsing
+        gemini_api_key: API key for PDF parsing
         mistral_api_key: API key for analysis
         project_dir: Root directory containing project folders
     """
-    max_num_folder = 25
+    # max_num_folder = 60
 
-    if not llama_api_key or not mistral_api_key:
-        logger.error("Both LLAMA_API_KEY and MISTRAL_API_KEY are required")
+    if not gemini_api_key or not mistral_api_key:
+        logger.error("Both GEMINI_API_KEY and MISTRAL_API_KEY are required")
         return 1
 
     project_path = Path(project_dir)
@@ -142,17 +142,26 @@ def analyze_due_diligence_command(llama_api_key, mistral_api_key, project_dir):
         logger.error(f"Directory not found at {project_path}")
         return 1
 
-    pdf_parser = PDFToMarkdownParser(llama_api_key=llama_api_key)
+    pdf_parser = PDFToMarkdownParser(gemini_api_key=gemini_api_key)
     audit_extractor = AuditReportExtractor(api_key=mistral_api_key)
 
-    processed_folder = 0
+    # Count total subfolders (excluding hidden folders)
+    total_folders = sum(
+        1
+        for folder in project_path.iterdir()
+        if folder.is_dir() and not folder.name.startswith(".")
+    )
+
+    logger.info(f"Found {total_folders} project folders to process")
+
+    processed_folder = 1
     for folder_path in project_path.iterdir():
-        if processed_folder >= max_num_folder:
-            break
+        # if processed_folder >= max_num_folder:
+        # break
 
         if not folder_path.name.startswith(".") and folder_path.is_dir():
             project_name = "_".join(folder_path.name.split())
-            logger.info(f"Analyzing project {project_name} ...")
+            logger.info(f"Analyzing project {processed_folder}/{total_folders}: {project_name} ...")
 
             # Parse PDFs in folder
             start_time = time.time()
@@ -177,6 +186,8 @@ def analyze_due_diligence_command(llama_api_key, mistral_api_key, project_dir):
             except Exception as e:
                 logger.error(f"Error analyzing {project_name}: {str(e)}")
                 continue
+
+        time.sleep(3)
 
     logger.info("Completed processing all projects")
     return 0

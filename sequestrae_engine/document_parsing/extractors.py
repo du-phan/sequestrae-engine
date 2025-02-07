@@ -206,7 +206,7 @@ class AuditReportExtractor:
             response_content = chat_response.choices[0].message.content
             response_content_dict = json.loads(response_content)
             result_list.extend(response_content_dict.get("analysis"))
-            time.sleep(1)  # Rate limiting
+            time.sleep(3)  # Rate limiting
 
         # Create parent directory if it doesn't exist
         output_dir = os.path.dirname(output_path)

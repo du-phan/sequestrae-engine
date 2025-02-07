@@ -13,9 +13,7 @@ def main():
     parse_pdfs_parser = subparsers.add_parser(
         "parse-pdf", help="Parse PDF audit report files to Markdown"
     )
-    parse_pdfs_parser.add_argument(
-        "--llama-api-key", help="Llama API key", default=os.environ.get("LLAMA_API_KEY")
-    )
+    parse_pdfs_parser.add_argument("--llama-api-key", help="Llama API key", required=True)
     parse_pdfs_parser.add_argument("--project-dir", help="Project data directory", required=True)
     parse_pdfs_parser.add_argument("--limit", help="Maximum number of PDFs to process", type=int)
     parse_pdfs_parser.set_defaults(
@@ -79,7 +77,7 @@ def main():
         help="Process PDFs and analyze due diligence criteria for all projects",
     )
     process_analyze_parser.add_argument(
-        "--llama-api-key", help="Llama API key for PDF parsing", required=True
+        "--gemini-api-key", help="Gemini API key for PDF parsing", required=True
     )
     process_analyze_parser.add_argument(
         "--mistral-api-key", help="Mistral API key for analysis", required=True
@@ -89,7 +87,7 @@ def main():
     )
     process_analyze_parser.set_defaults(
         func=lambda args: commands.analyze_due_diligence_command(
-            args.llama_api_key, args.mistral_api_key, args.project_dir
+            args.gemini_api_key, args.mistral_api_key, args.project_dir
         )
     )
 
