@@ -7,8 +7,9 @@ import httpx
 import nest_asyncio
 from google import genai
 from google.genai import types
-from llama_index.core import SimpleDirectoryReader
-from llama_parse import LlamaParse
+
+# from llama_index.core import SimpleDirectoryReader
+# from llama_parse import LlamaParse
 
 # nest_asyncio.apply()
 
@@ -19,8 +20,9 @@ logger = logging.getLogger(__name__)
 
 
 class PDFToMarkdownParser:
-    def __init__(self, gemini_api_key):
+    def __init__(self, gemini_api_key, model="gemini-2.0-flash-001"):
         # self.llama_api_key = llama_api_key
+        self.model = model
         self.gemini_client = genai.Client(api_key=gemini_api_key)
 
     """
@@ -76,7 +78,7 @@ class PDFToMarkdownParser:
         """
         if output_path is None:
             output_path = os.path.join(
-                folder_path, "parsed_markdown", "concatenated_documentation.md"
+                folder_path, "parsed_markdown", f"concatenated_documentation_{self.model}.md"
             )
             os.makedirs(os.path.dirname(output_path), exist_ok=True)
 
@@ -130,7 +132,7 @@ class PDFToMarkdownParser:
                 - If the document contains tabular data without clear table formatting, **detect and format it as a Markdown table** to improve readability.
                 """
                 response = self.gemini_client.models.generate_content(
-                    model="gemini-2.0-flash-001",
+                    model=self.model,
                     contents=[
                         types.Part.from_bytes(
                             data=pdf_bytes,

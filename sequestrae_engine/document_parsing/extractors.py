@@ -26,6 +26,18 @@ DUE_DILIGENCE_CRITERIA_PATH = os.path.join(SCRIPT_DIR, "prompts/due_diligence_cr
 FEEDSTOCK_PROMPT_PATH = os.path.join(SCRIPT_DIR, "prompts/feedstock_prompt.txt")
 FEEDSTOCK_CRITERIA_PATH = os.path.join(SCRIPT_DIR, "prompts/feedstock_criteria.json")
 
+HALLUCINATION_DETECTION_PROMPT_PATH = os.path.join(
+    SCRIPT_DIR, "prompts/hallucination_evaluation_prompt.txt"
+)
+
+HALLUCINATION_FIXING_PROMPT_PATH = os.path.join(
+    SCRIPT_DIR, "prompts/hallucination_fixing_prompt.txt"
+)
+
+PERTINENCE_EVALUATION_PROMPT_PATH = os.path.join(
+    SCRIPT_DIR, "prompts/pertinence_evaluation_prompt.txt"
+)
+
 
 def read_markdown_file(filepath: str) -> str:
     """
@@ -48,9 +60,9 @@ def read_markdown_file(filepath: str) -> str:
 
 
 class AuditReportExtractor:
-    def __init__(self, api_key, model="mistral-large-latest"):
+    def __init__(self, mistral_api_key, model="mistral-large-latest"):
         self.model = model
-        self.mistral_client = Mistral(api_key=api_key)
+        self.mistral_client = Mistral(api_key=mistral_api_key)
 
     def parse_audit_report(self, audit_report_path, output_folder_path=None, overwrite=False):
         # Read the markdown file
@@ -132,7 +144,7 @@ class AuditReportExtractor:
             output_path = os.path.join(
                 os.path.dirname(os.path.dirname(markdown_document_path)),
                 "analysis",
-                f"{project_name}_analysis.json",
+                f"{project_name}_analysis_{self.model}.json",
             )
 
         # Check if file exists and overwrite is False
@@ -172,7 +184,20 @@ class AuditReportExtractor:
             concatenated_project_doc = file.read()
 
         result_list = []
+        count = 1
         for _, r in grouped_criteria_df.iterrows():
+            # if r['risk_factor'] != 'Accounting for Non-CO₂ Greenhouse Gases':
+            #    continue
+
+            print(
+                f"{count}/{len(grouped_criteria_df)}",
+                r["topic"],
+                r["sub_topic"],
+                r["risk_factor"],
+                len(r["qa_pairs"]),
+            )
+            count += 1
+            start_time = time.time()
             question_list = []
             template_instruction = """
                 Question: {question}.
@@ -201,12 +226,25 @@ class AuditReportExtractor:
                 model="mistral-large-latest",
                 messages=messages,
                 response_format={"type": "json_object"},
+                temperature=0.1,
             )
 
             response_content = chat_response.choices[0].message.content
-            response_content_dict = json.loads(response_content)
-            result_list.extend(response_content_dict.get("analysis"))
-            time.sleep(3)  # Rate limiting
+            due_diligence_result_list = json.loads(response_content)
+            # print('    Start analyze_hallucination')
+            result_with_hallucination_analysis = self._analyze_hallucination(
+                due_diligence_result_list, concatenated_project_doc
+            )
+
+            # Fix any hallucinations recursively
+            # print('    Start fix_hallucinations_recursive')
+            fixed_results = self._fix_hallucinations_recursive(
+                result_with_hallucination_analysis, concatenated_project_doc
+            )
+            result_list.extend(fixed_results)
+            running_time_in_minutes = round((time.time() - start_time) / 60, 2)
+            # print(f"    Total time: {running_time_in_minutes} minutes")
+            time.sleep(1)  # Rate limiting
 
         # Create parent directory if it doesn't exist
         output_dir = os.path.dirname(output_path)
@@ -214,6 +252,261 @@ class AuditReportExtractor:
             os.makedirs(output_dir, exist_ok=True)
         with open(output_path, "w", encoding="utf-8") as f:
             json.dump(result_list, f, indent=2)
+
+    def _analyze_hallucination(self, criteria_response: Dict, concatenated_project_doc: str):
+        """
+        Analyze hallucination in the project document using Mistral LLM.
+
+        Args:
+            criteria_response: Dictionary containing the criteria response
+            concatenated_project_doc: Concatenated project document
+        """
+        start_time = time.time()
+
+        full_message_template = """
+        {context_content}
+
+        **Context**
+        The following text is the concatenated Markdown document to be used as context:
+        ```md
+        {concatenated_project_doc}
+        ```
+
+        **Answer to evaluate**
+        The following json object contains the answer provided by the previous LLM to be evaluated:
+        {criteria_response}
+        """
+        with open(HALLUCINATION_DETECTION_PROMPT_PATH, "r") as f:
+            context_content = f.read()
+
+        full_message = full_message_template.format(
+            context_content=context_content,
+            concatenated_project_doc=concatenated_project_doc,
+            criteria_response=json.dumps(criteria_response, indent=2),
+        )
+
+        chat_response = self.mistral_client.chat.complete(
+            model="mistral-large-latest",
+            messages=[{"role": "user", "content": full_message}],
+            response_format={"type": "json_object"},
+            temperature=0.1,
+        )
+
+        response_content = chat_response.choices[0].message.content
+        response_content_dict = json.loads(response_content)
+        end_time = time.time()
+        running_time_in_seconds = round(end_time - start_time, 2)
+        # logger.info('Hallucination analysis complete in {} seconds'.format(running_time_in_seconds))
+        time.sleep(1)  # Rate limiting
+        return response_content_dict
+
+    def _fix_hallucination(self, criteria_response: Dict, concatenated_project_doc: str):
+        """
+        Fix hallucination in the project document using Mistral LLM.
+
+        Args:
+            criteria_response: Dictionary containing the criteria response
+            concatenated_project_doc: Concatenated project document
+        """
+        start_time = time.time()
+
+        full_message_template = """
+        {context_content}
+
+        **Context**
+        The following text is the concatenated Markdown document to be used as context:
+        ```md
+        {concatenated_project_doc}
+        ```
+
+        **Answer to fix**
+        The following json object contains the answer provided by the previous LLM with hallucination issues to be fixed:
+        {criteria_response}
+        """
+        with open(HALLUCINATION_FIXING_PROMPT_PATH, "r") as f:
+            context_content = f.read()
+
+        full_message = full_message_template.format(
+            context_content=context_content,
+            concatenated_project_doc=concatenated_project_doc,
+            criteria_response=json.dumps(criteria_response, indent=2),
+        )
+
+        chat_response = self.mistral_client.chat.complete(
+            model="mistral-large-latest",
+            messages=[{"role": "user", "content": full_message}],
+            response_format={"type": "json_object"},
+            temperature=0.1,
+        )
+
+        response_content = chat_response.choices[0].message.content
+        response_content_dict = json.loads(response_content)
+        end_time = time.time()
+        running_time_in_seconds = round(end_time - start_time, 2)
+        time.sleep(1)
+        return response_content_dict
+
+    def _fix_hallucinations_recursive(
+        self, results: List[Dict], concatenated_project_doc: str, max_iterations: int = 3
+    ) -> List[Dict]:
+        """
+        Recursively fix hallucinations in the results until no hallucinations are found or max iterations reached.
+        """
+        start_time = time.time()
+        iteration = 0
+
+        # Count initial hallucinations
+        initial_hallucinations = sum(
+            1 for result in results if result.get("is_hallucination") == True
+        )
+
+        if initial_hallucinations == 0:
+            # print("    No hallucinations detected in initial results")
+            return results
+
+        print(
+            f"    Starting hallucination fixing process. Found {initial_hallucinations} hallucinations"
+        )
+
+        while iteration < max_iterations:
+            has_hallucination = False
+            fixed_results = []
+            current_hallucinations = 0
+
+            for result in results:
+                if result.get("is_hallucination") == True:
+                    has_hallucination = True
+                    current_hallucinations += 1
+                    fixed_result = self._fix_hallucination(result, concatenated_project_doc)
+                    analyzed_result = self._analyze_hallucination(
+                        fixed_result, concatenated_project_doc
+                    )
+                    fixed_results.append(analyzed_result)
+                else:
+                    fixed_results.append(result)
+
+            if not has_hallucination:
+                end_time = time.time()
+                running_time_in_minutes = round((end_time - start_time) / 60, 2)
+                print(
+                    f"    Successfully fixed {initial_hallucinations} hallucinations in {running_time_in_minutes} minutes after {iteration + 1} iterations"
+                )
+                return fixed_results
+
+            # logger.debug(f"Iteration {iteration + 1}: {current_hallucinations} hallucinations remaining")
+            print(
+                f"   Iteration {iteration + 1}: {current_hallucinations} hallucinations remaining"
+            )
+            results = fixed_results
+            iteration += 1
+
+        remaining_hallucinations = sum(
+            1 for result in results if result.get("is_hallucination") == True
+        )
+        logger.warning(
+            f"Reached maximum iterations ({max_iterations}). "
+            f"Fixed {initial_hallucinations - remaining_hallucinations} out of {initial_hallucinations} hallucinations"
+        )
+        return results
+
+    def _fix_malformatted_json(self, criteria_response: Dict):
+        """
+        Fix malformatted JSON with Mistral
+
+        Args:
+            criteria_response: Dictionary containing the criteria response
+        """
+
+        full_message_template = """
+        Fix the following malformatted JSON array. It should have the following schema:
+
+        ```json
+        [
+            {
+            "topic": "Topic from the guideline",
+            "sub_topic": "Sub-topic from the guideline",
+            "risk_factor": "Risk factor from the guideline",
+            "question": "The question from the guideline",
+            "short_answer": "A brief summary of the findings",
+            "long_answer": "A detailed explanation",
+            "detail_level": "Fully answered | Partially Answered | Inconclusive",
+            "evidence_found": "References to the relevant sources/files from the CONTEXT",
+            "missing_data": "Specify all specific necessary concrete data and information that are missing and should be collected from external sources, or null/empty string if none.",
+            "contradictory_data": "Specify any concrete contradictory information present in the documents, or null/empty string if none."
+            ... (other fields)
+            },
+            {
+            ...
+            },
+        ]
+        ```
+
+        The provided malformed JSON array is:
+        ```json
+        {criteria_response}
+        ```
+
+        Return only the fixed JSON array and nothing else.
+        """
+        full_message = full_message_template.format(criteria_response=criteria_response)
+
+        chat_response = self.mistral_client.chat.complete(
+            model="mistral-large-latest",
+            messages=[{"role": "user", "content": full_message}],
+            response_format={"type": "json_object"},
+            temperature=0.1,
+        )
+
+        response_content = chat_response.choices[0].message.content
+        response_content_dict = json.loads(response_content)
+        return response_content_dict
+
+    def _analyze_pertinence(self, criteria_response: Dict, concatenated_project_doc: str):
+        """
+        Analyze the pertinence of the criteria response.
+
+        Args:
+            criteria_response: Dictionary containing the criteria response
+            concatenated_project_doc: Concatenated project document
+        """
+        start_time = time.time()
+
+        full_message_template = """
+        {context_content}
+
+        **Context**
+        The following text is the concatenated Markdown document to be used as context:
+        ```md
+        {concatenated_project_doc}
+        ```
+
+        **Answer to evaluate**
+        The following json object contains the answer provided by the previous LLM to be evaluated:
+        {criteria_response}
+        """
+        with open(PERTINENCE_EVALUATION_PROMPT_PATH, "r") as f:
+            context_content = f.read()
+
+        full_message = full_message_template.format(
+            context_content=context_content,
+            concatenated_project_doc=concatenated_project_doc,
+            criteria_response=json.dumps(criteria_response, indent=2),
+        )
+
+        chat_response = self.mistral_client.chat.complete(
+            model="mistral-large-latest",
+            messages=[{"role": "user", "content": full_message}],
+            response_format={"type": "json_object"},
+            temperature=0.1,
+        )
+
+        response_content = chat_response.choices[0].message.content
+        response_content_dict = json.loads(response_content)
+        end_time = time.time()
+        running_time_in_seconds = round(end_time - start_time, 2)
+        # logger.info('Pertinence evaluation complete in {} seconds'.format(running_time_in_seconds))
+        time.sleep(1)  # Rate limiting
+        return response_content_dict
 
     def analyze_feedstock_sustainability(
         self, audit_path: str, output_folder_path=None, overwrite=False
