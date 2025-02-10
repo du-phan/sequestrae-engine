@@ -204,6 +204,12 @@ class AuditReportExtractor:
             # if r['risk_factor'] != 'Accounting for Non-CO₂ Greenhouse Gases':
             #    continue
 
+            """
+            if count < 17:
+                count += 1
+                continue
+            """
+
             print(
                 f"{count}/{len(grouped_criteria_df)}",
                 r["topic"],
@@ -289,7 +295,9 @@ class AuditReportExtractor:
                 return False
         return True
 
-    def _analyze_hallucination(self, criteria_response: Dict, concatenated_project_doc: str):
+    def _analyze_hallucination(
+        self, criteria_response_json_array: List[Dict], concatenated_project_doc: str
+    ):
         """
         Analyze hallucination in the project document using Mistral LLM.
 
@@ -318,7 +326,7 @@ class AuditReportExtractor:
         full_message = full_message_template.format(
             context_content=context_content,
             concatenated_project_doc=concatenated_project_doc,
-            criteria_response=criteria_response,
+            criteria_response=criteria_response_json_array,
         )
 
         chat_response = self.mistral_client.chat.complete(
@@ -336,7 +344,9 @@ class AuditReportExtractor:
         time.sleep(1)  # Rate limiting
         return response_json_array
 
-    def _fix_hallucination(self, criteria_response: Dict, concatenated_project_doc: str):
+    def _fix_hallucination(
+        self, criteria_response_json_array: List[Dict], concatenated_project_doc: str
+    ):
         """
         Fix hallucination in the project document using Mistral LLM.
 
@@ -365,7 +375,7 @@ class AuditReportExtractor:
         full_message = full_message_template.format(
             context_content=context_content,
             concatenated_project_doc=concatenated_project_doc,
-            criteria_response=json.dumps(criteria_response, indent=2),
+            criteria_response=json.dumps(criteria_response_json_array, indent=2),
         )
 
         chat_response = self.mistral_client.chat.complete(
@@ -383,7 +393,7 @@ class AuditReportExtractor:
         return response_json_array
 
     def _fix_hallucinations_recursive(
-        self, results: List[Dict], concatenated_project_doc: str, max_iterations: int = 3
+        self, result_json_array: List[Dict], concatenated_project_doc: str, max_iterations: int = 3
     ) -> List[Dict]:
         """
         Recursively fix hallucinations in the results until no hallucinations are found or max iterations reached.
@@ -393,61 +403,56 @@ class AuditReportExtractor:
 
         # Count initial hallucinations
         initial_hallucinations = sum(
-            1 for result in results if result.get("is_hallucination") == True
+            1 for result in result_json_array if result.get("is_hallucination") == True
         )
 
         if initial_hallucinations == 0:
             # print("    No hallucinations detected in initial results")
-            return results
+            return result_json_array
 
         print(
             f"    Starting hallucination fixing process. Found {initial_hallucinations} hallucinations"
         )
 
         while iteration < max_iterations:
-            has_hallucination = False
+            print("Iteration:", iteration)
             fixed_results = []
-            current_hallucinations = 0
 
-            for result in results:
-                if result.get("is_hallucination") == True:
-                    has_hallucination = True
-                    current_hallucinations += 1
-                    fixed_result = self._fix_hallucination(result, concatenated_project_doc)
-                    analyzed_result = self._analyze_hallucination(
-                        fixed_result, concatenated_project_doc
-                    )
-                    fixed_results.append(analyzed_result)
-                else:
-                    fixed_results.append(result)
+            fixed_result = self._fix_hallucination(result_json_array, concatenated_project_doc)
+            print("    Fixed hallucination:", fixed_result)
+            print("------------")
+            analyzed_result = self._analyze_hallucination(fixed_result, concatenated_project_doc)
+            print("    analyzed_result:", analyzed_result)
+            print("------------")
 
-            if not has_hallucination:
+            num_remaining_hallucinations = sum(
+                1 for result in analyzed_result if result.get("is_hallucination") == True
+            )
+            # fixed_results.extend(analyzed_result) # analyzed_result is already a list
+
+            if num_remaining_hallucinations == 0:
                 end_time = time.time()
                 running_time_in_minutes = round((end_time - start_time) / 60, 2)
                 print(
                     f"    Successfully fixed {initial_hallucinations} hallucinations in {running_time_in_minutes} minutes after {iteration + 1} iterations"
                 )
                 return fixed_results
+            else:
+                result_json_array = analyzed_result
+                iteration += 1
+                # logger.debug(f"Iteration {iteration + 1}: {current_hallucinations} hallucinations remaining")
+                print(
+                    f"   Iteration {iteration + 1}: {num_remaining_hallucinations} hallucinations remaining"
+                )
 
-            # logger.debug(f"Iteration {iteration + 1}: {current_hallucinations} hallucinations remaining")
-            print(
-                f"   Iteration {iteration + 1}: {current_hallucinations} hallucinations remaining"
-            )
-            results = fixed_results
-            iteration += 1
-
-        remaining_hallucinations = sum(
-            1 for result in results if result.get("is_hallucination") == True
-        )
         logger.warning(
-            f"Reached maximum iterations ({max_iterations}). "
-            f"Fixed {initial_hallucinations - remaining_hallucinations} out of {initial_hallucinations} hallucinations"
+            f"Reached maximum iterations ({max_iterations}). {num_remaining_hallucinations} remaining hallucinations"
         )
-        return results
+        return result_json_array
 
-    def _fix_malformatted_json(self, criteria_response: Dict):
+    def _fix_malformatted_json(self, criteria_response_json_array: List[Dict]):
         """
-        Fix malformatted JSON with Mistral
+        Fix malformatted JSON array with Mistral
 
         Args:
             criteria_response: Dictionary containing the criteria response
@@ -474,7 +479,7 @@ class AuditReportExtractor:
 
         Return only the fixed JSON array and nothing else.
         """
-        full_message = full_message_template.format(criteria_response=criteria_response)
+        full_message = full_message_template.format(criteria_response=criteria_response_json_array)
 
         chat_response = self.mistral_client.chat.complete(
             model="mistral-large-latest",
