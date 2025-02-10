@@ -367,7 +367,13 @@ class AuditReportExtractor:
 
         **Answer to fix**
         The following json object contains the answer provided by the previous LLM with hallucination issues to be fixed:
+
+        ```json
         {criteria_response}
+        ```
+
+        Return only the fixed JSON array and nothing else:
+
         """
         with open(HALLUCINATION_FIXING_PROMPT_PATH, "r") as f:
             context_content = f.read()
@@ -415,11 +421,8 @@ class AuditReportExtractor:
         )
 
         while iteration < max_iterations:
-            print("Iteration:", iteration)
-            fixed_results = []
-
             fixed_result = self._fix_hallucination(result_json_array, concatenated_project_doc)
-            print("    Fixed hallucination:", fixed_result)
+            print("    fixed_result:", fixed_result)
             print("------------")
             analyzed_result = self._analyze_hallucination(fixed_result, concatenated_project_doc)
             print("    analyzed_result:", analyzed_result)
@@ -428,7 +431,6 @@ class AuditReportExtractor:
             num_remaining_hallucinations = sum(
                 1 for result in analyzed_result if result.get("is_hallucination") == True
             )
-            # fixed_results.extend(analyzed_result) # analyzed_result is already a list
 
             if num_remaining_hallucinations == 0:
                 end_time = time.time()
@@ -436,7 +438,7 @@ class AuditReportExtractor:
                 print(
                     f"    Successfully fixed {initial_hallucinations} hallucinations in {running_time_in_minutes} minutes after {iteration + 1} iterations"
                 )
-                return fixed_results
+                return analyzed_result
             else:
                 result_json_array = analyzed_result
                 iteration += 1
@@ -452,10 +454,10 @@ class AuditReportExtractor:
 
     def _fix_malformatted_json(self, criteria_response_json_array: List[Dict]):
         """
-        Fix malformatted JSON array with Mistral
+        Fix malformatted JSON array with LLM
 
         Args:
-            criteria_response: Dictionary containing the criteria response
+            criteria_response_json_array: Dictionary containing the criteria response
         """
 
         full_message_template = """
@@ -485,7 +487,7 @@ class AuditReportExtractor:
             model="mistral-large-latest",
             messages=[{"role": "user", "content": full_message}],
             response_format={"type": "json_object"},
-            temperature=0.1,
+            temperature=MODEL_TEMPERATURE,
         )
 
         response_content = chat_response.choices[0].message.content
