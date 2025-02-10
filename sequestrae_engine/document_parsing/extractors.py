@@ -38,6 +38,21 @@ PERTINENCE_EVALUATION_PROMPT_PATH = os.path.join(
     SCRIPT_DIR, "prompts/pertinence_evaluation_prompt.txt"
 )
 
+MODEL_TEMPERATURE = 0
+
+REQUIRED_FIELDS = {
+    "topic",
+    "sub_topic",
+    "risk_factor",
+    "question",
+    "short_answer",
+    "long_answer",
+    "detail_level",
+    "evidence_found",
+    "missing_data",
+    "contradictory_data",
+}
+
 
 def read_markdown_file(filepath: str) -> str:
     """
@@ -226,14 +241,15 @@ class AuditReportExtractor:
                 model="mistral-large-latest",
                 messages=messages,
                 response_format={"type": "json_object"},
-                temperature=0.1,
+                temperature=MODEL_TEMPERATURE,
             )
 
             response_content = chat_response.choices[0].message.content
-            due_diligence_result_list = json.loads(response_content)
+            due_diligence_json_array = self._validate_and_fix_llm_response(response_content)
+
             # print('    Start analyze_hallucination')
             result_with_hallucination_analysis = self._analyze_hallucination(
-                due_diligence_result_list, concatenated_project_doc
+                due_diligence_json_array, concatenated_project_doc
             )
 
             # Fix any hallucinations recursively
@@ -243,7 +259,7 @@ class AuditReportExtractor:
             )
             result_list.extend(fixed_results)
             running_time_in_minutes = round((time.time() - start_time) / 60, 2)
-            # print(f"    Total time: {running_time_in_minutes} minutes")
+            print(f"    Total time: {running_time_in_minutes} minutes")
             time.sleep(1)  # Rate limiting
 
         # Create parent directory if it doesn't exist
@@ -252,6 +268,26 @@ class AuditReportExtractor:
             os.makedirs(output_dir, exist_ok=True)
         with open(output_path, "w", encoding="utf-8") as f:
             json.dump(result_list, f, indent=2)
+
+    def _validate_json_schema(self, json_array: List[Dict]) -> bool:
+        """
+        Validate that the JSON array contains all required fields in each object.
+
+        Args:
+            json_array: List of dictionaries to validate
+
+        Returns:
+            bool: True if valid, False if invalid
+        """
+        if not isinstance(json_array, list):
+            return False
+
+        for item in json_array:
+            if not isinstance(item, dict):
+                return False
+            if not all(field in item for field in REQUIRED_FIELDS):
+                return False
+        return True
 
     def _analyze_hallucination(self, criteria_response: Dict, concatenated_project_doc: str):
         """
@@ -282,23 +318,23 @@ class AuditReportExtractor:
         full_message = full_message_template.format(
             context_content=context_content,
             concatenated_project_doc=concatenated_project_doc,
-            criteria_response=json.dumps(criteria_response, indent=2),
+            criteria_response=criteria_response,
         )
 
         chat_response = self.mistral_client.chat.complete(
             model="mistral-large-latest",
             messages=[{"role": "user", "content": full_message}],
             response_format={"type": "json_object"},
-            temperature=0.1,
+            temperature=MODEL_TEMPERATURE,
         )
 
         response_content = chat_response.choices[0].message.content
-        response_content_dict = json.loads(response_content)
+        response_json_array = self._validate_and_fix_llm_response(response_content)
         end_time = time.time()
         running_time_in_seconds = round(end_time - start_time, 2)
         # logger.info('Hallucination analysis complete in {} seconds'.format(running_time_in_seconds))
         time.sleep(1)  # Rate limiting
-        return response_content_dict
+        return response_json_array
 
     def _fix_hallucination(self, criteria_response: Dict, concatenated_project_doc: str):
         """
@@ -336,15 +372,15 @@ class AuditReportExtractor:
             model="mistral-large-latest",
             messages=[{"role": "user", "content": full_message}],
             response_format={"type": "json_object"},
-            temperature=0.1,
+            temperature=MODEL_TEMPERATURE,
         )
 
         response_content = chat_response.choices[0].message.content
-        response_content_dict = json.loads(response_content)
+        response_json_array = self._validate_and_fix_llm_response(response_content)
         end_time = time.time()
         running_time_in_seconds = round(end_time - start_time, 2)
         time.sleep(1)
-        return response_content_dict
+        return response_json_array
 
     def _fix_hallucinations_recursive(
         self, results: List[Dict], concatenated_project_doc: str, max_iterations: int = 3
@@ -418,28 +454,18 @@ class AuditReportExtractor:
         """
 
         full_message_template = """
-        Fix the following malformatted JSON array. It should have the following schema:
+        Fix the following malformatted JSON array. Each entry must have at least the following fields:
+        * "topic"
+        * "sub_topic"
+        * "risk_factor"
+        * "question"
+        * "short_answer"
+        * "long_answer"
+        * "detail_level"
+        * "evidence_found"
+        * "missing_data"
+        * "contradictory_data"
 
-        ```json
-        [
-            {
-            "topic": "Topic from the guideline",
-            "sub_topic": "Sub-topic from the guideline",
-            "risk_factor": "Risk factor from the guideline",
-            "question": "The question from the guideline",
-            "short_answer": "A brief summary of the findings",
-            "long_answer": "A detailed explanation",
-            "detail_level": "Fully answered | Partially Answered | Inconclusive",
-            "evidence_found": "References to the relevant sources/files from the CONTEXT",
-            "missing_data": "Specify all specific necessary concrete data and information that are missing and should be collected from external sources, or null/empty string if none.",
-            "contradictory_data": "Specify any concrete contradictory information present in the documents, or null/empty string if none."
-            ... (other fields)
-            },
-            {
-            ...
-            },
-        ]
-        ```
 
         The provided malformed JSON array is:
         ```json
@@ -497,7 +523,7 @@ class AuditReportExtractor:
             model="mistral-large-latest",
             messages=[{"role": "user", "content": full_message}],
             response_format={"type": "json_object"},
-            temperature=0.1,
+            temperature=MODEL_TEMPERATURE,
         )
 
         response_content = chat_response.choices[0].message.content
@@ -594,4 +620,34 @@ class AuditReportExtractor:
         logger.info(
             f"Feedstock analysis complete in {running_time_in_minutes} minutes. Results saved to {output_path}"
         )
+        return result_list
+
+    def _validate_and_fix_llm_response(self, response_content: str) -> List[Dict]:
+        """
+        Validate and fix JSON response from LLM if needed.
+
+        Args:
+            response_content: String containing the LLM response that should be JSON
+
+        Returns:
+            List[Dict]: Validated JSON array matching required schema
+
+        Raises:
+            ValueError: If response cannot be parsed or fixed to match required schema
+        """
+        try:
+            result_list = json.loads(response_content)
+            if not self._validate_json_schema(result_list):
+                logger.warning("Response JSON does not match required schema, attempting to fix...")
+                result_list = self._fix_malformatted_json(response_content)
+                if not self._validate_json_schema(result_list):
+                    logger.error("Failed to fix JSON schema after attempt")
+                    raise ValueError("Could not generate valid JSON response")
+        except json.JSONDecodeError:
+            logger.warning("Invalid JSON response, attempting to fix...")
+            result_list = self._fix_malformatted_json(response_content)
+            if not self._validate_json_schema(result_list):
+                logger.error("Failed to fix JSON schema after attempt")
+                raise ValueError("Could not generate valid JSON response")
+
         return result_list
