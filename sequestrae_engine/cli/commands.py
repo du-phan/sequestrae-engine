@@ -1,7 +1,9 @@
 import logging
 import os
 import time
+from functools import wraps
 from pathlib import Path
+from time import sleep
 
 from sequestrae_engine.db.client import SupabaseClient
 from sequestrae_engine.db.scripts.populate_audit_reports import populate_feedstock_evaluation_table
@@ -13,6 +15,29 @@ logging.basicConfig(
     level=logging.INFO, format="%(asctime)s - %(name)s - %(levelname)s - %(message)s"
 )
 logger = logging.getLogger(__name__)
+
+
+def retry_on_error(max_retries=3, delay=5):
+    def decorator(func):
+        @wraps(func)
+        def wrapper(*args, **kwargs):
+            retries = 0
+            while retries < max_retries:
+                try:
+                    return func(*args, **kwargs)
+                except Exception as e:
+                    retries += 1
+                    if retries == max_retries:
+                        raise e
+                    logger.warning(
+                        f"Error occurred: {str(e)}. Retrying in {delay} seconds... (Attempt {retries}/{max_retries})"
+                    )
+                    sleep(delay)
+            return None
+
+        return wrapper
+
+    return decorator
 
 
 def parse_pdfs_command(api_key, project_dir, limit=5):
@@ -52,7 +77,7 @@ def extract_audit_information_command(api_key, project_dir, limit=100):
         logger.error("MISTRAL_API_KEY is required")
         return 1
 
-    extractor = AuditReportExtractor(api_key=api_key)
+    extractor = AuditReportExtractor(mistral_api_key=api_key)
     project_path = Path(project_dir)
 
     if not project_path.exists():
@@ -66,7 +91,7 @@ def extract_audit_information_command(api_key, project_dir, limit=100):
                 if md_path.is_file() and "report" in md_path.stem.lower():
                     markdown_count += 1
                     try:
-                        extractor.parse_audit_report(audit_report_path=md_path)
+                        retry_on_error()(extractor.parse_audit_report)(audit_report_path=md_path)
                     except Exception as e:
                         logger.error(f"Error processing {md_path}: {str(e)}")
                     time.sleep(1)  # Sleep for 1 second to avoid rate limiting
@@ -84,7 +109,7 @@ def evaluate_feedstock_sustainability_command(api_key, project_dir, limit=100):
         logger.error("MISTRAL_API_KEY is required")
         return 1
 
-    extractor = AuditReportExtractor(api_key=api_key)
+    extractor = AuditReportExtractor(mistral_api_key=api_key)
     project_path = Path(project_dir)
 
     if not project_path.exists():
@@ -98,7 +123,9 @@ def evaluate_feedstock_sustainability_command(api_key, project_dir, limit=100):
                 if md_path.is_file() and "report" in md_path.stem.lower():
                     markdown_count += 1
                     try:
-                        extractor.analyze_feedstock_sustainability(audit_path=md_path)
+                        retry_on_error()(extractor.analyze_feedstock_sustainability)(
+                            audit_path=md_path
+                        )
                     except Exception as e:
                         logger.error(f"Error processing {md_path}: {str(e)}")
                     time.sleep(1)  # Sleep for 1 second to avoid rate limiting
@@ -143,7 +170,7 @@ def analyze_due_diligence_command(gemini_api_key, mistral_api_key, project_dir):
         return 1
 
     pdf_parser = PDFToMarkdownParser(gemini_api_key=gemini_api_key)
-    audit_extractor = AuditReportExtractor(api_key=mistral_api_key)
+    audit_extractor = AuditReportExtractor(mistral_api_key=mistral_api_key)
 
     # Count total subfolders (excluding hidden folders)
     total_folders = sum(
@@ -172,22 +199,18 @@ def analyze_due_diligence_command(gemini_api_key, mistral_api_key, project_dir):
 
             # Analyze due diligence
             markdown_document_path = os.path.join(
-                folder_path, "parsed_markdown", "concatenated_documentation.md"
+                folder_path, "parsed_markdown", f"concatenated_documentation_{pdf_parser.model}.md"
             )
             start_time = time.time()
-            try:
-                audit_extractor.analyze_due_diligence_criteria(
-                    project_name=project_name, markdown_document_path=markdown_document_path
-                )
-                logger.info(
-                    f"--------- Due diligence analysis complete in {round((time.time() - start_time)/60, 2)} minutes."
-                )
-                processed_folder += 1
-            except Exception as e:
-                logger.error(f"Error analyzing {project_name}: {str(e)}")
-                continue
+            retry_on_error()(audit_extractor.analyze_due_diligence_criteria)(
+                project_name=project_name, markdown_document_path=markdown_document_path
+            )
+            logger.info(
+                f"--------- Due diligence analysis complete in {round((time.time() - start_time)/60, 2)} minutes."
+            )
+            processed_folder += 1
 
-        time.sleep(3)
+        time.sleep(1)
 
     logger.info("Completed processing all projects")
     return 0
