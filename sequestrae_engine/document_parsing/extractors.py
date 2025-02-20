@@ -38,9 +38,11 @@ PERTINENCE_EVALUATION_PROMPT_PATH = os.path.join(
     SCRIPT_DIR, "prompts/pertinence_evaluation_prompt.txt"
 )
 
+SUBTOPIC_RESUME_PROMPT_PATH = os.path.join(SCRIPT_DIR, "prompts/subtopic_resume_prompt.txt")
+
 MODEL_TEMPERATURE = 0
 
-REQUIRED_FIELDS = {
+REQUIRED_FIELDS_FOR_DUE_DILIGENCE = {
     "topic",
     "sub_topic",
     "risk_factor",
@@ -52,6 +54,8 @@ REQUIRED_FIELDS = {
     "missing_data",
     "contradictory_data",
 }
+
+REQUIRED_FIELDS_FOR_SUMMARIES = {"topic", "sub_topic", "analysis"}
 
 
 def read_markdown_file(filepath: str) -> str:
@@ -155,7 +159,6 @@ class AuditReportExtractor:
     ):
 
         if output_path is None:
-            # output_path = os.path.join(markdown_document_path, "../", "analysis", "{}_analysis.json".format(project_name))
             output_path = os.path.join(
                 os.path.dirname(os.path.dirname(markdown_document_path)),
                 "analysis",
@@ -201,15 +204,6 @@ class AuditReportExtractor:
         result_list = []
         count = 1
         for _, r in grouped_criteria_df.iterrows():
-            # if r['risk_factor'] != 'Accounting for Non-CO₂ Greenhouse Gases':
-            #    continue
-
-            """
-            if count < 17:
-                count += 1
-                continue
-            """
-
             print(
                 f"{count}/{len(grouped_criteria_df)}",
                 r["topic"],
@@ -251,15 +245,14 @@ class AuditReportExtractor:
             )
 
             response_content = chat_response.choices[0].message.content
-            due_diligence_json_array = self._validate_and_fix_llm_response(response_content)
+            due_diligence_json_array = self._validate_and_fix_llm_response(
+                response_content, REQUIRED_FIELDS_FOR_DUE_DILIGENCE
+            )
 
-            # print('    Start analyze_hallucination')
             result_with_hallucination_analysis = self._analyze_hallucination(
                 due_diligence_json_array, concatenated_project_doc
             )
 
-            # Fix any hallucinations recursively
-            # print('    Start fix_hallucinations_recursive')
             fixed_results = self._fix_hallucinations_recursive(
                 result_with_hallucination_analysis, concatenated_project_doc
             )
@@ -275,12 +268,13 @@ class AuditReportExtractor:
         with open(output_path, "w", encoding="utf-8") as f:
             json.dump(result_list, f, indent=2)
 
-    def _validate_json_schema(self, json_array: List[Dict]) -> bool:
+    def _validate_json_schema(self, json_array: List[Dict], required_fields: set) -> bool:
         """
         Validate that the JSON array contains all required fields in each object.
 
         Args:
             json_array: List of dictionaries to validate
+            required_fields: Set of field names that must be present
 
         Returns:
             bool: True if valid, False if invalid
@@ -291,7 +285,7 @@ class AuditReportExtractor:
         for item in json_array:
             if not isinstance(item, dict):
                 return False
-            if not all(field in item for field in REQUIRED_FIELDS):
+            if not all(field in item for field in required_fields):
                 return False
         return True
 
@@ -337,7 +331,9 @@ class AuditReportExtractor:
         )
 
         response_content = chat_response.choices[0].message.content
-        response_json_array = self._validate_and_fix_llm_response(response_content)
+        response_json_array = self._validate_and_fix_llm_response(
+            response_content, REQUIRED_FIELDS_FOR_DUE_DILIGENCE
+        )
         end_time = time.time()
         running_time_in_seconds = round(end_time - start_time, 2)
         # logger.info('Hallucination analysis complete in {} seconds'.format(running_time_in_seconds))
@@ -392,14 +388,16 @@ class AuditReportExtractor:
         )
 
         response_content = chat_response.choices[0].message.content
-        response_json_array = self._validate_and_fix_llm_response(response_content)
+        response_json_array = self._validate_and_fix_llm_response(
+            response_content, REQUIRED_FIELDS_FOR_DUE_DILIGENCE
+        )
         end_time = time.time()
         running_time_in_seconds = round(end_time - start_time, 2)
         time.sleep(1)
         return response_json_array
 
     def _fix_hallucinations_recursive(
-        self, result_json_array: List[Dict], concatenated_project_doc: str, max_iterations: int = 3
+        self, result_json_array: List[Dict], concatenated_project_doc: str, max_iterations: int = 5
     ) -> List[Dict]:
         """
         Recursively fix hallucinations in the results until no hallucinations are found or max iterations reached.
@@ -452,27 +450,22 @@ class AuditReportExtractor:
         )
         return result_json_array
 
-    def _fix_malformatted_json(self, criteria_response_json_array: List[Dict]):
+    def _fix_malformatted_json(
+        self, criteria_response_json_array: List[Dict], required_fields: set
+    ):
         """
         Fix malformatted JSON array with LLM
 
         Args:
             criteria_response_json_array: Dictionary containing the criteria response
+            required_fields: Set of field names that must be present in each object
         """
+
+        fields_list = "\n".join(f'* "{field}"' for field in required_fields)
 
         full_message_template = """
         Fix the following malformatted JSON array. Each entry must have at least the following fields:
-        * "topic"
-        * "sub_topic"
-        * "risk_factor"
-        * "question"
-        * "short_answer"
-        * "long_answer"
-        * "detail_level"
-        * "evidence_found"
-        * "missing_data"
-        * "contradictory_data"
-
+        {fields_list}
 
         The provided malformed JSON array is:
         ```json
@@ -481,7 +474,9 @@ class AuditReportExtractor:
 
         Return only the fixed JSON array and nothing else.
         """
-        full_message = full_message_template.format(criteria_response=criteria_response_json_array)
+        full_message = full_message_template.format(
+            fields_list=fields_list, criteria_response=criteria_response_json_array
+        )
 
         chat_response = self.mistral_client.chat.complete(
             model="mistral-large-latest",
@@ -629,12 +624,15 @@ class AuditReportExtractor:
         )
         return result_list
 
-    def _validate_and_fix_llm_response(self, response_content: str) -> List[Dict]:
+    def _validate_and_fix_llm_response(
+        self, response_content: str, required_fields: set
+    ) -> List[Dict]:
         """
         Validate and fix JSON response from LLM if needed.
 
         Args:
             response_content: String containing the LLM response that should be JSON
+            required_fields: Set of fields that must be present in each object
 
         Returns:
             List[Dict]: Validated JSON array matching required schema
@@ -644,17 +642,100 @@ class AuditReportExtractor:
         """
         try:
             result_list = json.loads(response_content)
-            if not self._validate_json_schema(result_list):
+            if not self._validate_json_schema(result_list, required_fields):
                 logger.warning("Response JSON does not match required schema, attempting to fix...")
-                result_list = self._fix_malformatted_json(response_content)
-                if not self._validate_json_schema(result_list):
+                result_list = self._fix_malformatted_json(response_content, required_fields)
+                if not self._validate_json_schema(result_list, required_fields):
                     logger.error("Failed to fix JSON schema after attempt")
                     raise ValueError("Could not generate valid JSON response")
         except json.JSONDecodeError:
             logger.warning("Invalid JSON response, attempting to fix...")
-            result_list = self._fix_malformatted_json(response_content)
-            if not self._validate_json_schema(result_list):
+            result_list = self._fix_malformatted_json(response_content, required_fields)
+            if not self._validate_json_schema(result_list, required_fields):
                 logger.error("Failed to fix JSON schema after attempt")
                 raise ValueError("Could not generate valid JSON response")
 
         return result_list
+
+    def create_subtopic_summaries(self, analysis_json_path: str, output_path=None, overwrite=False):
+        """
+        Create summaries for each subtopic from an analysis JSON file.
+
+        Args:
+            analysis_json_path (str): Path to the analysis JSON file
+            output_path (str, optional): Path to save the summaries. Defaults to None.
+            overwrite (bool, optional): Whether to overwrite existing output file. Defaults to False.
+
+        Returns:
+            List[Dict]: List of summaries for each subtopic
+        """
+        # Set default output path if none provided
+        if output_path is None:
+            output_path = os.path.join(
+                os.path.dirname(analysis_json_path),
+                os.path.splitext(os.path.basename(analysis_json_path))[0] + "_summaries.json",
+            )
+
+        # Check if file exists and overwrite is False
+        if os.path.exists(output_path) and not overwrite:
+            logger.info(
+                f"Output file already exists at {output_path} and overwrite=False. Skipping."
+            )
+            return
+
+        # Load analysis data directly to DataFrame
+        df = pd.read_json(analysis_json_path)
+
+        # Load the subtopic resume prompt
+        with open(SUBTOPIC_RESUME_PROMPT_PATH, "r") as f:
+            subtopic_prompt_template = f.read()
+
+        # Template for the full message
+        full_message_template = """
+        {context_content}
+
+        -------
+        Carefully take into account the above instructions, analyze the following subtopic:
+
+        ```json
+        {input_data}
+        ```
+        """
+
+        summaries = []
+        # Group by topic and sub_topic
+        grouped = df.groupby(["topic", "sub_topic"])
+
+        total_groups = len(grouped)
+        for idx, ((topic, subtopic), group) in enumerate(grouped, 1):
+            logger.info(f"Processing group {idx}/{total_groups}: {topic} - {subtopic}")
+
+            # Convert group data to dict records
+            group_data = group.to_dict("records")
+
+            full_message = full_message_template.format(
+                context_content=subtopic_prompt_template,
+                input_data=json.dumps(group_data, indent=2),
+            )
+
+            # Get response from Mistral
+            chat_response = self.mistral_client.chat.complete(
+                model=self.model,
+                messages=[{"role": "user", "content": full_message}],
+                response_format={"type": "json_object"},
+                temperature=MODEL_TEMPERATURE,
+            )
+
+            response_content = chat_response.choices[0].message.content
+            summary_json = self._validate_and_fix_llm_response(
+                response_content, REQUIRED_FIELDS_FOR_SUMMARIES
+            )
+            summaries.append(summary_json)
+
+            time.sleep(1)  # Rate limiting
+
+        # Save summaries to file
+        with open(output_path, "w") as f:
+            json.dump(summaries, f, indent=2)
+
+        logger.info(f"Created summaries for {len(summaries)} subtopics. Saved to {output_path}")

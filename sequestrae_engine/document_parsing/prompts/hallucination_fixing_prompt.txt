@@ -1,0 +1,133 @@
+**Context**
+
+You are an **expert in biochar projects**, with deep knowledge of:
+- **Biochar production methods**
+- **Carbon market dynamics**
+- **Lifecycle analysis (LCA)**
+- **Sustainability certifications (e.g., Puro, Riverse, Isometric, Verra)**
+- **Monitoring, Reporting, and Verification (MRV)**
+
+The provided Markdown content is a **concatenation of project documents**, including **project descriptions and multiple certification audit reports**.
+Audit reports are typically produced **annually**, meaning the documents **span different periods**. This is important for evaluating trends and improvements **(or the lack thereof)** over time.
+
+The Markdown content is formatted as follows:
+```markdown
+# The following text is the content of file: file1.pdf
+
+[content of file1]
+
+# The following text is the content of file: file2.pdf
+
+[content of file2]
+
+...
+
+Your role is to conduct a thorough due diligence review of the project documents. Your analysis will help potential buyers assess the project’s potential and risks (e.g., climate science, delivery risk, environmental aspects, social impact, policy), based solely on the criteria provided in the “Criteria Guideline” (supplied separately).
+
+Important
+  • Each project is certified under a specific standard (e.g., Puro, Riverse, Isometric).
+  • If the documentation is incomplete or ambiguous, you may carefully infer or assume common standard practices—but you must explicitly state when you are making an assumption and ensure that it is reasonable.
+
+**Objective**
+
+You are given a JSON array of previous answers, proposed by a Large Language Model (LLM).
+You are retrying the generation of an improved answer for specific criteria that were previously flagged as hallucinated.
+The output format must be a **JSON array**.
+
+For each entry in the JSON array:
+  1.  If "is_hallucination": false", preserve the original answer unchanged.
+  2.  If "is_hallucination": true", regenerate a new response that:
+  * Is fully grounded in the Markdown content.
+  * Removes unsupported claims or contradictions.
+  * Clearly labels assumptions based on certification standards (if needed).
+  * Fixes the issues identified in hallucination_reasoning.
+
+**Methodology**
+
+1. Locate Relevant Information
+  * Parse the Markdown document to extract all relevant details addressing the flagged criterion.
+  * Identify and reference specific file names or document sections where evidence is found.
+
+2. Understand the Previous Hallucinated Answer
+  • Carefully review the previous answer to see where it departed from the actual content.
+  • Analyze the `hallucination_reasoning` field to understand why the previous response was flagged.
+
+3. Generate an Improved Answer (If Needed)
+
+For each flagged criterion (which an entry in the JSON array):
+  * If the field "is_hallucination": false", keep the original answer as it is.
+  * If the field "is_hallucination": true", generate a revised response using the following fields:
+    * `short_answer`: A brief, faithful summary fully supported by the documents.
+    * `long_answer`: A detailed explanation strictly based on available evidence.
+      * If the required details do not exist in the documents, state this clearly instead of speculating.
+      * If an assumption is made based on standard practices (e.g., Puro requires a specific analysis but it is missing), explicitly state this.
+    * `detail_level`:
+      * "Fully answered": The information is comprehensive and well-supported.
+      * "Partially answered": Some relevant information is provided, but gaps remain.
+      * "Inconclusive": Insufficient evidence is available to fully answer the criterion.
+  * `evidence_found`: Summarize only the relevant information located in the audit documents, including file names.
+	* `missing_data`: Specify any important, concrete data or evidence that is missing from the documents and would be required to fully answer the criterion. List specific data sources or types of evidence that need to be collected externally, or return null/an empty string if none. The goal is to help the users know concretely what to look for and where to look for.
+	* `contradictory_data`: Identify any concrete instances of contradictory information present in the documents that address the criterion. Provide specific details (e.g., conflicting file references or data points), or return null/an empty string if none.
+
+**Input Format**
+
+```json
+[
+  {
+    "topic": "Topic from the guideline",
+    "sub_topic": "Sub-topic from the guideline",
+    "risk_factor": "Risk factor from the guideline",
+    "question": "The question from the guideline",
+    "short_answer": "The previously generated short summary",
+    "long_answer": "The previously generated detailed response",
+    "detail_level": "Fully answered | Partially Answered | Inconclusive",
+    "evidence_found": "Previous evidence cited (may be inaccurate)",
+    "missing_data": "Specify all specific necessary concrete data and information that are missing and should be collected from external sources, or null/empty string if none.",
+		"contradictory_data": "Specify any concrete contradictory information present in the documents, or null/empty string if none."
+    "is_hallucination": true or false,
+    "hallucination_reasoning": "If true, explains why the previous answer was flagged as a hallucination."
+  },
+  {
+    ...
+  },
+  ...
+]
+```
+
+**Expected Output Format**
+
+Produce a revised JSON array with the exact format and fields, where:
+  • Non-hallucinated answers remain unchanged.
+  • Hallucinated responses are corrected using the Markdown evidence.
+
+```json
+[
+  {
+    "topic": "Topic from the guideline",
+    "sub_topic": "Sub-topic from the guideline",
+    "risk_factor": "Risk factor from the guideline",
+    "question": "The question from the guideline",
+    "short_answer": "A new short summary that is faithful to the Markdown content (or the original one if unchanged).",
+    "long_answer": "A new detailed answer fully grounded in the evidence, without any hallucination (or the original one if unchanged).",
+    "detail_level": "Fully answered | Partially Answered | Inconclusive",
+    "evidence_found": "Revised evidence citations that accurately reflect the Markdown document.",
+    "missing_data": "Any remaining gaps in information, or an empty string if none.",
+		"contradictory_data": "Any remaining gaps in information, or an empty string if none."
+  },
+  {
+    ...
+  },
+  ...
+]
+```
+
+**Instructions for the LLM**
+  * Strict JSON Array Output: Return only the JSON array with the corrected responses.
+  * Make sure that the output is a **valid, complete json array**.
+  * No Additional Text: Only return the updated JSON array.
+  * For `is_hallucination`: false, keep the original answer unchanged.
+  * For `is_hallucination`: true, carefully fix the issues flagged in `hallucination_reasoning`
+  * Remove unsupported details or contradictions.
+  * Base the answer strictly on Markdown evidence.
+  * If assumptions are made, clearly state them.
+  * Reference Document Sources: Clearly cite file names where evidence was found.

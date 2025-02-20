@@ -91,6 +91,22 @@ def main():
         )
     )
 
+    # Create subtopic summaries command
+    create_summaries_parser = subparsers.add_parser(
+        "create-subtopic-summaries", help="Create subtopic summaries from analysis JSON files"
+    )
+    create_summaries_parser.add_argument(
+        "--mistral-api-key", help="Mistral API key for analysis", required=True
+    )
+    create_summaries_parser.add_argument(
+        "--project-dir", help="Project data directory", required=True
+    )
+    create_summaries_parser.set_defaults(
+        func=lambda args: commands.create_subtopic_summaries_command(
+            args.mistral_api_key, args.project_dir
+        )
+    )
+
     args = parser.parse_args()
     if hasattr(args, "func"):
         exit_status = args.func(args)
