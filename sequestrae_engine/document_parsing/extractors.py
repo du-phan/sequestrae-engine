@@ -268,26 +268,31 @@ class AuditReportExtractor:
         with open(output_path, "w", encoding="utf-8") as f:
             json.dump(result_list, f, indent=2)
 
-    def _validate_json_schema(self, json_array: List[Dict], required_fields: set) -> bool:
+    def _validate_json_schema(self, json_data: List[Dict], required_fields: set) -> bool:
         """
-        Validate that the JSON array contains all required fields in each object.
+        Validate that the input contains all required fields, handling both single dict and list of dicts.
 
         Args:
-            json_array: List of dictionaries to validate
+            json_data: Either a dictionary or list of dictionaries to validate
             required_fields: Set of field names that must be present
 
         Returns:
             bool: True if valid, False if invalid
         """
-        if not isinstance(json_array, list):
-            return False
+        # Handle single dictionary
+        if isinstance(json_data, dict):
+            return all(field in json_data for field in required_fields)
 
-        for item in json_array:
-            if not isinstance(item, dict):
+        # Handle list of dictionaries
+        if isinstance(json_data, list):
+            if not json_data:  # Empty list
                 return False
-            if not all(field in item for field in required_fields):
-                return False
-        return True
+            return all(
+                isinstance(item, dict) and all(field in item for field in required_fields)
+                for item in json_data
+            )
+
+        return False
 
     def _analyze_hallucination(
         self, criteria_response_json_array: List[Dict], concatenated_project_doc: str
@@ -643,6 +648,7 @@ class AuditReportExtractor:
         try:
             result_list = json.loads(response_content)
             if not self._validate_json_schema(result_list, required_fields):
+                print(result_list)
                 logger.warning("Response JSON does not match required schema, attempting to fix...")
                 result_list = self._fix_malformatted_json(response_content, required_fields)
                 if not self._validate_json_schema(result_list, required_fields):
