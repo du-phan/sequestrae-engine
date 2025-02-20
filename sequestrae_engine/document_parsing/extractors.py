@@ -715,7 +715,6 @@ class AuditReportExtractor:
         total_groups = len(grouped)
         for idx, ((topic, subtopic), group) in enumerate(grouped, 1):
             logger.info(f"Processing group {idx}/{total_groups}: {topic} - {subtopic}")
-
             # Convert group data to dict records
             group_data = group.to_dict("records")
 

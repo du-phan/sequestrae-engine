@@ -88,7 +88,7 @@ Key Points to Incorporate:
   5.  Maintain Conciseness & Technical Accuracy:
   * Keep each field succinct but technically credible and well-referenced.
   * Avoid extraneous text, bullet points, or explanations outside the required JSON.
-  * Avpod redundancies under different risk factors: we don't want to see redundant strength/weakness/action across differnt risk factors.
+  * Avoid redundancies across different risk factors: we don't want to see redundant main_idea and explanation across different factors.
   6.  Ensure a Single JSON Object Only:
   * No text or commentary should precede or follow this JSON object.
 
@@ -96,10 +96,13 @@ Instructions for Content
   1.  Review All Q&A Items for the topic-subtopic pair.
   2.  Group Findings by Risk Factor (e.g., “Equipment Durability,” “Financial Viability,” “Feedstock Availability”).
   3.  List Strengths & Weaknesses:
-  * `main_idea` field: A concise, pertinent phrase.
-  * `explanation`field: A pertinent, crystal clear, factual reasoning. Here you can integrate references to detail_level, missing_data, contradictory_data, or file names as needed.
+    * `main_idea` field: A concise, pertinent phrase.
+    * `explanation`field: A pertinent, crystal clear, factual reasoning. Here you can integrate references to detail_level, missing_data, contradictory_data, or file names as needed.
   4.  Recommended Actions:
-  * action: The direct step needed.
-  * explanation: Brief rationale, who is responsible, and a timeframe or priority if relevant.
+    * `action` field: The direct step needed.
+    * `explanation` field: The rationale clearly explained, who is responsible, and priority if relevant.
   5.  Finish with overall_summary: Provide a synthesis of the entire subtopic’s key concerns, data gaps, and recommended next steps.
-	6.	Avoid Redundancies: If the same insight/strength/weakness appears under multiple risk factors, unify or omit duplication unless there is clear additional context. Redundant repetition does not bring added value to the end user.
+  6.  Avoid Redundancies:
+    * If the same insight appears under multiple risk factors (e.g., “It is the first biochar project in the Philippines”), unify or omit duplication unless there is clear, additional context. Repetition of the same point in different risk factors without new information does not add value for end users.
+    * If you find yourself repeating a point (such as the same “first-of-its-kind” claim, or the same “lack of external validation”) in multiple risk factors, you should either merge them into a single mention under the most relevant risk factor or provide new, specific details that differentiate why it appears in multiple places.
+    * For example, if “First biochar project in the Philippines” appears under both “Common Practice Analysis” and “First-of-Its-Kind Analysis,” you can consolidate it into one risk factor and simply add a brief note in the other factor referencing the consolidated explanation, rather than fully restating the same strength or weakness.
