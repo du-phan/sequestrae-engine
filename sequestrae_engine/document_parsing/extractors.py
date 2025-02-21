@@ -39,6 +39,7 @@ PERTINENCE_EVALUATION_PROMPT_PATH = os.path.join(
 )
 
 SUBTOPIC_RESUME_PROMPT_PATH = os.path.join(SCRIPT_DIR, "prompts/subtopic_resume_prompt.txt")
+SUBTOPIC_REFINE_PROMPT_PATH = os.path.join(SCRIPT_DIR, "prompts/subtopic_refine_prompt.txt")
 
 MODEL_TEMPERATURE = 0
 
@@ -679,7 +680,8 @@ class AuditReportExtractor:
         if output_path is None:
             output_path = os.path.join(
                 os.path.dirname(analysis_json_path),
-                os.path.splitext(os.path.basename(analysis_json_path))[0] + "_summaries.json",
+                os.path.splitext(os.path.basename(analysis_json_path))[0]
+                + "_subtopic_summaries.json",
             )
 
         # Check if file exists and overwrite is False
@@ -694,10 +696,13 @@ class AuditReportExtractor:
 
         # Load the subtopic resume prompt
         with open(SUBTOPIC_RESUME_PROMPT_PATH, "r") as f:
-            subtopic_prompt_template = f.read()
+            subtopic_resume_system_prompt = f.read()
+
+        with open(SUBTOPIC_REFINE_PROMPT_PATH, "r") as f:
+            refine_summary_system_prompt = f.read()
 
         # Template for the full message
-        full_message_template = """
+        subtopic_summary_prompt_template = """
         {context_content}
 
         -------
@@ -705,6 +710,19 @@ class AuditReportExtractor:
 
         ```json
         {input_data}
+        ```
+
+        Once you come up with the first version of the result, do a careful critical review based on the instructions above, improve your result then return the best version.
+        """
+
+        refine_summary_prompt_template = """
+        {refine_summary_prompt}
+
+        -------
+        Carefully apply the instructions to the following input:
+
+        ```json
+        {original_json_summary}
         ```
         """
 
@@ -714,28 +732,46 @@ class AuditReportExtractor:
 
         total_groups = len(grouped)
         for idx, ((topic, subtopic), group) in enumerate(grouped, 1):
+            if subtopic != "Additionality":
+                continue
             logger.info(f"Processing group {idx}/{total_groups}: {topic} - {subtopic}")
             # Convert group data to dict records
             group_data = group.to_dict("records")
 
-            full_message = full_message_template.format(
-                context_content=subtopic_prompt_template,
+            subtopic_summary_message = subtopic_summary_prompt_template.format(
+                context_content=subtopic_resume_system_prompt,
                 input_data=json.dumps(group_data, indent=2),
             )
 
             # Get response from Mistral
-            chat_response = self.mistral_client.chat.complete(
+            chat_response_1 = self.mistral_client.chat.complete(
                 model=self.model,
-                messages=[{"role": "user", "content": full_message}],
+                messages=[{"role": "user", "content": subtopic_summary_message}],
                 response_format={"type": "json_object"},
                 temperature=MODEL_TEMPERATURE,
             )
 
-            response_content = chat_response.choices[0].message.content
             summary_json = self._validate_and_fix_llm_response(
-                response_content, REQUIRED_FIELDS_FOR_SUMMARIES
+                chat_response_1.choices[0].message.content, REQUIRED_FIELDS_FOR_SUMMARIES
             )
-            summaries.append(summary_json)
+
+            refine_summary_message = refine_summary_prompt_template.format(
+                refine_summary_prompt=refine_summary_system_prompt,
+                original_json_summary=json.dumps(summary_json, indent=2),
+            )
+
+            chat_response_2 = self.mistral_client.chat.complete(
+                model=self.model,
+                messages=[{"role": "user", "content": refine_summary_message}],
+                response_format={"type": "json_object"},
+                temperature=MODEL_TEMPERATURE,
+            )
+
+            refined_summary_json = self._validate_and_fix_llm_response(
+                chat_response_2.choices[0].message.content, REQUIRED_FIELDS_FOR_SUMMARIES
+            )
+
+            summaries.append(refined_summary_json)
 
             time.sleep(1)  # Rate limiting
 
