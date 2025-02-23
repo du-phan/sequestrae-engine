@@ -41,6 +41,8 @@ PERTINENCE_EVALUATION_PROMPT_PATH = os.path.join(
 SUBTOPIC_RESUME_PROMPT_PATH = os.path.join(SCRIPT_DIR, "prompts/subtopic_resume_prompt.txt")
 SUBTOPIC_REFINE_PROMPT_PATH = os.path.join(SCRIPT_DIR, "prompts/subtopic_refine_prompt.txt")
 
+TOPIC_RESUME_PROMPT_PATH = os.path.join(SCRIPT_DIR, "prompts/topic_resume_prompt.txt")
+
 MODEL_TEMPERATURE = 0
 
 REQUIRED_FIELDS_FOR_DUE_DILIGENCE = {
@@ -56,7 +58,9 @@ REQUIRED_FIELDS_FOR_DUE_DILIGENCE = {
     "contradictory_data",
 }
 
-REQUIRED_FIELDS_FOR_SUMMARIES = {"topic", "sub_topic", "analysis"}
+REQUIRED_FIELDS_FOR_SUBTOPIC_SUMMARIES = {"topic", "sub_topic", "analysis"}
+
+REQUIRED_FIELDS_FOR_TOPIC_SUMMARIES = {"topic", "topic_summary"}
 
 
 def read_markdown_file(filepath: str) -> str:
@@ -694,6 +698,9 @@ class AuditReportExtractor:
         # Load analysis data directly to DataFrame
         df = pd.read_json(analysis_json_path)
 
+        # Quick fix: Replace topic name (TODO: Fix naming inconsistency in upstream data)
+        df["topic"] = df["topic"].replace("Climate science", "Carbon Accounting & Integrity")
+
         # Load the subtopic resume prompt
         with open(SUBTOPIC_RESUME_PROMPT_PATH, "r") as f:
             subtopic_resume_system_prompt = f.read()
@@ -732,8 +739,6 @@ class AuditReportExtractor:
 
         total_groups = len(grouped)
         for idx, ((topic, subtopic), group) in enumerate(grouped, 1):
-            if subtopic != "Additionality":
-                continue
             logger.info(f"Processing group {idx}/{total_groups}: {topic} - {subtopic}")
             # Convert group data to dict records
             group_data = group.to_dict("records")
@@ -752,7 +757,7 @@ class AuditReportExtractor:
             )
 
             summary_json = self._validate_and_fix_llm_response(
-                chat_response_1.choices[0].message.content, REQUIRED_FIELDS_FOR_SUMMARIES
+                chat_response_1.choices[0].message.content, REQUIRED_FIELDS_FOR_SUBTOPIC_SUMMARIES
             )
 
             refine_summary_message = refine_summary_prompt_template.format(
@@ -768,7 +773,7 @@ class AuditReportExtractor:
             )
 
             refined_summary_json = self._validate_and_fix_llm_response(
-                chat_response_2.choices[0].message.content, REQUIRED_FIELDS_FOR_SUMMARIES
+                chat_response_2.choices[0].message.content, REQUIRED_FIELDS_FOR_SUBTOPIC_SUMMARIES
             )
 
             summaries.append(refined_summary_json)
@@ -780,3 +785,90 @@ class AuditReportExtractor:
             json.dump(summaries, f, indent=2)
 
         logger.info(f"Created summaries for {len(summaries)} subtopics. Saved to {output_path}")
+
+    def create_topic_summaries(
+        self, subtopic_summaries_json_path: str, output_path=None, overwrite=False
+    ):
+        """
+        Create summaries for each topic from an analysis JSON file.
+
+        Args:
+            analysis_json_path (str): Path to the analysis JSON file
+            output_path (str, optional): Path to save the summaries. Defaults to None.
+            overwrite (bool, optional): Whether to overwrite existing output file. Defaults to False.
+
+        Returns:
+            List[Dict]: List of summaries for each topic
+        """
+        # Set default output path if none provided
+        if output_path is None:
+            output_path = os.path.join(
+                os.path.dirname(subtopic_summaries_json_path),
+                os.path.splitext(os.path.basename(subtopic_summaries_json_path))[0]
+                + "_topic_summaries.json",
+            )
+
+        # Check if file exists and overwrite is False
+        if os.path.exists(output_path) and not overwrite:
+            logger.info(
+                f"Output file already exists at {output_path} and overwrite=False. Skipping."
+            )
+            return
+
+        # Load analysis data directly to DataFrame
+        df = pd.read_json(subtopic_summaries_json_path)
+
+        # Quick fix: Replace topic name (TODO: Fix naming inconsistency in upstream data)
+        df["topic"] = df["topic"].replace("Climate science", "Carbon Accounting & Integrity")
+
+        # Load the topic resume prompt
+        with open(TOPIC_RESUME_PROMPT_PATH, "r") as f:
+            topic_resume_system_prompt = f.read()
+
+        # Template for the full message
+        topic_summary_prompt_template = """
+        {context_content}
+
+        -------
+        Carefully taking into account the above instructions, please produce the aggregated overview paragraph for the provided topic analysis:
+
+        ```json
+        {input_data}
+        ```
+        """
+
+        summaries = []
+        # Group by topic
+        grouped = df.groupby("topic")
+
+        total_groups = len(grouped)
+        for idx, (topic, group) in enumerate(grouped, 1):
+            logger.info(f"Processing topic {idx}/{total_groups}: {topic}")
+            # Convert group data to dict records
+            group_data = group.to_dict("records")
+
+            topic_summary_message = topic_summary_prompt_template.format(
+                context_content=topic_resume_system_prompt,
+                input_data=json.dumps(group_data, indent=2),
+            )
+
+            # Get response from Mistral
+            chat_response = self.mistral_client.chat.complete(
+                model=self.model,
+                messages=[{"role": "user", "content": topic_summary_message}],
+                response_format={"type": "json_object"},
+                temperature=MODEL_TEMPERATURE,
+            )
+
+            summary_json = self._validate_and_fix_llm_response(
+                chat_response.choices[0].message.content, REQUIRED_FIELDS_FOR_TOPIC_SUMMARIES
+            )
+            summaries.append(summary_json)
+
+            time.sleep(1)  # Rate limiting
+
+        # Save summaries to file
+        with open(output_path, "w") as f:
+            json.dump(summaries, f, indent=2)
+
+        logger.info(f"Created summaries for {len(summaries)} topics. Saved to {output_path}")
