@@ -121,6 +121,22 @@ def main():
         )
     )
 
+    # Add new command for populating registry analysis data
+    populate_registry_parser = subparsers.add_parser(
+        "populate-registry-analysis",
+        help="Populate Supabase with analysis data from multiple registry folders",
+    )
+    populate_registry_parser.add_argument("--supabase-url", help="Supabase URL", required=True)
+    populate_registry_parser.add_argument("--supabase-api-key", help="Supabase key", required=True)
+    populate_registry_parser.add_argument(
+        "--registries-dir", help="Root directory containing registry folders", required=True
+    )
+    populate_registry_parser.set_defaults(
+        func=lambda args: commands.populate_registry_analysis_command(
+            args.supabase_url, args.supabase_api_key, args.registries_dir
+        )
+    )
+
     args = parser.parse_args()
     if hasattr(args, "func"):
         exit_status = args.func(args)

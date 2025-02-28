@@ -342,3 +342,39 @@ def create_topic_summaries_command(mistral_api_key, project_dir):
 
     logger.info("Completed processing all projects")
     return 0
+
+
+def populate_registry_analysis_command(supabase_url, supabase_api_key, registries_dir):
+    """
+    Process multiple registry folders and populate Supabase with analysis data.
+
+    Args:
+        supabase_url: Supabase project URL
+        supabase_api_key: Supabase API key
+        registries_dir: Root directory containing registry folders
+    """
+    if not supabase_url or not supabase_api_key:
+        logger.error("Supabase URL and API key are required")
+        return 1
+
+    try:
+        from sequestrae_engine.db.scripts.populate_registry_analysis import (
+            populate_registry_analysis,
+        )
+
+        # Initialize Supabase client
+        supabase_client = SupabaseClient.get_client(supabase_url, supabase_api_key)
+
+        # Process all registries at once
+        result = populate_registry_analysis(registries_dir=registries_dir, client=supabase_client)
+
+        # Log statistics
+        for table_name, content_list in result.items():
+            logger.info(f"Total records inserted into {table_name} table: {len(content_list)}")
+
+        logger.info("Successfully completed processing all registries")
+        return 0
+
+    except Exception as e:
+        logger.error(f"Error populating registry analysis data: {str(e)}")
+        return 1
