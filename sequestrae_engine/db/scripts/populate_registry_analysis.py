@@ -232,7 +232,7 @@ def populate_registry_analysis(registries_dir: str, client: SupabaseClient):
                                     "topic_summary_id": topic_summary_id,
                                     "project_id": project_id,
                                     "topic": topic_summary.get("topic"),
-                                    "topic_introduction": topic_summary.get("introduction"),
+                                    "topic_introduction": topic_summary.get("topic_introduction"),
                                     "topic_summary": topic_summary.get("topic_summary"),
                                 }
                                 topic_summaries_table_content_list.append(topic_summary_dict)
