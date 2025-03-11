@@ -121,6 +121,22 @@ def main():
         )
     )
 
+    # Extract project overview command
+    extract_overview_parser = subparsers.add_parser(
+        "extract-project-overview", help="Extract project overview data from markdown documents"
+    )
+    extract_overview_parser.add_argument(
+        "--mistral-api-key", help="Mistral API key for analysis", required=True
+    )
+    extract_overview_parser.add_argument(
+        "--project-dir", help="Project data directory", required=True
+    )
+    extract_overview_parser.set_defaults(
+        func=lambda args: commands.extract_project_overview_command(
+            args.mistral_api_key, args.project_dir
+        )
+    )
+
     # Add new command for populating registry analysis data
     populate_registry_parser = subparsers.add_parser(
         "populate-registry-analysis",

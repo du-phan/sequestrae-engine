@@ -378,3 +378,73 @@ def populate_registry_analysis_command(supabase_url, supabase_api_key, registrie
     except Exception as e:
         logger.error(f"Error populating registry analysis data: {str(e)}")
         return 1
+
+
+def extract_project_overview_command(mistral_api_key, project_dir):
+    """
+    Process all markdown documents in project subfolders and extract project overview data.
+
+    Args:
+        mistral_api_key: API key for analysis
+        project_dir: Root directory containing project folders
+    """
+    if not mistral_api_key:
+        logger.error("MISTRAL_API_KEY is required")
+        return 1
+
+    project_path = Path(project_dir)
+    if not project_path.exists():
+        logger.error(f"Directory not found at {project_path}")
+        return 1
+
+    audit_extractor = AuditReportExtractor(mistral_api_key=mistral_api_key)
+
+    # Count total subfolders (excluding hidden folders)
+    total_folders = sum(
+        1
+        for folder in project_path.iterdir()
+        if folder.is_dir() and not folder.name.startswith(".")
+    )
+
+    logger.info(f"Found {total_folders} project folders to process")
+
+    processed_folder = 1
+    for folder_path in project_path.iterdir():
+        if not folder_path.name.startswith(".") and folder_path.is_dir():
+            project_name = "_".join(folder_path.name.split())
+            logger.info(
+                f"Processing project {processed_folder}/{total_folders}: {project_name} ..."
+            )
+
+            # Find markdown document
+            markdown_document_path = os.path.join(
+                folder_path,
+                "parsed_markdown",
+                f"concatenated_documentation_gemini-2.0-flash-001.md",
+            )
+
+            if not os.path.exists(markdown_document_path):
+                logger.warning(
+                    f"Markdown document not found at {markdown_document_path}, skipping..."
+                )
+                continue
+
+            # Extract project overview
+            start_time = time.time()
+            try:
+                retry_on_error()(audit_extractor.extract_project_overview_data)(
+                    project_name=project_name,
+                    markdown_document_path=markdown_document_path,
+                    overwrite=True,
+                )
+                logger.info(
+                    f"--------- Project overview extraction complete in {round((time.time() - start_time)/60, 2)} minutes."
+                )
+            except Exception as e:
+                logger.error(f"Error processing {project_name}: {str(e)}")
+
+            processed_folder += 1
+            time.sleep(1)  # Rate limiting
+
+    logger.info("Completed processing all projects")
+    return 0

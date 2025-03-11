@@ -19,6 +19,9 @@ logger = logging.getLogger(__name__)
 # Define paths relative to this file
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 SYSTEM_PROMPT_PATH = os.path.join(SCRIPT_DIR, "prompts/system_prompt.txt")
+PROJECT_OVERVIEW_EXTRACTION_PROMPT_PATH = os.path.join(
+    SCRIPT_DIR, "prompts/project_overview_extraction_prompt.txt"
+)
 DUE_DILIGENCE_SYSTEM_PROMPT_PATH = os.path.join(
     SCRIPT_DIR, "prompts/due_diligence_system_prompt.txt"
 )
@@ -116,12 +119,47 @@ class AuditReportExtractor:
 
         return audit_report_dict
 
-    def extract_audit_report_data(self, report_content):
-        with open(SYSTEM_PROMPT_PATH, "r") as file:
+    def extract_project_overview_data(
+        self, project_name: str, markdown_document_path: str, output_path=None, overwrite=False
+    ):
+        """
+        Extract project overview data from markdown document using Mistral LLM.
+
+        Args:
+            project_name (str): Name of the project being analyzed
+            markdown_document_path (str): Path to the markdown document
+            output_path (str, optional): Path to save the output JSON. Defaults to None.
+            overwrite (bool, optional): Whether to overwrite existing output file. Defaults to False.
+
+        Returns:
+            Dict: Dictionary containing project overview data
+        """
+        # Set default output path if none provided
+        if output_path is None:
+            output_path = os.path.join(
+                os.path.dirname(os.path.dirname(markdown_document_path)),
+                "analysis",
+                f"{project_name}_overview_{self.model}.json",
+            )
+
+        # Check if file exists and overwrite is False
+        if os.path.exists(output_path) and not overwrite:
+            logger.info(
+                f"Output file already exists at {output_path} and overwrite=False. Skipping."
+            )
+            # Load and return existing file
+            return load_json_file(output_path)
+
+        # Read the markdown file
+        with open(markdown_document_path, "r", encoding="utf-8") as file:
+            report_content = file.read()
+
+        # Load the project overview extraction prompt
+        with open(PROJECT_OVERVIEW_EXTRACTION_PROMPT_PATH, "r") as file:
             system_prompt = file.read()
 
         user_message_template = """
-            Analyze carefully the following audit report and return the result in short JSON object:
+            Analyze carefully the following markdown and return the result in short JSON object:
 
             ```markdown
             {report_content}
@@ -152,12 +190,39 @@ class AuditReportExtractor:
             response_format={
                 "type": "json_object",
             },
+            temperature=MODEL_TEMPERATURE,
         )
 
-        audit_info = chat_response.choices[0].message.content
-        audit_dict = json.loads(audit_info)
+        response_content = chat_response.choices[0].message.content
 
-        return audit_dict
+        # Define required fields for project overview (adjust as needed)
+        required_fields = {
+            "country",
+            "project_start_period",
+            "feedstock_type",
+            "project_description",
+            "key_stakeholders",
+        }
+
+        # Validate and fix the response
+        project_overview_data = self._validate_and_fix_llm_response(
+            response_content, required_fields
+        )
+
+        # Create parent directory if it doesn't exist
+        output_dir = os.path.dirname(output_path)
+        if output_dir:  # Only create directory if path has a parent directory
+            os.makedirs(output_dir, exist_ok=True)
+
+        # Save the JSON file
+        with open(output_path, "w", encoding="utf-8") as f:
+            json.dump(project_overview_data, f, indent=2)
+
+        logger.info(
+            f"Extracted project overview data from {markdown_document_path} and saved to {output_path}"
+        )
+
+        return project_overview_data
 
     def analyze_due_diligence_criteria(
         self, project_name: str, markdown_document_path: str, output_path=None, overwrite=False
@@ -450,7 +515,7 @@ class AuditReportExtractor:
             else:
                 result_json_array = analyzed_result
                 iteration += 1
-                # logger.debug(f"Iteration {iteration + 1}: {current_hallucinations} hallucinations remaining")
+                # logger.debug(f"Iteration {iteration + 1}: {current_hallucinations} remaining")
                 print(
                     f"   Iteration {iteration + 1}: {num_remaining_hallucinations} hallucinations remaining"
                 )
@@ -498,141 +563,6 @@ class AuditReportExtractor:
         response_content = chat_response.choices[0].message.content
         response_content_dict = json.loads(response_content)
         return response_content_dict
-
-    def _analyze_pertinence(self, criteria_response: Dict, concatenated_project_doc: str):
-        """
-        Analyze the pertinence of the criteria response.
-
-        Args:
-            criteria_response: Dictionary containing the criteria response
-            concatenated_project_doc: Concatenated project document
-        """
-        start_time = time.time()
-
-        full_message_template = """
-        {context_content}
-
-        **Context**
-        The following text is the concatenated Markdown document to be used as context:
-        ```md
-        {concatenated_project_doc}
-        ```
-
-        **Answer to evaluate**
-        The following json object contains the answer provided by the previous LLM to be evaluated:
-        {criteria_response}
-        """
-        with open(PERTINENCE_EVALUATION_PROMPT_PATH, "r") as f:
-            context_content = f.read()
-
-        full_message = full_message_template.format(
-            context_content=context_content,
-            concatenated_project_doc=concatenated_project_doc,
-            criteria_response=json.dumps(criteria_response, indent=2),
-        )
-
-        chat_response = self.mistral_client.chat.complete(
-            model="mistral-large-latest",
-            messages=[{"role": "user", "content": full_message}],
-            response_format={"type": "json_object"},
-            temperature=MODEL_TEMPERATURE,
-        )
-
-        response_content = chat_response.choices[0].message.content
-        response_content_dict = json.loads(response_content)
-        end_time = time.time()
-        running_time_in_seconds = round(end_time - start_time, 2)
-        # logger.info('Pertinence evaluation complete in {} seconds'.format(running_time_in_seconds))
-        time.sleep(1)  # Rate limiting
-        return response_content_dict
-
-    def analyze_feedstock_sustainability(
-        self, audit_path: str, output_folder_path=None, overwrite=False
-    ) -> List[Dict]:
-        """
-        Analyze feedstock sustainability from audit report using Mistral LLM.
-
-        Args:
-            audit_path: Path to the audit report file
-            output_folder_path: Optional path to output folder. If None, uses same directory as input
-            overwrite: Whether to overwrite existing output file
-
-        Returns:
-            List of analysis results for each topic
-        """
-        start_time = time.time()
-
-        # Determine output path
-        input_dir = os.path.dirname(audit_path)
-        input_filename = os.path.basename(audit_path)
-        output_filename = os.path.splitext(input_filename)[0] + "_feedstock_analysis.json"
-
-        output_path = os.path.join(
-            output_folder_path if output_folder_path else input_dir, output_filename
-        )
-
-        # Check if file exists and overwrite is False
-        if os.path.exists(output_path) and not overwrite:
-            logger.info(
-                f"Output file already exists at {output_path} and overwrite=False. Skipping."
-            )
-            return
-
-        # Load prompts and criteria
-        with open(FEEDSTOCK_PROMPT_PATH, "r") as f:
-            context_content = f.read()
-        with open(audit_path, "r") as file:
-            audit_report = file.read()
-
-        criteria_guideline = load_json_file(FEEDSTOCK_CRITERIA_PATH)
-
-        # Template for the full message
-        full_message_template = """
-        {context_content}
-
-        **Criteria Guideline**
-
-        Topic: {topic}
-        {questions}
-
-        **Audit report**
-
-        {audit_report}
-        """
-
-        result_list = []
-
-        # Process each topic in the criteria guideline
-        for topic in criteria_guideline.keys():
-            questions = criteria_guideline.get(topic)
-
-            full_message = full_message_template.format(
-                context_content=context_content,
-                topic=topic,
-                questions=questions,
-                audit_report=audit_report,
-            )
-
-            messages = [{"role": "user", "content": full_message}]
-
-            chat_response = self.mistral_client.chat.complete(
-                model=self.model, messages=messages, response_format={"type": "json_object"}
-            )
-
-            response_content = chat_response.choices[0].message.content
-            response_content_dict = json.loads(response_content)
-            result_list.append(response_content_dict)
-            time.sleep(1)  # Rate limiting
-
-        # Save the JSON file
-        with open(output_path, "w", encoding="utf-8") as f:
-            json.dump(result_list, f, indent=2)
-
-        running_time_in_minutes = round((time.time() - start_time) / 60, 2)
-        logger.info(
-            f"Feedstock analysis complete in {running_time_in_minutes} minutes. Results saved to {output_path}"
-        )
-        return result_list
 
     def _validate_and_fix_llm_response(
         self, response_content: str, required_fields: set
