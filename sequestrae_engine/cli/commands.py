@@ -435,10 +435,76 @@ def extract_project_overview_command(mistral_api_key, project_dir):
                 retry_on_error()(audit_extractor.extract_project_overview_data)(
                     project_name=project_name,
                     markdown_document_path=markdown_document_path,
-                    overwrite=True,
+                    overwrite=False,
                 )
                 logger.info(
                     f"--------- Project overview extraction complete in {round((time.time() - start_time)/60, 2)} minutes."
+                )
+            except Exception as e:
+                logger.error(f"Error processing {project_name}: {str(e)}")
+
+            processed_folder += 1
+            time.sleep(1)  # Rate limiting
+
+    logger.info("Completed processing all projects")
+    return 0
+
+
+def create_project_main_insights_command(mistral_api_key, project_dir):
+    """
+    Process all topic summary JSON files in project subfolders and create project main insights.
+
+    Args:
+        mistral_api_key: API key for analysis
+        project_dir: Root directory containing project folders
+    """
+    if not mistral_api_key:
+        logger.error("MISTRAL_API_KEY is required")
+        return 1
+
+    project_path = Path(project_dir)
+    if not project_path.exists():
+        logger.error(f"Directory not found at {project_path}")
+        return 1
+
+    audit_extractor = AuditReportExtractor(mistral_api_key=mistral_api_key)
+
+    # Count total subfolders (excluding hidden folders)
+    total_folders = sum(
+        1
+        for folder in project_path.iterdir()
+        if folder.is_dir() and not folder.name.startswith(".")
+    )
+
+    logger.info(f"Found {total_folders} project folders to process")
+
+    processed_folder = 1
+    for folder_path in project_path.iterdir():
+        if not folder_path.name.startswith(".") and folder_path.is_dir():
+            project_name = "_".join(folder_path.name.split())
+            logger.info(
+                f"Processing project {processed_folder}/{total_folders}: {project_name} ..."
+            )
+
+            # Find topic summary file
+            topic_summary_path = (
+                folder_path
+                / "analysis"
+                / f"{project_name}_analysis_mistral-large-latest_subtopic_summaries_topic_summaries.json"
+            )
+            if not topic_summary_path.exists():
+                logger.warning(f"Topic summary file not found for {project_name}, skipping...")
+                continue
+
+            # Create project main insights
+            start_time = time.time()
+            try:
+                retry_on_error()(audit_extractor.create_topic_main_insights)(
+                    topic_summaries_json_path=str(topic_summary_path),
+                    overwrite=True,
+                )
+                logger.info(
+                    f"--------- Project main insights created in {round((time.time() - start_time)/60, 2)} minutes."
                 )
             except Exception as e:
                 logger.error(f"Error processing {project_name}: {str(e)}")

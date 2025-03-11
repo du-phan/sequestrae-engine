@@ -153,6 +153,22 @@ def main():
         )
     )
 
+    # Add new command for generating project main insights
+    create_main_insights_parser = subparsers.add_parser(
+        "create-project-insights", help="Create project main insights from topic summary JSON files"
+    )
+    create_main_insights_parser.add_argument(
+        "--mistral-api-key", help="Mistral API key for analysis", required=True
+    )
+    create_main_insights_parser.add_argument(
+        "--project-dir", help="Project data directory", required=True
+    )
+    create_main_insights_parser.set_defaults(
+        func=lambda args: commands.create_project_main_insights_command(
+            args.mistral_api_key, args.project_dir
+        )
+    )
+
     args = parser.parse_args()
     if hasattr(args, "func"):
         exit_status = args.func(args)

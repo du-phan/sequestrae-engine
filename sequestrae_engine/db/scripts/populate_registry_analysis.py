@@ -46,6 +46,7 @@ def populate_registry_analysis(registries_dir: str, client: SupabaseClient):
         topic_summary_id = 1
 
         projects_table_content_list = []
+        main_insight_content_list = []
         detailed_answers_table_content_list = []
         subtopic_summaries_table_content_list = []
         risk_factors_table_content_list = []
@@ -81,6 +82,10 @@ def populate_registry_analysis(registries_dir: str, client: SupabaseClient):
                         project_overview_filename = (
                             f"{project_name}_overview_mistral-large-latest.json"
                         )
+                        project_main_insights_filename = (
+                            f"{project_name}_analysis_mistral-large-latest_main_insights.json"
+                        )
+
                         detailed_answers_filename = (
                             f"{project_name}_analysis_mistral-large-latest.json"
                         )
@@ -102,6 +107,7 @@ def populate_registry_analysis(registries_dir: str, client: SupabaseClient):
                         file_path_dict = {}
                         required_files = [
                             project_overview_filename,
+                            project_main_insights_filename,
                             detailed_answers_filename,
                             subtopic_summaries_filename,
                             topic_summaries_filename,
@@ -124,6 +130,7 @@ def populate_registry_analysis(registries_dir: str, client: SupabaseClient):
                         project_overview_data = load_json_file(
                             file_path_dict.get(project_overview_filename)
                         )
+
                         projects_table_content_list.append(
                             {
                                 "project_id": project_id,
@@ -140,6 +147,24 @@ def populate_registry_analysis(registries_dir: str, client: SupabaseClient):
                                 "key_stakeholders": project_overview_data.get("key_stakeholders"),
                             }
                         )
+
+                        project_main_insights = load_json_file(
+                            file_path_dict.get(project_main_insights_filename)
+                        )
+
+                        for main_insight_type in [
+                            "main_strengths",
+                            "main_considerations",
+                            "main_recommended_actions",
+                        ]:
+                            for insight_dict in project_main_insights.get(main_insight_type, []):
+                                main_insight_dict = {
+                                    "project_id": project_id,
+                                    "insight_type": main_insight_type,
+                                    "topic": insight_dict.get("topic"),
+                                    "main_idea": insight_dict.get("main_idea"),
+                                }
+                                main_insight_content_list.append(main_insight_dict)
 
                         # Process detailed answers
                         try:
@@ -272,6 +297,7 @@ def populate_registry_analysis(registries_dir: str, client: SupabaseClient):
         # Map table names to their content
         table_data_mapping = {
             "projects": projects_table_content_list,
+            "project_main_insights": main_insight_content_list,
             "detailed_answers": detailed_answers_table_content_list,
             "subtopic_summaries": subtopic_summaries_table_content_list,
             "risk_factors": risk_factors_table_content_list,

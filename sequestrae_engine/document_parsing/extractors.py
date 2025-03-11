@@ -46,6 +46,8 @@ SUBTOPIC_REFINE_PROMPT_PATH = os.path.join(SCRIPT_DIR, "prompts/subtopic_refine_
 
 TOPIC_RESUME_PROMPT_PATH = os.path.join(SCRIPT_DIR, "prompts/topic_resume_prompt.txt")
 
+PROJECT_MAIN_IDEA_PROMPT_PATH = os.path.join(SCRIPT_DIR, "prompts/project_main_insight_prompt.txt")
+
 MODEL_TEMPERATURE = 0
 
 REQUIRED_FIELDS_FOR_DUE_DILIGENCE = {
@@ -64,6 +66,12 @@ REQUIRED_FIELDS_FOR_DUE_DILIGENCE = {
 REQUIRED_FIELDS_FOR_SUBTOPIC_SUMMARIES = {"topic", "sub_topic", "analysis"}
 
 REQUIRED_FIELDS_FOR_TOPIC_SUMMARIES = {"topic", "topic_summary"}
+
+REQUIRED_FIELDS_FOR_MAIN_INSIGHTS = {
+    "main_strengths",
+    "main_considerations",
+    "main_recommended_actions",
+}
 
 
 def read_markdown_file(filepath: str) -> str:
@@ -802,3 +810,78 @@ class AuditReportExtractor:
             json.dump(summaries, f, indent=2)
 
         logger.info(f"Created summaries for {len(summaries)} topics. Saved to {output_path}")
+
+    def create_topic_main_insights(
+        self, topic_summaries_json_path: str, output_path=None, overwrite=False
+    ):
+        """
+        Generate main insights for the project based on topic summaries.
+
+        Args:
+            topic_summaries_json_path (str): Path to the topic summaries JSON file
+            output_path (str, optional): Path to save the main idea. Defaults to None.
+            overwrite (bool, optional): Whether to overwrite existing output file. Defaults to False.
+
+        Returns:
+            Dict: Project main idea
+        """
+        # Set default output path if none provided
+        if output_path is None:
+            # Extract the base part of the filename (before _subtopic_summaries_topic_summaries.json)
+            base_filename = os.path.basename(topic_summaries_json_path).split(
+                "_subtopic_summaries"
+            )[0]
+            output_path = os.path.join(
+                os.path.dirname(topic_summaries_json_path), f"{base_filename}_main_insights.json"
+            )
+
+        # Check if file exists and overwrite is False
+        if os.path.exists(output_path) and not overwrite:
+            logger.info(
+                f"Output file already exists at {output_path} and overwrite=False. Skipping."
+            )
+            return load_json_file(output_path)
+
+        # Load topic summaries data
+        topic_summaries = load_json_file(topic_summaries_json_path)
+
+        # Load the project main idea prompt
+        with open(PROJECT_MAIN_IDEA_PROMPT_PATH, "r") as f:
+            project_main_insight_prompt = f.read()
+
+        # Template for the full message
+        main_insight_prompt_template = """
+        {context_content}
+
+        -------
+        Carefully taking into account the above instructions, please produce the project main insights based on these topic summaries:
+
+        ```json
+        {input_data}
+        ```
+        """
+
+        main_insight_message = main_insight_prompt_template.format(
+            context_content=project_main_insight_prompt,
+            input_data=json.dumps(topic_summaries, indent=2),
+        )
+
+        # Get response from Mistral
+        chat_response = self.mistral_client.chat.complete(
+            model=self.model,
+            messages=[{"role": "user", "content": main_insight_message}],
+            response_format={"type": "json_object"},
+            temperature=MODEL_TEMPERATURE,
+        )
+
+        main_insight_json = self._validate_and_fix_llm_response(
+            chat_response.choices[0].message.content, REQUIRED_FIELDS_FOR_MAIN_INSIGHTS
+        )
+
+        # Save main idea to file
+        with open(output_path, "w") as f:
+            json.dump(main_insight_json, f, indent=2)
+
+        logger.info(f"Created project main idea. Saved to {output_path}")
+
+        return main_insight_json
