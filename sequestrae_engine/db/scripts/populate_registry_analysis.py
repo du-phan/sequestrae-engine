@@ -79,6 +79,8 @@ def populate_registry_analysis(registries_dir: str, client: SupabaseClient):
                         logger.info(f"Processing project: {project_name}")
 
                         # Define expected analysis file names
+                        project_metadata = "metadata.json"
+
                         project_overview_filename = (
                             f"{project_name}_overview_mistral-large-latest.json"
                         )
@@ -106,6 +108,7 @@ def populate_registry_analysis(registries_dir: str, client: SupabaseClient):
                         # Verify all required files exist
                         file_path_dict = {}
                         required_files = [
+                            project_metadata,
                             project_overview_filename,
                             project_main_insights_filename,
                             detailed_answers_filename,
@@ -127,6 +130,8 @@ def populate_registry_analysis(registries_dir: str, client: SupabaseClient):
                             continue
 
                         # Add project to projects table
+                        project_metadata = load_json_file(file_path_dict.get(project_metadata))
+
                         project_overview_data = load_json_file(
                             file_path_dict.get(project_overview_filename)
                         )
@@ -136,6 +141,7 @@ def populate_registry_analysis(registries_dir: str, client: SupabaseClient):
                                 "project_id": project_id,
                                 "project_name": project_name,
                                 "registry": registry_name,
+                                "project_url": project_metadata.get("project_url"),
                                 "project_description": project_overview_data.get(
                                     "project_description"
                                 ),
@@ -144,6 +150,9 @@ def populate_registry_analysis(registries_dir: str, client: SupabaseClient):
                                     "project_start_period"
                                 ),
                                 "feedstock_type": project_overview_data.get("feedstock_type"),
+                                "feedstock_type_in_string": ", ".join(
+                                    project_overview_data.get("feedstock_type")
+                                ),
                                 "key_stakeholders": project_overview_data.get("key_stakeholders"),
                             }
                         )
