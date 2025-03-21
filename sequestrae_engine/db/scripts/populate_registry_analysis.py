@@ -191,7 +191,6 @@ def populate_registry_analysis(registries_dir: str, client: SupabaseClient):
                                     "short_answer": detailed_answer.get("short_answer"),
                                     "long_answer": detailed_answer.get("long_answer"),
                                     "detail_level": detailed_answer.get("detail_level"),
-                                    "evidence_found": detailed_answer.get("evidence_found"),
                                     "missing_data": detailed_answer.get("missing_data"),
                                     "contradictory_data": detailed_answer.get("contradictory_data"),
                                     "is_hallucination": (

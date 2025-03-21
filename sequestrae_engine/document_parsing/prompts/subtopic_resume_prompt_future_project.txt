@@ -28,7 +28,6 @@ You will receive a JSON array of objects, all pertaining to a single topic–sub
     "question": "Guideline question for this criterion",
     "long_answer": "Detailed explanation referencing project documents or inferred insights",
     "detail_level": "Fully answered | Partially Answered | Inconclusive",
-    "evidence_found": "Relevant data from audit files or descriptions",
     "missing_data": "Concrete data not present in the documents but needed",
     "contradictory_data": "Any conflicting info identified in the documents"
   },
@@ -41,7 +40,6 @@ You will receive a JSON array of objects, all pertaining to a single topic–sub
 Each Q&A entry addresses a specific criterion about the biochar project. The original LLM was instructed to provide:
 * long_answer: Detailed insights including trends, changes over audit periods, referencing specific documents (e.g., file names).
 * detail_level: Whether the evidence fully, partially, or inconclusively addresses the question.
-* evidence_found: Specific references to project documents or audit reports.
 * missing_data: Exactly what is missing, with suggestions on which external data might be needed.
 * contradictory_data: Any conflicting statements identified in the documentation.
 

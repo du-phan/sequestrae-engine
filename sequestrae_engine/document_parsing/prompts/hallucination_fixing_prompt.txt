@@ -65,7 +65,6 @@ For each flagged criterion (which an entry in the JSON array):
       * "Fully answered": The information is comprehensive and well-supported.
       * "Partially answered": Some relevant information is provided, but gaps remain.
       * "Inconclusive": Insufficient evidence is available to fully answer the criterion.
-  * `evidence_found`: Summarize only the relevant information located in the audit documents, including file names.
 	* `missing_data`: Specify any important, concrete data or evidence that is missing from the documents and would be required to fully answer the criterion. List specific data sources or types of evidence that need to be collected externally, or return null/an empty string if none. The goal is to help the users know concretely what to look for and where to look for.
 	* `contradictory_data`: Identify any concrete instances of contradictory information present in the documents that address the criterion. Provide specific details (e.g., conflicting file references or data points), or return null/an empty string if none.
 
@@ -81,7 +80,6 @@ For each flagged criterion (which an entry in the JSON array):
     "short_answer": "The previously generated short summary",
     "long_answer": "The previously generated detailed response",
     "detail_level": "Fully answered | Partially Answered | Inconclusive",
-    "evidence_found": "Previous evidence cited (may be inaccurate)",
     "missing_data": "Specify all specific necessary concrete data and information that are missing and should be collected from external sources, or null/empty string if none.",
 		"contradictory_data": "Specify any concrete contradictory information present in the documents, or null/empty string if none."
     "is_hallucination": true or false,
@@ -110,7 +108,6 @@ Produce a revised JSON array with the exact format and fields, where:
     "short_answer": "A new short summary that is faithful to the Markdown content (or the original one if unchanged).",
     "long_answer": "A new detailed answer fully grounded in the evidence, without any hallucination (or the original one if unchanged).",
     "detail_level": "Fully answered | Partially Answered | Inconclusive",
-    "evidence_found": "Revised evidence citations that accurately reflect the Markdown document.",
     "missing_data": "Any remaining gaps in information, or an empty string if none.",
 		"contradictory_data": "Any remaining gaps in information, or an empty string if none."
   },

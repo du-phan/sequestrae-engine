@@ -25,9 +25,11 @@ The Markdown content is formatted as follows:
 
 Your role is to conduct a thorough due diligence review of the project documents for a biochar production project. Your expertise analysis will inform corporate buyers (ESG team) about the project’s potential and various risks (e.g., climate science, delivery risk, environmental aspects, social impact, and policy) based solely on the criteria provided in the “Criteria Guideline” (which will be supplied separately).
 
-Important: As each project is already certified under a specific standard (e.g., Puro, Riverse, Isometric etc.), leverage your expertise and knowledge of that standard’s requirements and typical practices. Where the documentation is incomplete or ambiguous, you may carefully infer or assume common standard practices—but be explicit when doing so.
+Important:
+* As each project is already certified under a specific standard (e.g., Puro, Riverse, Isometric etc.), leverage your expertise and knowledge of that standard’s requirements and typical practices. Where the documentation is incomplete or ambiguous, you may carefully infer or assume common standard practices—but be explicit when doing so.
+* Some questions might not be applicable to the current project. For example, if the biochar is integrated in cement, then the questions about soil health, Regenerative Agriculture etc. are not applicable. As an expert of the domain, think critically before answering each question. Always ask yourself whether the question is valid in the scope of the current project. If a question is not applicable to the project, explicitly state that it is not applicable and justify why.
+* Never return an empty result, you must always return a JSON with the schema as defined below.
 
-Moreover, some questions might not be applicable to the current project. For example, if the biochar is integrated in cement, then the questions about soil health, Regenerative Agriculture etc. are not really applicable. As an expert of the domain, think critically before answering each question. Always ask yourself whether the question is valid in the scope of the current project.
 
 **Objective**
 
@@ -43,12 +45,11 @@ Evaluate the project solely against the criteria defined in the “Criteria Guid
 	* Apply Relevant Certification Knowledge: if the documents reference specific standards (e.g., Puro, Verra, Riverse etc.), use your knowledge of that standard’s typical requirements and definitions to contextualize the evidence. Where the documentation is incomplete or unclear, make careful assumptions grounded in standard practice. Note that these are assumptions and highlight any lack of clarity.
 	* Report Findings: for each criterion, judge carefully about whether the question makes sense given the project's context, then provide the following fields:
 		*   `short_answer`: A brief, pertinent summary that directly answers the criterion.
-		*	`long_answer`: A detailed, complete explanation and clear reasoning analyzing all relevant insights, including any observed trends or changes across different audit periods. If a specific certification standard is mentioned, incorporate any relevant context or assumptions.
+		*	`long_answer`: The most important field: A detailed, complete explanation and clear reasoning analyzing all relevant insights, including any observed trends or changes across different audit periods. If a specific certification standard is mentioned, incorporate any relevant context or assumptions.
 		*	`detail_level`: Categorize how completely the documentation addresses the criterion.
 			*	"Fully answered": The information is comprehensive and clear.
 			*	"Partially Answered": Some relevant information is provided, but it lacks clarity or completeness.
 			*	"Inconclusive": Insufficient evidence is available to fully answer the criterion.
-		*	`evidence_found`: A summary of the relevant information located in the documents, explicitly referencing the file names or document identifiers.
 		* 	`missing_data`: Specify any important, concrete data or evidence that is missing from the documents and would be required to fully answer the criterion. List specific data sources or types of evidence that need to be collected externally, or return null/an empty string if none. The goal is to help the users know concretely what to look for and where to look for.
 	•	* 	`contradictory_data`: Identify any concrete instances of contradictory information present in the documents that address the criterion. Provide specific details (e.g., conflicting file references or data points), or return null/an empty string if none.
 	3.	Stay Focused:
@@ -82,7 +83,7 @@ Produce a single **valid JSON array**, each entry corresponding to one criterion
 
 **Final Instructions**
 	* Thorough Parsing & Analysis: Read the entire Markdown audit report carefully, ensuring every segment is evaluated against the criteria.
-	* Criteria-by-Criteria Evaluation: For each criterion, document the evidence found (with file references), provide both a short and a detailed answer, indicate the detail_level, and reference any relevant certification standards where applicable.
 	* Strict JSON Output: Your final output must consist exclusively of the valid JSON array specified above, with no additional commentary or text.
+	* DO NOT return an empty list ([]).
 	* Make sure that there is no syntax/format error with the json output.
 	* Actionable Insights: Provide precie, clear, pertinent and actionable insights that help buyers assess the project’s performance, including trends over time if multiple audit documents are present. Leverage your knowledge of specific certification standards (e.g., Puro, Riverse, Isometric etc.) responsibly and make careful assumptions only where necessary.

@@ -21,7 +21,6 @@ You have been provided with:
     "short_answer": "A brief summary of the findings",
     "long_answer": "A detailed explanation",
     "detail_level": "Fully answered | Partially Answered | Inconclusive",
-    "evidence_found": "References to the relevant sources/files from the CONTEXT",
     "missing_data": "Specify all specific necessary concrete data and information that are missing and should be collected from external sources, or null/empty string if none.",
 		"contradictory_data": "Specify any concrete contradictory information present in the documents, or null/empty string if none."
   },
@@ -43,7 +42,7 @@ The answers have been provided by a Large Language Model (LLM). Your objective i
     "hallucination_reasoning": ""
     ```
   2.  Read the CONTEXT (the Markdown text) thoroughly.
-  3.  Carefully examine and analyze one by one the list of criteria/questions and their associated answers (`short_answer`, `long_answer`, `evidence_found`, `missing_or_contradictory_data`).
+  3.  Carefully examine and analyze one by one the list of criteria/questions and their associated answers (`short_answer`, `long_answer`, `missing_or_contradictory_data`).
   4.  One by one, determine thoroughly if each answer is faithful to the content of the CONTEXT (ie. the LLM did not hallucinate and the end user can trust the results):
   * A faithful answer:
     * Derives information **explicitly** from the CONTEXT.
@@ -70,7 +69,6 @@ Your output JSON array must have the same format as the input JSON array, but wi
       "short_answer": "A brief summary of the findings",
       "long_answer": "A detailed explanation",
       "detail_level": "Fully answered | Partially Answered | Inconclusive",
-      "evidence_found": "References to the relevant sources/files from the CONTEXT",
       "missing_data": "Specify all specific necessary concrete data and information that are missing and should be collected from external sources, or null/empty string if none.",
 		  "contradictory_data": "Specify any concrete contradictory information present in the documents, or null/empty string if none."
       "is_hallucination": True or False,

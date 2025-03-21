@@ -557,7 +557,7 @@ def process_project_command(gemini_api_key, mistral_api_key, project_dir, overwr
         pdf_parser = PDFToMarkdownParser(
             gemini_api_key=gemini_api_key, project_folder=str(project_path)
         )
-        pdf_parser.parse_pdf_folder(overwrite=overwrite)
+        retry_on_error()(pdf_parser.parse_pdf_folder)(overwrite=overwrite)
         logger.info(
             f"✓ PDF processing completed in {round((time.time() - start_time)/60, 2)} minutes"
         )
@@ -567,7 +567,7 @@ def process_project_command(gemini_api_key, mistral_api_key, project_dir, overwr
         report_extractor = AuditReportExtractor(
             mistral_api_key=mistral_api_key, project_folder=str(project_path), overwrite=overwrite
         )
-        report_extractor.process_project()
+        retry_on_error()(report_extractor.process_project)()
 
         total_time = time.time() - total_start_time
         minutes, seconds = divmod(total_time, 60)

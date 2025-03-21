@@ -62,7 +62,6 @@ def populate_feedstock_evaluation_table(project_folder_path: str, client: Supaba
                     for criteria_item in analysis_content:
                         criteria_item["audit_file"] = audit_file
                         # TODO: temporary fix to rename the keys, we should update the prompts instead
-                        criteria_item["evidence_found"] = criteria_item.pop("evidenceFound")
                         criteria_item["missing_or_contradictory_data"] = criteria_item.pop(
                             "missingOrContradictoryData"
                         )
@@ -96,7 +95,6 @@ def populate_project_analysis_table(meta_folder_path: str, registry: str, client
         "short_answer",
         "long_answer",
         "detail_level",
-        "evidence_found",
         "missing_data",
         "contradictory_data",
         "is_hallucination",
