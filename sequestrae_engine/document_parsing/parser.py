@@ -8,10 +8,7 @@ import nest_asyncio
 from google import genai
 from google.genai import types
 
-# from llama_index.core import SimpleDirectoryReader
-# from llama_parse import LlamaParse
-
-# nest_asyncio.apply()
+from sequestrae_engine.document_parsing.extractors import PathManager
 
 logging.basicConfig(
     level=logging.INFO, format="%(asctime)s - %(name)s - %(levelname)s - %(message)s"
@@ -20,10 +17,12 @@ logger = logging.getLogger(__name__)
 
 
 class PDFToMarkdownParser:
-    def __init__(self, gemini_api_key, model="gemini-2.0-flash-001"):
+    def __init__(self, gemini_api_key, project_folder, model="gemini-2.0-flash-001"):
         # self.llama_api_key = llama_api_key
         self.model = model
         self.gemini_client = genai.Client(api_key=gemini_api_key)
+        self.path_manager = PathManager(model=model, project_folder=project_folder)
+        # No need to store project_name, PathManager already has it
 
     """
     def parse_pdf(self, pdf_path, output_folder_path=None, overwrite=False):
@@ -69,18 +68,21 @@ class PDFToMarkdownParser:
         with open(output_path, "w") as md_file:
             md_file.write(markdown_content)
 
-    def parse_pdf_folder(self, folder_path, output_path=None, overwrite=False):
+    def parse_pdf_folder(self, overwrite=False):
         """
-        Parse PDFs in a folder or use existing markdown files if available.
+        Parse PDFs in the project folder or use existing markdown files if available.
         For each PDF, checks if a corresponding .md file exists:
         - If yes, use the markdown content directly
         - If no, parse the PDF to markdown
+
+        Args:
+            overwrite (bool): Whether to overwrite existing output file
         """
-        if output_path is None:
-            output_path = os.path.join(
-                folder_path, "parsed_markdown", f"concatenated_documentation_{self.model}.md"
-            )
-            os.makedirs(os.path.dirname(output_path), exist_ok=True)
+        # Get the project folder path
+        project_folder = self.path_manager.project_folder
+
+        # Get the output path for the combined markdown
+        output_path = self.path_manager.get_concatenated_doc_path()
 
         if os.path.exists(output_path) and not overwrite:
             logger.info(
@@ -89,10 +91,10 @@ class PDFToMarkdownParser:
             return
 
         # Get all PDF files in the folder
-        pdf_files = [f for f in os.listdir(folder_path) if f.lower().endswith(".pdf")]
+        pdf_files = [f for f in os.listdir(project_folder) if f.lower().endswith(".pdf")]
 
         if not pdf_files:
-            logger.warning(f"No PDF files found in {folder_path}")
+            logger.warning(f"No PDF files found in {project_folder}")
             return
 
         combined_content = []
@@ -101,7 +103,7 @@ class PDFToMarkdownParser:
         for pdf_file in pdf_files:
             base_name = os.path.splitext(pdf_file)[0]
             md_file = f"{base_name}.md"
-            md_path = os.path.join(folder_path, md_file)
+            md_path = os.path.join(project_folder, md_file)
 
             # Check if corresponding markdown file exists
             if os.path.exists(md_path):
@@ -110,7 +112,7 @@ class PDFToMarkdownParser:
                     doc_content = f.read()
             else:
                 # Parse the PDF if no markdown exists
-                pdf_path = os.path.join(folder_path, pdf_file)
+                pdf_path = os.path.join(project_folder, pdf_file)
                 logger.info(f"Processing PDF: {pdf_file}")
 
                 with open(pdf_path, "rb") as f:

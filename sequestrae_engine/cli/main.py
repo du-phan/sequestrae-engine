@@ -169,6 +169,28 @@ def main():
         )
     )
 
+    # Add new command for processing a single project through the entire pipeline
+    process_project_parser = subparsers.add_parser(
+        "process-project", help="Run the complete analysis pipeline for a single project folder"
+    )
+    process_project_parser.add_argument(
+        "--gemini-api-key", help="Gemini API key for PDF parsing", required=True
+    )
+    process_project_parser.add_argument(
+        "--mistral-api-key", help="Mistral API key for analysis", required=True
+    )
+    process_project_parser.add_argument(
+        "--project-dir", help="Path to the specific project folder to process", required=True
+    )
+    process_project_parser.add_argument(
+        "--overwrite", help="Overwrite existing output files", action="store_true"
+    )
+    process_project_parser.set_defaults(
+        func=lambda args: commands.process_project_command(
+            args.gemini_api_key, args.mistral_api_key, args.project_dir, args.overwrite
+        )
+    )
+
     args = parser.parse_args()
     if hasattr(args, "func"):
         exit_status = args.func(args)

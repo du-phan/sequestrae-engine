@@ -3,7 +3,7 @@ import logging
 import os
 import re
 import time
-from typing import Dict, List
+from typing import Any, Dict, List, Literal, Optional, Union
 
 import pandas as pd
 from mistralai import Mistral
@@ -22,8 +22,12 @@ SYSTEM_PROMPT_PATH = os.path.join(SCRIPT_DIR, "prompts/system_prompt.txt")
 PROJECT_OVERVIEW_EXTRACTION_PROMPT_PATH = os.path.join(
     SCRIPT_DIR, "prompts/project_overview_extraction_prompt.txt"
 )
-DUE_DILIGENCE_SYSTEM_PROMPT_PATH = os.path.join(
-    SCRIPT_DIR, "prompts/due_diligence_system_prompt.txt"
+# Define prompt paths that have current/future versions
+DUE_DILIGENCE_SYSTEM_PROMPT_CURRENT_PATH = os.path.join(
+    SCRIPT_DIR, "prompts/due_diligence_system_prompt_current_project.txt"
+)
+DUE_DILIGENCE_SYSTEM_PROMPT_FUTURE_PATH = os.path.join(
+    SCRIPT_DIR, "prompts/due_diligence_system_prompt_future_project.txt"
 )
 DUE_DILIGENCE_CRITERIA_PATH = os.path.join(SCRIPT_DIR, "prompts/due_diligence_criteria.csv")
 FEEDSTOCK_PROMPT_PATH = os.path.join(SCRIPT_DIR, "prompts/feedstock_prompt.txt")
@@ -41,10 +45,20 @@ PERTINENCE_EVALUATION_PROMPT_PATH = os.path.join(
     SCRIPT_DIR, "prompts/pertinence_evaluation_prompt.txt"
 )
 
-SUBTOPIC_RESUME_PROMPT_PATH = os.path.join(SCRIPT_DIR, "prompts/subtopic_resume_prompt.txt")
+SUBTOPIC_RESUME_CURRENT_PROMPT_PATH = os.path.join(
+    SCRIPT_DIR, "prompts/subtopic_resume_prompt_current_project.txt"
+)
+SUBTOPIC_RESUME_FUTURE_PROMPT_PATH = os.path.join(
+    SCRIPT_DIR, "prompts/subtopic_resume_prompt_future_project.txt"
+)
 SUBTOPIC_REFINE_PROMPT_PATH = os.path.join(SCRIPT_DIR, "prompts/subtopic_refine_prompt.txt")
 
-TOPIC_RESUME_PROMPT_PATH = os.path.join(SCRIPT_DIR, "prompts/topic_resume_prompt.txt")
+TOPIC_RESUME_CURRENT_PROMPT_PATH = os.path.join(
+    SCRIPT_DIR, "prompts/topic_resume_prompt_current_project.txt"
+)
+TOPIC_RESUME_FUTURE_PROMPT_PATH = os.path.join(
+    SCRIPT_DIR, "prompts/topic_resume_prompt_future_project.txt"
+)
 
 PROJECT_MAIN_IDEA_PROMPT_PATH = os.path.join(SCRIPT_DIR, "prompts/project_main_insight_prompt.txt")
 
@@ -94,67 +108,261 @@ def read_markdown_file(filepath: str) -> str:
         raise Exception(f"Error reading markdown file: {str(e)}")
 
 
-class AuditReportExtractor:
-    def __init__(self, mistral_api_key, model="mistral-large-latest"):
-        self.model = model
-        self.mistral_client = Mistral(api_key=mistral_api_key)
+class PathManager:
+    """
+    Manages file paths for project data, standardizing path creation and derivation.
+    """
 
-    def parse_audit_report(self, audit_report_path, output_folder_path=None, overwrite=False):
-        # Read the markdown file
-        report_content = read_markdown_file(audit_report_path)
+    # Analysis file type constants
+    ANALYSIS = "analysis"
+    OVERVIEW = "overview"
+    SUBTOPIC_SUMMARIES = "subtopic_summaries"
+    TOPIC_SUMMARIES = "topic_summaries"
+    MAIN_INSIGHTS = "main_insights"
 
-        # Extract relevant information from the markdown content
-        audit_report_dict = self.extract_audit_report_data(report_content)
+    # Directory structure constants
+    ANALYSIS_DIR = "analysis"
+    PARSED_MARKDOWN_DIR = "parsed_markdown"
 
-        # Determine output path
-        input_dir = os.path.dirname(audit_report_path)
-        input_filename = os.path.basename(audit_report_path)
-        output_filename = os.path.splitext(input_filename)[0] + ".json"
+    # Common file names
+    DEFAULT_MARKDOWN_FILE = "concatenated_documentation.md"
 
-        output_path = os.path.join(
-            output_folder_path if output_folder_path else input_dir, output_filename
-        )
-
-        # Check if file exists and overwrite is False
-        if os.path.exists(output_path) and not overwrite:
-            logger.info(f"Output file already exists at {output_path} and overwrite=False")
-
-        # Save the JSON file
-        with open(output_path, "w", encoding="utf-8") as f:
-            json.dump(audit_report_dict, f, indent=2)
-
-        logger.info(f"Parsing {audit_report_path} and saving to {output_path}")
-
-        return audit_report_dict
-
-    def extract_project_overview_data(
-        self, project_name: str, markdown_document_path: str, output_path=None, overwrite=False
-    ):
+    def __init__(self, model: str, project_folder: str):
         """
-        Extract project overview data from markdown document using Mistral LLM.
+        Initialize the PathManager with a model name and project folder.
 
         Args:
-            project_name (str): Name of the project being analyzed
-            markdown_document_path (str): Path to the markdown document
-            output_path (str, optional): Path to save the output JSON. Defaults to None.
-            overwrite (bool, optional): Whether to overwrite existing output file. Defaults to False.
+            model (str): Model name used for file naming
+            project_folder (str): Path to project folder
+        """
+        self.model = model
+        self.project_folder = project_folder
+        # Always infer project name from project folder
+        self._project_name = os.path.basename(os.path.normpath(project_folder))
+
+    def set_project_folder(self, project_folder: str) -> None:
+        """
+        Set or update the project folder path.
+
+        Args:
+            project_folder (str): Path to the project folder
+        """
+        self.project_folder = project_folder
+        # Update project name when folder changes
+        self._project_name = os.path.basename(os.path.normpath(project_folder))
+
+    @property
+    def project_name(self) -> str:
+        """
+        Get project name from the project folder path.
+
+        Returns:
+            str: Name of the project derived from folder path
+        """
+        return self._project_name
+
+    def get_analysis_dir(self) -> str:
+        """
+        Get the standard analysis directory path.
+
+        Returns:
+            str: Path to the analysis directory
+        """
+        return os.path.join(self.project_folder, self.ANALYSIS_DIR)
+
+    def get_markdown_dir(self) -> str:
+        """
+        Get the standard parsed markdown directory path.
+
+        Returns:
+            str: Path to the parsed markdown directory
+        """
+        return os.path.join(self.project_folder, self.PARSED_MARKDOWN_DIR)
+
+    def get_markdown_path(self, filename: Optional[str] = None) -> str:
+        """
+        Get path to a markdown file in the standard location.
+
+        Args:
+            filename (Optional[str]): Filename of the markdown file, defaults to standard name
+
+        Returns:
+            str: Path to the markdown file
+        """
+        if not filename:
+            filename = self.DEFAULT_MARKDOWN_FILE
+        return os.path.join(self.get_markdown_dir(), filename)
+
+    def get_analysis_file_path(self) -> str:
+        """
+        Get path to the analysis file in the standard location.
+
+        Returns:
+            str: Path to the analysis file
+        """
+        filename = f"{self.project_name}_{self.ANALYSIS}.json"
+        return os.path.join(self.get_analysis_dir(), filename)
+
+    def get_overview_file_path(self) -> str:
+        """
+        Get path to the overview file in the standard location.
+
+        Returns:
+            str: Path to the overview file
+        """
+        filename = f"{self.project_name}_{self.OVERVIEW}.json"
+        return os.path.join(self.get_analysis_dir(), filename)
+
+    def get_subtopic_summaries_path(self) -> str:
+        """
+        Get path to the subtopic summaries file in the standard location.
+
+        Returns:
+            str: Path to the subtopic summaries file
+        """
+        return os.path.join(
+            self.get_analysis_dir(), f"{self.project_name}_{self.SUBTOPIC_SUMMARIES}.json"
+        )
+
+    def get_topic_summaries_path(self) -> str:
+        """
+        Get path to the topic summaries file in the standard location.
+
+        Returns:
+            str: Path to the topic summaries file
+        """
+        return os.path.join(
+            self.get_analysis_dir(), f"{self.project_name}_{self.TOPIC_SUMMARIES}.json"
+        )
+
+    def get_main_insights_path(self) -> str:
+        """
+        Get path to the main insights file in the standard location.
+
+        Returns:
+            str: Path to the main insights file
+        """
+        return os.path.join(
+            self.get_analysis_dir(), f"{self.project_name}_{self.MAIN_INSIGHTS}.json"
+        )
+
+    def get_concatenated_doc_path(self) -> str:
+        """
+        Get the full path to the concatenated documentation file.
+
+        Returns:
+            str: Full path to the concatenated documentation file
+        """
+        filename = f"{self.project_name}_concatenated_documentation.md"
+        return self.get_markdown_path(filename)
+
+
+class AuditReportExtractor:
+    def __init__(
+        self,
+        mistral_api_key: str,
+        project_folder: str,
+        model: str = "mistral-large-latest",
+        overwrite: bool = False,
+    ):
+        """
+        Initialize the AuditReportExtractor with common parameters.
+
+        Args:
+            mistral_api_key (str): API key for Mistral
+            model (str): Model to use for LLM inference
+            project_folder (Optional[str]): Path to the project folder
+            project_type (str): Type of project - "current" (ongoing) or "future" (planned)
+            overwrite (bool): Whether to overwrite existing output files
+        """
+        self.model = model
+        self.mistral_client = Mistral(api_key=mistral_api_key)
+        self.overwrite = overwrite
+        self.path_manager = PathManager(model, project_folder)
+        self.project_type = None
+
+    def set_project_folder(self, project_folder: str) -> None:
+        """
+        Set the project folder for analysis.
+
+        Args:
+            project_folder (str): Path to the project folder
+        """
+        self.path_manager.set_project_folder(project_folder)
+
+    def _get_prompt_path(self, current_prompt_path: str, future_prompt_path: str) -> str:
+        """
+        Helper method to get the appropriate prompt path based on project type.
+
+        Args:
+            current_prompt_path (str): Path to the prompt file for current projects
+            future_prompt_path (str): Path to the prompt file for future projects
+
+        Returns:
+            str: Selected prompt path
+        """
+        return current_prompt_path if self.project_type == "current" else future_prompt_path
+
+    def _should_skip_existing(self, output_path: str) -> bool:
+        """
+        Check if output file exists and should be skipped.
+
+        Args:
+            output_path (str): Path to the output file
+
+        Returns:
+            bool: True if file exists and should be skipped, False otherwise
+        """
+        if os.path.exists(output_path) and not self.overwrite:
+            logger.info(
+                f"Output file already exists at {output_path} and overwrite=False. Skipping."
+            )
+            return True
+        return False
+
+    def _ensure_output_directory(self, output_path: str) -> None:
+        """
+        Ensure the output directory exists.
+
+        Args:
+            output_path (str): Path to the output file
+        """
+        output_dir = os.path.dirname(output_path)
+        if output_dir:  # Only create directory if path has a parent directory
+            os.makedirs(output_dir, exist_ok=True)
+
+    def _save_json_output(self, data: Union[Dict, List], output_path: str) -> None:
+        """
+        Save data to JSON file.
+
+        Args:
+            data (Union[Dict, List]): Data to save
+            output_path (str): Path to the output file
+        """
+        self._ensure_output_directory(output_path)
+        with open(output_path, "w", encoding="utf-8") as f:
+            json.dump(data, f, indent=2)
+        logger.info(f"Data saved to {output_path}")
+
+    def extract_project_overview_data(self, overwrite: Optional[bool] = None):
+        """
+        Extract project overview data from the standard markdown document using Mistral LLM.
+
+        Args:
+            overwrite (Optional[bool]): Whether to overwrite existing output file
 
         Returns:
             Dict: Dictionary containing project overview data
         """
-        # Set default output path if none provided
-        if output_path is None:
-            output_path = os.path.join(
-                os.path.dirname(os.path.dirname(markdown_document_path)),
-                "analysis",
-                f"{project_name}_overview_{self.model}.json",
-            )
+        # Use instance values if not specified
+        overwrite = self.overwrite if overwrite is None else overwrite
 
-        # Check if file exists and overwrite is False
-        if os.path.exists(output_path) and not overwrite:
-            logger.info(
-                f"Output file already exists at {output_path} and overwrite=False. Skipping."
-            )
+        # Get standard file paths
+        markdown_document_path = self.path_manager.get_concatenated_doc_path()
+        output_path = self.path_manager.get_overview_file_path()
+
+        # Check if file exists and should be skipped
+        if self._should_skip_existing(output_path):
             # Load and return existing file
             return load_json_file(output_path)
 
@@ -217,14 +425,8 @@ class AuditReportExtractor:
             response_content, required_fields
         )
 
-        # Create parent directory if it doesn't exist
-        output_dir = os.path.dirname(output_path)
-        if output_dir:  # Only create directory if path has a parent directory
-            os.makedirs(output_dir, exist_ok=True)
-
-        # Save the JSON file
-        with open(output_path, "w", encoding="utf-8") as f:
-            json.dump(project_overview_data, f, indent=2)
+        # Save the JSON file using the helper method
+        self._save_json_output(project_overview_data, output_path)
 
         logger.info(
             f"Extracted project overview data from {markdown_document_path} and saved to {output_path}"
@@ -232,25 +434,30 @@ class AuditReportExtractor:
 
         return project_overview_data
 
-    def analyze_due_diligence_criteria(
-        self, project_name: str, markdown_document_path: str, output_path=None, overwrite=False
-    ):
+    def analyze_due_diligence_criteria(self, overwrite: Optional[bool] = None):
+        """
+        Analyze due diligence criteria for a project.
 
-        if output_path is None:
-            output_path = os.path.join(
-                os.path.dirname(os.path.dirname(markdown_document_path)),
-                "analysis",
-                f"{project_name}_analysis_{self.model}.json",
-            )
+        Args:
+            overwrite (Optional[bool]): Whether to overwrite existing output
+        """
+        # Use instance values if not specified
+        overwrite = self.overwrite if overwrite is None else overwrite
 
-        # Check if file exists and overwrite is False
-        if os.path.exists(output_path) and not overwrite:
-            logger.info(
-                f"Output file already exists at {output_path} and overwrite=False. Skipping."
-            )
+        # Get standard file paths
+        markdown_document_path = self.path_manager.get_concatenated_doc_path()
+        output_path = self.path_manager.get_analysis_file_path()
+
+        # Check if file exists and should be skipped
+        if self._should_skip_existing(output_path):
             return
 
-        with open(DUE_DILIGENCE_SYSTEM_PROMPT_PATH, "r") as f:
+        # Select the appropriate prompt file based on project_type
+        due_diligence_prompt_path = self._get_prompt_path(
+            DUE_DILIGENCE_SYSTEM_PROMPT_CURRENT_PATH, DUE_DILIGENCE_SYSTEM_PROMPT_FUTURE_PATH
+        )
+
+        with open(due_diligence_prompt_path, "r") as f:
             context_content = f.read()
 
         criteria_df = pd.read_csv(DUE_DILIGENCE_CRITERIA_PATH)
@@ -339,12 +546,8 @@ class AuditReportExtractor:
             print(f"    Total time: {running_time_in_minutes} minutes")
             time.sleep(1)  # Rate limiting
 
-        # Create parent directory if it doesn't exist
-        output_dir = os.path.dirname(output_path)
-        if output_dir:  # Only create directory if path has a parent directory
-            os.makedirs(output_dir, exist_ok=True)
-        with open(output_path, "w", encoding="utf-8") as f:
-            json.dump(result_list, f, indent=2)
+        # Save the results using the helper method
+        self._save_json_output(result_list, output_path)
 
     def _validate_json_schema(self, json_data: List[Dict], required_fields: set) -> bool:
         """
@@ -606,31 +809,25 @@ class AuditReportExtractor:
 
         return result_list
 
-    def create_subtopic_summaries(self, analysis_json_path: str, output_path=None, overwrite=False):
+    def create_subtopic_summaries(self, overwrite: Optional[bool] = None):
         """
         Create summaries for each subtopic from an analysis JSON file.
 
         Args:
-            analysis_json_path (str): Path to the analysis JSON file
-            output_path (str, optional): Path to save the summaries. Defaults to None.
-            overwrite (bool, optional): Whether to overwrite existing output file. Defaults to False.
+            overwrite (Optional[bool]): Whether to overwrite existing output file
 
         Returns:
             List[Dict]: List of summaries for each subtopic
         """
-        # Set default output path if none provided
-        if output_path is None:
-            output_path = os.path.join(
-                os.path.dirname(analysis_json_path),
-                os.path.splitext(os.path.basename(analysis_json_path))[0]
-                + "_subtopic_summaries.json",
-            )
+        # Use instance values if not specified
+        overwrite = self.overwrite if overwrite is None else overwrite
 
-        # Check if file exists and overwrite is False
-        if os.path.exists(output_path) and not overwrite:
-            logger.info(
-                f"Output file already exists at {output_path} and overwrite=False. Skipping."
-            )
+        # Get standard file paths
+        analysis_json_path = self.path_manager.get_analysis_file_path()
+        output_path = self.path_manager.get_subtopic_summaries_path()
+
+        # Check if file exists and should be skipped
+        if self._should_skip_existing(output_path):
             return
 
         # Load analysis data directly to DataFrame
@@ -639,8 +836,14 @@ class AuditReportExtractor:
         # Quick fix: Replace topic name (TODO: Fix naming inconsistency in upstream data)
         df["topic"] = df["topic"].replace("Climate science", "Carbon Accounting & Integrity")
 
+        # Select the appropriate prompt file based on project_type
+        subtopic_prompt_path = self._get_prompt_path(
+            SUBTOPIC_RESUME_CURRENT_PROMPT_PATH, SUBTOPIC_RESUME_FUTURE_PROMPT_PATH
+        )
+
         # Load the subtopic resume prompt
-        with open(SUBTOPIC_RESUME_PROMPT_PATH, "r") as f:
+        with open(subtopic_prompt_path, "r") as f:
+            print(f"Using subtopic prompt: {subtopic_prompt_path}")
             subtopic_resume_system_prompt = f.read()
 
         with open(SUBTOPIC_REFINE_PROMPT_PATH, "r") as f:
@@ -657,7 +860,7 @@ class AuditReportExtractor:
         {input_data}
         ```
 
-        Once you come up with the first version of the result, do a careful critical review based on the instructions above, improve your result then return the best version.
+        Once you come up with the first version of the result, do a thorough step-by-step critical review based on the instructions above, try your best improve the result then return only the best version.
         """
 
         refine_summary_prompt_template = """
@@ -718,39 +921,31 @@ class AuditReportExtractor:
 
             time.sleep(1)  # Rate limiting
 
-        # Save summaries to file
-        with open(output_path, "w") as f:
-            json.dump(summaries, f, indent=2)
+        # Save summaries using the helper method
+        self._save_json_output(summaries, output_path)
+        logger.info(f"Created summaries for {len(summaries)} subtopics.")
 
-        logger.info(f"Created summaries for {len(summaries)} subtopics. Saved to {output_path}")
+        return summaries
 
-    def create_topic_summaries(
-        self, subtopic_summaries_json_path: str, output_path=None, overwrite=False
-    ):
+    def create_topic_summaries(self, overwrite: Optional[bool] = None):
         """
-        Create summaries for each topic from an analysis JSON file.
+        Create summaries for each topic from subtopic summaries.
 
         Args:
-            analysis_json_path (str): Path to the analysis JSON file
-            output_path (str, optional): Path to save the summaries. Defaults to None.
-            overwrite (bool, optional): Whether to overwrite existing output file. Defaults to False.
+            overwrite (Optional[bool]): Whether to overwrite existing output file
 
         Returns:
             List[Dict]: List of summaries for each topic
         """
-        # Set default output path if none provided
-        if output_path is None:
-            output_path = os.path.join(
-                os.path.dirname(subtopic_summaries_json_path),
-                os.path.splitext(os.path.basename(subtopic_summaries_json_path))[0]
-                + "_topic_summaries.json",
-            )
+        # Use instance values if not specified
+        overwrite = self.overwrite if not overwrite else overwrite
 
-        # Check if file exists and overwrite is False
-        if os.path.exists(output_path) and not overwrite:
-            logger.info(
-                f"Output file already exists at {output_path} and overwrite=False. Skipping."
-            )
+        # Get standard file paths
+        subtopic_summaries_json_path = self.path_manager.get_subtopic_summaries_path()
+        output_path = self.path_manager.get_topic_summaries_path()
+
+        # Check if file exists and should be skipped
+        if self._should_skip_existing(output_path):
             return
 
         # Load analysis data directly to DataFrame
@@ -759,8 +954,14 @@ class AuditReportExtractor:
         # Quick fix: Replace topic name (TODO: Fix naming inconsistency in upstream data)
         df["topic"] = df["topic"].replace("Climate science", "Carbon Accounting & Integrity")
 
+        # Select the appropriate prompt file based on project_type
+        topic_prompt_path = self._get_prompt_path(
+            TOPIC_RESUME_CURRENT_PROMPT_PATH, TOPIC_RESUME_FUTURE_PROMPT_PATH
+        )
+
         # Load the topic resume prompt
-        with open(TOPIC_RESUME_PROMPT_PATH, "r") as f:
+        with open(topic_prompt_path, "r") as f:
+            print(f"Using topic prompt: {topic_prompt_path}")
             topic_resume_system_prompt = f.read()
 
         # Template for the full message
@@ -805,41 +1006,31 @@ class AuditReportExtractor:
 
             time.sleep(1)  # Rate limiting
 
-        # Save summaries to file
-        with open(output_path, "w") as f:
-            json.dump(summaries, f, indent=2)
+        # Save summaries using the helper method
+        self._save_json_output(summaries, output_path)
+        logger.info(f"Created summaries for {len(summaries)} topics.")
 
-        logger.info(f"Created summaries for {len(summaries)} topics. Saved to {output_path}")
+        return summaries
 
-    def create_topic_main_insights(
-        self, topic_summaries_json_path: str, output_path=None, overwrite=False
-    ):
+    def create_topic_main_insights(self, overwrite: Optional[bool] = None):
         """
         Generate main insights for the project based on topic summaries.
 
         Args:
-            topic_summaries_json_path (str): Path to the topic summaries JSON file
-            output_path (str, optional): Path to save the main idea. Defaults to None.
-            overwrite (bool, optional): Whether to overwrite existing output file. Defaults to False.
+            overwrite (Optional[bool]): Whether to overwrite existing output file
 
         Returns:
             Dict: Project main idea
         """
-        # Set default output path if none provided
-        if output_path is None:
-            # Extract the base part of the filename (before _subtopic_summaries_topic_summaries.json)
-            base_filename = os.path.basename(topic_summaries_json_path).split(
-                "_subtopic_summaries"
-            )[0]
-            output_path = os.path.join(
-                os.path.dirname(topic_summaries_json_path), f"{base_filename}_main_insights.json"
-            )
+        # Use instance values if not specified
+        overwrite = self.overwrite if not overwrite else overwrite
 
-        # Check if file exists and overwrite is False
-        if os.path.exists(output_path) and not overwrite:
-            logger.info(
-                f"Output file already exists at {output_path} and overwrite=False. Skipping."
-            )
+        # Get standard file paths
+        topic_summaries_json_path = self.path_manager.get_topic_summaries_path()
+        output_path = self.path_manager.get_main_insights_path()
+
+        # Check if file exists and should be skipped
+        if self._should_skip_existing(output_path):
             return load_json_file(output_path)
 
         # Load topic summaries data
@@ -878,10 +1069,85 @@ class AuditReportExtractor:
             chat_response.choices[0].message.content, REQUIRED_FIELDS_FOR_MAIN_INSIGHTS
         )
 
-        # Save main idea to file
-        with open(output_path, "w") as f:
-            json.dump(main_insight_json, f, indent=2)
-
-        logger.info(f"Created project main idea. Saved to {output_path}")
+        # Save main idea using the helper method
+        self._save_json_output(main_insight_json, output_path)
+        logger.info(f"Created project main idea.")
 
         return main_insight_json
+
+    def set_project_type(self, project_type: Literal["current", "future"]) -> None:
+        """
+        Set the project type for analysis.
+
+        Args:
+            project_type (str): Type of project - "current" (ongoing) or "future" (planned)
+        """
+        if project_type not in ["current", "future"]:
+            raise ValueError("Project type must be 'current' or 'future'")
+
+        self.project_type = project_type
+        logger.info(f"Project type set to: {self.project_type}")
+
+    def process_project(self) -> None:
+        """
+        Process a complete project through the entire pipeline.
+
+        Args:
+            project_folder (str): Path to the project folder
+        """
+        total_start_time = time.time()
+        logger.info(f"Starting analysis pipeline for project: {self.path_manager.project_name}")
+
+        # Step 1: Extract project overview data
+        logger.info("Step 1/5: Extracting project overview data")
+        step_start_time = time.time()
+        overview_data = self.extract_project_overview_data()
+        logger.info(
+            f"✓ Project overview extraction completed in {(time.time() - step_start_time) / 60:.2f} minutes"
+        )
+
+        # Get project_type from overview_data, default to "future" if not present or null
+        if "project_type" in overview_data and overview_data["project_type"] != "":
+            self.set_project_type(overview_data["project_type"])
+        else:
+            logger.warning(
+                "No project_type found in overview data or value is null, defaulting to 'future'"
+            )
+            self.set_project_type("future")
+
+        # Step 2: Analyze due diligence criteria
+        logger.info("Step 2/5: Analyzing due diligence criteria")
+        step_start_time = time.time()
+        self.analyze_due_diligence_criteria()
+        logger.info(
+            f"✓ Due diligence analysis completed in {(time.time() - step_start_time) / 60:.2f} minutes"
+        )
+
+        # Step 3: Create subtopic summaries
+        logger.info("Step 3/5: Creating subtopic summaries")
+        step_start_time = time.time()
+        self.create_subtopic_summaries()
+        logger.info(
+            f"✓ Subtopic summaries created in {(time.time() - step_start_time) / 60:.2f} minutes"
+        )
+
+        # Step 4: Create topic summaries
+        logger.info("Step 4/5: Creating topic summaries")
+        step_start_time = time.time()
+        self.create_topic_summaries()
+        logger.info(
+            f"✓ Topic summaries created in {(time.time() - step_start_time) / 60:.2f} minutes"
+        )
+
+        logger.info("Step 5/5: Generating main project insights")
+        step_start_time = time.time()
+        self.create_topic_main_insights()
+        logger.info(
+            f"✓ Main insights generated in {(time.time() - step_start_time) / 60:.2f} minutes"
+        )
+
+        total_time = time.time() - total_start_time
+        minutes, seconds = divmod(total_time, 60)
+        logger.info(
+            f"Project analysis pipeline completed in {int(minutes)} minutes {seconds:.2f} seconds"
+        )

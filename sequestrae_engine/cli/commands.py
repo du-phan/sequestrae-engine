@@ -203,7 +203,9 @@ def analyze_due_diligence_command(gemini_api_key, mistral_api_key, project_dir):
             )
             start_time = time.time()
             retry_on_error()(audit_extractor.analyze_due_diligence_criteria)(
-                project_name=project_name, markdown_document_path=markdown_document_path
+                project_name=project_name,
+                markdown_document_path=markdown_document_path,
+                overwrite=False,
             )
             logger.info(
                 f"--------- Due diligence analysis complete in {round((time.time() - start_time)/60, 2)} minutes."
@@ -264,7 +266,8 @@ def create_subtopic_summaries_command(mistral_api_key, project_dir):
             start_time = time.time()
             try:
                 retry_on_error()(audit_extractor.create_subtopic_summaries)(
-                    analysis_json_path=str(analysis_path)
+                    analysis_json_path=str(analysis_path),
+                    overwrite=False,
                 )
                 logger.info(
                     f"--------- Subtopic summaries created in {round((time.time() - start_time)/60, 2)} minutes."
@@ -329,7 +332,7 @@ def create_topic_summaries_command(mistral_api_key, project_dir):
             start_time = time.time()
             try:
                 retry_on_error()(audit_extractor.create_topic_summaries)(
-                    subtopic_summaries_json_path=str(subtopic_summary_path)
+                    subtopic_summaries_json_path=str(subtopic_summary_path), overwrite=False
                 )
                 logger.info(
                     f"--------- Topic summaries created in {round((time.time() - start_time)/60, 2)} minutes."
@@ -514,3 +517,65 @@ def create_project_main_insights_command(mistral_api_key, project_dir):
 
     logger.info("Completed processing all projects")
     return 0
+
+
+def process_project_command(gemini_api_key, mistral_api_key, project_dir, overwrite=False):
+    """
+    Run the complete analysis pipeline for a single project folder.
+
+    This function:
+    1. Parses PDFs in the project folder to markdown
+    2. Runs the full analysis pipeline on the parsed markdown
+
+    Args:
+        gemini_api_key: API key for PDF parsing
+        mistral_api_key: API key for analysis
+        project_dir: Path to the specific project folder to process
+        overwrite: Whether to overwrite existing output files (default: False)
+
+    Returns:
+        int: 0 if successful, 1 if there was an error
+    """
+    if not gemini_api_key or not mistral_api_key:
+        logger.error("Both GEMINI_API_KEY and MISTRAL_API_KEY are required")
+        return 1
+
+    project_path = Path(project_dir)
+    if not project_path.exists() or not project_path.is_dir():
+        logger.error(f"Project folder not found at {project_path}")
+        return 1
+
+    project_name = project_path.name
+    logger.info(f"Starting complete analysis pipeline for project: {project_name}")
+    logger.info(f"Overwrite existing files: {'Yes' if overwrite else 'No'}")
+
+    try:
+        # Step 1: Parse PDFs to markdown
+        total_start_time = time.time()
+        start_time = time.time()
+        logger.info("----Parsing PDFs to markdown----")
+        pdf_parser = PDFToMarkdownParser(
+            gemini_api_key=gemini_api_key, project_folder=str(project_path)
+        )
+        pdf_parser.parse_pdf_folder(overwrite=overwrite)
+        logger.info(
+            f"✓ PDF processing completed in {round((time.time() - start_time)/60, 2)} minutes"
+        )
+
+        # Step 2: Run the full analysis pipeline
+        logger.info("----Running analysis pipeline----")
+        report_extractor = AuditReportExtractor(
+            mistral_api_key=mistral_api_key, project_folder=str(project_path), overwrite=overwrite
+        )
+        report_extractor.process_project()
+
+        total_time = time.time() - total_start_time
+        minutes, seconds = divmod(total_time, 60)
+        logger.info(
+            f"Successfully completed processing project {project_name} in {int(minutes)} minutes {seconds:.2f} seconds"
+        )
+        return 0
+
+    except Exception as e:
+        logger.error(f"Error processing project {project_name}: {str(e)}")
+        return 1
