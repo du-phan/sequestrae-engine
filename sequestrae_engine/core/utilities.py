@@ -1,6 +1,7 @@
 import json
 import logging
 import os
+from pathlib import Path
 
 from jsonschema import validate, validators
 
@@ -12,6 +13,21 @@ logging.basicConfig(
     level=logging.INFO, format="%(asctime)s - %(name)s - %(levelname)s - %(message)s"
 )
 logger = logging.getLogger(__name__)
+
+
+def get_json_files(project_folder_path):
+    # Get the project_data directory path
+    base_dir = Path(project_folder_path)
+
+    # Check if directory exists
+    if not base_dir.exists():
+        print(f"Error: Directory not found at {base_dir}")
+        return []
+
+    # Find all JSON files and store paths in a list
+    json_files = [str(file) for file in base_dir.rglob("*.json")]
+
+    return json_files
 
 
 def read_json(file_path):
@@ -34,6 +50,23 @@ def read_json(file_path):
         except json.JSONDecodeError as e:
             logger.error(f"Error decoding JSON from file {file_path}: {e}")
             raise e
+
+
+def load_json_file(filepath: str) -> dict:
+    try:
+        file_path = Path(filepath)
+        with file_path.open("r", encoding="utf-8") as f:
+            data = json.load(f)
+        return data
+    except FileNotFoundError:
+        logger.error(f"File not found at {filepath}")
+        return {}
+    except json.JSONDecodeError:
+        logger.error(f"Invalid JSON format in {filepath}")
+        return {}
+    except Exception as e:
+        logger.error(f"Unable to load JSON file: {str(e)}")
+        return {}
 
 
 def write_json(file_path, json_dict):
