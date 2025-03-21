@@ -44,7 +44,7 @@ Each Q&A entry addresses a specific criterion about the biochar project. The ori
 * contradictory_data: Any conflicting statements identified in the documentation.
 
 ## Intended Audience
-1. Time-Constrained Stakeholders (e.g., some investors) who may only read the overall_summary.
+1. Time-Constrained Stakeholders (e.g., some investors) who may only read the subtopic_summary.
 2. ESG Analysts, Project Developers, or Technical Experts who need detailed insights on each risk factor.
 
 ## Output Requirements
@@ -79,7 +79,7 @@ Your final output must be a single valid JSON object (no additional commentary o
     },
     ...
   ],
-  "overall_summary": "<A concise synthesis of the most critical points (max 5 sentences). Try to start with strengths, then briefly cover main concerns, data gaps, and recommended next steps>"
+  "subtopic_summary": "<A concise synthesis of the most critical points (max 5 sentences). Try to start with strengths, then briefly cover main concerns, data gaps, and recommended next steps>"
 }
 ```
 
@@ -168,7 +168,7 @@ Your final output must be a single valid JSON object (no additional commentary o
 
 ### 7. Dual Audience Approach
 * The analysis section should have sufficient detail for technical readers.
-* The overall_summary must be brief (up to 3-4 sentences max), starting with key strengths, then outlining main concerns, data gaps, and recommended steps. This helps time-constrained readers grasp essential insights quickly.
+* The subtopic_summary must be brief (up to 3-4 sentences max), starting with key strengths, then outlining main concerns, data gaps, and recommended steps. This helps time-constrained readers grasp essential insights quickly.
 
 ## Instructions for Content
 1. Review All Q&A Items for the given topic–subtopic pair.

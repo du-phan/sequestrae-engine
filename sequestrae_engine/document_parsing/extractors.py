@@ -18,7 +18,6 @@ logger = logging.getLogger(__name__)
 
 # Define paths relative to this file
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
-SYSTEM_PROMPT_PATH = os.path.join(SCRIPT_DIR, "prompts/system_prompt.txt")
 PROJECT_OVERVIEW_EXTRACTION_PROMPT_PATH = os.path.join(
     SCRIPT_DIR, "prompts/project_overview_extraction_prompt.txt"
 )
@@ -30,8 +29,6 @@ DUE_DILIGENCE_SYSTEM_PROMPT_FUTURE_PATH = os.path.join(
     SCRIPT_DIR, "prompts/due_diligence_system_prompt_future_project.txt"
 )
 DUE_DILIGENCE_CRITERIA_PATH = os.path.join(SCRIPT_DIR, "prompts/due_diligence_criteria.csv")
-FEEDSTOCK_PROMPT_PATH = os.path.join(SCRIPT_DIR, "prompts/feedstock_prompt.txt")
-FEEDSTOCK_CRITERIA_PATH = os.path.join(SCRIPT_DIR, "prompts/feedstock_criteria.json")
 
 HALLUCINATION_DETECTION_PROMPT_PATH = os.path.join(
     SCRIPT_DIR, "prompts/hallucination_evaluation_prompt.txt"
@@ -39,10 +36,6 @@ HALLUCINATION_DETECTION_PROMPT_PATH = os.path.join(
 
 HALLUCINATION_FIXING_PROMPT_PATH = os.path.join(
     SCRIPT_DIR, "prompts/hallucination_fixing_prompt.txt"
-)
-
-PERTINENCE_EVALUATION_PROMPT_PATH = os.path.join(
-    SCRIPT_DIR, "prompts/pertinence_evaluation_prompt.txt"
 )
 
 SUBTOPIC_RESUME_CURRENT_PROMPT_PATH = os.path.join(
@@ -72,7 +65,6 @@ REQUIRED_FIELDS_FOR_DUE_DILIGENCE = {
     "short_answer",
     "long_answer",
     "detail_level",
-    "evidence_found",
     "missing_data",
     "contradictory_data",
 }

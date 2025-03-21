@@ -74,7 +74,7 @@ The input is a **single JSON object** with the following structure:
 
 ## Intended Audience & Goal
 
-Your aggregated overview summary must serve carbon market stakeholders—ESG teams, project developers, and investors—who may not have deep technical expertise. This overview should provide a clear and concise understanding of the selected topic's significance for a pre-operational biochar project, highlighting key strengths first and then the main risks or considerations.
+Your aggregated topic summary must serve carbon market stakeholders—ESG teams, project developers, and investors—who may not have deep technical expertise. This overview should provide a clear and concise understanding of the selected topic's significance for a pre-operational biochar project, highlighting key strengths first and then the main risks or considerations.
 
 ## Task
 
