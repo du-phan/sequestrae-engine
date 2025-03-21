@@ -248,6 +248,16 @@ class PathManager:
         filename = f"{self.project_name}_concatenated_documentation.md"
         return self.get_markdown_path(filename)
 
+    def get_analysis_checkpoint_path(self) -> str:
+        """
+        Get path to the analysis checkpoint file in the standard location.
+
+        Returns:
+            str: Path to the analysis checkpoint file
+        """
+        filename = f"{self.project_name}_{self.ANALYSIS}_checkpoint.json"
+        return os.path.join(self.get_analysis_dir(), filename)
+
 
 class AuditReportExtractor:
     def __init__(
@@ -428,7 +438,7 @@ class AuditReportExtractor:
 
     def analyze_due_diligence_criteria(self, overwrite: Optional[bool] = None):
         """
-        Analyze due diligence criteria for a project.
+        Analyze due diligence criteria for a project with checkpointing for fault tolerance.
 
         Args:
             overwrite (Optional[bool]): Whether to overwrite existing output
@@ -439,10 +449,36 @@ class AuditReportExtractor:
         # Get standard file paths
         markdown_document_path = self.path_manager.get_concatenated_doc_path()
         output_path = self.path_manager.get_analysis_file_path()
+        checkpoint_path = self.path_manager.get_analysis_checkpoint_path()
 
-        # Check if file exists and should be skipped
+        # Check for ambiguous state (both output and checkpoint exist)
+        if os.path.exists(output_path) and os.path.exists(checkpoint_path) and not overwrite:
+            logger.warning(f"Both output file and checkpoint file exist. Using the output file.")
+            # Prioritize the output file in this case
+            return
+
+        # Check if final output file exists and should be skipped
         if self._should_skip_existing(output_path):
             return
+
+        # Check if checkpoint file exists
+        checkpoint_exists = os.path.exists(checkpoint_path) and not overwrite
+        result_list = []
+        processed_indices = set()
+
+        if checkpoint_exists:
+            try:
+                with open(checkpoint_path, "r", encoding="utf-8") as f:
+                    checkpoint_data = json.load(f)
+                    result_list = checkpoint_data.get("results", [])
+                    processed_indices = set(map(int, checkpoint_data.get("processed_indices", [])))
+                    logger.info(
+                        f"Resuming from checkpoint with {len(result_list)} results and {len(processed_indices)} processed items"
+                    )
+            except (json.JSONDecodeError, FileNotFoundError) as e:
+                logger.warning(f"Error loading checkpoint file: {str(e)}. Starting from beginning.")
+                result_list = []
+                processed_indices = set()
 
         # Select the appropriate prompt file based on project_type
         due_diligence_prompt_path = self._get_prompt_path(
@@ -478,17 +514,43 @@ class AuditReportExtractor:
         with open(markdown_document_path, "r") as file:
             concatenated_project_doc = file.read()
 
-        result_list = []
-        count = 1
-        for _, r in grouped_criteria_df.iterrows():
+        total_count = len(grouped_criteria_df)
+        processed_count = len(processed_indices)
+        remaining_count = total_count - processed_count
+
+        # Ensure output directory exists
+        self._ensure_output_directory(checkpoint_path)
+
+        # Start time for this session
+        session_start_time = time.time()
+
+        for idx, r in grouped_criteria_df.iterrows():
+            # Skip already processed items
+            if idx in processed_indices:
+                continue
+
+            # Calculate progress stats
+            processed_count += 1
+            remaining_count -= 1
+            percent_complete = (processed_count / total_count) * 100
+
+            # Estimate time remaining if we have processed at least a few items
+            time_elapsed = time.time() - session_start_time
+            items_processed_this_session = processed_count - len(processed_indices)
+
+            if items_processed_this_session > 0:
+                avg_time_per_item = time_elapsed / items_processed_this_session
+                est_time_remaining_mins = (avg_time_per_item * remaining_count) / 60
+                eta_str = f", ETA: {est_time_remaining_mins:.1f} minutes"
+            else:
+                eta_str = ""
+
             print(
-                f"{count}/{len(grouped_criteria_df)}",
-                r["topic"],
-                r["sub_topic"],
-                r["risk_factor"],
-                len(r["qa_pairs"]),
+                f"[{processed_count}/{total_count}] {percent_complete:.1f}%{eta_str} - "
+                f"Processing: {r['topic']}, {r['sub_topic']}, {r['risk_factor']} "
+                f"({len(r['qa_pairs'])} questions)"
             )
-            count += 1
+
             start_time = time.time()
             question_list = []
             template_instruction = """
@@ -502,7 +564,7 @@ class AuditReportExtractor:
                     template_instruction.format(question=question, instruction=instruction)
                 )
 
-                joined_question = "".join(question_list)
+            joined_question = "".join(question_list)
 
             full_message = full_message_template.format(
                 context_content=context_content,
@@ -514,32 +576,65 @@ class AuditReportExtractor:
             )
             messages = [{"role": "user", "content": full_message}]
 
-            chat_response = self.mistral_client.chat.complete(
-                model="mistral-large-latest",
-                messages=messages,
-                response_format={"type": "json_object"},
-                temperature=MODEL_TEMPERATURE,
-            )
+            try:
+                chat_response = self.mistral_client.chat.complete(
+                    model="mistral-large-latest",
+                    messages=messages,
+                    response_format={"type": "json_object"},
+                    temperature=MODEL_TEMPERATURE,
+                )
 
-            response_content = chat_response.choices[0].message.content
-            due_diligence_json_array = self._validate_and_fix_llm_response(
-                response_content, REQUIRED_FIELDS_FOR_DUE_DILIGENCE
-            )
+                response_content = chat_response.choices[0].message.content
+                due_diligence_json_array = self._validate_and_fix_llm_response(
+                    response_content, REQUIRED_FIELDS_FOR_DUE_DILIGENCE
+                )
 
-            result_with_hallucination_analysis = self._analyze_hallucination(
-                due_diligence_json_array, concatenated_project_doc
-            )
+                result_with_hallucination_analysis = self._analyze_hallucination(
+                    due_diligence_json_array, concatenated_project_doc
+                )
 
-            fixed_results = self._fix_hallucinations_recursive(
-                result_with_hallucination_analysis, concatenated_project_doc
-            )
-            result_list.extend(fixed_results)
-            running_time_in_minutes = round((time.time() - start_time) / 60, 2)
-            print(f"    Total time: {running_time_in_minutes} minutes")
-            time.sleep(1)  # Rate limiting
+                fixed_results = self._fix_hallucinations_recursive(
+                    result_with_hallucination_analysis, concatenated_project_doc
+                )
+                result_list.extend(fixed_results)
 
-        # Save the results using the helper method
+                # Mark as processed and update checkpoint file
+                processed_indices.add(idx)
+
+                # Save checkpoint
+                checkpoint_data = {
+                    "results": result_list,
+                    "processed_indices": list(processed_indices),
+                    "last_updated": time.strftime("%Y-%m-%d %H:%M:%S"),
+                    "progress_percent": percent_complete,
+                }
+                with open(checkpoint_path, "w", encoding="utf-8") as f:
+                    json.dump(checkpoint_data, f, indent=2)
+
+                running_time_in_minutes = round((time.time() - start_time) / 60, 2)
+                print(f"    Item completed in {running_time_in_minutes} minutes")
+                time.sleep(1)  # Rate limiting
+
+            except Exception as e:
+                logger.error(f"Error processing criteria {idx}: {str(e)}")
+                logger.info(
+                    f"Progress saved in checkpoint file. You can resume by running the function again."
+                )
+                # Return early but don't raise the exception - allows resuming from this point
+                return
+
+        # Save the final results using the helper method
         self._save_json_output(result_list, output_path)
+
+        # If successful, clean up the checkpoint file
+        if os.path.exists(checkpoint_path) and os.path.exists(output_path):
+            try:
+                os.remove(checkpoint_path)
+                logger.info("Checkpoint file removed after successful completion")
+            except OSError:
+                logger.warning("Could not remove checkpoint file")
+
+        logger.info(f"Due diligence analysis completed with {len(result_list)} results")
 
     def _validate_json_schema(self, json_data: List[Dict], required_fields: set) -> bool:
         """
@@ -1067,6 +1162,41 @@ class AuditReportExtractor:
 
         return main_insight_json
 
+    def update_project_metadata(self) -> Dict:
+        """
+        Creates or updates the project metadata file with timestamp and model information.
+
+        Returns:
+            Dict: Updated metadata
+        """
+        # Get path for metadata file in the analysis directory
+        metadata_path = os.path.join(self.path_manager.get_analysis_dir(), "metadata.json")
+
+        # Initialize metadata with current information
+        metadata = {
+            "project_name": self.path_manager.project_name,
+            "model_version": self.model,
+            "last_update": time.strftime("%Y-%m-%d %H:%M:%S"),
+        }
+
+        # If metadata file exists, load it and update only necessary fields
+        if os.path.exists(metadata_path):
+            try:
+                with open(metadata_path, "r", encoding="utf-8") as f:
+                    existing_metadata = json.load(f)
+                    # Preserve existing fields, update only our specified fields
+                    metadata = {**existing_metadata, **metadata}
+            except (json.JSONDecodeError, FileNotFoundError) as e:
+                logger.warning(
+                    f"Error loading existing metadata file: {str(e)}. Creating new metadata."
+                )
+
+        # Save the updated metadata
+        self._save_json_output(metadata, metadata_path)
+        logger.info("Updated project metadata")
+
+        return metadata
+
     def set_project_type(self, project_type: Literal["current", "future"]) -> None:
         """
         Set the project type for analysis.
@@ -1137,6 +1267,10 @@ class AuditReportExtractor:
         logger.info(
             f"✓ Main insights generated in {(time.time() - step_start_time) / 60:.2f} minutes"
         )
+
+        # Step 6: Update project metadata
+        logger.info("Updating project metadata")
+        self.update_project_metadata()
 
         total_time = time.time() - total_start_time
         minutes, seconds = divmod(total_time, 60)
