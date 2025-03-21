@@ -65,6 +65,8 @@ class PDFToMarkdownParser:
     """
 
     def save_markdown(self, markdown_content, output_path):
+        # Ensure the directory exists before writing the file
+        os.makedirs(os.path.dirname(output_path), exist_ok=True)
         with open(output_path, "w") as md_file:
             md_file.write(markdown_content)
 
