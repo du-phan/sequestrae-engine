@@ -14,11 +14,13 @@ def main():
         "parse-pdf", help="Parse PDF audit report files to Markdown"
     )
     parse_pdfs_parser.add_argument("--llama-api-key", help="Llama API key", required=True)
-    parse_pdfs_parser.add_argument("--project-dir", help="Project data directory", required=True)
+    parse_pdfs_parser.add_argument(
+        "--projects-root-dir", help="Root directory containing project folders", required=True
+    )
     parse_pdfs_parser.add_argument("--limit", help="Maximum number of PDFs to process", type=int)
     parse_pdfs_parser.set_defaults(
         func=lambda args: commands.parse_pdfs_command(
-            args.llama_api_key, args.project_dir, args.limit
+            args.llama_api_key, args.projects_root_dir, args.limit
         )
     )
 
@@ -27,13 +29,15 @@ def main():
         "extract-audit", help="Extract audit information from markdown report files"
     )
     extract_audit_parser.add_argument("--mistral-api-key", help="Mistral API key", required=True)
-    extract_audit_parser.add_argument("--project-dir", help="Project data directory", required=True)
+    extract_audit_parser.add_argument(
+        "--projects-root-dir", help="Root directory containing project folders", required=True
+    )
     extract_audit_parser.add_argument(
         "--limit", help="Maximum number of files to process", type=int
     )
     extract_audit_parser.set_defaults(
         func=lambda args: commands.extract_audit_information_command(
-            args.mistral_api_key, args.project_dir, args.limit
+            args.mistral_api_key, args.projects_root_dir, args.limit
         )
     )
 
@@ -45,14 +49,14 @@ def main():
         "--mistral-api-key", help="Mistral API key", required=True
     )
     evaluate_feedstock_parser.add_argument(
-        "--project-dir", help="Project data directory", required=True
+        "--projects-root-dir", help="Root directory containing project folders", required=True
     )
     evaluate_feedstock_parser.add_argument(
         "--limit", help="Maximum number of files to process", type=int
     )
     evaluate_feedstock_parser.set_defaults(
         func=lambda args: commands.evaluate_feedstock_sustainability_command(
-            args.mistral_api_key, args.project_dir, args.limit
+            args.mistral_api_key, args.projects_root_dir, args.limit
         )
     )
 
@@ -63,11 +67,11 @@ def main():
     populate_feedstock_parser.add_argument("--supabase-url", help="Supabase URL", required=True)
     populate_feedstock_parser.add_argument("--supabase-api-key", help="Supabase key", required=True)
     populate_feedstock_parser.add_argument(
-        "--project-dir", help="Project data directory", required=True
+        "--projects-root-dir", help="Root directory containing project folders", required=True
     )
     populate_feedstock_parser.set_defaults(
         func=lambda args: commands.populate_feedstock_evaluation_command(
-            args.supabase_url, args.supabase_api_key, args.project_dir
+            args.supabase_url, args.supabase_api_key, args.projects_root_dir
         )
     )
 
@@ -83,11 +87,11 @@ def main():
         "--mistral-api-key", help="Mistral API key for analysis", required=True
     )
     process_analyze_parser.add_argument(
-        "--project-dir", help="Project data directory", required=True
+        "--projects-root-dir", help="Root directory containing project folders", required=True
     )
     process_analyze_parser.set_defaults(
         func=lambda args: commands.analyze_due_diligence_command(
-            args.gemini_api_key, args.mistral_api_key, args.project_dir
+            args.gemini_api_key, args.mistral_api_key, args.projects_root_dir
         )
     )
 
@@ -99,11 +103,11 @@ def main():
         "--mistral-api-key", help="Mistral API key for analysis", required=True
     )
     create_summaries_parser.add_argument(
-        "--project-dir", help="Project data directory", required=True
+        "--projects-root-dir", help="Root directory containing project folders", required=True
     )
     create_summaries_parser.set_defaults(
         func=lambda args: commands.create_subtopic_summaries_command(
-            args.mistral_api_key, args.project_dir
+            args.mistral_api_key, args.projects_root_dir
         )
     )
 
@@ -114,10 +118,12 @@ def main():
     create_topic_parser.add_argument(
         "--mistral-api-key", help="Mistral API key for analysis", required=True
     )
-    create_topic_parser.add_argument("--project-dir", help="Project data directory", required=True)
+    create_topic_parser.add_argument(
+        "--projects-root-dir", help="Root directory containing project folders", required=True
+    )
     create_topic_parser.set_defaults(
         func=lambda args: commands.create_topic_summaries_command(
-            args.mistral_api_key, args.project_dir
+            args.mistral_api_key, args.projects_root_dir
         )
     )
 
@@ -129,11 +135,11 @@ def main():
         "--mistral-api-key", help="Mistral API key for analysis", required=True
     )
     extract_overview_parser.add_argument(
-        "--project-dir", help="Project data directory", required=True
+        "--projects-root-dir", help="Root directory containing project folders", required=True
     )
     extract_overview_parser.set_defaults(
         func=lambda args: commands.extract_project_overview_command(
-            args.mistral_api_key, args.project_dir
+            args.mistral_api_key, args.projects_root_dir
         )
     )
 
@@ -161,11 +167,11 @@ def main():
         "--mistral-api-key", help="Mistral API key for analysis", required=True
     )
     create_main_insights_parser.add_argument(
-        "--project-dir", help="Project data directory", required=True
+        "--projects-root-dir", help="Root directory containing project folders", required=True
     )
     create_main_insights_parser.set_defaults(
         func=lambda args: commands.create_project_main_insights_command(
-            args.mistral_api_key, args.project_dir
+            args.mistral_api_key, args.projects_root_dir
         )
     )
 
@@ -188,6 +194,31 @@ def main():
     process_project_parser.set_defaults(
         func=lambda args: commands.process_project_command(
             args.gemini_api_key, args.mistral_api_key, args.project_dir, args.overwrite
+        )
+    )
+
+    # Add new command for processing multiple projects through the entire pipeline
+    process_all_projects_parser = subparsers.add_parser(
+        "process-all-projects",
+        help="Run the complete analysis pipeline for all project folders in a root directory",
+    )
+    process_all_projects_parser.add_argument(
+        "--gemini-api-key", help="Gemini API key for PDF parsing", required=True
+    )
+    process_all_projects_parser.add_argument(
+        "--mistral-api-key", help="Mistral API key for analysis", required=True
+    )
+    process_all_projects_parser.add_argument(
+        "--projects-root-dir",
+        help="Path to the directory containing multiple project folders",
+        required=True,
+    )
+    process_all_projects_parser.add_argument(
+        "--overwrite", help="Overwrite existing output files", action="store_true"
+    )
+    process_all_projects_parser.set_defaults(
+        func=lambda args: commands.process_all_projects_command(
+            args.gemini_api_key, args.mistral_api_key, args.projects_root_dir, args.overwrite
         )
     )
 

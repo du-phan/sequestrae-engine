@@ -40,7 +40,7 @@ def retry_on_error(max_retries=3, delay=5):
     return decorator
 
 
-def parse_pdfs_command(api_key, project_dir, limit=5):
+def parse_pdfs_command(api_key, projects_root_dir, limit=5):
     if limit is None:
         limit = 5
     logger.info(f"Max number of files to process: {limit}")
@@ -50,14 +50,14 @@ def parse_pdfs_command(api_key, project_dir, limit=5):
         return 1
 
     parser = PDFToMarkdownParser(api_key=api_key)
-    project_path = Path(project_dir)
+    projects_path = Path(projects_root_dir)
 
-    if not project_path.exists():
-        logger.error(f"Directory not found at {project_path}")
+    if not projects_path.exists():
+        logger.error(f"Directory not found at {projects_path}")
         return 1
 
     pdf_count = 0
-    for folder_path in project_path.iterdir():
+    for folder_path in projects_path.iterdir():
         if not folder_path.name.startswith(".") and folder_path.is_dir() and pdf_count < limit:
             for pdf_path in folder_path.glob("*.pdf"):
                 if pdf_path.is_file() and "report" in pdf_path.stem.lower():
@@ -68,7 +68,7 @@ def parse_pdfs_command(api_key, project_dir, limit=5):
     return 0
 
 
-def extract_audit_information_command(api_key, project_dir, limit=100):
+def extract_audit_information_command(api_key, projects_root_dir, limit=100):
     if limit is None:
         limit = 100
     logger.info(f"Max number of files to process: {limit}")
@@ -78,14 +78,14 @@ def extract_audit_information_command(api_key, project_dir, limit=100):
         return 1
 
     extractor = AuditReportExtractor(mistral_api_key=api_key)
-    project_path = Path(project_dir)
+    projects_path = Path(projects_root_dir)
 
-    if not project_path.exists():
-        logger.error(f"Directory not found at {project_path}")
+    if not projects_path.exists():
+        logger.error(f"Directory not found at {projects_path}")
         return 1
 
     markdown_count = 0
-    for folder_path in project_path.iterdir():
+    for folder_path in projects_path.iterdir():
         if not folder_path.name.startswith(".") and folder_path.is_dir() and markdown_count < limit:
             for md_path in folder_path.glob("*.md"):
                 if md_path.is_file() and "report" in md_path.stem.lower():
@@ -100,7 +100,7 @@ def extract_audit_information_command(api_key, project_dir, limit=100):
     return 0
 
 
-def evaluate_feedstock_sustainability_command(api_key, project_dir, limit=100):
+def evaluate_feedstock_sustainability_command(api_key, projects_root_dir, limit=100):
     if limit is None:
         limit = 100
     logger.info(f"Max number of files to process: {limit}")
@@ -110,14 +110,14 @@ def evaluate_feedstock_sustainability_command(api_key, project_dir, limit=100):
         return 1
 
     extractor = AuditReportExtractor(mistral_api_key=api_key)
-    project_path = Path(project_dir)
+    projects_path = Path(projects_root_dir)
 
-    if not project_path.exists():
-        logger.error(f"Directory not found at {project_path}")
+    if not projects_path.exists():
+        logger.error(f"Directory not found at {projects_path}")
         return 1
 
     markdown_count = 0
-    for folder_path in project_path.iterdir():
+    for folder_path in projects_path.iterdir():
         if not folder_path.name.startswith(".") and folder_path.is_dir() and markdown_count < limit:
             for md_path in folder_path.glob("*.md"):
                 if md_path.is_file() and "report" in md_path.stem.lower():
@@ -134,14 +134,14 @@ def evaluate_feedstock_sustainability_command(api_key, project_dir, limit=100):
     return 0
 
 
-def populate_feedstock_evaluation_command(supabase_url, supabase_api_key, project_dir):
+def populate_feedstock_evaluation_command(supabase_url, supabase_api_key, projects_root_dir):
     if not supabase_url or not supabase_api_key:
         logger.error("Supabase URL and api key are required")
         return 1
 
     try:
         supabase_client = SupabaseClient.get_client(supabase_url, supabase_api_key)
-        populate_feedstock_evaluation_table(project_dir, supabase_client)
+        populate_feedstock_evaluation_table(projects_root_dir, supabase_client)
         logger.info("Successfully populated feedstock evaluation table")
         return 0
     except Exception as e:
@@ -149,14 +149,14 @@ def populate_feedstock_evaluation_command(supabase_url, supabase_api_key, projec
         return 1
 
 
-def analyze_due_diligence_command(gemini_api_key, mistral_api_key, project_dir):
+def analyze_due_diligence_command(gemini_api_key, mistral_api_key, projects_root_dir):
     """
     Process all PDFs in project subfolders and analyze due diligence criteria.
 
     Args:
         gemini_api_key: API key for PDF parsing
         mistral_api_key: API key for analysis
-        project_dir: Root directory containing project folders
+        projects_root_dir: Root directory containing project folders
     """
     # max_num_folder = 60
 
@@ -164,9 +164,9 @@ def analyze_due_diligence_command(gemini_api_key, mistral_api_key, project_dir):
         logger.error("Both GEMINI_API_KEY and MISTRAL_API_KEY are required")
         return 1
 
-    project_path = Path(project_dir)
-    if not project_path.exists():
-        logger.error(f"Directory not found at {project_path}")
+    projects_path = Path(projects_root_dir)
+    if not projects_path.exists():
+        logger.error(f"Directory not found at {projects_path}")
         return 1
 
     pdf_parser = PDFToMarkdownParser(gemini_api_key=gemini_api_key)
@@ -175,14 +175,14 @@ def analyze_due_diligence_command(gemini_api_key, mistral_api_key, project_dir):
     # Count total subfolders (excluding hidden folders)
     total_folders = sum(
         1
-        for folder in project_path.iterdir()
+        for folder in projects_path.iterdir()
         if folder.is_dir() and not folder.name.startswith(".")
     )
 
     logger.info(f"Found {total_folders} project folders to process")
 
     processed_folder = 1
-    for folder_path in project_path.iterdir():
+    for folder_path in projects_path.iterdir():
         # if processed_folder >= max_num_folder:
         # break
 
@@ -218,21 +218,21 @@ def analyze_due_diligence_command(gemini_api_key, mistral_api_key, project_dir):
     return 0
 
 
-def create_subtopic_summaries_command(mistral_api_key, project_dir):
+def create_subtopic_summaries_command(mistral_api_key, projects_root_dir):
     """
     Process all analysis JSON files in project subfolders and create subtopic summaries.
 
     Args:
         mistral_api_key: API key for analysis
-        project_dir: Root directory containing project folders
+        projects_root_dir: Root directory containing project folders
     """
     if not mistral_api_key:
         logger.error("MISTRAL_API_KEY is required")
         return 1
 
-    project_path = Path(project_dir)
-    if not project_path.exists():
-        logger.error(f"Directory not found at {project_path}")
+    projects_path = Path(projects_root_dir)
+    if not projects_path.exists():
+        logger.error(f"Directory not found at {projects_path}")
         return 1
 
     audit_extractor = AuditReportExtractor(mistral_api_key=mistral_api_key)
@@ -240,14 +240,14 @@ def create_subtopic_summaries_command(mistral_api_key, project_dir):
     # Count total subfolders (excluding hidden folders)
     total_folders = sum(
         1
-        for folder in project_path.iterdir()
+        for folder in projects_path.iterdir()
         if folder.is_dir() and not folder.name.startswith(".")
     )
 
     logger.info(f"Found {total_folders} project folders to process")
 
     processed_folder = 1
-    for folder_path in project_path.iterdir():
+    for folder_path in projects_path.iterdir():
         if not folder_path.name.startswith(".") and folder_path.is_dir():
             project_name = "_".join(folder_path.name.split())
             logger.info(
@@ -282,21 +282,21 @@ def create_subtopic_summaries_command(mistral_api_key, project_dir):
     return 0
 
 
-def create_topic_summaries_command(mistral_api_key, project_dir):
+def create_topic_summaries_command(mistral_api_key, projects_root_dir):
     """
     Process all subtopic summary JSON files in project subfolders and create topic summaries.
 
     Args:
         mistral_api_key: API key for analysis
-        project_dir: Root directory containing project folders
+        projects_root_dir: Root directory containing project folders
     """
     if not mistral_api_key:
         logger.error("MISTRAL_API_KEY is required")
         return 1
 
-    project_path = Path(project_dir)
-    if not project_path.exists():
-        logger.error(f"Directory not found at {project_path}")
+    projects_path = Path(projects_root_dir)
+    if not projects_path.exists():
+        logger.error(f"Directory not found at {projects_path}")
         return 1
 
     audit_extractor = AuditReportExtractor(mistral_api_key=mistral_api_key)
@@ -304,14 +304,14 @@ def create_topic_summaries_command(mistral_api_key, project_dir):
     # Count total subfolders (excluding hidden folders)
     total_folders = sum(
         1
-        for folder in project_path.iterdir()
+        for folder in projects_path.iterdir()
         if folder.is_dir() and not folder.name.startswith(".")
     )
 
     logger.info(f"Found {total_folders} project folders to process")
 
     processed_folder = 1
-    for folder_path in project_path.iterdir():
+    for folder_path in projects_path.iterdir():
         if not folder_path.name.startswith(".") and folder_path.is_dir():
             project_name = "_".join(folder_path.name.split())
             logger.info(
@@ -383,21 +383,21 @@ def populate_registry_analysis_command(supabase_url, supabase_api_key, registrie
         return 1
 
 
-def extract_project_overview_command(mistral_api_key, project_dir):
+def extract_project_overview_command(mistral_api_key, projects_root_dir):
     """
     Process all markdown documents in project subfolders and extract project overview data.
 
     Args:
         mistral_api_key: API key for analysis
-        project_dir: Root directory containing project folders
+        projects_root_dir: Root directory containing project folders
     """
     if not mistral_api_key:
         logger.error("MISTRAL_API_KEY is required")
         return 1
 
-    project_path = Path(project_dir)
-    if not project_path.exists():
-        logger.error(f"Directory not found at {project_path}")
+    projects_path = Path(projects_root_dir)
+    if not projects_path.exists():
+        logger.error(f"Directory not found at {projects_path}")
         return 1
 
     audit_extractor = AuditReportExtractor(mistral_api_key=mistral_api_key)
@@ -405,14 +405,14 @@ def extract_project_overview_command(mistral_api_key, project_dir):
     # Count total subfolders (excluding hidden folders)
     total_folders = sum(
         1
-        for folder in project_path.iterdir()
+        for folder in projects_path.iterdir()
         if folder.is_dir() and not folder.name.startswith(".")
     )
 
     logger.info(f"Found {total_folders} project folders to process")
 
     processed_folder = 1
-    for folder_path in project_path.iterdir():
+    for folder_path in projects_path.iterdir():
         if not folder_path.name.startswith(".") and folder_path.is_dir():
             project_name = "_".join(folder_path.name.split())
             logger.info(
@@ -453,21 +453,21 @@ def extract_project_overview_command(mistral_api_key, project_dir):
     return 0
 
 
-def create_project_main_insights_command(mistral_api_key, project_dir):
+def create_project_main_insights_command(mistral_api_key, projects_root_dir):
     """
     Process all topic summary JSON files in project subfolders and create project main insights.
 
     Args:
         mistral_api_key: API key for analysis
-        project_dir: Root directory containing project folders
+        projects_root_dir: Root directory containing project folders
     """
     if not mistral_api_key:
         logger.error("MISTRAL_API_KEY is required")
         return 1
 
-    project_path = Path(project_dir)
-    if not project_path.exists():
-        logger.error(f"Directory not found at {project_path}")
+    projects_path = Path(projects_root_dir)
+    if not projects_path.exists():
+        logger.error(f"Directory not found at {projects_path}")
         return 1
 
     audit_extractor = AuditReportExtractor(mistral_api_key=mistral_api_key)
@@ -475,14 +475,14 @@ def create_project_main_insights_command(mistral_api_key, project_dir):
     # Count total subfolders (excluding hidden folders)
     total_folders = sum(
         1
-        for folder in project_path.iterdir()
+        for folder in projects_path.iterdir()
         if folder.is_dir() and not folder.name.startswith(".")
     )
 
     logger.info(f"Found {total_folders} project folders to process")
 
     processed_folder = 1
-    for folder_path in project_path.iterdir():
+    for folder_path in projects_path.iterdir():
         if not folder_path.name.startswith(".") and folder_path.is_dir():
             project_name = "_".join(folder_path.name.split())
             logger.info(
@@ -579,3 +579,74 @@ def process_project_command(gemini_api_key, mistral_api_key, project_dir, overwr
     except Exception as e:
         logger.error(f"Error processing project {project_name}: {str(e)}")
         return 1
+
+
+def process_all_projects_command(
+    gemini_api_key, mistral_api_key, projects_root_dir, overwrite=False
+):
+    """
+    Process all project folders in the given root directory.
+
+    This function:
+    1. Finds all project folders in the specified root directory
+    2. Calls process_project_command for each project folder
+    3. Reports overall statistics
+
+    Args:
+        gemini_api_key: API key for PDF parsing
+        mistral_api_key: API key for analysis
+        projects_root_dir: Path to the directory containing multiple project folders
+        overwrite: Whether to overwrite existing output files (default: False)
+
+    Returns:
+        int: 0 if all projects processed successfully, 1 if there were any errors
+    """
+    if not gemini_api_key or not mistral_api_key:
+        logger.error("Both GEMINI_API_KEY and MISTRAL_API_KEY are required")
+        return 1
+
+    root_path = Path(projects_root_dir)
+    if not root_path.exists() or not root_path.is_dir():
+        logger.error(f"Root directory not found at {root_path}")
+        return 1
+
+    # Find all project folders (excluding hidden folders)
+    project_folders = [
+        folder
+        for folder in root_path.iterdir()
+        if folder.is_dir() and not folder.name.startswith(".")
+    ]
+
+    total_projects = len(project_folders)
+    logger.info(f"Found {total_projects} projects to process")
+
+    if total_projects == 0:
+        logger.warning("No project folders found in the root directory")
+        return 0
+
+    success_count = 0
+    failed_count = 0
+
+    for i, project_folder in enumerate(project_folders, 1):
+        project_name = project_folder.name
+        logger.info(f"Processing project {i}/{total_projects}: {project_name}")
+
+        try:
+            result = process_project_command(
+                gemini_api_key, mistral_api_key, str(project_folder), overwrite
+            )
+            if result == 0:
+                success_count += 1
+            else:
+                failed_count += 1
+                logger.error(f"Failed to process project {project_name}")
+        except Exception as e:
+            failed_count += 1
+            logger.error(f"Exception while processing project {project_name}: {str(e)}")
+
+    logger.info(
+        f"Completed processing all projects. Success: {success_count}, Failed: {failed_count}"
+    )
+
+    # Return success if all projects were processed successfully
+    return 0 if failed_count == 0 else 1

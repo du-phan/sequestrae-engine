@@ -539,9 +539,15 @@ class AuditReportExtractor:
             items_processed_this_session = processed_count - len(processed_indices)
 
             if items_processed_this_session > 0:
+                # Calculate average time per item based only on completed items
                 avg_time_per_item = time_elapsed / items_processed_this_session
+                # Estimate remaining time based on items still to process
                 est_time_remaining_mins = (avg_time_per_item * remaining_count) / 60
-                eta_str = f", ETA: {est_time_remaining_mins:.1f} minutes"
+                # Format nicely with appropriate precision
+                if est_time_remaining_mins < 1:
+                    eta_str = f", ETA: <1 minute"
+                else:
+                    eta_str = f", ETA: {est_time_remaining_mins:.1f} minutes"
             else:
                 eta_str = ""
 
