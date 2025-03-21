@@ -523,6 +523,8 @@ class AuditReportExtractor:
 
         # Start time for this session
         session_start_time = time.time()
+        # Track items processed in this current execution session
+        session_processed_count = 0
 
         for idx, r in grouped_criteria_df.iterrows():
             # Skip already processed items
@@ -532,15 +534,15 @@ class AuditReportExtractor:
             # Calculate progress stats
             processed_count += 1
             remaining_count -= 1
+            session_processed_count += 1  # Track items processed in this session
             percent_complete = (processed_count / total_count) * 100
 
-            # Estimate time remaining if we have processed at least a few items
+            # Estimate time remaining if we have processed at least a few items in this session
             time_elapsed = time.time() - session_start_time
-            items_processed_this_session = processed_count - len(processed_indices)
 
-            if items_processed_this_session > 0:
-                # Calculate average time per item based only on completed items
-                avg_time_per_item = time_elapsed / items_processed_this_session
+            if session_processed_count > 0:
+                # Calculate average time per item based only on items processed in this session
+                avg_time_per_item = time_elapsed / session_processed_count
                 # Estimate remaining time based on items still to process
                 est_time_remaining_mins = (avg_time_per_item * remaining_count) / 60
                 # Format nicely with appropriate precision
